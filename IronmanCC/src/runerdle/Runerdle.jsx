@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect  } from 'react';
 import settings from './images/Settings.png';
 import questionMark from './images/questionMark.png';
 import green from './images/green.png';
@@ -10,48 +10,40 @@ import { HARDWORDS } from "./WordLists/hardWords.js";
 import Popup from 'reactjs-popup';
 import './RunerdleStyle.css';
 
+const NUMBER_OF_GUESSES = 6;
 
 function Runerdle () {
-
+    const [currentGuess, setCurrentGuess] = useState('');
+    const [nextLetter, setNextLetter] = useState(0);
+    const [currentRow, setCurrentRow] = useState(0);
+    const [remainingGuesses, setRemainingGuesses] = useState(NUMBER_OF_GUESSES);
+    const [rightGuessString, setRightGuessString] = useState("");
+    const [rightGuessWiki, setRightGuessWiki] = useState("");
+    const [justWords, setJustWords] = useState("");
+    const [hardMode, setHardMode] = useState(false);
     const [showPlayAgain, setShowPlayAgain] = useState("none");
+    const [gameBoard, setGameBoard] = useState(Array(NUMBER_OF_GUESSES).fill(null).map(() => Array(5).fill('')));
+
 
     function getWord() {
         let mode = GUESSES;
         if (hardMode) {
             mode = HARDWORDS;
         } 
-        rand = Math.floor(Math.random() * mode.length);
-        rightGuessString = mode[rand][0];
-        rightGuessWiki = mode[rand][1];
-        justWords = toOneD(mode);
+        let rand = Math.floor(Math.random() * mode.length);
+        setRightGuessString(mode[rand][0]);
+        setRightGuessWiki(mode[rand][1]);
+        setJustWords(toOneD(mode));
     }
 
+    const [word, setWord] = useState(getWord());
+    
     function toOneD(twoD) {
         let oneD = new Array(twoD.length);
         for (let i = 0; i < twoD.length; i++) {
             oneD[i] = twoD[i][0];
         }
         return oneD;
-    }
-
-    function initBoard() {
-        setShowPlayAgain(false);
-
-        let board = document.getElementById("game-board");
-    
-        for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
-            let row = document.createElement("div");
-            row.className = "letter-row";
-    
-            for (let j = 0; j < 5; j++) {
-                let box = document.createElement("div");
-                box.className = "letter-box";
-                row.appendChild(box);
-            }
-    
-            board.appendChild(row);
-        }
-        getWord();
     }
 
     function inputLetter(pressedKey){ 
@@ -73,28 +65,51 @@ function Runerdle () {
     
     }
 
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            inputLetter(event.key);
+        };
+
+        window.addEventListener('keydown',handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [inputLetter]);
+
     function insertLetter(pressedKey) {
-        // if (nextLetter === 5) {
-        //     return;
-        // }
+        if (nextLetter === 5) {
+            return;
+        }
     
-        // let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining];
-        // let box = row.children[nextLetter];
-        // animateCSS(box, "pulse");
-        // box.textContent = pressedKey;
-        // box.classList.add("filled-box");
-        // currentGuess.push(pressedKey);
-        // nextLetter += 1;
+        const updatedBoard = gameBoard.map((row, rowIndex) => {
+            if (rowIndex === currentRow) {
+                return row.map((cell, cellIndex) => cellIndex === nextLetter ? pressedKey : cell);
+            }
+            return row;
+        });
+    
+        setGameBoard(updatedBoard);
+        setCurrentGuess(prevGuess => {
+            return prevGuess + pressedKey;
+        });
+        setNextLetter(prevLetter => {
+            return prevLetter + 1;
+        });
     }
+    
 
     function deleteLetter() {
-        // let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining];
-        // let box = row.children[nextLetter - 1];
-        // box.textContent = "";
-        // box.classList.remove("filled-box");
-        // currentGuess.pop();
-        // nextLetter -= 1;
+        if (nextLetter === 0) return; 
+    
+        const updatedBoard = [...gameBoard];
+        updatedBoard[currentRow][nextLetter - 1] = '';
+        setGameBoard(updatedBoard);
+        setCurrentGuess(prevGuess => prevGuess.slice(0, -1));
+        setNextLetter(prevLetter => prevLetter > 0 ? prevLetter - 1 : 0);
     }
+    
+    
 
     function checkGuess() {
 
@@ -229,6 +244,15 @@ function Runerdle () {
         </Popup> */}
 
         <div className="game-board">
+            {gameBoard.map((row, rowIndex) => (
+                <div key={rowIndex} className="letter-row">
+                    {row.map((box, boxIndex) => (
+                        <div key={boxIndex} className={`letter-box ${box ? 'filled-box' : ''}`}>
+                            {box}
+                        </div>
+                    ))}
+                </div>
+            ))}
         </div>
 
         <div className="keyboard-cont">
