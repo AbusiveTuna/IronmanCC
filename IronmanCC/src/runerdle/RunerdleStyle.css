@@ -6,7 +6,7 @@ h3 {
     text-align: center;
 }
 
-#game-board {
+.game-board {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -38,14 +38,14 @@ html {
     display: flex;
 }
 
-#keyboard-cont {
+.keyboard-cont {
     margin: 1rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#keyboard-cont div {
+.keyboard-cont div {
     display: flex;
 }
 
@@ -63,81 +63,58 @@ html {
     background: #0000;
 }
 
-body {
-    background: #333;
-    color: white;
-}
-
 
 /* The modals */
 
-.modal {
+.settingsModal {
     color: #fff;
+    border-radius: 3px;
+    border: 0;
+    background: black;
 }
 
-.modal .modal-header {
+.settingsModalHeader {
     padding: 23px 26px;
     border-bottom: 1px solid transparent;
     text-align: center;
     font-size: 80px;
 }
 
-.modal .modal-title {
-    font-size: 36px;
-}
-
-.modal .modal-content {
+.settingsModalContent {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.31);
     border-radius: 3px;
     border: 0;
     background: #333;
 }
 
-.modal-footer {
-    padding: 15px;
-    text-align: right;
-    border-top: 1px solid transparent;
-}
-
-.modal .modal-footer {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-.modal .modal-footer .btn-link {
-    font-weight: 400;
-}
-
-.modal .modal-title,
-.modal .modal-footer .btn-link {
+.helpModal {
     color: #fff;
+    border-radius: 3px;
+    border: 0;
+    background: black;
 }
 
-.modal .modal-footer .btn-link {
-    font-size: 14px;
-    color: #000;
-    font-weight: 500;
-    background: white;
+.helpModalHeader {
+    padding: 23px 26px;
+    border-bottom: 1px solid transparent;
+    text-align: center;
+    font-size: 80px;
 }
 
-.btn-link {
-    /* color: #797979; */
-    color: #ded7d7;
-    text-decoration: none;
-    border-radius: 2px;
+.helpModalContent {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.31);
+    border-radius: 3px;
+    border: 0;
+    background: #333;
 }
 
-.modal .modal-footer .btn-link:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    text-decoration: none;
+.closeModal {
+    margin-top:10px;
+    margin-right: 10px;
+    float: right;
+    background-color: white;
 }
 
-.modal .modal-footer .btn-link {
-    font-weight: 400;
-}
-
-.close {
-    color: #FF0000;
-}
 
 #wiki-link {
     font-size: 24px;
@@ -159,7 +136,7 @@ body {
     left: 10px;
 }
 
-.setting {
+.runerdleSetting {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -186,7 +163,7 @@ body {
 
 
 /* The switch - the box around the slider */
-.switch {
+.settingsSwitch {
     position: relative;
     display: block;
     height: 20px;
@@ -194,7 +171,7 @@ body {
 }
 
 /* Hide default HTML checkbox */
-.switch input {
+.settingsSwitch input {
     opacity: 0;
     width: 0;
     height: 0;
