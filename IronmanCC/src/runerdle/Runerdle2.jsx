@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, createRef } from 'react';
 import settings from './images/Settings.png';
 import questionMark from './images/questionMark.png';
 import green from './images/green.png';
@@ -8,11 +8,18 @@ import { GUESSES } from "./WordLists/guesses.js";
 import { WORDS } from "./WordLists/dictionary.js";
 import { HARDWORDS } from "./WordLists/hardWords.js";
 import Popup from 'reactjs-popup';
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css';
+import 'animate.css/animate.min.css';
+
 import './RunerdleStyle.css';
 
 const NUMBER_OF_GUESSES = 6;
 
 function Runerdle() {
+    // Initialize a ref for each row in your game board
+
+
     const [rightGuessWiki, setRightGuessWiki] = useState("");
     const [showWinModal, setShowWinModal] = useState(false);
     const [showLoseModal, setShowLoseModal] = useState(false);
@@ -26,6 +33,9 @@ function Runerdle() {
     const [showPlayAgain, setShowPlayAgain] = useState(false);
     const [keyColors, setKeyColors] = useState({});
     const [useDictionary, setUseDictionary] = useState(true);
+
+    const tileRefs = useRef(gameBoard.map(row => row.map(() => createRef())));
+    const rowRefs = useRef([...Array(NUMBER_OF_GUESSES)].map(() => useRef(null)));
 
     function getWord() {
         let mode = hardMode ? HARDWORDS : GUESSES;
@@ -101,6 +111,8 @@ function Runerdle() {
         setNextLetter(prevLetter => {
             return prevLetter + 1;
         });
+
+        animateCSS(tileRefs.current[currentRow][nextLetter].current, 'pulse');
     }
 
 
@@ -116,7 +128,8 @@ function Runerdle() {
 
     function checkGuess() {
         if (useDictionary && !WORDS.includes(currentGuess.toLowerCase())) {
-            alert("That word isn't in the dictionary.");
+            // alert("That word isn't in the dictionary.");
+            toastr.error("That word isn't in the dictionary.");
             return;
         }
 
@@ -157,24 +170,27 @@ function Runerdle() {
 
         setTimeout(() => {
             if (correctCount === 5) {
-                setShowWinModal(true);
-                setShowPlayAgain(true);
+                animateCSS(rowRefs.current[currentRow].current, 'flipInX').then(() => {
+                    setShowWinModal(true);
+                    setShowPlayAgain(true);
+                });
             } else if (currentRow === NUMBER_OF_GUESSES - 1) {
-                setShowLoseModal(true);
-                setShowPlayAgain(true);
+                animateCSS(rowRefs.current[currentRow].current, 'flipInX').then(() => {
+                    setShowLoseModal(true);
+                    setShowPlayAgain(true);
+                });
             } else {
                 setCurrentRow(currentRow + 1);
                 setCurrentGuess('');
                 setNextLetter(0);
             }
         }, 100);
+        
 
         const newBoard = [...gameBoard];
         newBoard[currentRow] = currentGuess.split('');
         setGameBoard(newBoard);
     }
-
-
 
     const shadeKeyBoard = (letter, color) => {
         setKeyColors(prevColors => {
@@ -189,26 +205,23 @@ function Runerdle() {
     };
 
     const animateCSS = (element, animation, prefix = 'animate__') =>
-        // We create a Promise and return it
-        new Promise((resolve, reject) => {
-            const animationName = `${prefix}${animation}`;
-            // const node = document.querySelector(element);
-            const node = element;
-            node.style.setProperty('--animate-duration', '0.3s');
+    new Promise((resolve, reject) => {
+        if (!element) {
+            reject('Element not found');
+            return;
+        }
+        const animationName = `${prefix}${animation}`;
+        element.classList.add(`${prefix}animated`, animationName);
 
-            node.classList.add(`${prefix}animated`, animationName);
+        function handleAnimationEnd() {
+            element.classList.remove(`${prefix}animated`, animationName);
+            resolve('Animation ended');
+        }
 
-            // When the animation ends, we clean the classes and resolve the Promise
-            function handleAnimationEnd(event) {
-                event.stopPropagation();
-                node.classList.remove(`${prefix}animated`, animationName);
-                resolve('Animation ended');
-            }
+        element.addEventListener('animationend', handleAnimationEnd, { once: true });
+    });
 
-            node.addEventListener('animationend', handleAnimationEnd, {
-                once: true
-            });
-        });
+
 
     return (
         <>
@@ -305,22 +318,23 @@ function Runerdle() {
                     </div>
                 </div>
             </Popup>
-
             <div className="game-board">
-                {gameBoard.map((row, rowIndex) => (
-                    <div key={rowIndex} className="letter-row">
-                        {row.map((cell, cellIndex) => (
-                            <div
-                                key={cellIndex}
-                                className={`letter-box ${tileColors[rowIndex][cellIndex]}`}
-                                style={{ backgroundColor: tileColors[rowIndex][cellIndex] }}
-                            >
-                                {cell}
-                            </div>
-                        ))}
-                    </div>
-                ))}
-            </div>
+    {gameBoard.map((row, rowIndex) => (
+        <div key={rowIndex} className="letter-row">
+            {row.map((cell, cellIndex) => (
+                <div 
+                    key={cellIndex} 
+                    ref={tileRefs.current[rowIndex][cellIndex]}
+                    className={`letter-box ${tileColors[rowIndex][cellIndex]}`}
+                >
+                    {cell}
+                </div>
+            ))}
+        </div>
+    ))}
+</div>
+
+
 
             <div className="keyboard-cont">
                 {["qwertyuiop", "asdfghjkl", "zxcvbnm"].map((row, index) => (

@@ -108,6 +108,48 @@ html {
     background: #333;
 }
 
+.winModal {
+    color: #fff;
+    border-radius: 3px;
+    border: 0;
+    background: black;
+}
+
+.winModalHeader {
+    padding: 23px 26px;
+    border-bottom: 1px solid transparent;
+    text-align: center;
+    font-size: 80px;
+}
+
+.winModalContent {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.31);
+    border-radius: 3px;
+    border: 0;
+    background: #333;
+}
+
+.lossModal {
+    color: #fff;
+    border-radius: 3px;
+    border: 0;
+    background: black;
+}
+
+.lossModalHeader {
+    padding: 23px 26px;
+    border-bottom: 1px solid transparent;
+    text-align: center;
+    font-size: 80px;
+}
+
+.lossModalContent {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.31);
+    border-radius: 3px;
+    border: 0;
+    background: #333;
+}
+
 .closeModal {
     margin-top:10px;
     margin-right: 10px;
