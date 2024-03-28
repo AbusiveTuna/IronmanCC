@@ -1,0 +1,14 @@
+.site-credits {
+    font-family: 'OSRSFont';
+    color: #f9d000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .site-credits img {
+    height: 14px;
+    width: 14px;
+  }
