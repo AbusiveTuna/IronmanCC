@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'OSRSFont';
+    src: url('../../resources/fonts/osrsFont.ttf') format('truetype');
+}
+  
+  body.justen-meme-page {
+    background-color: black;
+  }
+  
+  .justen-meme-page h1 {
+    font-family: 'OSRSFont', sans-serif;
+    font-size: 300px;
+    text-align: center;
+    color: #f9d000;
+  }
+  

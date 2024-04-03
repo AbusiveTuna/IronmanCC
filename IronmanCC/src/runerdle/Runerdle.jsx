@@ -115,8 +115,14 @@ function Runerdle() {
     }
 
     function checkGuess() {
-        if (useDictionary && !WORDS.includes(currentGuess.toLowerCase())) {
-            alert("That word isn't in the dictionary.");
+        const guessLowerCase = currentGuess.toLowerCase();
+
+        const isValidWord = useDictionary && WORDS.includes(guessLowerCase) ||
+            GUESSES.some(pair => pair[0] === guessLowerCase) ||
+            HARDWORDS.some(pair => pair[0] === guessLowerCase);
+
+        if (!isValidWord) {
+            alert("That word isn't valid.");
             return;
         }
 
@@ -144,8 +150,8 @@ function Runerdle() {
 
         currentGuess.split('').forEach((letter, index) => {
             if (letter !== rightGuessString[index] && rightGuessString.includes(letter) && letterCounts[letter] > 0) {
-                newTileColors[currentRow][index] = 'yellow';
-                shadeKeyBoard(letter, 'yellow');
+                newTileColors[currentRow][index] = 'Gold';
+                shadeKeyBoard(letter, 'Gold');
                 letterCounts[letter]--;
             } else if (newTileColors[currentRow][index] !== 'green') {
                 newTileColors[currentRow][index] = 'gray';
@@ -167,7 +173,7 @@ function Runerdle() {
                 setCurrentGuess('');
                 setNextLetter(0);
             }
-        }, 100);
+        }, 1000);
 
         const newBoard = [...gameBoard];
         newBoard[currentRow] = currentGuess.split('');
@@ -180,7 +186,7 @@ function Runerdle() {
         setKeyColors(prevColors => {
             const currentColor = prevColors[letter];
 
-            if (currentColor === 'green' || (currentColor === 'yellow' && color !== 'green')) {
+            if (currentColor === 'green' || (currentColor === 'Gold' && color !== 'green')) {
                 return prevColors;
             }
 
@@ -189,7 +195,7 @@ function Runerdle() {
     };
 
     return (
-        <>
+        <div className="runerdle">
             <h1> Old School Runescape Wordle </h1>
 
             <Popup trigger={<input type="image" src={settings} className="btn btn-primary" alt="settings" />} modal nested>
@@ -267,6 +273,7 @@ function Runerdle() {
                     <button className="closeModal" onClick={() => setShowWinModal(false)}> </button>
                     <div className="winModalHeader"> You Won! </div>
                     <div className="winModalContent">
+                        <h2> The word was {rightGuessString} </h2>
                         <h3>Gratz!</h3>
                         <div id="wiki-link"><a href={rightGuessWiki} target="_blank" rel="noopener noreferrer">What does this word mean?</a></div>
                     </div>
@@ -278,6 +285,7 @@ function Runerdle() {
                     <button className="closeModal" onClick={() => setShowLoseModal(false)}> </button>
                     <div className="lossModalHeader"> You Lost! </div>
                     <div className="lossModalContent">
+                        <h2> The word was {rightGuessString} </h2>
                         <h3>Maybe you should study up</h3>
                         <div id="wiki-link"><a href={rightGuessWiki} target="_blank" rel="noopener noreferrer">What does this word mean?</a></div>
                     </div>
@@ -287,18 +295,30 @@ function Runerdle() {
             <div className="game-board">
                 {gameBoard.map((row, rowIndex) => (
                     <div key={rowIndex} className="letter-row">
-                        {row.map((cell, cellIndex) => (
-                            <div
-                                key={cellIndex}
-                                className={`letter-box ${tileColors[rowIndex][cellIndex]}`}
-                                style={{ backgroundColor: tileColors[rowIndex][cellIndex] }}
-                            >
-                                {cell}
-                            </div>
-                        ))}
+                        {row.map((cell, cellIndex) => {
+                            const transitionDelay = `${cellIndex * 0.1}s`;
+
+                            return (
+                                <div
+                                    key={cellIndex}
+                                    className={`letter-box ${tileColors[rowIndex][cellIndex] ? 'flip' : ''}`}
+                                >
+                                    <div className="letter-box-inner" style={{ transitionDelay }}>
+                                        <div className="letter-front">
+                                            {cell}
+                                        </div>
+                                        <div className="letter-back" style={{ backgroundColor: tileColors[rowIndex][cellIndex] }}>
+                                            {cell}
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 ))}
             </div>
+
+
 
             <div className="keyboard-cont">
                 {["qwertyuiop", "asdfghjkl", "zxcvbnm"].map((row, index) => (
@@ -331,16 +351,16 @@ function Runerdle() {
                         )}
                     </div>
                 ))}
+
+                {showPlayAgain && (
+                    <button className="playAgainBtn" onClick={resetGame}>
+                        Play Again?
+                    </button>
+                )}
             </div>
 
-            {showPlayAgain && (
-                <button onClick={resetGame}>
-                    Play Again?
-                </button>
-            )}
 
-
-        </>
+        </div>
     );
 }
 
