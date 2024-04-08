@@ -1,0 +1,44 @@
+.welcome-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    text-align: center;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+    padding: 20px;
+    padding-bottom: 40px; 
+    box-sizing: border-box; 
+}
+
+.welcome-page h1 {
+    margin-bottom: 20px; 
+    font-weight: bold;
+}
+
+.welcome-page-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+    margin: 0 auto; 
+    max-width: 1200px; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.discord-info,.how-to-join, .clan-information, .toolbar-info, .additional-info {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: DarkSlateGray; 
+}
+
+.discord {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.discord img {
+    width: 50px; 
+}

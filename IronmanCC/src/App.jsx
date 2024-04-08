@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Runerdle from './runerdle/Runerdle';
+import WelcomePage from './pages/WelcomePage';
 import JustenMeme from './pages/JustenMeme';
 import PreviousEvents from './pages/PreviousEvents';
 import Header from './components/Header';
@@ -13,6 +14,7 @@ function App() {
       <Header />
     
       <Routes>
+        <Route path="/" element={<WelcomePage/>} />
         <Route path="/justenTbow" element={<JustenMeme />} />
         <Route path="/previousEvents" element={<PreviousEvents/>} />
         <Route path="/runerdle" element={<Runerdle />} />
