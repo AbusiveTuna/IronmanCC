@@ -4,6 +4,7 @@ import Runerdle from './runerdle/Runerdle';
 import WelcomePage from './pages/WelcomePage';
 import JustenMeme from './pages/JustenMeme';
 import PreviousEvents from './pages/PreviousEvents';
+import OsrsQuiz from './pages/OsrsQuiz';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css'
@@ -15,6 +16,7 @@ function App() {
     
       <Routes>
         <Route path="/" element={<WelcomePage/>} />
+        <Route path="/quizMaster" element={<OsrsQuiz/>} />
         <Route path="/justenTbow" element={<JustenMeme />} />
         <Route path="/previousEvents" element={<PreviousEvents/>} />
         <Route path="/runerdle" element={<Runerdle />} />

@@ -1,0 +1,82 @@
+.osrs-quiz {
+    font-family: 'Arial', sans-serif;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .osrs-quiz h1 {
+    color: white;
+    font-size: 36px;
+  }
+  .osrs-quiz .score {
+    color: white;
+  }
+  
+  .osrs-quiz .current-question {
+    color: white;
+    font-size: 24px;
+  }
+  .osrs-quiz .options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .osrs-quiz button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .osrs-quiz button:hover {
+    background-color: #0056b3;
+  }
+  
+  .option-button.correct {
+    background-color: green;
+    color: white;
+    animation: pulse-green 0.3s;
+  }
+  
+  .option-button.selected {
+    background-color: red;
+    color: white;
+    animation: pulse-red 0.3s;
+  }
+  
+  .option-button:disabled {
+    cursor: not-allowed;
+  }
+  
+  @keyframes pulse-green {
+    0%, 100% {
+      background-color: green;
+    }
+    50% {
+      background-color: #0f9d58;
+    }
+  }
+  
+  @keyframes pulse-red {
+    0%, 100% {
+      background-color: red;
+    }
+    50% {
+      background-color: #d9534f;
+    }
+  }
+
+  .game-over {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
