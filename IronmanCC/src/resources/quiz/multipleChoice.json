@@ -613,555 +613,555 @@
     },
     {
         "id": 52,
-        "question": "",
-        "category": "",
+        "question": "This quest sends the adventurer on a journey to slay the dragon Elvarg",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Dragon Slayer II",
+            "Dragon Slayer I",
+            "Heroes' Quest",
+            "Legends' Quest"
         ],
-        "answer": ""
+        "answer": "Dragon Slayer I"
     },
     {
         "id": 53,
-        "question": "",
-        "category": "",
+        "question": "What is the name of the dragon you must slay in Dragon Slayer I?",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Elvarg",
+            "The Kendal",
+            "Bouncer",
+            "Glod"
         ],
-        "answer": ""
+        "answer": "Elvarg"
     },
     {
         "id": 54,
-        "question": "",
-        "category": "",
+        "question": "Released on August 20th 2003, this quest was the last quest before the release of RS2",
+        "category": "OSRS History",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Legends' Quest",
+            "Dragon Slayer I",
+            "The Grand Tree",
+            "Biohazard"
         ],
-        "answer": ""
+        "answer": "Legends' Quest"
     },
     {
         "id": 55,
-        "question": "",
-        "category": "",
+        "question": "Released on December 1st 2003, this was the first offical quest of RS2",
+        "category": "OSRS History",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Rune Mysteries",
+            "Legends' Quest",
+            "The Underground Pass",
+            "Dragon Slayer I"
         ],
-        "answer": ""
+        "answer": "Rune Mysteries"
     },
     {
         "id": 56,
-        "question": "",
-        "category": "",
+        "question": "Which quest grants you the ability to equip a Rune Platebody",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Dragon Slayer I",
+            "Demon Slayer",
+            "Waterfall Quest",
+            "Shield of Arrav"
         ],
-        "answer": ""
+        "answer": "Dragon Slayer I"
     },
     {
         "id": 57,
-        "question": "",
-        "category": "",
+        "question": "This quest is famous for its large xp reward in Attack and Strength, and for killing new HCIMs",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Waterfall Quest",
+            "Holy Grail",
+            "Dragon Slayer I",
+            "Lost City"
         ],
-        "answer": ""
+        "answer": "Waterfall Quest"
     },
     {
         "id": 58,
-        "question": "",
-        "category": "",
+        "question": "This quest grants you free use of the Al Kharid Toll Gate",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Prince Ali Rescue",
+            "Tourist Trap",
+            "Goblin Diplomacy",
+            "Pirate's Treasure"
         ],
-        "answer": ""
+        "answer": "Prince Ali Rescue"
     },
     {
         "id": 59,
-        "question": "",
-        "category": "",
+        "question": "Which two dyes are required for Goblin Diplomacy?",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Blue and Orange",
+            "Blue and Purple",
+            "Purple and Red",
+            "Red and Blue"
         ],
-        "answer": ""
+        "answer": "Blue and Orange"
     },
     {
         "id": 60,
-        "question": "",
-        "category": "",
+        "question": "This quest serves as an introduction to the Herblore skill",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Druidic Ritual",
+            "Witch's Potion",
+            "Jungle Potion",
+            "Nature Spirit"
         ],
-        "answer": ""
+        "answer": "Druidic Ritual"
     },
     {
         "id": 61,
-        "question": "",
-        "category": "",
+        "question": "Which of the following quests is NOT a free to play quest?",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Vampyre Slayer",
+            "Sheep Shearer",
+            "The Restless Ghost",
+            "Witch's House"
         ],
-        "answer": ""
+        "answer": "Witch's House"
     },
     {
         "id": 62,
-        "question": "",
-        "category": "",
+        "question": "Which of the following quests is NOT a members quest?",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Gertrude's Cat",
+            "Plague City",
+            "Sea Slug",
+            "The Restless Ghost"
         ],
-        "answer": ""
+        "answer": "The Restless Ghost"
     },
     {
         "id": 63,
-        "question": "",
-        "category": "",
+        "question": "This quest requires you to work with or be a part of the Black Arm Gang and Phoenix Gang",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Heroes' Quest",
+            "Legends' Quest",
+            "Dragon Slayer I",
+            "Fight Arena"
         ],
-        "answer": ""
+        "answer": "Heroes' Quest"
     },
     {
         "id": 64,
-        "question": "",
-        "category": "",
+        "question": "This was the 50th quest to be released to runescape",
+        "category": "OSRS History",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Legends' Quest",
+            "Recipe for Disaster",
+            "Dragon Slayer I",
+            "A Kingdom Divided"
         ],
-        "answer": ""
+        "answer": "Legends' Quest"
     },
     {
         "id": 65,
-        "question": "",
-        "category": "",
+        "question": "This was the 100th quest to be released to runescape",
+        "category": "OSRS History",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Legends' Quest",
+            "Recipe for Disaster",
+            "Dragon Slayer II",
+            "Monkey Madness"
         ],
-        "answer": ""
+        "answer": "Recipe for Disaster"
     },
     {
         "id": 66,
-        "question": "",
-        "category": "",
+        "question": "The first of its kind this quest had a total of 10 parts, to celebrate being runescape's 100th quest",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Recipe for Disaster",
+            "Dragon Slayer II",
+            "Legends' Quest",
+            "Monkey Madness II"
         ],
-        "answer": ""
+        "answer": "Recipe for Disaster"
     },
     {
         "id": 67,
-        "question": "",
-        "category": "",
+        "question": "This quest is a requirement to wield a Dragon Scimitar",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Monkey Madness",
+            "Regicide",
+            "Lost City",
+            "Desert Treasure I"
         ],
-        "answer": ""
+        "answer": "Monkey Madness"
     },
     {
         "id": 68,
-        "question": "",
-        "category": "",
+        "question": "This quest rewards the player with the ability to use Ancient Magicks",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Desert Treasure I",
+            "Tears of Guthix",
+            "Mourning's End Part I",
+            "Horror from the Deep"
         ],
-        "answer": ""
+        "answer": "Desert Treasure I"
     },
     {
         "id": 69,
-        "question": "",
-        "category": "",
+        "question": "This quest asks you to do simple task of obtaining Red Mahogany Logs",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "One Small Favour",
+            "The Feud",
+            "In Search of the Myreque",
+            "Haunted Mine"
         ],
-        "answer": ""
+        "answer": "One Small Favour"
     },
     {
         "id": 70,
-        "question": "",
-        "category": "",
+        "question": "This quest is about the adventuring life of the Wise Old Man",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Swan Song",
+            "Heroes' Quest",
+            "One Small Favour",
+            "Desert Treasure I"
         ],
-        "answer": ""
+        "answer": "Swan Song"
     },
     {
         "id": 71,
-        "question": "",
-        "category": "",
+        "question": "The seventh quest in the Elf Quest Series, it is known for its frustrating puzzle and frequently failed agility gap",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Mourning's End Part II",
+            "The Song of the Elves",
+            "Regicide",
+            "The Underground Pass"
         ],
-        "answer": ""
+        "answer": "Mourning's End Part II"
     },
     {
         "id": 72,
-        "question": "",
+        "question": "This quest gives you the ability to use Fairy Rings",
         "category": "",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Fairytale II - Cure a Queen",
+            "Fairytale I - Growing Pains",
+            "Lost City",
+            "Rag and Bone Man I"
         ],
-        "answer": ""
+        "answer": "Fairytale II - Cure a Queen"
     },
     {
         "id": 73,
-        "question": "",
-        "category": "",
+        "question": "The first quest to be 'backported' to Old School Runescape",
+        "category": "Quests",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Land of the Goblins",
+            "Tears of Guthix",
+            "The Song of the Elves",
+            "Swan Song"
         ],
-        "answer": ""
+        "answer": "Land of the Goblins"
     },
     {
         "id": 74,
-        "question": "",
-        "category": "",
+        "question": "This tree requires level 90 woodcutting to chop",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Magics",
+            "Yews",
+            "Redwoods",
+            "Artic Pine"
         ],
-        "answer": ""
+        "answer": "Redwoods"
     },
     {
         "id": 75,
-        "question": "",
-        "category": "",
+        "question": "Prior to the release of Sailing there are how many skills in OSRS?",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "23",
+            "24",
+            "22",
+            "21"
         ],
-        "answer": ""
+        "answer": "23"
     },
     {
         "id": 76,
-        "question": "",
-        "category": "",
+        "question": "Which of the following Skills is NOT free to play?",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Fishing",
+            "Runecraft",
+            "Crafting",
+            "Fletching"
         ],
-        "answer": ""
+        "answer": "Fletching"
     },
     {
         "id": 77,
-        "question": "",
-        "category": "",
+        "question": "Which of the following Skills is NOT members only?",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Agility",
+            "Herblore",
+            "Thieving",
+            "Crafting"
         ],
-        "answer": ""
+        "answer": "Crafting"
     },
     {
         "id": 78,
-        "question": "",
-        "category": "",
+        "question": "This Rooftop course requires 90 agility",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Ardougne",
+            "Rellekka",
+            "Prifddinas",
+            "Pollnivneach"
         ],
-        "answer": ""
+        "answer": "Ardougne"
     },
     {
         "id": 79,
-        "question": "",
-        "category": "",
+        "question": "This player is known for authoring Rooftop Agility Courses",
+        "category": "OSRS History",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "BigRedJapan",
+            "Zezima",
+            "Suomi",
+            "Lnyx Titan"
         ],
-        "answer": ""
+        "answer": "BigRedJapan"
     },
     {
         "id": 80,
-        "question": "",
-        "category": "",
+        "question": "The Ring of Endurance is an obtainable reward from this agility activity",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "Hallowed Sepulchre",
+            "Rooftop Agility Courses",
+            "Prifddinas Agility Course",
+            "Dorgesh-Kaan Agility Course"
         ],
-        "answer": ""
+        "answer": "Hallowed Sepulchre"
     },
     {
         "id": 81,
-        "question": "",
-        "category": "",
+        "question": "To create Divine super combat potions you need a herblore level of",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "90",
+            "97",
+            "94",
+            "99"
         ],
-        "answer": ""
+        "answer": "97"
     },
     {
         "id": 82,
-        "question": "",
-        "category": "",
+        "question": "To pickpocket elves you are required to have __ Thieving",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "85",
+            "90",
+            "75",
+            "70"
         ],
-        "answer": ""
+        "answer": "85"
     },
     {
         "id": 83,
-        "question": "",
-        "category": "",
+        "question": "To create a Heavy Ballista you are required to have __ fletching level",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "72",
+            "88",
+            "84",
+            "76"
         ],
-        "answer": ""
+        "answer": "72"
     },
     {
         "id": 84,
-        "question": "",
-        "category": "",
+        "question": "Fletching Dragon Darts requires a fletching level of",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "95",
+            "90",
+            "99",
+            "85"
         ],
-        "answer": ""
+        "answer": "95"
     },
     {
         "id": 85,
-        "question": "",
-        "category": "",
+        "question": "The Alchemical Hydra requires a slayer level of __ to slay",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "95",
+            "93",
+            "92",
+            "90"
         ],
-        "answer": ""
+        "answer": "95"
     },
     {
         "id": 86,
-        "question": "",
-        "category": "",
+        "question": "Famous for dropping the Abyssal Whip, Abyssal demons require a slayer level of __ to slay",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "85",
+            "87",
+            "90",
+            "92"
         ],
-        "answer": ""
+        "answer": "85"
     },
     {
         "id": 87,
-        "question": "",
-        "category": "",
+        "question": "Dust Devils require a slayer level of __ to slay",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "65",
+            "70",
+            "50",
+            "55"
         ],
-        "answer": ""
+        "answer": "65"
     },
     {
         "id": 88,
-        "question": "",
-        "category": "",
+        "question": "To grow Dragonfruit trees you are required to have level __ Farming",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "81",
+            "68",
+            "57",
+            "83"
         ],
-        "answer": ""
+        "answer": "81"
     },
     {
         "id": 89,
-        "question": "",
-        "category": "",
+        "question": "To grow Palm trees you are required to have level __ Farming",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "68",
+            "66",
+            "81",
+            "57"
         ],
-        "answer": ""
+        "answer": "68"
     },
     {
         "id": 90,
-        "question": "",
-        "category": "",
+        "question": "The Chapel room requires level __ Construction",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "45",
+            "50",
+            "42",
+            "44"
         ],
-        "answer": ""
+        "answer": "45"
     },
     {
         "id": 91,
-        "question": "",
-        "category": "",
+        "question": "The Portal Nexus room requires level __ Construction",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "72",
+            "80",
+            "85",
+            "75"
         ],
-        "answer": ""
+        "answer": "72"
     },
     {
         "id": 92,
-        "question": "",
-        "category": "",
+        "question": "Master level Hunters' Rumours require a Hunter level of",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "91",
+            "72",
+            "57",
+            "46"
         ],
-        "answer": ""
+        "answer": "91"
     },
     {
         "id": 93,
-        "question": "",
-        "category": "",
+        "question": "Expert level Hunters' Rumours require a Hunter level of",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "91",
+            "72",
+            "57",
+            "46"
         ],
-        "answer": ""
+        "answer": "72"
     },
     {
         "id": 94,
-        "question": "",
-        "category": "",
+        "question": "To light Pyre Redwood logs you are required to have a Firemaking level of",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "95",
+            "90",
+            "92",
+            "96"
         ],
-        "answer": ""
+        "answer": "95"
     },
     {
         "id": 95,
-        "question": "",
-        "category": "",
+        "question": "To light Magic logs you are required to have a Firemaking level of",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "75",
+            "70",
+            "85",
+            "88"
         ],
-        "answer": ""
+        "answer": "75"
     },
     {
         "id": 96,
-        "question": "",
-        "category": "",
+        "question": "You are able to start cooking Sharks at level __ Cooking",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "80",
+            "78",
+            "76",
+            "84"
         ],
-        "answer": ""
+        "answer": "80"
     },
     {
         "id": 97,
-        "question": "",
-        "category": "",
+        "question": "You are able to start cooking Manta Rays at level __ Cooking",
+        "category": "Skilling",
         "options": [
-            "",
-            "",
-            "",
-            ""
+            "91",
+            "93",
+            "95",
+            "97"
         ],
-        "answer": ""
+        "answer": "91"
     },
     {
         "id": 98,
