@@ -42,3 +42,29 @@
 .discord img {
     width: 50px; 
 }
+
+@media (max-width: 768px) {
+    .welcome-page {
+        padding: 10px;
+        min-height: auto;
+        padding-bottom: 60px;
+    }
+
+    .welcome-page-grid-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-width: 100%;
+    }
+
+    .discord img {
+        width: 40px;
+    }
+
+    .welcome-page h1 {
+        font-size: 24px;
+    }
+
+    .discord-info, .how-to-join, .clan-information, .toolbar-info, .additional-info {
+        padding: 5px;
+    }
+}
