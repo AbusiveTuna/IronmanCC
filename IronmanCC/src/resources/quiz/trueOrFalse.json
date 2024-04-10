@@ -1,0 +1,32 @@
+[
+    {
+        "id": 10001,
+        "question": "Which spell has the higher Magic Level requirement?",
+        "category": "Skilling",
+        "options": [
+            "Demonic Offering",
+            "Sinister Offering"
+        ],
+        "answer": "Sinister Offering"
+    },
+    {
+        "id": 10002,
+        "question": "True or False: Resurrect Crops requires Nature, Soul, Blood, and Earth Runes",
+        "category": "Skilling",
+        "options": [
+            "True",
+            "False"
+        ],
+        "answer": "True"
+    },
+    {
+        "id": 10002,
+        "question": "True or False: Because some bosses in the Theatre of Blood are considerd Dark Beasts, Vampyres, or Spiders, they count towards a Slayer task",
+        "category": "PvM",
+        "options": [
+            "True",
+            "False"
+        ],
+        "answer": "False"
+    }
+]
