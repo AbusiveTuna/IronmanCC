@@ -1870,5 +1870,29 @@
             "Muttadiles"
         ],
         "answer": "Tekton"
+    },
+    {
+        "id": 157,
+        "question": "What item is required to access the Death Plateau?",
+        "category": "Quests",
+        "options": [
+            "Climbing boots",
+            "Bandos chestplate",
+            "Rope",
+            "Fire cape"
+    ],
+        "answer": "Climbing boots"
+    },
+    {
+        "id": 158,
+        "question": "What is the highest level Prayer in OSRS?",
+        "category": "Skills",
+        "options": [
+            "Piety",
+            "Chivalry",
+            "Augury",
+            "Rigour"
+    ],
+        "answer": "Augury"
     }
 ]
