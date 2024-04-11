@@ -20,7 +20,7 @@
         "answer": "True"
     },
     {
-        "id": 10002,
+        "id": 10003,
         "question": "True or False: Because some bosses in the Theatre of Blood are considerd Dark Beasts, Vampyres, or Spiders, they count towards a Slayer task",
         "category": "PvM",
         "options": [
@@ -28,5 +28,15 @@
             "False"
         ],
         "answer": "False"
+    },
+    {
+        "id": 10004,
+        "question": "The Guardian room in Chambers of Xeric is considered a __ room",
+        "category": "PvM",
+        "options": [
+            "Combat",
+            "Puzzle"
+        ],
+        "answer": "Combat"
     }
 ]

@@ -1873,6 +1873,126 @@
     },
     {
         "id": 157,
+        "question": "To finish a solo Challenge Mode CoX in time, you are required to have a completion time under",
+        "category": "PvM",
+        "options": [
+            "1 hour 10 minutes",
+            "1 hour 5 minutes",
+            "1 hour",
+            "1 hour 20 minutes"
+        ],
+        "answer": "1 hour 10 minutes"
+    },
+    {
+        "id": 158,
+        "question": "To finish a trio Challenge Mode CoX in time, you are required to have a completion time under",
+        "category": "PvM",
+        "options": [
+            "50 minutes",
+            "45 minutes",
+            "1 hour",
+            "1 hour 5 minutes"
+        ],
+        "answer": "50 minutes"
+    },
+    {
+        "id": 159,
+        "question": "Select the correct order of CM CoX capes from lowest to highest completion count required",
+        "category": "PvM",
+        "options": [
+            "Xeric's Guard, Warrior, Sentinel, General, Champion",
+            "Xeric's Warrior, Sentinel, Champion, General, Guard",
+            "Xeric's Warrior, Guard, Sentinel, General, Champion",
+            "Xeric's Guard, Warrior, General, Champion, Sentinel"
+        ],
+        "answer": "Xeric's Guard, Warrior, Sentinel, General, Champion"
+    },
+    {
+        "id": 160,
+        "question": "The Master Combat Achievement 'Immortal Raider' requires you to complete a Solo CM CoX",
+        "category": "PvM",
+        "options": [
+            "Without dying",
+            "In less than 45 minutes",
+            "In less than 38 minutes and 30 seconds",
+            "25 times"
+        ],
+        "answer": "Without dying"
+    },
+    {
+        "id": 161,
+        "question": "Tekton is weak to",
+        "category": "PvM",
+        "options": [
+            "Crush",
+            "Slash",
+            "Stab",
+            "Constructive Criticism"
+        ],
+        "answer": "Crush"
+    },
+    {
+        "id": 162,
+        "question": "In the Chambers of Xeric, to change a Jewelled Crab to Blue you would attack it with",
+        "category": "PvM",
+        "options": [
+            "Magic",
+            "Ranged",
+            "Melee",
+            "Nothing"
+        ],
+        "answer": "Magic"
+    },
+    {
+        "id": 163,
+        "question": "In the Crab room of CoX a Cyan (blue) crystal requires an orb color of",
+        "category": "PvM",
+        "options": [
+            "Red",
+            "Blue",
+            "White",
+            "Green"
+        ],
+        "answer": "Red"
+    },
+    {
+        "id": 164,
+        "question": "In the Chambers of Xeric, the range Vanguard is weak to",
+        "category": "PvM",
+        "options": [
+            "Melee",
+            "Magic",
+            "Ranged",
+            "Fire Spells"
+        ],
+        "answer": "Melee"
+    },
+    {
+        "id": 165,
+        "question": "In the Chambers of Xeric, the mage Vanguard is weak to",
+        "category": "PvM",
+        "options": [
+            "Melee",
+            "Magic",
+            "Ranged",
+            "Fire Spells"
+        ],
+        "answer": "Ranged"
+    },
+    {
+        "id": 166,
+        "question": "In groups of four or less Vanguards must be within __ health of each other to prevent resetting",
+        "category": "PvM",
+        "options": [
+            "40%",
+            "33%",
+            "25%",
+            "50%"
+        ],
+        "answer": "40%"
+    },
+    {
+        "id": 167,
         "question": "What item is required to access the Death Plateau?",
         "category": "Quests",
         "options": [
@@ -1884,7 +2004,7 @@
         "answer": "Climbing boots"
     },
     {
-        "id": 158,
+        "id": 168,
         "question": "What is the highest level Prayer in OSRS?",
         "category": "Skills",
         "options": [
