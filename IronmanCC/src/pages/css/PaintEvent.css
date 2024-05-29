@@ -1,57 +1,106 @@
-/* PaintEvent.css */
-
 .paintHeader {
-    display: flex;
-    color: white;
-    justify-content: space-between;
-    padding: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .team-info {
-    text-align: center;
-  }
-  
-  .grid-container {
-    color: white;
-    display: grid;
-    grid-template-columns: repeat(13, 1fr);
-    gap: 10px;
-    padding: 0;
-    padding-top: 20px;
-    margin: 0;
-  }
-  
-  .grid-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    position: relative;
-  }
-  
-  .grid-item img {
-    width: 50px;
-    height: 50px;
-    display: block;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .kc-difference {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-size: 12px;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-bottom: 1px solid #ccc;
+}
+
+.team1-info {
+  text-align: center;
+  color: rgba(255, 0, 0, 0.795); /* should match to the team1 color */
+}
+
+.team2-info {
+  text-align: center;
+  color:rgba(0, 255, 0, 0.63);
+}
+
+.grid-container {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  height: calc(100vh - 300px); /* Prevents the tile from getting below the footer */
+}
+
+.grid-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.grid-section h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.grid-content {
+  display: grid;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.grid-content-1-point {
+  grid-template-columns: repeat(7, minmax(30px, 1fr));
+  font-size: 15px;
+}
+
+.grid-content-2-point {
+  grid-template-columns: repeat(4, minmax(40px, 1fr));
+  font-size: 20px;
+}
+
+.grid-content-3-point {
+  grid-template-columns: repeat(3, minmax(50px, 1fr));
+  font-size: 25px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-item.one-point img {
+  width: 30px;
+  height: 30px;
+}
+
+.grid-item.two-point img {
+  width: 40px;
+  height: 40px;
+}
+
+.grid-item.three-point img {
+  width: 100px;
+  height: 100px;
+}
+
+.kc-difference {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}

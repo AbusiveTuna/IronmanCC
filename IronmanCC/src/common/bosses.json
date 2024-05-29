@@ -1,0 +1,1089 @@
+[
+	{
+	  "Boss": "Abyssal Sire",
+	  "EHB": 34,
+	  "Drops": [
+		{
+		  "Item": "Unsired",
+		  "DropRate": 100
+		}
+	  ]
+	},
+	{
+	  "Boss": "Alchemical Hydra",
+	  "EHB": 29,
+	  "Drops": [
+		{
+		  "Item": "Hydra's tail",
+		  "DropRate": 513
+		},
+		{
+		  "Item": "Hydra's leather",
+		  "DropRate": 514
+		},
+		{
+		  "Item": "Hydra's claw",
+		  "DropRate": 1001
+		},
+		{
+		  "Item": "Alchemical hydra heads",
+		  "DropRate": 256
+		},
+		{
+		  "Item": "Jar of chemicals",
+		  "DropRate": 2000,
+		  "Type": "jar"
+		},
+		{
+		  "Item": "Ikkle hydra",
+		  "DropRate": 3000,
+		  "Type": "pet"
+		}
+	  ]
+	},
+	{
+	  "Boss": "Barrows Chests",
+	  "EHB": 22,
+	  "Drops": [
+		{
+		  "Item": "Ahrim's hood",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Ahrim's Robetop",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Ahrim's Robeskirt",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Ahrim's staff",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Dharok's helm",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Dharok's platebody",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Dharok's platelegs",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Dharok's greataxe",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Guthan's helm",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Guthan's platebody",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Guthan's chainskirt",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Guthan's warspear",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Karil's Coif",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Karil's leathertop",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Karil's leatherskirt",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Karil's crossbow",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Torag's helm",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Torag's platebody",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Torag's platelegs",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Torag's hammers",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Verac's helm",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Verac's brassard",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Verac's plateskirt",
+		  "DropRate": 350
+		},
+		{
+		  "Item": "Verac's flail",
+		  "DropRate": 350
+		}
+	  ]
+	},
+	{
+	  "Boss": "Bryophyta",
+	  "EHB": 9,
+	  "Drops": [
+		{
+		  "Item": "Bryophyta's essence",
+		  "DropRate": 118
+		}
+	  ]
+	},
+	{
+	  "Boss": "Cerberus",
+	  "EHB": 54,
+	  "Drops": [
+		{
+		  "Item": "Primordial crystal",
+		  "DropRate": 512
+		},
+		{
+		  "Item": "Pegasian crystal",
+		  "DropRate": 512
+		},
+		{
+		  "Item": "Eternal crystal",
+		  "DropRate": 512
+		},
+		{
+		  "Item": "Smouldering stone",
+		  "DropRate": 512
+		},
+		{
+		  "Item": "Jar of souls",
+		  "DropRate": 2000
+		},
+		{
+		  "Item": "Hellpuppy",
+		  "DropRate": 3000,
+		  "Type": "pet"
+		}
+	  ]
+	},
+	{
+	  "Boss": "Chambers of Xeric",
+	  "EHB": 2.9,
+	  "PurpleChestRate": 27,
+	  "Drops": [
+		{
+		  "Item": "Dexterous prayer scroll",
+		  "ConditionalDropRate": 3.45,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Arcane prayer scroll",
+		  "ConditionalDropRate": 3.45,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Twisted buckler",
+		  "ConditionalDropRate": 17.25,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Dragon hunter crossbow",
+		  "ConditionalDropRate": 17.25,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Dinh's bulwark",
+		  "ConditionalDropRate": 23,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Ancestral hat",
+		  "ConditionalDropRate": 23,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Ancestral robe top",
+		  "ConditionalDropRate": 23,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Ancestral robe bottom",
+		  "ConditionalDropRate": 23,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Elder maul",
+		  "ConditionalDropRate": 34.5,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Kodai insignia",
+		  "ConditionalDropRate": 34.5,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Twisted bow",
+		  "ConditionalDropRate": 34.5,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Olmlet",
+		  "ConditionalDropRate": 53,
+		  "Type": "pet"
+		}
+	  ]
+	},
+	{
+	  "Boss": "Chambers of Xeric Challenge Mode",
+	  "EHB": 2.4,
+	  "Drops": [
+		{
+		  "Item": "Twisted Ancestral Colour Kit",
+		  "DropRate": 75,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Metamorphic dust",
+		  "DropRate": 400,
+		  "Type": "pet"
+		}
+	  ]
+	},
+	{
+	  "Boss": "Chaos Elemental",
+	  "EHB": 48,
+	  "Drops": [
+		{
+		  "Item": "Dragon pickaxe",
+		  "DropRate": 256
+		},
+		{
+		  "Item": "Pet chaos elemental",
+		  "DropRate": 300,
+		  "Type": "pet"
+		}
+	  ]
+	},
+	{
+	  "Boss": "Chaos Fanatic",
+	  "EHB": 80,
+	  "Drops": [
+		{
+		  "Item": "Odium shard 1",
+		  "DropRate": 256
+		},
+		{
+		  "Item": "Malediction shard 1",
+		  "DropRate": 256
+		},
+		{
+		  "Item": "Pet chaos elemental",
+		  "DropRate": 1000,
+		  "Type": "pet"
+		}
+	  ]
+	},
+	{
+	  "Boss": "Commander Zilyana",
+	  "EHB": 30,
+	  "Drops": [
+		{
+		  "Item": "Saradomin sword",
+		  "DropRate": 127,
+		  "Type": "gwd"
+		},
+		{
+		  "Item": "Saradomin's light",
+		  "DropRate": 254,
+		  "Type": "gwd"
+		},
+		{
+		  "Item": "Armadyl crossbow",
+		  "DropRate": 508,
+		  "Type": "gwd"
+		},
+		{
+		  "Item": "Saradomin hilt",
+		  "DropRate": 508,
+		  "Type": "gwd"
+		},
+		{
+		  "Item": "Godsword shard 1",
+		  "DropRate": 762,
+		  "Type": "gwd"
+		},
+		{
+		  "Item": "Godsword shard 2",
+		  "DropRate": 762,
+		  "Type": "gwd"
+		},
+		{
+		  "Item": "Godsword shard 3",
+		  "DropRate": 762,
+		  "Type": "gwd"
+		},
+		{
+		  "Item": "Pet zilyana",
+		  "DropRate": 5000,
+		  "Type": "pet"
+		}
+	  ]
+	},
+	{
+	  "Boss": "Corporeal Beast",
+	  "EHB": 8.5,
+	  "Drops": [
+		{
+		  "Item": "Spectral sigil",
+		  "DropRate": 1365
+		},
+		{
+		  "Item": "Arcane sigil",
+		  "DropRate": 1365
+		},
+		{
+			"Item": "Elysian sigil",
+			"DropRate": 4095
+		  },
+		  {
+			"Item": "Spirit Shield",
+			"DropRate": 64
+		  },
+		  {
+			"Item": "Holy elixir",
+			"DropRate": 171
+		  },
+		  {
+			"Item": "Jar of spirits",
+			"DropRate": 1000,
+			"Type": "jar"
+		  },
+		  {
+			"Item": "Pet dark core",
+			"DropRate": 5000,
+			"Type": "pet"
+		  }
+	  ]
+	},
+	{
+	  "Boss": "Crazy Archaeologist",
+	  "EHB": 75,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Dagannoth Prime",
+	  "EHB": 100,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Dagannoth Rex",
+	  "EHB": 100,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Dagannoth Supreme",
+	  "EHB": 100,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Deranged Archaeologist",
+	  "EHB": 80,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "General Graardor",
+	  "EHB": 31,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Giant Mole",
+	  "EHB": 97,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Grotesque Guardians",
+	  "EHB": 34,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Hespori",
+	  "EHB": 50,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Kalphite Queen",
+	  "EHB": 37,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "King Black Dragon",
+	  "EHB": 75,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Kraken",
+	  "EHB": 90,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Kree'Arra",
+	  "EHB": 30,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "K'ril Tsutsaroth",
+	  "EHB": 28,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Mimic",
+	  "EHB": 50,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Obor",
+	  "EHB": 12,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Sarachnis",
+	  "EHB": 67,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Scorpia",
+	  "EHB": 80,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Skotizo",
+	  "EHB": 38,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "The Corrupted Gauntlet",
+	  "EHB": 7.2,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Enhanced crystal weapon seed",
+		  "DropRate": 400
+		},
+		{
+		  "Item": "Youngllef",
+		  "DropRate": 800,
+		  "Type": "pet"
+		}
+	  ]
+	},
+	{
+	  "Boss": "Theatre of Blood",
+	  "EHB": 2.9,
+	  "PurpleChestRate": 36,
+	  "Drops": [
+		{
+		  "Item": "Avernic defender hilt",
+		  "ConditionalDropRate": 2.375,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Ghrazi rapier",
+		  "ConditionalDropRate": 9.5,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Sanguinesti staff",
+		  "ConditionalDropRate": 9.5,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Justiciar faceguard",
+		  "ConditionalDropRate": 9.5,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Justiciar chestguard",
+		  "ConditionalDropRate": 9.5,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Justiciar legguards",
+		  "ConditionalDropRate": 9.5,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Scythe of vitur",
+		  "ConditionalDropRate": 19,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Lil Zik",
+		  "DropRate": 650,
+		  "Type": "pet"
+		}
+	  ]
+	},
+	{
+	  "Boss": "Hard Mode Theatre Of Blood",
+	  "EHB": 2.5,
+	  "Drops": [
+		{
+		  "Item": "Lil' Zik",
+		  "DropRate": 500,
+		  "Type": "pet"
+		},
+		{
+		  "Item": "Sanguine Dust",
+		  "DropRate": 275,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Sanguine Ornament Kit",
+		  "DropRate": 150,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Holy Ornament Kit",
+		  "DropRate": 100,
+		  "Type": "raid"
+		}
+	  ]
+	},
+	{
+	  "Boss": "Thermonuclear Smoke Devil",
+	  "EHB": 100,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "TzKal-Zuk",
+	  "EHB": 0.9,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "TzTok-Jad",
+	  "EHB": 2.2,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Venenatis",
+	  "EHB": 33,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Vet'ion",
+	  "EHB": 35,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Vorkath",
+	  "EHB": 34,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Zulrah",
+	  "EHB": 39,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "The Nightmare",
+	  "EHB": 11,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Phosani's Nightmare",
+	  "EHB": 6.7,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Nex",
+	  "EHB": 15,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Tombs of Amascut",
+	  "EHB": 1.5,
+	  "PurpleChestRate": 12,
+	  "Drops": [
+		{
+		  "Item": "Osmumten's fang",
+		  "ConditionalDropRate": 3.429,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Tumeken's shadow",
+		  "ConditionalDropRate": 24,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Elidinis' ward",
+		  "ConditionalDropRate": 8,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Lightbearer",
+		  "ConditionalDropRate": 3.429,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Masori mask",
+		  "ConditionalDropRate": 12,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Masori body",
+		  "ConditionalDropRate": 12,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Masori chaps",
+		  "ConditionalDropRate": 12,
+		  "Type": "raid"
+		},
+		{
+		  "Item": "Tumeken's guardian",
+		  "DropRate": 310,
+		  "Type": "pet"
+		}
+	  ]
+	},
+	{
+	  "Boss": "Phantom Muspah",
+	  "EHB": 25,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Artio",
+	  "EHB": 50,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Calvarion",
+	  "EHB": 45,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Spindel",
+	  "EHB": 50,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Duke Sucellus",
+	  "EHB": 30,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "The Leviathan",
+	  "EHB": 25,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "The Whisperer",
+	  "EHB": 21,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Vardorvis",
+	  "EHB": 33,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Scurrius",
+	  "EHB": 60,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Lunar Chests",
+	  "EHB": 18,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	},
+	{
+	  "Boss": "Sol Heredit",
+	  "EHB": 2.5,
+	  "Drops": [
+		{
+		  "Item": "Crystal weapon seed",
+		  "DropRate": 50
+		},
+		{
+		  "Item": "Crystal armour seed",
+		  "DropRate": 50
+		}
+	  ]
+	}
+  ]
