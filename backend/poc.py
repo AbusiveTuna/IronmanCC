@@ -125,7 +125,11 @@ def get_players_highscores(player):
         raise Exception("wtf the response length didn't match the expected amount of skills and bosses")
 
     for name, value in zip(OSRS_INDEX_LITE_CATEGORY_ORDER, results):
-        player_current_values[name] = value
+        values = value.split(",")
+        if len(values) == 2: #boss - kc, rank
+            player_current_values[name] = {"kc": values[1], "rank": values[0]}
+        else: #skill - rank/level/experience
+            player_current_values[name] = {"level": values[1], "experience": values[2], "rank": values[0]}
 
     return player_current_values
 
