@@ -45,7 +45,12 @@ const fetchCompetitionInfo = async (compId) => {
     await saveResults(compId, results);
 };
 
-app.listen(port, () => {
+app.listen(port, async () => {
+    await createTable();
     getTempleSkills();
     fetchCompetitionInfo(15025);
+
+    //run every hour, save to DB
+    //have a method that pulls the latest record for that comp id from db and returns it.
+    //maybe have a way to check if they already have the most up to date info.
 });
