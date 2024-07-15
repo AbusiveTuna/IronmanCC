@@ -1,7 +1,7 @@
 import express from 'express';
 import axios from 'axios';
 import { templeMap } from './resources/2024_templeMap.js';
-import { createTable, saveResults, getLatestResults  } from './database.js';
+import { createTable, saveTempleData, getLatestTempleData, saveCompetitionResults, getCompetitionResults  } from './database.js';
 
 const app = express();
 const port = 3000;
@@ -26,20 +26,17 @@ const fetchCompetitionInfo = async (compId) => {
             const response = await axios.get(`https://templeosrs.com/api/competition_info.php?id=${compId}&skill=${skill}`);
             const data = response.data.data;
 
-            const skillIndex = data.info.skill_index;
+            const skillIndex = data.info.skill;
             if (!results[skillIndex]) {
-                results[skillIndex] = {};
+                results[skillIndex] = [];
             }
 
             data.participants.forEach(participant => {
-                const teamName = participant.team_name;
-                const xpGained = participant.xp_gained;
-
-                if (!results[skillIndex][teamName]) {
-                    results[skillIndex][teamName] = 0;
-                }
-
-                results[skillIndex][teamName] += xpGained;
+                results[skillIndex].push({
+                    playerName: participant.username,
+                    xpGained: participant.xp_gained,
+                    teamName: participant.team_name
+                });
             });
 
         } catch (error) {
@@ -48,67 +45,127 @@ const fetchCompetitionInfo = async (compId) => {
         await new Promise(resolve => setTimeout(resolve, 10000)); // TempleOSRS rate limits so request every 10s
     }
 
-    console.log('Aggregated results:', results);
-    await saveResults(compId, results);
+    await saveTempleData(compId, results);
     isFetching = false;
 };
 
-const updateSingleSkill = async (compId, skillIndex) => {
-    try {
-        const response = await axios.get(`https://templeosrs.com/api/competition_info.php?id=${compId}&skill=${skillIndex}`);
-        const data = response.data.data;
+const getAndSortLatestResults = async (compId) => {
+    const latestResults = await getLatestTempleData(compId);
 
-        const latestResults = await getLatestResults(compId) || {};
-        if (!latestResults[skillIndex]) {
-            latestResults[skillIndex] = {};
-        }
+    for (const skillIndex in latestResults) {
+        if (Array.isArray(latestResults[skillIndex])) {
+            latestResults[skillIndex].sort((a, b) => b.xpGained - a.xpGained);
 
-        data.participants.forEach(participant => {
-            const teamName = participant.team_name;
-            const xpGained = participant.xp_gained;
-
-            if (!latestResults[skillIndex][teamName]) {
-                latestResults[skillIndex][teamName] = 0;
+            let topPlayers = [];
+            for (let i = 0; i < latestResults[skillIndex].length; i++) {
+                if (i < 10 || (i >= 10 && latestResults[skillIndex][i].xpGained === latestResults[skillIndex][i - 1].xpGained)) {
+                    topPlayers.push(latestResults[skillIndex][i]);
+                } else {
+                    break;
+                }
             }
-
-            latestResults[skillIndex][teamName] += xpGained;
-        });
-
-        console.log(`Updated results for skill ${skillIndex}:`, latestResults);
-        await saveResults(compId, latestResults);
-    } catch (error) {
-        console.error(`Error fetching data for skill ${skillIndex}:`, error);
+            latestResults[skillIndex] = topPlayers;
+        }
     }
+
+    return latestResults;
+};
+
+const assignPoints = (sortedResults) => {
+    const points = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
+
+    for (const skill in sortedResults) {
+        if (Array.isArray(sortedResults[skill])) {
+            let currentPointsIndex = 0;
+
+            for (let i = 0; i < sortedResults[skill].length; i++) {
+                if (i > 0 && sortedResults[skill][i].xpGained === sortedResults[skill][i - 1].xpGained) {
+                    sortedResults[skill][i].points = sortedResults[skill][i - 1].points;
+                } else {
+                    sortedResults[skill][i].points = points[currentPointsIndex] || 0;
+                }
+                currentPointsIndex++;
+            }
+        }
+    }
+
+    return sortedResults;
+};
+
+const getTeamTotals = (results) => {
+    const teamTotals = {};
+
+    for (const skill in results) {
+        if (Array.isArray(results[skill])) {
+            results[skill].forEach(player => {
+                if (!teamTotals[player.teamName]) {
+                    teamTotals[player.teamName] = 0;
+                }
+                teamTotals[player.teamName] += player.points;
+            });
+        }
+    }
+
+    return teamTotals;
+};
+
+const fetchAndProcessData = async () => {
+    await fetchCompetitionInfo(23801);
+    let latestResults = await getAndSortLatestResults(23801);
+    latestResults = assignPoints(latestResults);
+    const teamTotals = getTeamTotals(latestResults);
+
+    await saveCompetitionResults(23801, latestResults, teamTotals);
 };
 
 app.get('/results/:compId', async (req, res) => {
-    const compId = parseInt(req.params.compId, 10);
-    const latestResults = await getLatestResults(compId);
-    if (latestResults) {
-        res.json(latestResults);
-    } else {
-        res.status(404).send('Results not found');
+    try {
+        const data = await getCompetitionResults(req.params.compId);
+        if (data) {
+            res.json(data);
+        } else {
+            res.status(404).send('Results not found');
+        }
+    } catch (error) {
+        res.status(500).send('Server error');
     }
 });
 
-app.get('/update-skill/:compId/:skillIndex', async (req, res) => {
-    const compId = parseInt(req.params.compId, 10);
-    const skillIndex = parseInt(req.params.skillIndex, 10);
-    await updateSingleSkill(compId, skillIndex);
-    const updatedResults = await getLatestResults(compId);
-    if (updatedResults) {
-        res.json(updatedResults);
-    } else {
-        res.status(404).send('Results not found');
+app.get('/results/:compId/:skillName', async (req, res) => {
+    try {
+        const data = await getCompetitionResults(req.params.compId);
+        const skillName = req.params.skillName;
+        if (data.results[skillName]) {
+            res.json(data.results[skillName]);
+        } else {
+            res.status(404).send('Results not found');
+        }
+    } catch (error) {
+        res.status(500).send('Server error');
+    }
+});
+
+
+app.get('/teamTotals/:compId', async (req, res) => {
+    try {
+        const data = await getCompetitionResults(req.params.compId);
+        if (data.team_totals) {
+            res.json(data.team_totals);
+        } else {
+            res.status(404).send('Results not found');
+        }
+    } catch (error) {
+        res.status(500).send('Server error');
     }
 });
 
 app.listen(port, async () => {
     await createTable();
     getTempleSkills();
-    fetchCompetitionInfo(15025);
-    console.log(`Server is running at http://localhost:${port}`);
+
+    await fetchAndProcessData();
+
     setInterval(() => {
-        fetchCompetitionInfo(15025);
+        fetchAndProcessData();
     }, 3600000);
 });

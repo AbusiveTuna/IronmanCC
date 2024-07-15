@@ -13,9 +13,17 @@ const createTable = async () => {
     const client = await pool.connect();
     try {
         await client.query(`
-            CREATE TABLE IF NOT EXISTS competition_results (
+            CREATE TABLE IF NOT EXISTS temple_competition_data (
                 competition_id INTEGER PRIMARY KEY,
                 results JSONB NOT NULL
+            )
+        `);
+
+        await client.query(`
+            CREATE TABLE IF NOT EXISTS competition_results (
+                competition_id INTEGER PRIMARY KEY,
+                results JSONB NOT NULL,
+                team_totals JSONB NOT NULL
             )
         `);
     } finally {
@@ -23,11 +31,11 @@ const createTable = async () => {
     }
 };
 
-const saveResults = async (competitionId, results) => {
+const saveTempleData = async (competitionId, results) => {
     const client = await pool.connect();
     try {
         await client.query(
-            `INSERT INTO competition_results (competition_id, results)
+            `INSERT INTO temple_competition_data (competition_id, results)
              VALUES ($1, $2)
              ON CONFLICT (competition_id)
              DO UPDATE SET results = EXCLUDED.results`,
@@ -38,11 +46,11 @@ const saveResults = async (competitionId, results) => {
     }
 };
 
-const getLatestResults = async (competitionId) => {
+const getLatestTempleData = async (competitionId) => {
     const client = await pool.connect();
     try {
         const res = await client.query(
-            `SELECT results FROM competition_results WHERE competition_id = $1`,
+            `SELECT results FROM temple_competition_data WHERE competition_id = $1`,
             [competitionId]
         );
         return res.rows[0] ? res.rows[0].results : null;
@@ -51,4 +59,32 @@ const getLatestResults = async (competitionId) => {
     }
 };
 
-export { createTable, saveResults, getLatestResults };
+const saveCompetitionResults = async (competitionId, results, teamTotals) => {
+    const client = await pool.connect();
+    try {
+        await client.query(
+            `INSERT INTO competition_results (competition_id, results, team_totals)
+             VALUES ($1, $2, $3)
+             ON CONFLICT (competition_id)
+             DO UPDATE SET results = EXCLUDED.results, team_totals = EXCLUDED.team_totals`,
+            [competitionId, results, teamTotals]
+        );
+    } finally {
+        client.release();
+    }
+};
+
+const getCompetitionResults = async (competitionId) => {
+    const client = await pool.connect();
+    try {
+        const res = await client.query(
+            `SELECT results, team_totals FROM competition_results WHERE competition_id = $1`,
+            [competitionId]
+        );
+        return res.rows[0] ? { results: res.rows[0].results, team_totals: res.rows[0].team_totals } : null;
+    } finally {
+        client.release();
+    }
+};
+
+export { createTable, saveTempleData, getLatestTempleData, saveCompetitionResults, getCompetitionResults };
