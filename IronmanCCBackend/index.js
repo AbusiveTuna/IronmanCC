@@ -159,6 +159,16 @@ app.get('/teamTotals/:compId', async (req, res) => {
     }
 });
 
+app.get('fetchTempleData/:compId', async (req,res) => {
+    if (isFetching) {
+        res.status(200).send("Fetch already running");
+    }
+    else {
+        fetchAndProcessData();
+        res.status(200).send("Fetch started");
+    }
+});
+
 app.listen(port, async () => {
     await createTable();
     getTempleSkills();
