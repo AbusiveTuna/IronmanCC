@@ -20,7 +20,7 @@ const WelcomePage = () => {
             <h2>How To Join</h2>
             <p>Join the <strong>IronmanCC</strong> clan chat in-game</p>
             <p>Applications open for new members on the first of every month, and are open until we hit the in-game limit of 500 members.</p>
-            <sub>Note: Applications close near 495 members as spots are left open to account for returning players</sub>
+            <sub>Note: Applications close whenever we hit 495 members as spots are left open to account for returning players</sub>
         </div>
 
         <div className="discord-info">
