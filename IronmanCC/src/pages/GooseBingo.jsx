@@ -8,7 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const GooseBingo = () => {
   const [data, setData] = useState(null);
   const [skillData, setSkillData] = useState(null);
-  const [selectedSkill, setSelectedSkill] = useState('');
+  const [selectedSkill, setSelectedSkill] = useState('Team Totals');
+  const [topPlayers, setTopPlayers] = useState([]);
+  const [teamTotals, setTeamTotals] = useState([]);
 
   useEffect(() => {
     const mockData = {
@@ -26,13 +28,39 @@ const GooseBingo = () => {
           { points: 25, teamName: 'Warriors', xpGained: 33333, playerName: 'strongman' },
           { points: 18, teamName: 'Warriors2', xpGained: 33332, playerName: 'strongman2' }
         ]
-      }
+      },
+      team_totals: [
+        { teamName: 'Team1', points: 100 },
+        { teamName: 'Team2', points: 98 },
+        { teamName: 'Team3', points: 95 }
+      ]
     };
     setData(mockData);
+    calculateTopPlayers(mockData.results);
+    setTeamTotals(mockData.team_totals);
   }, []);
 
+  const calculateTopPlayers = (results) => {
+    const players = [];
+    for (const skill in results) {
+      results[skill].forEach(player => {
+        const existingPlayer = players.find(p => p.playerName === player.playerName);
+        if (existingPlayer) {
+          existingPlayer.points += player.points;
+        } else {
+          players.push({ ...player });
+        }
+      });
+    }
+    const sortedPlayers = players.sort((a, b) => b.points - a.points).slice(0, 10);
+    setTopPlayers(sortedPlayers);
+  };
+
   const handleClick = (skill) => {
-    if (data && data.results) {
+    if (skill === 'Team Totals') {
+      setSkillData(null);
+      setSelectedSkill(skill);
+    } else if (data && data.results) {
       const skillData = data.results[skill];
       setSkillData(skillData);
       setSelectedSkill(skill);
@@ -41,9 +69,34 @@ const GooseBingo = () => {
     }
   };
 
+  const formatSkillName = (skill) => {
+    return skill.replace(/_/g, ' ');
+  };
+
+  const getIconUrl = (skill) => {
+    // Special case for Phosani's Nightmare
+    if (skill === "Phosani's_Nightmare") {
+      skill = "Phosanis_Nightmare";
+    }
+    return `/resources/osrs_icons/${encodeURIComponent(skill)}.png`;
+  };
+
   return (
     <Container className="bingo-container" fluid>
       <Row className="mb-2 justify-content-center mt-4">
+        <Col xs="auto" className="mb-1 p-1 text-center">
+          <Button
+            variant="outline-primary"
+            onClick={() => handleClick('Team Totals')}
+            className="skill-button"
+          >
+            <span className="visually-hidden">Team Totals</span>
+            <div
+              className="button-background"
+              style={{ backgroundImage: `url(${getIconUrl('Total')})` }}
+            />
+          </Button>
+        </Col>
         {templeMap.map(([name], index) => (
           <Col key={index} xs="auto" className="mb-1 p-1 text-center">
             <Button
@@ -54,31 +107,66 @@ const GooseBingo = () => {
               <span className="visually-hidden">{name}</span>
               <div
                 className="button-background"
-                style={{ backgroundImage: `url(/resources/osrs_icons/${name}.png)` }}
+                style={{ backgroundImage: `url(${getIconUrl(name)})` }}
               />
             </Button>
           </Col>
         ))}
       </Row>
       <Row className="justify-content-center">
-        <Col xs={12} md={8} className="text-center">
-          {selectedSkill && (
+        <Col xs={12} md={7} className="text-center">
+          {selectedSkill === 'Team Totals' ? (
             <div className="selected-skill-header">
               <img
-                src={`/resources/osrs_icons/${selectedSkill}.png`}
+                src={getIconUrl('Total')}
+                alt="Team Totals"
+                className="selected-skill-icon"
+              />
+              <span className="selected-skill-text">Team Totals</span>
+              <img
+                src={getIconUrl('Total')}
+                alt="Team Totals"
+                className="selected-skill-icon"
+              />
+            </div>
+          ) : selectedSkill && (
+            <div className="selected-skill-header">
+              <img
+                src={getIconUrl(selectedSkill)}
                 alt={selectedSkill}
                 className="selected-skill-icon"
               />
-              <span className="selected-skill-text">{selectedSkill}</span>
+              <span className="selected-skill-text">{formatSkillName(selectedSkill)}</span>
               <img
-                src={`/resources/osrs_icons/${selectedSkill}.png`}
+                src={getIconUrl(selectedSkill)}
                 alt={selectedSkill}
                 className="selected-skill-icon"
               />
             </div>
           )}
-          {skillData ? (
-            <div className="table-container">
+          {selectedSkill === 'Team Totals' ? (
+            <div className="table-container" data-bs-theme="dark">
+              <Table striped bordered hover className="custom-table">
+                <thead>
+                  <tr>
+                    <th>Place</th>
+                    <th>Team</th>
+                    <th>Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {teamTotals.map((team, index) => (
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>{team.teamName}</td>
+                      <td>{team.points}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
+          ) : skillData ? (
+            <div className="table-container" data-bs-theme="dark">
               <Table striped bordered hover className="custom-table">
                 <thead>
                   <tr>
@@ -106,12 +194,38 @@ const GooseBingo = () => {
             <p>Click a button to view the skill data.</p>
           )}
         </Col>
+        <Col xs={12} md={5} className="text-center">
+          <div className="selected-skill-header">
+            <span className="selected-skill-text">Top Players</span>
+          </div>
+          <div className="table-container" data-bs-theme="dark">
+            <Table striped bordered hover className="custom-table">
+              <thead>
+                <tr>
+                  <th>Place</th>
+                  <th>Player</th>
+                  <th>Points</th>
+                </tr>
+              </thead>
+              <tbody>
+                {topPlayers.map((player, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{player.playerName}</td>
+                    <td>{player.points}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        </Col>
       </Row>
     </Container>
   );
 };
 
 export default GooseBingo;
+
 
 
 

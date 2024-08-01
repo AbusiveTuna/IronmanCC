@@ -52,30 +52,22 @@
   
   .table-header {
     text-align: center;
-    font-size: 2em; 
+    font-size: 2em;
     margin-bottom: 20px;
+    color: black;
   }
   
   .custom-table {
-    width: 70%;
-    background-color: #f8f9fa;
+    color: #ffffff; 
     table-layout: fixed; 
   }
   
   .custom-table th, .custom-table td {
     text-align: center;
     font-size: 1.2em; 
-    word-wrap: break-word;
+    word-wrap: break-word; 
   }
-  
-  .table-container table {
-    border-collapse: collapse;
-  }
-  
-  .table-container th {
-    background-color: #e9ecef;
-  }
-  
+
   .mt-4 {
     margin-top: 1.5rem;
   }
