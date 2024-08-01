@@ -40,6 +40,22 @@ const GooseBingo = () => {
     setTeamTotals(mockData.team_totals);
   }, []);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/results');
+  //       const responseData = response.data;
+  //       setData(responseData);
+  //       calculateTopPlayers(responseData.results);
+  //       setTeamTotals(responseData.team_totals);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
   const calculateTopPlayers = (results) => {
     const players = [];
     for (const skill in results) {
@@ -229,15 +245,4 @@ export default GooseBingo;
 
 
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('/api/your-endpoint'); // Replace with your API endpoint
-  //       setData(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
+ 
