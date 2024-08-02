@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'OSRSFont';
+  src: url('../../resources/fonts/osrsFont.ttf') format('truetype');
+}
+
 .bingo-container {
     max-width: 95%;
     margin: 0 auto;
@@ -86,9 +91,15 @@
   }
   
   .selected-skill-text {
-    font-size: 2em;
+    font-family: 'OSRSFont', sans-serif;
+    font-size: 3em;
     font-weight: bold;
     margin: 0 10px;
-    color: black; 
+    color: #f9d000;
+    text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    -2px -2px 0 #000,
+    2px -2px 0 #000;
   }
   

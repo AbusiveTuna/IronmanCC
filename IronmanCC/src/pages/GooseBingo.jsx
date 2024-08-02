@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Table, Container, Row, Col } from 'react-bootstrap';
 import { templeMap } from '../common/templeMap';
+import axios from 'axios';
 import './css/GooseBingo.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,48 +14,27 @@ const GooseBingo = () => {
   const [teamTotals, setTeamTotals] = useState([]);
 
   useEffect(() => {
-    const mockData = {
-      results: {
-        Attack: [
-          { points: 25, teamName: 'Bobs', xpGained: 11111, playerName: 'me' },
-          { points: 18, teamName: 'Bobs2', xpGained: 11110, playerName: 'me2' },
-          { points: 15, teamName: 'Bobs3', xpGained: 11109, playerName: 'me3' }
-        ],
-        Defence: [
-          { points: 25, teamName: 'Guardians', xpGained: 22222, playerName: 'defender' },
-          { points: 18, teamName: 'Guardians2', xpGained: 22221, playerName: 'defender2' }
-        ],
-        Strength: [
-          { points: 25, teamName: 'Warriors', xpGained: 33333, playerName: 'strongman' },
-          { points: 18, teamName: 'Warriors2', xpGained: 33332, playerName: 'strongman2' }
-        ]
-      },
-      team_totals: [
-        { teamName: 'Team1', points: 100 },
-        { teamName: 'Team2', points: 98 },
-        { teamName: 'Team3', points: 95 }
-      ]
+    const fetchData = async () => {
+      try {
+        console.log("fetching");
+        const response = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/results');
+        const responseData = response.data;
+        console.log(responseData);
+        setData(responseData);
+        calculateTopPlayers(responseData.results);
+        const teamTotalsArray = Object.keys(responseData.team_totals).map((teamName) => ({
+          teamName,
+          points: responseData.team_totals[teamName]
+        }));
+        teamTotalsArray.sort((a, b) => b.points - a.points); // Sort the array in descending order of points
+        setTeamTotals(teamTotalsArray);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
-    setData(mockData);
-    calculateTopPlayers(mockData.results);
-    setTeamTotals(mockData.team_totals);
+
+    fetchData();
   }, []);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/results');
-  //       const responseData = response.data;
-  //       setData(responseData);
-  //       calculateTopPlayers(responseData.results);
-  //       setTeamTotals(responseData.team_totals);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
 
   const calculateTopPlayers = (results) => {
     const players = [];
@@ -91,8 +71,8 @@ const GooseBingo = () => {
 
   const getIconUrl = (skill) => {
     // Special case for Phosani's Nightmare
-    if (skill === "Phosani's_Nightmare") {
-      skill = "Phosanis_Nightmare";
+    if (skill === "Phosani's Nightmare") {
+      skill = "Phosanis Nightmare";
     }
     return `/resources/osrs_icons/${encodeURIComponent(skill)}.png`;
   };
@@ -241,8 +221,3 @@ const GooseBingo = () => {
 };
 
 export default GooseBingo;
-
-
-
-
- 
