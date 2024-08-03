@@ -23,30 +23,36 @@ const GooseBingo = () => {
         const responseData = response.data;
         setData(responseData);
         calculateTopPlayers(responseData.results);
-
+  
         const sheetResponse = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/fetchSheetData');
         const sheetResponseData = sheetResponse.data.map(category => ({
           ...category,
-          players: category.players.map(player => ({
-            ...player,
-            team: player.team.replace(/'/g, '')
-          }))
+          players: category.players
+            .filter(player => typeof player.team === 'string' && !player.team.includes('"type":"N_A"'))
+            .map(player => ({
+              ...player,
+              team: player.team.replace(/'/g, '')
+            }))
         }));
         setSheetData(sheetResponseData);
-
+  
         // Combine team totals from both data sources
         const combinedTeamTotals = calculateCombinedTeamTotals(responseData, sheetResponseData);
         setTeamTotals(combinedTeamTotals);
-
+  
         console.log('Fetched and processed sheet data:', sheetResponseData); // Debugging
-
+  
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-
+  
     fetchData();
   }, []);
+  
+  
+  
+  
 
   const calculateTopPlayers = (results) => {
     const players = [];
