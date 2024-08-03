@@ -27,7 +27,6 @@ export const templeMap = [
     ["Runecraft", "Runecrafting", 1, 21],
     ["Hunter", "Hunter", 1, 22],
     ["Construction", "Construction", 1, 23],
-    ["Beginner Clue", "Beginner Clues", 1, 26],
     ["Easy Clue", "Easy Clues", 1, 27],
     ["Medium Clue", "Medium Clues", 1, 28],
     ["Hard Clue", "Hard Clues", 2, 29],

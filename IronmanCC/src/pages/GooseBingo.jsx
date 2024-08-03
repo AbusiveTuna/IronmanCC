@@ -39,9 +39,7 @@ const GooseBingo = () => {
         // Combine team totals from both data sources
         const combinedTeamTotals = calculateCombinedTeamTotals(responseData, sheetResponseData);
         setTeamTotals(combinedTeamTotals);
-  
-        console.log('Fetched and processed sheet data:', sheetResponseData); // Debugging
-  
+
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -50,10 +48,6 @@ const GooseBingo = () => {
     fetchData();
   }, []);
   
-  
-  
-  
-
   const calculateTopPlayers = (results) => {
     const players = [];
     for (const skill in results) {
