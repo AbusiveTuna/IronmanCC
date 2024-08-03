@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const GooseBingo = () => {
   const [data, setData] = useState(null);
+  const [sheetData, setSheetData] = useState(null);
   const [skillData, setSkillData] = useState(null);
   const [selectedSkill, setSelectedSkill] = useState('Team Totals');
   const [topPlayers, setTopPlayers] = useState([]);
@@ -16,18 +17,29 @@ const GooseBingo = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("fetching");
         const response = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/results');
         const responseData = response.data;
-        console.log(responseData);
         setData(responseData);
-        calculateTopPlayers(responseData.results);
-        const teamTotalsArray = Object.keys(responseData.team_totals).map((teamName) => ({
-          teamName,
-          points: responseData.team_totals[teamName]
+        calculateTopPlayers(responseData.results); //take this out if we get to standerdize the sheet
+
+        const sheetResponse = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/fetchSheetData');
+        const sheetResponseData = sheetResponse.data.map(category => ({
+          ...category,
+          players: category.players.map(player => ({
+            ...player,
+            team: player.team.replace(/'/g, '')
+          }))
         }));
-        teamTotalsArray.sort((a, b) => b.points - a.points); // Sort the array in descending order of points
-        setTeamTotals(teamTotalsArray);
+        setSheetData(sheetResponseData);
+
+        // Combine team totals from both data sources
+        const combinedTeamTotals = calculateCombinedTeamTotals(responseData, sheetResponseData);
+        setTeamTotals(combinedTeamTotals);
+
+        //if we ever standerdize the names in the stupid sheet
+        // const combinedTopPlayers = calculateTopPlayers(responseData.results, sheetResponseData);
+        // setTopPlayers(combinedTopPlayers);
+
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -36,8 +48,10 @@ const GooseBingo = () => {
     fetchData();
   }, []);
 
-  const calculateTopPlayers = (results) => {
+  const calculateTopPlayers = (results, sheetData) => {
     const players = [];
+
+    // Process results from initial data
     for (const skill in results) {
       results[skill].forEach(player => {
         const existingPlayer = players.find(p => p.playerName === player.playerName);
@@ -48,8 +62,53 @@ const GooseBingo = () => {
         }
       });
     }
+
+    // Process players from sheet data
+    sheetData.forEach(category => {
+      category.players.forEach(player => {
+        const existingPlayer = players.find(p => p.playerName === player.name);
+        if (existingPlayer) {
+          existingPlayer.points += player.points;
+        } else {
+          players.push({ playerName: player.name, teamName: player.team, points: player.points });
+        }
+      });
+    });
+
     const sortedPlayers = players.sort((a, b) => b.points - a.points).slice(0, 10);
-    setTopPlayers(sortedPlayers);
+    return sortedPlayers;
+  };
+
+  const calculateCombinedTeamTotals = (responseData, sheetData) => {
+    const teamPoints = {};
+
+    // Process responseData
+    for (const teamName in responseData.team_totals) {
+      const cleanTeamName = teamName.replace(/'/g, '');
+      if (!teamPoints[cleanTeamName]) {
+        teamPoints[cleanTeamName] = 0;
+      }
+      teamPoints[cleanTeamName] += responseData.team_totals[teamName];
+    }
+
+    // Process sheetData
+    sheetData.forEach(category => {
+      category.players.forEach(player => {
+        if (!teamPoints[player.team]) {
+          teamPoints[player.team] = 0;
+        }
+        teamPoints[player.team] += player.points;
+      });
+    });
+
+    const teamTotalsArray = Object.keys(teamPoints).map(teamName => ({
+      teamName,
+      points: teamPoints[teamName]
+    }));
+
+    teamTotalsArray.sort((a, b) => b.points - a.points);
+
+    return teamTotalsArray;
   };
 
   const handleClick = (skill) => {
