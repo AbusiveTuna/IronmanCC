@@ -8,11 +8,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const GooseBingo = () => {
   const [data, setData] = useState(null);
-  const [sheetData, setSheetData] = useState(null);
+  const [sheetData, setSheetData] = useState([]);
   const [skillData, setSkillData] = useState(null);
   const [selectedSkill, setSelectedSkill] = useState('Team Totals');
   const [topPlayers, setTopPlayers] = useState([]);
   const [teamTotals, setTeamTotals] = useState([]);
+  const [selectedHeader, setSelectedHeader] = useState(null);
+  const [showSheetButtons, setShowSheetButtons] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +37,8 @@ const GooseBingo = () => {
         // Combine team totals from both data sources
         const combinedTeamTotals = calculateCombinedTeamTotals(responseData, sheetResponseData);
         setTeamTotals(combinedTeamTotals);
+
+        console.log('Fetched and processed sheet data:', sheetResponseData); // Debugging
 
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -96,13 +100,25 @@ const GooseBingo = () => {
     if (skill === 'Team Totals') {
       setSkillData(null);
       setSelectedSkill(skill);
+      setSelectedHeader(null);
     } else if (data && data.results) {
       const skillData = data.results[skill];
       setSkillData(skillData);
       setSelectedSkill(skill);
+      setSelectedHeader(null);
     } else {
       console.log('Data not available');
     }
+  };
+
+  const handleHeaderClick = (header) => {
+    setSelectedHeader(header);
+    setSelectedSkill(null);
+    setSkillData(null);
+  };
+
+  const toggleSheetButtons = () => {
+    setShowSheetButtons(!showSheetButtons);
   };
 
   const formatSkillName = (skill) => {
@@ -148,86 +164,135 @@ const GooseBingo = () => {
             </Button>
           </Col>
         ))}
+        <Col xs="auto" className="mb-1 p-1 text-center">
+          <Button
+            variant="outline-secondary"
+            onClick={toggleSheetButtons}
+            className="skill-button"
+          >
+            <span className="button-text">{showSheetButtons ? 'Hide ST' : 'Speed Times'}</span>
+          </Button>
+        </Col>
+        {showSheetButtons && sheetData && sheetData.map((category, index) => (
+          <Col key={index} xs="auto" className="mb-1 p-1 text-center">
+            <Button
+              variant="outline-secondary"
+              onClick={() => handleHeaderClick(category.header)}
+              className="sheet-data-button"
+            >
+              <span className="visually-hidden">{category.header}</span>
+              <div className="button-text">{category.header}</div>
+            </Button>
+          </Col>
+        ))}
       </Row>
       <Row className="justify-content-center">
         <Col xs={12} md={7} className="text-center">
           {selectedSkill === 'Team Totals' ? (
-            <div className="selected-skill-header">
-              <img
-                src={getIconUrl('Total')}
-                alt="Team Totals"
-                className="selected-skill-icon"
-              />
-              <span className="selected-skill-text">Team Totals</span>
-              <img
-                src={getIconUrl('Total')}
-                alt="Team Totals"
-                className="selected-skill-icon"
-              />
+            <div>
+              <div className="selected-skill-header">
+                <img
+                  src={getIconUrl('Total')}
+                  alt="Team Totals"
+                  className="selected-skill-icon"
+                />
+                <span className="selected-skill-text">Team Totals</span>
+                <img
+                  src={getIconUrl('Total')}
+                  alt="Team Totals"
+                  className="selected-skill-icon"
+                />
+              </div>
+              <div className="table-container" data-bs-theme="dark">
+                <Table striped bordered hover className="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Place</th>
+                      <th>Team</th>
+                      <th>Points</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {teamTotals.map((team, index) => (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{team.teamName}</td>
+                        <td>{team.points}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
             </div>
           ) : selectedSkill && (
-            <div className="selected-skill-header">
-              <img
-                src={getIconUrl(selectedSkill)}
-                alt={selectedSkill}
-                className="selected-skill-icon"
-              />
-              <span className="selected-skill-text">{formatSkillName(selectedSkill)}</span>
-              <img
-                src={getIconUrl(selectedSkill)}
-                alt={selectedSkill}
-                className="selected-skill-icon"
-              />
+            <div>
+              <div className="selected-skill-header">
+                <img
+                  src={getIconUrl(selectedSkill)}
+                  alt={selectedSkill}
+                  className="selected-skill-icon"
+                />
+                <span className="selected-skill-text">{formatSkillName(selectedSkill)}</span>
+                <img
+                  src={getIconUrl(selectedSkill)}
+                  alt={selectedSkill}
+                  className="selected-skill-icon"
+                />
+              </div>
+              <div className="table-container" data-bs-theme="dark">
+                <Table striped bordered hover className="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Place</th>
+                      <th>Player</th>
+                      <th>Gain</th>
+                      <th>Team</th>
+                      <th>Points</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {skillData.map((player, index) => (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{player.playerName}</td>
+                        <td>{player.xpGained}</td>
+                        <td>{player.teamName}</td>
+                        <td>{player.points}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
             </div>
           )}
-          {selectedSkill === 'Team Totals' ? (
-            <div className="table-container" data-bs-theme="dark">
-              <Table striped bordered hover className="custom-table">
-                <thead>
-                  <tr>
-                    <th>Place</th>
-                    <th>Team</th>
-                    <th>Points</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {teamTotals.map((team, index) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>{team.teamName}</td>
-                      <td>{team.points}</td>
+          {selectedHeader && (
+            <div>
+              <div className="selected-skill-header">
+                <span className="selected-skill-text">{selectedHeader}</span>
+              </div>
+              <div className="table-container" data-bs-theme="dark">
+                <Table striped bordered hover className="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Player</th>
+                      <th>Team</th>
+                      <th>Value</th>
+                      <th>Points</th>
                     </tr>
-                  ))}
-                </tbody>
-              </Table>
+                  </thead>
+                  <tbody>
+                    {sheetData.find(category => category.header === selectedHeader).players.map((player, index) => (
+                      <tr key={index}>
+                        <td>{player.name}</td>
+                        <td>{player.team}</td>
+                        <td>{player.value}</td>
+                        <td>{player.points}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
             </div>
-          ) : skillData ? (
-            <div className="table-container" data-bs-theme="dark">
-              <Table striped bordered hover className="custom-table">
-                <thead>
-                  <tr>
-                    <th>Place</th>
-                    <th>Player</th>
-                    <th>Gain</th>
-                    <th>Team</th>
-                    <th>Points</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {skillData.map((player, index) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>{player.playerName}</td>
-                      <td>{player.xpGained}</td>
-                      <td>{player.teamName}</td>
-                      <td>{player.points}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </div>
-          ) : (
-            <p>Click a button to view the skill data.</p>
           )}
         </Col>
         <Col xs={12} md={5} className="text-center">
