@@ -39,7 +39,6 @@ const GooseBingo = () => {
         calculateTopPlayers(responseData.results);
         calculateCombinedTopPlayers(responseData.results, sheetResponseData);
   
-        // Combine team totals from both data sources
         const combinedTeamTotals = calculateCombinedTeamTotals(responseData, sheetResponseData);
         setTeamTotals(combinedTeamTotals);
 
@@ -240,7 +239,7 @@ const GooseBingo = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {teamTotals.map((team, index) => (
+                    {teamTotals.slice(0, 10).map((team, index) => (
                       <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{team.teamName}</td>
@@ -278,7 +277,7 @@ const GooseBingo = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {skillData.map((player, index) => (
+                    {skillData.slice(0, 10).map((player, index) => (
                       <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{player.playerName}</td>
@@ -308,7 +307,7 @@ const GooseBingo = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {sheetData.find(category => category.header === selectedHeader).players.map((player, index) => (
+                    {sheetData.find(category => category.header === selectedHeader).players.slice(0, 10).map((player, index) => (
                       <tr key={index}>
                         <td>{player.name}</td>
                         <td>{player.team}</td>
@@ -336,7 +335,7 @@ const GooseBingo = () => {
                 </tr>
               </thead>
               <tbody>
-                {(showSheetButtons ? combinedTopPlayers : topPlayers).map((player, index) => (
+                {(showSheetButtons ? combinedTopPlayers : topPlayers).slice(0, 10).map((player, index) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{player.playerName}</td>
