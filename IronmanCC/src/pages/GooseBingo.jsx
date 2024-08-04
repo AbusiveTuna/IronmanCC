@@ -12,6 +12,7 @@ const GooseBingo = () => {
   const [skillData, setSkillData] = useState(null);
   const [selectedSkill, setSelectedSkill] = useState('Team Totals');
   const [topPlayers, setTopPlayers] = useState([]);
+  const [combinedTopPlayers, setCombinedTopPlayers] = useState([]);
   const [teamTotals, setTeamTotals] = useState([]);
   const [selectedHeader, setSelectedHeader] = useState(null);
   const [showSheetButtons, setShowSheetButtons] = useState(false);
@@ -22,7 +23,6 @@ const GooseBingo = () => {
         const response = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/results');
         const responseData = response.data;
         setData(responseData);
-        calculateTopPlayers(responseData.results);
   
         const sheetResponse = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/fetchSheetData');
         const sheetResponseData = sheetResponse.data.map(category => ({
@@ -35,6 +35,9 @@ const GooseBingo = () => {
             }))
         }));
         setSheetData(sheetResponseData);
+  
+        calculateTopPlayers(responseData.results);
+        calculateCombinedTopPlayers(responseData.results, sheetResponseData);
   
         // Combine team totals from both data sources
         const combinedTeamTotals = calculateCombinedTeamTotals(responseData, sheetResponseData);
@@ -62,6 +65,35 @@ const GooseBingo = () => {
     }
     const sortedPlayers = players.sort((a, b) => b.points - a.points).slice(0, 10);
     setTopPlayers(sortedPlayers);
+  };
+
+  const calculateCombinedTopPlayers = (results, sheetData) => {
+    const players = [];
+    const addPlayer = (player, points) => {
+      const existingPlayer = players.find(p => p.playerName.toLowerCase() === player.toLowerCase());
+      if (existingPlayer) {
+        existingPlayer.points += points;
+      } else {
+        players.push({ playerName: player, points });
+      }
+    };
+
+    // Process results data
+    for (const skill in results) {
+      results[skill].forEach(player => {
+        addPlayer(player.playerName, player.points);
+      });
+    }
+
+    // Process sheet data
+    sheetData.forEach(category => {
+      category.players.forEach(player => {
+        addPlayer(player.name, player.points);
+      });
+    });
+
+    const sortedPlayers = players.sort((a, b) => b.points - a.points).slice(0, 10);
+    setCombinedTopPlayers(sortedPlayers);
   };
 
   const calculateCombinedTeamTotals = (responseData, sheetResponseData) => {
@@ -309,7 +341,7 @@ const GooseBingo = () => {
                 </tr>
               </thead>
               <tbody>
-                {topPlayers.map((player, index) => (
+                {(showSheetButtons ? combinedTopPlayers : topPlayers).map((player, index) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{player.playerName}</td>
