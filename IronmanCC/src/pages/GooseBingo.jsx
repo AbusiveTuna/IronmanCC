@@ -78,14 +78,12 @@ const GooseBingo = () => {
       }
     };
 
-    // Process results data
     for (const skill in results) {
       results[skill].forEach(player => {
         addPlayer(player.playerName, player.points);
       });
     }
 
-    // Process sheet data
     sheetData.forEach(category => {
       category.players.forEach(player => {
         addPlayer(player.name, player.points);
@@ -99,7 +97,6 @@ const GooseBingo = () => {
   const calculateCombinedTeamTotals = (responseData, sheetResponseData) => {
     const teamPoints = {};
 
-    // Process responseData
     for (const teamName in responseData.team_totals) {
       const cleanTeamName = teamName.replace(/'/g, '');
       if (!teamPoints[cleanTeamName]) {
@@ -108,7 +105,6 @@ const GooseBingo = () => {
       teamPoints[cleanTeamName] += responseData.team_totals[teamName];
     }
 
-    // Process sheetData
     sheetResponseData.forEach(category => {
       category.players.forEach(player => {
         if (!teamPoints[player.team]) {
@@ -158,7 +154,6 @@ const GooseBingo = () => {
   };
 
   const getIconUrl = (skill) => {
-    // Special case for Phosani's Nightmare
     if (skill === "Phosani's Nightmare") {
       skill = "Phosanis Nightmare";
     }
