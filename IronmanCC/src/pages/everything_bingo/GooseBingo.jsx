@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Table, Container, Row, Col } from 'react-bootstrap';
-import { templeMap } from '../common/templeMap';
+import { templeMap } from '../../common/templeMap';
 import axios from 'axios';
-import './css/GooseBingo.css';
+import './GooseBingo.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -10,12 +10,18 @@ const GooseBingo = () => {
   const [data, setData] = useState(null);
   const [sheetData, setSheetData] = useState([]);
   const [skillData, setSkillData] = useState(null);
-  const [selectedSkill, setSelectedSkill] = useState('Team Totals');
+  const [selectedSkill, setSelectedSkill] = useState('Combined Totals');
   const [topPlayers, setTopPlayers] = useState([]);
   const [combinedTopPlayers, setCombinedTopPlayers] = useState([]);
   const [teamTotals, setTeamTotals] = useState([]);
   const [selectedHeader, setSelectedHeader] = useState(null);
   const [showSheetButtons, setShowSheetButtons] = useState(false);
+
+  const skillDisplayNames = {
+    'Combined Totals': 'Combined Totals',
+    'Data Totals': 'KC/Xp Totals',
+    'Sheet Totals': 'Speedruns & Clues'
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +29,7 @@ const GooseBingo = () => {
         const response = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/results');
         const responseData = response.data;
         setData(responseData);
-  
+
         const sheetResponse = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/fetchSheetData');
         const sheetResponseData = sheetResponse.data.map(category => ({
           ...category,
@@ -35,10 +41,10 @@ const GooseBingo = () => {
             }))
         }));
         setSheetData(sheetResponseData);
-  
+
         calculateTopPlayers(responseData.results);
         calculateCombinedTopPlayers(responseData.results, sheetResponseData);
-  
+
         const combinedTeamTotals = calculateCombinedTeamTotals(responseData, sheetResponseData);
         setTeamTotals(combinedTeamTotals);
 
@@ -46,10 +52,10 @@ const GooseBingo = () => {
         console.error('Error fetching data:', error);
       }
     };
-  
+
     fetchData();
   }, []);
-  
+
   const calculateTopPlayers = (results) => {
     const players = [];
     for (const skill in results) {
@@ -68,24 +74,24 @@ const GooseBingo = () => {
 
   const calculateCombinedTopPlayers = (results, sheetData) => {
     const players = [];
-    const addPlayer = (player, points) => {
+    const addPlayer = (player, points, team) => {
       const existingPlayer = players.find(p => p.playerName.toLowerCase() === player.toLowerCase());
       if (existingPlayer) {
         existingPlayer.points += points;
       } else {
-        players.push({ playerName: player, points });
+        players.push({ playerName: player, points, team });
       }
     };
 
     for (const skill in results) {
       results[skill].forEach(player => {
-        addPlayer(player.playerName, player.points);
+        addPlayer(player.playerName, player.points, player.teamName);
       });
     }
 
     sheetData.forEach(category => {
       category.players.forEach(player => {
-        addPlayer(player.name, player.points);
+        addPlayer(player.name, player.points, player.team);
       });
     });
 
@@ -123,11 +129,65 @@ const GooseBingo = () => {
     return teamTotalsArray;
   };
 
+  const calculateDataTeamTotals = (responseData) => {
+    const teamPoints = {};
+
+    for (const teamName in responseData.team_totals) {
+      const cleanTeamName = teamName.replace(/'/g, '');
+      if (!teamPoints[cleanTeamName]) {
+        teamPoints[cleanTeamName] = 0;
+      }
+      teamPoints[cleanTeamName] += responseData.team_totals[teamName];
+    }
+
+    const teamTotalsArray = Object.keys(teamPoints).map(teamName => ({
+      teamName,
+      points: teamPoints[teamName]
+    }));
+
+    teamTotalsArray.sort((a, b) => b.points - a.points);
+
+    return teamTotalsArray;
+  };
+
+  const calculateSheetDataTeamTotals = (sheetResponseData) => {
+    const teamPoints = {};
+
+    sheetResponseData.forEach(category => {
+      category.players.forEach(player => {
+        if (!teamPoints[player.team]) {
+          teamPoints[player.team] = 0;
+        }
+        teamPoints[player.team] += player.points;
+      });
+    });
+
+    const teamTotalsArray = Object.keys(teamPoints).map(teamName => ({
+      teamName,
+      points: teamPoints[teamName]
+    }));
+
+    teamTotalsArray.sort((a, b) => b.points - a.points);
+
+    return teamTotalsArray;
+  };
+
   const handleClick = (skill) => {
-    if (skill === 'Team Totals') {
+    if (skill === 'Combined Totals') {
       setSkillData(null);
       setSelectedSkill(skill);
       setSelectedHeader(null);
+      setTeamTotals(calculateCombinedTeamTotals(data, sheetData));
+    } else if (skill === 'Data Totals') {
+      setSkillData(null);
+      setSelectedSkill(skill);
+      setSelectedHeader(null);
+      setTeamTotals(calculateDataTeamTotals(data));
+    } else if (skill === 'Sheet Totals') {
+      setSkillData(null);
+      setSelectedSkill(skill);
+      setSelectedHeader(null);
+      setTeamTotals(calculateSheetDataTeamTotals(sheetData));
     } else if (data && data.results) {
       const skillData = data.results[skill];
       setSkillData(skillData);
@@ -165,13 +225,39 @@ const GooseBingo = () => {
         <Col xs="auto" className="mb-1 p-1 text-center">
           <Button
             variant="outline-primary"
-            onClick={() => handleClick('Team Totals')}
+            onClick={() => handleClick('Combined Totals')}
             className="skill-button"
           >
-            <span className="visually-hidden">Team Totals</span>
+            <span className="visually-hidden">Combined Totals</span>
             <div
               className="button-background"
-              style={{ backgroundImage: `url(${getIconUrl('Total')})` }}
+              style={{ backgroundImage: `url(${getIconUrl('Combined Totals')})` }}
+            />
+          </Button>
+        </Col>
+        <Col xs="auto" className="mb-1 p-1 text-center">
+          <Button
+            variant="outline-primary"
+            onClick={() => handleClick('Data Totals')}
+            className="skill-button"
+          >
+            <span className="visually-hidden">KC/Xp Totals</span>
+            <div
+              className="button-background"
+              style={{ backgroundImage: `url(${getIconUrl('Data Totals')})` }}
+            />
+          </Button>
+        </Col>
+        <Col xs="auto" className="mb-1 p-1 text-center">
+          <Button
+            variant="outline-primary"
+            onClick={() => handleClick('Sheet Totals')}
+            className="skill-button"
+          >
+            <span className="visually-hidden">Speedruns & Clues</span>
+            <div
+              className="button-background"
+              style={{ backgroundImage: `url(${getIconUrl('Sheet Totals')})` }}
             />
           </Button>
         </Col>
@@ -192,17 +278,17 @@ const GooseBingo = () => {
         ))}
         <Col xs="auto" className="mb-1 p-1 text-center">
           <Button
-            variant="outline-secondary"
+            variant="outline-primary"
             onClick={toggleSheetButtons}
             className="skill-button"
           >
             <span className="button-text">{showSheetButtons ? 'Hide ST' : 'Speed Times'}</span>
           </Button>
         </Col>
-        {showSheetButtons && sheetData && sheetData.map((category, index) => (
+        {showSheetButtons && sheetData && sheetData.sort((a, b) => a.header.localeCompare(b.header)).map((category, index) => (
           <Col key={index} xs="auto" className="mb-1 p-1 text-center">
             <Button
-              variant="outline-secondary"
+              variant="outline-primary"
               onClick={() => handleHeaderClick(category.header)}
               className="sheet-data-button"
             >
@@ -214,18 +300,18 @@ const GooseBingo = () => {
       </Row>
       <Row className="justify-content-center">
         <Col xs={12} md={7} className="text-center">
-          {selectedSkill === 'Team Totals' ? (
+          {selectedSkill && selectedSkill.includes('Totals') && (
             <div>
               <div className="selected-skill-header">
                 <img
-                  src={getIconUrl('Total')}
-                  alt="Team Totals"
+                  src={getIconUrl(selectedSkill)}
+                  alt={selectedSkill}
                   className="selected-skill-icon"
                 />
-                <span className="selected-skill-text">Team Totals</span>
+                <span className="selected-skill-text">{skillDisplayNames[selectedSkill]}</span>
                 <img
-                  src={getIconUrl('Total')}
-                  alt="Team Totals"
+                  src={getIconUrl(selectedSkill)}
+                  alt={selectedSkill}
                   className="selected-skill-icon"
                 />
               </div>
@@ -250,7 +336,8 @@ const GooseBingo = () => {
                 </Table>
               </div>
             </div>
-          ) : selectedSkill && (
+          )}
+          {selectedSkill && !selectedSkill.includes('Totals') && (
             <div>
               <div className="selected-skill-header">
                 <img
@@ -331,6 +418,7 @@ const GooseBingo = () => {
                 <tr>
                   <th>Place</th>
                   <th>Player</th>
+                  <th>Team</th>
                   <th>Points</th>
                 </tr>
               </thead>
@@ -339,6 +427,7 @@ const GooseBingo = () => {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{player.playerName}</td>
+                    <td>{player.teamName || player.team}</td>
                     <td>{player.points}</td>
                   </tr>
                 ))}

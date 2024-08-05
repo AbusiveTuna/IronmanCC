@@ -6,7 +6,7 @@ import JustenMeme from './pages/JustenMeme';
 import PreviousEvents from './pages/PreviousEvents';
 import PaintEvent from './pages/PaintEvent';
 import OsrsQuiz from './pages/OsrsQuiz';
-import GooseBingo from './pages/GooseBingo';
+import GooseBingo from './pages/everything_bingo/GooseBingo';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css'
