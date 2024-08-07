@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Table, Container, Row, Col } from 'react-bootstrap';
+import { Button, Table, Container, Row, Col, FormControl, InputGroup } from 'react-bootstrap';
 import { templeMap } from '../../common/templeMap';
 import fetchTempleData from '../../hooks/fetchTempleData';
 import axios from 'axios';
@@ -17,6 +17,7 @@ const GooseBingo = () => {
   const [teamTotals, setTeamTotals] = useState([]);
   const [selectedHeader, setSelectedHeader] = useState(null);
   const [showSheetButtons, setShowSheetButtons] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const skillDisplayNames = {
     'Combined Totals': 'Combined Totals',
@@ -71,8 +72,8 @@ const GooseBingo = () => {
         }
       });
     }
-    const sortedPlayers = players.sort((a, b) => b.points - a.points).slice(0, 10);
-    setTopPlayers(sortedPlayers);
+    players.sort((a, b) => b.points - a.points);
+    setTopPlayers(players);
   };
 
   const calculateCombinedTopPlayers = (results, sheetData) => {
@@ -105,8 +106,8 @@ const GooseBingo = () => {
       });
     });
 
-    const sortedPlayers = players.sort((a, b) => b.points - a.points).slice(0, 10);
-    setCombinedTopPlayers(sortedPlayers);
+    players.sort((a, b) => b.points - a.points);
+    setCombinedTopPlayers(players);
   };
 
   const calculateCombinedTeamTotals = (responseData, sheetResponseData) => {
@@ -233,6 +234,14 @@ const GooseBingo = () => {
     }
     return `/resources/osrs_icons/${encodeURIComponent(skill)}.png`;
   };
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredPlayers = topPlayers.filter(player =>
+    player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <Container className="bingo-container" fluid>
@@ -441,9 +450,9 @@ const GooseBingo = () => {
                 </tr>
               </thead>
               <tbody>
-                {(showSheetButtons ? combinedTopPlayers : topPlayers).slice(0, 10).map((player, index) => (
+                {(showSheetButtons ? combinedTopPlayers : filteredPlayers).slice(0, 10).map((player, index) => (
                   <tr key={index}>
-                    <td>{index + 1}</td>
+                    <td>{topPlayers.findIndex(p => p.playerName === player.playerName) + 1}</td>
                     <td>{player.playerName}</td>
                     <td>{player.teamName || player.team}</td>
                     <td>{player.points}</td>
@@ -453,12 +462,19 @@ const GooseBingo = () => {
               </tbody>
             </Table>
           </div>
+          <InputGroup className="mt-3 search-bar">
+            <FormControl
+              type="text"
+              placeholder="Search player..."
+              value={searchTerm}
+              onChange={handleSearch}
+            />
+          </InputGroup>
         </Col>
-
       </Row>
     </Container>
-
   );
+  
 };
 
 export default GooseBingo;
