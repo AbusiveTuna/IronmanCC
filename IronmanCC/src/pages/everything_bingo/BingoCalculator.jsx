@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import fetchTempleData from '../../hooks/fetchTempleData';
 import usePointDisplacement from './usePointDisplacement';
 import { Table, Container, Row, Col, Form } from 'react-bootstrap';
+import { templeMap } from '../../common/templeMap';
 import './BingoCalculator.css';
 
 const BingoCalculator = () => {
@@ -54,7 +55,9 @@ const BingoCalculator = () => {
   };
 
   const handlePointsChange = (event) => {
-    const value = parseInt(event.target.value, 10);
+    let value = parseInt(event.target.value, 10);
+    if (value < 10) value = 10;
+    if (value > 25) value = 25;
     setPointsThreshold(value);
   };
 
@@ -70,7 +73,7 @@ const BingoCalculator = () => {
     let sortableItems = [];
     Object.keys(displayData).forEach((category) => {
       groupByPoints(displayData[category]).forEach((entry) => {
-        sortableItems.push({ category, ...entry });
+        sortableItems.push({ category, ...entry, hours: calculateHours(category, entry.xpGainNeeded) });
       });
     });
 
@@ -106,6 +109,15 @@ const BingoCalculator = () => {
     const sortedData = Object.values(groupedData).sort((a, b) => b.pointsGained - a.pointsGained);
 
     return sortedData;
+  };
+
+  const calculateHours = (category, xpGainNeeded) => {
+    const rateEntry = templeMap.find(([name]) => name === category);
+    const rate = rateEntry ? rateEntry[4] : 0;
+    if (rate === 0 || xpGainNeeded === undefined) {
+      return 'N/A';
+    }
+    return (xpGainNeeded / rate).toFixed(2);
   };
 
   return (
@@ -146,6 +158,7 @@ const BingoCalculator = () => {
               <th onClick={() => requestSort('places')}>Place(s)</th>
               <th onClick={() => requestSort('pointsGained')}>Points Gained</th>
               <th onClick={() => requestSort('xpGainNeeded')}>XP Gain Needed</th>
+              <th onClick={() => requestSort('hours')}>Hours</th>
             </tr>
           </thead>
           <tbody>
@@ -155,6 +168,7 @@ const BingoCalculator = () => {
                 <td>{entry.places.join(', ')}</td>
                 <td>{entry.pointsGained}</td>
                 <td>{entry.xpGainNeeded || 'N/A'}</td>
+                <td>{entry.hours}</td>
               </tr>
             ))}
           </tbody>
