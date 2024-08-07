@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Table, Container, Row, Col } from 'react-bootstrap';
 import { templeMap } from '../../common/templeMap';
+import fetchTempleData from '../../hooks/fetchTempleData';
 import axios from 'axios';
 import './GooseBingo.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const GooseBingo = () => {
-  const [data, setData] = useState(null);
+  const data = fetchTempleData();
   const [sheetData, setSheetData] = useState([]);
   const [skillData, setSkillData] = useState(null);
   const [selectedSkill, setSelectedSkill] = useState('Combined Totals');
@@ -24,37 +25,35 @@ const GooseBingo = () => {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/results');
-        const responseData = response.data;
-        setData(responseData);
+    if (data) {
+      const fetchSheetData = async () => {
+        try {
+          const sheetResponse = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/fetchSheetData');
+          const sheetResponseData = sheetResponse.data.map(category => ({
+            ...category,
+            players: category.players
+              .filter(player => typeof player.team === 'string' && !player.team.includes('"type":"N_A"'))
+              .map(player => ({
+                ...player,
+                team: player.team.replace(/'/g, '')
+              }))
+          }));
+          setSheetData(sheetResponseData);
 
-        const sheetResponse = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/fetchSheetData');
-        const sheetResponseData = sheetResponse.data.map(category => ({
-          ...category,
-          players: category.players
-            .filter(player => typeof player.team === 'string' && !player.team.includes('"type":"N_A"'))
-            .map(player => ({
-              ...player,
-              team: player.team.replace(/'/g, '')
-            }))
-        }));
-        setSheetData(sheetResponseData);
+          calculateTopPlayers(data.results);
+          calculateCombinedTopPlayers(data.results, sheetResponseData);
 
-        calculateTopPlayers(responseData.results);
-        calculateCombinedTopPlayers(responseData.results, sheetResponseData);
+          const combinedTeamTotals = calculateCombinedTeamTotals(data, sheetResponseData);
+          setTeamTotals(combinedTeamTotals);
 
-        const combinedTeamTotals = calculateCombinedTeamTotals(responseData, sheetResponseData);
-        setTeamTotals(combinedTeamTotals);
+        } catch (error) {
+          console.error('Error fetching sheet data:', error);
+        }
+      };
 
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+      fetchSheetData();
+    }
+  }, [data]);
 
   const calculateTopPlayers = (results) => {
     const players = [];
@@ -437,6 +436,7 @@ const GooseBingo = () => {
         </Col>
       </Row>
     </Container>
+    
   );
 };
 

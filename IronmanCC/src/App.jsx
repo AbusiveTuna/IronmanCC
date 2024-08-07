@@ -7,6 +7,7 @@ import PreviousEvents from './pages/PreviousEvents';
 import PaintEvent from './pages/PaintEvent';
 import OsrsQuiz from './pages/OsrsQuiz';
 import GooseBingo from './pages/everything_bingo/GooseBingo';
+import BingoCalculator from './pages/everything_bingo/BingoCalculator';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css'
@@ -24,6 +25,7 @@ function App() {
         <Route path="/runerdle" element={<Runerdle />} />
         <Route path="/paintEvent" element={<PaintEvent />} />
         <Route path="/gooseBingo" element={<GooseBingo />} />
+        <Route path="/superSecret" element={<BingoCalculator />} />
       </Routes>
 
       <Footer />
