@@ -59,11 +59,15 @@ const GooseBingo = () => {
     const players = [];
     for (const skill in results) {
       results[skill].forEach(player => {
+        const rateEntry = templeMap.find(([name]) => name === skill);
+        const rate = rateEntry ? rateEntry[4] : 0;
+        const efficiency = rate ? (player.xpGained / rate) : 0;
         const existingPlayer = players.find(p => p.playerName === player.playerName);
         if (existingPlayer) {
           existingPlayer.points += player.points;
+          existingPlayer.efficiency += efficiency;
         } else {
-          players.push({ ...player });
+          players.push({ ...player, efficiency });
         }
       });
     }
@@ -73,24 +77,31 @@ const GooseBingo = () => {
 
   const calculateCombinedTopPlayers = (results, sheetData) => {
     const players = [];
-    const addPlayer = (player, points, team) => {
+    const addPlayer = (player, points, team, efficiency) => {
       const existingPlayer = players.find(p => p.playerName.toLowerCase() === player.toLowerCase());
       if (existingPlayer) {
         existingPlayer.points += points;
+        existingPlayer.efficiency += efficiency;
       } else {
-        players.push({ playerName: player, points, team });
+        players.push({ playerName: player, points, team, efficiency });
       }
     };
 
     for (const skill in results) {
       results[skill].forEach(player => {
-        addPlayer(player.playerName, player.points, player.teamName);
+        const rateEntry = templeMap.find(([name]) => name === skill);
+        const rate = rateEntry ? rateEntry[4] : 0;
+        const efficiency = rate ? (player.xpGained / rate) : 0;
+        addPlayer(player.playerName, player.points, player.teamName, efficiency);
       });
     }
 
     sheetData.forEach(category => {
       category.players.forEach(player => {
-        addPlayer(player.name, player.points, player.team);
+        const rateEntry = templeMap.find(([name]) => name === category.header);
+        const rate = rateEntry ? rateEntry[4] : 0;
+        const efficiency = rate ? (player.value / rate) : 0;
+        addPlayer(player.name, player.points, player.team, efficiency);
       });
     });
 
@@ -188,7 +199,12 @@ const GooseBingo = () => {
       setSelectedHeader(null);
       setTeamTotals(calculateSheetDataTeamTotals(sheetData));
     } else if (data && data.results) {
-      const skillData = data.results[skill];
+      const skillData = data.results[skill].map(player => {
+        const rateEntry = templeMap.find(([name]) => name === skill);
+        const rate = rateEntry ? rateEntry[4] : 0;
+        const efficiency = rate ? (player.xpGained / rate) : 0;
+        return { ...player, efficiency };
+      });
       setSkillData(skillData);
       setSelectedSkill(skill);
       setSelectedHeader(null);
@@ -360,6 +376,7 @@ const GooseBingo = () => {
                       <th>Gain</th>
                       <th>Team</th>
                       <th>Points</th>
+                      <th>EHP/EHB</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -370,6 +387,7 @@ const GooseBingo = () => {
                         <td>{player.xpGained}</td>
                         <td>{player.teamName}</td>
                         <td>{player.points}</td>
+                        <td>{player.efficiency.toFixed(2)}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -419,6 +437,7 @@ const GooseBingo = () => {
                   <th>Player</th>
                   <th>Team</th>
                   <th>Points</th>
+                  {!showSheetButtons && <th>EHP/EHB</th>}
                 </tr>
               </thead>
               <tbody>
@@ -428,15 +447,17 @@ const GooseBingo = () => {
                     <td>{player.playerName}</td>
                     <td>{player.teamName || player.team}</td>
                     <td>{player.points}</td>
+                    {!showSheetButtons && <td>{player.efficiency.toFixed(2)}</td>}
                   </tr>
                 ))}
               </tbody>
             </Table>
           </div>
         </Col>
+
       </Row>
     </Container>
-    
+
   );
 };
 
