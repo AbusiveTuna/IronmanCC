@@ -4,7 +4,7 @@
 */
 
 export const templeMap = [
-    ["Overall", "Overall", 1, 0,400000],
+    ["Overall", "Overall", 1, 0,0],
     ["Attack", "Attack", 1, 1,150000],
     ["Defence", "Defence", 1, 2,150000],
     ["Strength", "Strength", 1, 3,150000],

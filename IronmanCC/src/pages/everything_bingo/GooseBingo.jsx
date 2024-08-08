@@ -1,23 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Table, Container, Row, Col, FormControl, InputGroup } from 'react-bootstrap';
-import { templeMap } from '../../common/templeMap';
+import { Button, Container, Row, Col, FormControl, InputGroup } from 'react-bootstrap';
 import fetchTempleData from '../../hooks/fetchTempleData';
-import axios from 'axios';
+import { templeMap } from '../../common/templeMap';
 import './GooseBingo.css';
-
+import { calculateCombinedTeamTotals, calculateDataTeamTotals, calculateSheetDataTeamTotals, calculateRanks } from './bingoUtils';
+import SkillButtons from './SkillButtons';
+import fetchSheetData from '../../hooks/fetchSheetData';
+import SelectedSkillHeader from './SelectedSkillHeader';
+import TableManager from './TableManager';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const GooseBingo = () => {
   const data = fetchTempleData();
-  const [sheetData, setSheetData] = useState([]);
+  const { sheetData, topPlayers, combinedTopPlayers } = fetchSheetData(data);
   const [skillData, setSkillData] = useState(null);
   const [selectedSkill, setSelectedSkill] = useState('Combined Totals');
-  const [topPlayers, setTopPlayers] = useState([]);
-  const [combinedTopPlayers, setCombinedTopPlayers] = useState([]);
   const [teamTotals, setTeamTotals] = useState([]);
   const [selectedHeader, setSelectedHeader] = useState(null);
   const [showSheetButtons, setShowSheetButtons] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+
+  useEffect(() => {
+    if (data && sheetData.length > 0) {
+      setTeamTotals(calculateCombinedTeamTotals(data, sheetData));
+    }
+  }, [data, sheetData]);
 
   const skillDisplayNames = {
     'Combined Totals': 'Combined Totals',
@@ -25,171 +32,12 @@ const GooseBingo = () => {
     'Sheet Totals': 'Speedruns & Clues'
   };
 
-  useEffect(() => {
-    if (data) {
-      const fetchSheetData = async () => {
-        try {
-          const sheetResponse = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/fetchSheetData');
-          const sheetResponseData = sheetResponse.data.map(category => ({
-            ...category,
-            players: category.players
-              .filter(player => typeof player.team === 'string' && !player.team.includes('"type":"N_A"'))
-              .map(player => ({
-                ...player,
-                team: player.team.replace(/'/g, '')
-              }))
-          }));
-          setSheetData(sheetResponseData);
-
-          calculateTopPlayers(data.results);
-          calculateCombinedTopPlayers(data.results, sheetResponseData);
-
-          const combinedTeamTotals = calculateCombinedTeamTotals(data, sheetResponseData);
-          setTeamTotals(combinedTeamTotals);
-
-        } catch (error) {
-          console.error('Error fetching sheet data:', error);
-        }
-      };
-
-      fetchSheetData();
-    }
-  }, [data]);
-
-  const calculateTopPlayers = (results) => {
-    const players = [];
-    for (const skill in results) {
-      results[skill].forEach(player => {
-        const rateEntry = templeMap.find(([name]) => name === skill);
-        const rate = rateEntry ? rateEntry[4] : 0;
-        const efficiency = rate ? (player.xpGained / rate) : 0;
-        const existingPlayer = players.find(p => p.playerName === player.playerName);
-        if (existingPlayer) {
-          existingPlayer.points += player.points;
-          existingPlayer.efficiency += efficiency;
-        } else {
-          players.push({ ...player, efficiency });
-        }
-      });
-    }
-    players.sort((a, b) => b.points - a.points);
-    setTopPlayers(players);
-  };
-
-  const calculateCombinedTopPlayers = (results, sheetData) => {
-    const players = [];
-    const addPlayer = (player, points, team, efficiency) => {
-      const existingPlayer = players.find(p => p.playerName.toLowerCase() === player.toLowerCase());
-      if (existingPlayer) {
-        existingPlayer.points += points;
-        existingPlayer.efficiency += efficiency;
-      } else {
-        players.push({ playerName: player, points, team, efficiency });
-      }
-    };
-
-    for (const skill in results) {
-      results[skill].forEach(player => {
-        const rateEntry = templeMap.find(([name]) => name === skill);
-        const rate = rateEntry ? rateEntry[4] : 0;
-        const efficiency = rate ? (player.xpGained / rate) : 0;
-        addPlayer(player.playerName, player.points, player.teamName, efficiency);
-      });
-    }
-
-    sheetData.forEach(category => {
-      category.players.forEach(player => {
-        const rateEntry = templeMap.find(([name]) => name === category.header);
-        const rate = rateEntry ? rateEntry[4] : 0;
-        const efficiency = rate ? (player.value / rate) : 0;
-        addPlayer(player.name, player.points, player.team, efficiency);
-      });
-    });
-
-    players.sort((a, b) => b.points - a.points);
-    setCombinedTopPlayers(players);
-  };
-
-  const calculateCombinedTeamTotals = (responseData, sheetResponseData) => {
-    const teamPoints = {};
-
-    for (const teamName in responseData.team_totals) {
-      const cleanTeamName = teamName.replace(/'/g, '');
-      if (!teamPoints[cleanTeamName]) {
-        teamPoints[cleanTeamName] = 0;
-      }
-      teamPoints[cleanTeamName] += responseData.team_totals[teamName];
-    }
-
-    sheetResponseData.forEach(category => {
-      category.players.forEach(player => {
-        if (!teamPoints[player.team]) {
-          teamPoints[player.team] = 0;
-        }
-        teamPoints[player.team] += player.points;
-      });
-    });
-
-    const teamTotalsArray = Object.keys(teamPoints).map(teamName => ({
-      teamName,
-      points: teamPoints[teamName]
-    }));
-
-    teamTotalsArray.sort((a, b) => b.points - a.points);
-
-    return teamTotalsArray;
-  };
-
-  const calculateDataTeamTotals = (responseData) => {
-    const teamPoints = {};
-
-    for (const teamName in responseData.team_totals) {
-      const cleanTeamName = teamName.replace(/'/g, '');
-      if (!teamPoints[cleanTeamName]) {
-        teamPoints[cleanTeamName] = 0;
-      }
-      teamPoints[cleanTeamName] += responseData.team_totals[teamName];
-    }
-
-    const teamTotalsArray = Object.keys(teamPoints).map(teamName => ({
-      teamName,
-      points: teamPoints[teamName]
-    }));
-
-    teamTotalsArray.sort((a, b) => b.points - a.points);
-
-    return teamTotalsArray;
-  };
-
-  const calculateSheetDataTeamTotals = (sheetResponseData) => {
-    const teamPoints = {};
-
-    sheetResponseData.forEach(category => {
-      category.players.forEach(player => {
-        if (!teamPoints[player.team]) {
-          teamPoints[player.team] = 0;
-        }
-        teamPoints[player.team] += player.points;
-      });
-    });
-
-    const teamTotalsArray = Object.keys(teamPoints).map(teamName => ({
-      teamName,
-      points: teamPoints[teamName]
-    }));
-
-    teamTotalsArray.sort((a, b) => b.points - a.points);
-
-    return teamTotalsArray;
-  };
-
-  const calculateRanks = (players) => {
-    players.sort((a, b) => b.points - a.points);
-    return players.map((player, index) => ({
-      ...player,
-      rank: index + 1
-    }));
-  };
+  const skillButtonsData = [
+    { name: 'Combined Totals', displayName: 'Combined Totals' },
+    { name: 'Data Totals', displayName: 'KC/Xp Totals' },
+    { name: 'Sheet Totals', displayName: 'Speedruns & Clues' },
+    ...templeMap.map(([name]) => ({ name, displayName: name }))
+  ];
 
   const handleClick = (skill) => {
     if (skill === 'Combined Totals') {
@@ -253,66 +101,10 @@ const GooseBingo = () => {
     player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const rankedTopPlayers = calculateRanks(topPlayers);
-  const rankedCombinedTopPlayers = calculateRanks(combinedTopPlayers);
-
   return (
     <Container className="bingo-container" fluid>
       <Row className="mb-2 justify-content-center mt-4">
-        <Col xs="auto" className="mb-1 p-1 text-center">
-          <Button
-            variant="outline-primary"
-            onClick={() => handleClick('Combined Totals')}
-            className="skill-button"
-          >
-            <span className="visually-hidden">Combined Totals</span>
-            <div
-              className="button-background"
-              style={{ backgroundImage: `url(${getIconUrl('Combined Totals')})` }}
-            />
-          </Button>
-        </Col>
-        <Col xs="auto" className="mb-1 p-1 text-center">
-          <Button
-            variant="outline-primary"
-            onClick={() => handleClick('Data Totals')}
-            className="skill-button"
-          >
-            <span className="visually-hidden">KC/Xp Totals</span>
-            <div
-              className="button-background"
-              style={{ backgroundImage: `url(${getIconUrl('Data Totals')})` }}
-            />
-          </Button>
-        </Col>
-        <Col xs="auto" className="mb-1 p-1 text-center">
-          <Button
-            variant="outline-primary"
-            onClick={() => handleClick('Sheet Totals')}
-            className="skill-button"
-          >
-            <span className="visually-hidden">Speedruns & Clues</span>
-            <div
-              className="button-background"
-              style={{ backgroundImage: `url(${getIconUrl('Sheet Totals')})` }}
-            />
-          </Button>
-        </Col>
-        {templeMap.map(([name], index) => (
-          <Col key={index} xs="auto" className="mb-1 p-1 text-center">
-            <Button
-              variant="outline-primary"
-              onClick={() => handleClick(name)}
-              className="skill-button"
-            >
-              <span className="visually-hidden">{name}</span>
-              <div
-                className="button-background"
-                style={{ backgroundImage: `url(${getIconUrl(name)})` }}
-              />
-            </Button>
-          </Col>
-        ))}
+        <SkillButtons skills={skillButtonsData} handleClick={handleClick} getIconUrl={getIconUrl} />
         <Col xs="auto" className="mb-1 p-1 text-center">
           <Button
             variant="outline-primary"
@@ -338,144 +130,29 @@ const GooseBingo = () => {
       <Row className="justify-content-center">
         <Col xs={12} md={7} className="text-center">
           {selectedSkill && selectedSkill.includes('Totals') && (
-            <div>
-              <div className="selected-skill-header">
-                <img
-                  src={getIconUrl(selectedSkill)}
-                  alt={selectedSkill}
-                  className="selected-skill-icon"
-                />
-                <span className="selected-skill-text">{skillDisplayNames[selectedSkill]}</span>
-                <img
-                  src={getIconUrl(selectedSkill)}
-                  alt={selectedSkill}
-                  className="selected-skill-icon"
-                />
-              </div>
-              <div className="table-container" data-bs-theme="dark">
-                <Table striped bordered hover className="custom-table">
-                  <thead>
-                    <tr>
-                      <th>Place</th>
-                      <th>Team</th>
-                      <th>Points</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {teamTotals.slice(0, 10).map((team, index) => (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{team.teamName}</td>
-                        <td>{team.points}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
-              </div>
-            </div>
+            <>
+              <SelectedSkillHeader skill={selectedSkill} displayName={skillDisplayNames[selectedSkill]} getIconUrl={getIconUrl} />
+              <TableManager type="teamTotals" data={teamTotals} />
+            </>
           )}
           {selectedSkill && !selectedSkill.includes('Totals') && (
-            <div>
-              <div className="selected-skill-header">
-                <img
-                  src={getIconUrl(selectedSkill)}
-                  alt={selectedSkill}
-                  className="selected-skill-icon"
-                />
-                <span className="selected-skill-text">{formatSkillName(selectedSkill)}</span>
-                <img
-                  src={getIconUrl(selectedSkill)}
-                  alt={selectedSkill}
-                  className="selected-skill-icon"
-                />
-              </div>
-              <div className="table-container" data-bs-theme="dark">
-                <Table striped bordered hover className="custom-table">
-                  <thead>
-                    <tr>
-                      <th>Place</th>
-                      <th>Player</th>
-                      <th>Gain</th>
-                      <th>Team</th>
-                      <th>Points</th>
-                      <th>EHP/EHB</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {skillData.slice(0, 10).map((player, index) => (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{player.playerName}</td>
-                        <td>{player.xpGained}</td>
-                        <td>{player.teamName}</td>
-                        <td>{player.points}</td>
-                        <td>{player.efficiency.toFixed(2)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
-              </div>
-            </div>
+            <>
+              <SelectedSkillHeader skill={selectedSkill} displayName={formatSkillName(selectedSkill)} getIconUrl={getIconUrl} />
+              <TableManager type="skillData" data={skillData} showEHP />
+            </>
           )}
           {selectedHeader && (
-            <div>
-              <div className="selected-skill-header">
-                <span className="selected-skill-text">{selectedHeader}</span>
-              </div>
-              <div className="table-container" data-bs-theme="dark">
-                <Table striped bordered hover className="custom-table">
-                  <thead>
-                    <tr>
-                      <th>Player</th>
-                      <th>Team</th>
-                      <th>Value</th>
-                      <th>Points</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {calculateRanks(sheetData.find(category => category.header === selectedHeader).players).slice(0, 10).map((player, index) => (
-                      <tr key={index}>
-                        <td>{player.rank}</td>
-                        <td>{player.name}</td>
-                        <td>{player.team}</td>
-                        <td>{player.value}</td>
-                        <td>{player.points}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
-              </div>
-            </div>
+            <>
+              <SelectedSkillHeader skill={selectedHeader} displayName={selectedHeader} getIconUrl={getIconUrl} />
+              <TableManager type="sheetData" data={sheetData.find(category => category.header === selectedHeader).players} />
+            </>
           )}
         </Col>
         <Col xs={12} md={5} className="text-center">
           <div className="selected-skill-header">
             <span className="selected-skill-text">Top Players</span>
           </div>
-          <div className="table-container" data-bs-theme="dark">
-            <Table striped bordered hover className="custom-table">
-              <thead>
-                <tr>
-                  <th>Place</th>
-                  <th>Player</th>
-                  <th>Team</th>
-                  <th>Points</th>
-                  {!showSheetButtons && <th>EHP/EHB</th>}
-                </tr>
-              </thead>
-              <tbody>
-                {filteredPlayers.slice(0, 10).map((player, index) => (
-                  <tr key={index}>
-                    <td>{player.rank}</td>
-                    <td>{player.playerName}</td>
-                    <td>{player.teamName || player.team}</td>
-                    <td>{player.points}</td>
-                    {!showSheetButtons && <td>{player.efficiency.toFixed(2)}</td>}
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
+          <TableManager type="players" data={filteredPlayers} showEHP={!showSheetButtons} />
           <InputGroup className="mt-3 search-bar">
             <FormControl
               type="text"

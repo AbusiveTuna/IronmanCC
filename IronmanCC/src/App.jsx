@@ -7,7 +7,7 @@ import PreviousEvents from './pages/PreviousEvents';
 import PaintEvent from './pages/PaintEvent';
 import OsrsQuiz from './pages/OsrsQuiz';
 import GooseBingo from './pages/everything_bingo/GooseBingo';
-import BingoCalculator from './pages/everything_bingo/BingoCalculator';
+import BingoCalculator from './pages/bingo_calculator/BingoCalculator';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css'

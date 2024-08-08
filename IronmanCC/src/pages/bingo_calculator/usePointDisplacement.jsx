@@ -1,4 +1,3 @@
-// usePointDisplacement.js
 import { useState, useEffect } from 'react';
 
 const usePointDisplacement = (playerName, teamName, data) => {
