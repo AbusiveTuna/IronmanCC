@@ -183,6 +183,14 @@ const GooseBingo = () => {
     return teamTotalsArray;
   };
 
+  const calculateRanks = (players) => {
+    players.sort((a, b) => b.points - a.points);
+    return players.map((player, index) => ({
+      ...player,
+      rank: index + 1
+    }));
+  };
+
   const handleClick = (skill) => {
     if (skill === 'Combined Totals') {
       setSkillData(null);
@@ -239,9 +247,14 @@ const GooseBingo = () => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredPlayers = topPlayers.filter(player =>
+  const filteredPlayers = calculateRanks(
+    showSheetButtons ? combinedTopPlayers : topPlayers
+  ).filter(player =>
     player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const rankedTopPlayers = calculateRanks(topPlayers);
+  const rankedCombinedTopPlayers = calculateRanks(combinedTopPlayers);
 
   return (
     <Container className="bingo-container" fluid>
@@ -420,8 +433,9 @@ const GooseBingo = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {sheetData.find(category => category.header === selectedHeader).players.slice(0, 10).map((player, index) => (
+                    {calculateRanks(sheetData.find(category => category.header === selectedHeader).players).slice(0, 10).map((player, index) => (
                       <tr key={index}>
+                        <td>{player.rank}</td>
                         <td>{player.name}</td>
                         <td>{player.team}</td>
                         <td>{player.value}</td>
@@ -450,9 +464,9 @@ const GooseBingo = () => {
                 </tr>
               </thead>
               <tbody>
-                {(showSheetButtons ? combinedTopPlayers : filteredPlayers).slice(0, 10).map((player, index) => (
+                {filteredPlayers.slice(0, 10).map((player, index) => (
                   <tr key={index}>
-                    <td>{topPlayers.findIndex(p => p.playerName === player.playerName) + 1}</td>
+                    <td>{player.rank}</td>
                     <td>{player.playerName}</td>
                     <td>{player.teamName || player.team}</td>
                     <td>{player.points}</td>
@@ -474,7 +488,6 @@ const GooseBingo = () => {
       </Row>
     </Container>
   );
-  
 };
 
 export default GooseBingo;
