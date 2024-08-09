@@ -21,6 +21,8 @@ export const calculateTopPlayers = (results) => {
 };
 
 export const calculateCombinedTopPlayers = (results, sheetData) => {
+  const teamTimes = ["Ba Speed", "Cox Group 3", "Cox Group 5", "Cox Group 7", "Cox Group Cm 3", "Cox Group Cm 5", "Cox Group Cm 7","Tob 3", "Tob 4", "Tob 5", "HMT 3", "HMT 4", "HMT 5","Toa 2 (300)","Toa 4 (300)","Toa 6+ (300)"]
+  console.log(sheetData);
   const players = [];
   const addPlayer = (player, points, team, efficiency) => {
     const existingPlayer = players.find(p => p.playerName.toLowerCase() === player.toLowerCase());
@@ -46,7 +48,10 @@ export const calculateCombinedTopPlayers = (results, sheetData) => {
       const rateEntry = templeMap.find(([name]) => name === category.header);
       const rate = rateEntry ? rateEntry[4] : 0;
       const efficiency = rate ? (player.value / rate) : 0;
-      addPlayer(player.name, player.points, player.team, efficiency);
+      //makes it so team times arent included in indivdual players points
+      if(!teamTimes.includes(category.header)){
+        addPlayer(player.name, player.points, player.team, efficiency);
+      }
     });
   });
 
