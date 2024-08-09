@@ -12,5 +12,14 @@
     font-size: 300px;
     text-align: center;
     color: #f9d000;
+    text-shadow: 2px 2px 0 #300000, -2px 2px 0 #300000, -2px -2px 0 #300000, 2px -2px 0 #300000;
+  }
+
+  .justenTbowStats {
+    font-family: 'OSRSFont', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    color: #f9d000;
+    text-shadow: 2px 2px 0 #300000, -2px 2px 0 #300000, -2px -2px 0 #000, 2px -2px 0 #000;
   }
   
