@@ -22,7 +22,6 @@ export const calculateTopPlayers = (results) => {
 
 export const calculateCombinedTopPlayers = (results, sheetData) => {
   const teamTimes = ["Ba Speed", "Cox Group 3", "Cox Group 5", "Cox Group 7", "Cox Group Cm 3", "Cox Group Cm 5", "Cox Group Cm 7","Tob 3", "Tob 4", "Tob 5", "HMT 3", "HMT 4", "HMT 5","Toa 2 (300)","Toa 4 (300)","Toa 6+ (300)"]
-  console.log(sheetData);
   const players = [];
   const addPlayer = (player, points, team, efficiency) => {
     const existingPlayer = players.find(p => p.playerName.toLowerCase() === player.toLowerCase());
@@ -59,9 +58,10 @@ export const calculateCombinedTopPlayers = (results, sheetData) => {
   return players;
 };
 
-export const calculateCombinedTeamTotals = (responseData, sheetResponseData) => {
+export const calculateCombinedTeamTotals = (responseData, sheetResponseData, purpleData) => {
   const teamPoints = {};
 
+  // Process points from responseData (e.g., temple data)
   for (const teamName in responseData.team_totals) {
     const cleanTeamName = teamName.replace(/'/g, '');
     if (!teamPoints[cleanTeamName]) {
@@ -70,22 +70,37 @@ export const calculateCombinedTeamTotals = (responseData, sheetResponseData) => 
     teamPoints[cleanTeamName] += responseData.team_totals[teamName];
   }
 
+  // Process points from sheetResponseData (e.g., speedruns, clues, etc.)
   sheetResponseData.forEach(category => {
     category.players.forEach(player => {
-      if (!teamPoints[player.team]) {
-        teamPoints[player.team] = 0;
+      const cleanTeamName = player.team.replace(/'/g, '');
+      if (!teamPoints[cleanTeamName]) {
+        teamPoints[cleanTeamName] = 0;
       }
-      teamPoints[player.team] += player.points;
+      teamPoints[cleanTeamName] += player.points;
     });
   });
 
+  // Process points from purpleData (e.g., raid purples)
+  purpleData.forEach(raid => {
+    raid.teams.forEach(team => {
+      const cleanTeamName = team.teamName.replace(/'/g, '');
+      if (!teamPoints[cleanTeamName]) {
+        teamPoints[cleanTeamName] = 0;
+      }
+      teamPoints[cleanTeamName] += team.points;
+    });
+  });
+
+  // Convert the teamPoints object to an array and sort by points
   const teamTotalsArray = Object.keys(teamPoints).map(teamName => ({
     teamName,
-    points: teamPoints[teamName]
+    points: teamPoints[teamName],
   }));
 
   return teamTotalsArray.sort((a, b) => b.points - a.points);
 };
+
 
 export const calculateDataTeamTotals = (responseData) => {
   const teamPoints = {};
