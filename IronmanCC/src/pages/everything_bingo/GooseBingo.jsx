@@ -104,6 +104,28 @@ const GooseBingo = () => {
     setSearchTerm(event.target.value);
   };
 
+  const nameOptions = [
+    'Duck Domain',
+    'Swan Space',
+    'Gull Globe',
+    'Falcon Field',
+    'Hawk Haven',
+    'Pigeon Place',
+    'Eagle Earth',
+    'Owl Oasis',
+    'Bird Borough',
+    'Albatross Area',
+    'Avian Sphere',
+    'Pelican Planet'
+  ];
+  const [randomName, setRandomName] = useState('');
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * nameOptions.length);
+    setRandomName(nameOptions[randomIndex]);
+  }, []);
+
+
+
   //normal
   // const filteredPlayers = calculateRanks(
   //   showSheetButtons ? combinedTopPlayers : topPlayers
@@ -111,14 +133,14 @@ const GooseBingo = () => {
   //   player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
   // );
 //goose trool
-  const filteredPlayers = calculateRanks(
-    showSheetButtons ? combinedTopPlayers : topPlayers
-  ).filter(player =>
-    player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
-  ).map(player => ({
-    ...player,
-    playerName: player.playerName === "Goose World" ? "Avian Sphere" : player.playerName
-  }));
+const filteredPlayers = calculateRanks(
+  showSheetButtons ? combinedTopPlayers : topPlayers
+).filter(player =>
+  player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
+).map(player => ({
+  ...player,
+  playerName: player.playerName === "Goose World" ? randomName : player.playerName
+}));
 
   
   return (
