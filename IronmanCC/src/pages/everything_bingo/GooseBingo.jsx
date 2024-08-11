@@ -104,12 +104,23 @@ const GooseBingo = () => {
     setSearchTerm(event.target.value);
   };
 
+  //normal
+  // const filteredPlayers = calculateRanks(
+  //   showSheetButtons ? combinedTopPlayers : topPlayers
+  // ).filter(player =>
+  //   player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
+//goose trool
   const filteredPlayers = calculateRanks(
     showSheetButtons ? combinedTopPlayers : topPlayers
   ).filter(player =>
     player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  ).map(player => ({
+    ...player,
+    playerName: player.playerName === "Goose World" ? "Avian Sphere" : player.playerName
+  }));
 
+  
   return (
     <Container className="bingo-container" fluid>
     <Row className="mb-2 justify-content-center mt-4">
