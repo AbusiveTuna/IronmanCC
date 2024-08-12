@@ -104,45 +104,12 @@ const GooseBingo = () => {
     setSearchTerm(event.target.value);
   };
 
-  const nameOptions = [
-    'Duck Domain',
-    'Swan Space',
-    'Gull Globe',
-    'Falcon Field',
-    'Hawk Haven',
-    'Pigeon Place',
-    'Eagle Earth',
-    'Owl Oasis',
-    'Bird Borough',
-    'Albatross Area',
-    'Avian Sphere',
-    'Pelican Planet'
-  ];
-  const [randomName, setRandomName] = useState('');
-  useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * nameOptions.length);
-    setRandomName(nameOptions[randomIndex]);
-  }, []);
+  const filteredPlayers = calculateRanks(
+    showSheetButtons ? combinedTopPlayers : topPlayers
+  ).filter(player =>
+    player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-
-
-  //normal
-  // const filteredPlayers = calculateRanks(
-  //   showSheetButtons ? combinedTopPlayers : topPlayers
-  // ).filter(player =>
-  //   player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
-//goose trool
-const filteredPlayers = calculateRanks(
-  showSheetButtons ? combinedTopPlayers : topPlayers
-).filter(player =>
-  player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
-).map(player => ({
-  ...player,
-  playerName: player.playerName === "Goose World" ? randomName : player.playerName
-}));
-
-  
   return (
     <Container className="bingo-container" fluid>
     <Row className="mb-2 justify-content-center mt-4">
