@@ -124,8 +124,6 @@ const GooseBingo = () => {
     setRandomName(nameOptions[randomIndex]);
   }, []);
 
-
-
   //normal
   // const filteredPlayers = calculateRanks(
   //   showSheetButtons ? combinedTopPlayers : topPlayers
