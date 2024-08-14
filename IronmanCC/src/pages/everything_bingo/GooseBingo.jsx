@@ -142,7 +142,6 @@ const filteredPlayers = calculateRanks(
   playerName: player.playerName === "Goose World" ? randomName : player.playerName
 }));
 
-  
   return (
     <Container className="bingo-container" fluid>
     <Row className="mb-2 justify-content-center mt-4">
