@@ -10,6 +10,31 @@
   padding-right: 20px;
 }
 
+.skill-button.selected-tile {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.skill-button.selected-tile .button-text {
+  font-weight: bold;
+}
+
+.skill-button.selected-tile .skill-icon {
+  filter: brightness(0) invert(1);
+}
+
+.sheet-data-button.selected-header {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.sheet-data-button.selected-header .button-text {
+  font-weight: bold;
+  color: white;
+}
+
 .skill-button {
   width: 80px;
   height: 80px;

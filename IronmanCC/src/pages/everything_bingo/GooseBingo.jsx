@@ -16,6 +16,7 @@ const GooseBingo = () => {
   const { sheetData, topPlayers, combinedTopPlayers } = fetchSheetData(data);
   const purpleData = fetchPurpleData();
   const [skillData, setSkillData] = useState(null);
+  const [selectedTile, setSelectedTile] = useState(null);
   const [selectedSkill, setSelectedSkill] = useState('Combined Totals');
   const [teamTotals, setTeamTotals] = useState([]);
   const [selectedHeader, setSelectedHeader] = useState(null);
@@ -44,25 +45,24 @@ const GooseBingo = () => {
   ];
 
   const handleClick = (skill) => {
+    setSelectedTile(skill); // Highlight the selected skill button
+    setSelectedHeader(null); // Clear the selected speed times button
+  
     if (skill === 'Combined Totals') {
       setSkillData(null);
       setSelectedSkill(skill);
-      setSelectedHeader(null);
       setTeamTotals(calculateCombinedTeamTotals(data, sheetData, purpleData));
     } else if (skill === 'Data Totals') {
       setSkillData(null);
       setSelectedSkill(skill);
-      setSelectedHeader(null);
       setTeamTotals(calculateDataTeamTotals(data));
     } else if (skill === 'Sheet Totals') {
       setSkillData(null);
       setSelectedSkill(skill);
-      setSelectedHeader(null);
       setTeamTotals(calculateSheetDataTeamTotals(sheetData));
     } else if (skill === 'Purple Totals') {
       setSkillData(null);
       setSelectedSkill(skill);
-      setSelectedHeader(null);
       setTeamTotals(purpleData);
     } else if (data && data.results) {
       const skillData = data.results[skill].map(player => {
@@ -73,17 +73,17 @@ const GooseBingo = () => {
       });
       setSkillData(skillData);
       setSelectedSkill(skill);
-      setSelectedHeader(null);
     } else {
       console.log('Data not available');
     }
   };
-
+  
   const handleHeaderClick = (header) => {
     setSelectedHeader(header);
+    setSelectedTile(null);
     setSelectedSkill(null);
     setSkillData(null);
-  };
+  };  
 
   const toggleSheetButtons = () => {
     setShowSheetButtons(!showSheetButtons);
@@ -143,7 +143,7 @@ const filteredPlayers = calculateRanks(
   return (
     <Container className="bingo-container" fluid>
     <Row className="mb-2 justify-content-center mt-4">
-      <SkillButtons skills={skillButtonsData} handleClick={handleClick} getIconUrl={getIconUrl} />
+      <SkillButtons skills={skillButtonsData} handleClick={handleClick} getIconUrl={getIconUrl} selectedTile={selectedTile}/>
       <Col xs="auto" className="mb-1 p-1 text-center">
         <Button
           variant="outline-primary"
@@ -158,7 +158,7 @@ const filteredPlayers = calculateRanks(
           <Button
             variant="outline-primary"
             onClick={() => handleHeaderClick(category.header)}
-            className="sheet-data-button"
+            className={`sheet-data-button ${selectedHeader === category.header ? 'selected-header' : ''}`}
           >
             <span className="visually-hidden">{category.header}</span>
             <div className="button-text">{category.header}</div>
