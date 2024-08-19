@@ -192,9 +192,7 @@ const GooseBingo = () => {
       </Col>
     </Row>
   </Container>
-  
   );
-
 };
 
 export default GooseBingo;
