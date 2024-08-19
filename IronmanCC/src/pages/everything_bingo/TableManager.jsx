@@ -16,7 +16,6 @@ const TableManager = ({ type, data, showEHP }) => {
         headers = ['Place', 'Player', 'Team', 'Points'];
         dataKeys = ['playerName', 'team', 'points'];
       }
-      data = data.slice(0, 10); 
       break;
     case 'sheetData':
       headers = ['Place', 'Player', 'Team', 'Value', 'Points'];
