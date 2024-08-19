@@ -10,7 +10,7 @@ const TableManager = ({ type, data, showEHP }) => {
   switch (type) {
     case 'players':
       if (showEHP) {
-        headers = ['Place', 'Player', 'Team', 'Points', 'EHP/EHB'];
+        headers = ['Place', 'Player', 'Team', 'Points', 'EHT'];
         dataKeys = ['playerName', 'teamName', 'points','efficiency'];
       } else {
         headers = ['Place', 'Player', 'Team', 'Points'];
