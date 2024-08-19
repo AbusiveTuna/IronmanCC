@@ -3,6 +3,12 @@
   src: url('../../resources/fonts/osrsFont.ttf') format('truetype');
 }
 
+.thank-you {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
 .bingo-container {
   max-width: 95%;
   margin: 0 auto;

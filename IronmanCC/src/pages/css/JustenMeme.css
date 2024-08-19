@@ -3,23 +3,19 @@
     src: url('../../resources/fonts/osrsFont.ttf') format('truetype');
 }
   
-  body.justen-meme-page {
-    background-color: black;
-  }
-  
   .justen-meme-page h1 {
     font-family: 'OSRSFont', sans-serif;
     font-size: 300px;
     text-align: center;
-    color: #f9d000;
-    text-shadow: 2px 2px 0 #300000, -2px 2px 0 #300000, -2px -2px 0 #300000, 2px -2px 0 #300000;
+    color: var(--osrs-text-color);
+    text-shadow: 2px 2px 0 var(--accent-color-dark), -2px 2px 0 var(--accent-color-dark), -2px -2px 0 var(--accent-color-dark), 2px -2px 0 var(--accent-color-dark);
   }
 
   .justenTbowStats {
     font-family: 'OSRSFont', sans-serif;
     font-size: 50px;
     text-align: center;
-    color: #f9d000;
-    text-shadow: 2px 2px 0 #300000, -2px 2px 0 #300000, -2px -2px 0 #000, 2px -2px 0 #000;
+    color: var(--osrs-text-color);
+    text-shadow: 2px 2px 0 var(--accent-color-dark), -2px 2px 0 var(--accent-color-dark), -2px -2px 0 #000, 2px -2px 0 #000;
   }
   

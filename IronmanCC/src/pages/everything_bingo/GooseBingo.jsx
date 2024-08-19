@@ -45,8 +45,8 @@ const GooseBingo = () => {
   ];
 
   const handleClick = (skill) => {
-    setSelectedTile(skill); // Highlight the selected skill button
-    setSelectedHeader(null); // Clear the selected speed times button
+    setSelectedTile(skill);
+    setSelectedHeader(null); 
   
     if (skill === 'Combined Totals') {
       setSkillData(null);
@@ -104,44 +104,15 @@ const GooseBingo = () => {
     setSearchTerm(event.target.value);
   };
 
-  const nameOptions = [
-    'Duck Domain',
-    'Swan Space',
-    'Gull Globe',
-    'Falcon Field',
-    'Hawk Haven',
-    'Pigeon Place',
-    'Eagle Earth',
-    'Owl Oasis',
-    'Bird Borough',
-    'Albatross Area',
-    'Avian Sphere',
-    'Pelican Planet'
-  ];
-  const [randomName, setRandomName] = useState('');
-  useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * nameOptions.length);
-    setRandomName(nameOptions[randomIndex]);
-  }, []);
-
-  //normal
-  // const filteredPlayers = calculateRanks(
-  //   showSheetButtons ? combinedTopPlayers : topPlayers
-  // ).filter(player =>
-  //   player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
-//goose trool
-const filteredPlayers = calculateRanks(
-  showSheetButtons ? combinedTopPlayers : topPlayers
-).filter(player =>
-  player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
-).map(player => ({
-  ...player,
-  playerName: player.playerName === "Goose World" ? randomName : player.playerName
-}));
+  const filteredPlayers = calculateRanks(
+    showSheetButtons ? combinedTopPlayers : topPlayers
+  ).filter(player =>
+    player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <Container className="bingo-container" fluid>
+      <div className='thank-you'><h1>Thank you all for playing!</h1></div>
     <Row className="mb-2 justify-content-center mt-4">
       <SkillButtons skills={skillButtonsData} handleClick={handleClick} getIconUrl={getIconUrl} selectedTile={selectedTile}/>
       <Col xs="auto" className="mb-1 p-1 text-center">

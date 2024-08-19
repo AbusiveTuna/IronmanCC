@@ -13,9 +13,9 @@
     gap: 20px;
     font-size: 20px;
     text-align: center;
-    color: #f9d000;
+    color: var(--osrs-text-color);
     padding: 20px;
-    background-color: black; 
+    background-color: var(--primary-color); 
 }
 
 .previousEvent {

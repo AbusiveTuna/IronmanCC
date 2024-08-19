@@ -4,10 +4,8 @@ import Runerdle from './runerdle/Runerdle';
 import WelcomePage from './pages/WelcomePage';
 import JustenMeme from './pages/JustenMeme';
 import PreviousEvents from './pages/PreviousEvents';
-import PaintEvent from './pages/PaintEvent';
 import OsrsQuiz from './pages/OsrsQuiz';
 import GooseBingo from './pages/everything_bingo/GooseBingo';
-import BingoCalculator from './pages/bingo_calculator/BingoCalculator';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css'
@@ -23,9 +21,7 @@ function App() {
         <Route path="/justenTbow" element={<JustenMeme />} />
         <Route path="/previousEvents" element={<PreviousEvents/>} />
         <Route path="/runerdle" element={<Runerdle />} />
-        <Route path="/paintEvent" element={<PaintEvent />} />
         <Route path="/gooseBingo" element={<GooseBingo />} />
-        <Route path="/superSecret" element={<BingoCalculator />} />
       </Routes>
 
       <Footer />
