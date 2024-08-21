@@ -5,7 +5,6 @@ import WelcomePage from './pages/WelcomePage';
 import JustenMeme from './pages/JustenMeme';
 import PreviousEvents from './pages/PreviousEvents';
 import OsrsQuiz from './pages/OsrsQuiz';
-import GooseBingo from './pages/everything_bingo/GooseBingo';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css'
@@ -20,7 +19,6 @@ function App() {
         <Route path="/justenTbow" element={<JustenMeme />} />
         <Route path="/previousEvents" element={<PreviousEvents/>} />
         <Route path="/runerdle" element={<Runerdle />} />
-        <Route path="/gooseBingo" element={<GooseBingo />} />
       </Routes>
 
       <Footer />

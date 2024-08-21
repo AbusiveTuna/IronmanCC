@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Container, Row, Col, FormControl, InputGroup } from 'react-bootstrap';
-import fetchTempleData from '../../hooks/fetchTempleData';
-import { templeMap } from '../../common/templeMap';
+import fetchTempleData from '../../src/hooks/fetchTempleData';
+import { templeMap } from '../../src/common/templeMap';
 import './GooseBingo.css';
 import { calculateCombinedTeamTotals, calculateDataTeamTotals, calculateSheetDataTeamTotals, calculateRanks } from './bingoUtils';
 import SkillButtons from './SkillButtons';
-import fetchSheetData from '../../hooks/fetchSheetData';
-import fetchPurpleData from '../../hooks/fetchPurpleData';
+import fetchSheetData from '../../src/hooks/fetchSheetData';
+import fetchPurpleData from '../../src/hooks/fetchPurpleData';
 import SelectedSkillHeader from './SelectedSkillHeader';
 import TableManager from './TableManager';
 import 'bootstrap/dist/css/bootstrap.min.css';

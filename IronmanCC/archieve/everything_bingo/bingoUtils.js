@@ -1,4 +1,4 @@
-import { templeMap } from '../../common/templeMap';
+import { templeMap } from '../../src/common/templeMap';
 
 export const calculateTopPlayers = (results) => {
   const players = [];
