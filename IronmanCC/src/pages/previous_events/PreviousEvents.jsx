@@ -1,10 +1,10 @@
 import React from 'react';
-import gooseCox from '../resources/gooseCox.png';
-import tunaBingo from '../resources/tunaBingo.png';
-import everythingBingo from '../resources/everythingBingo.png';
-import redacted from '../resources/redacted.png';
+import gooseCox from '../../resources/gooseCox.png';
+import tunaBingo from '../../resources/tunaBingo.png';
+import everythingBingo from '../../resources/everythingBingo.png';
+import redacted from '../../resources/redacted.png';
 
-import './css/PreviousEvents.css';
+import './PreviousEvents.css';
 
 const PreviousEvents = () => {
     return (

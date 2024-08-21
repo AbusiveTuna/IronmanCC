@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import multipleChoice from '../resources/quiz/multipleChoice.json';
-import './css/OsrsQuiz.css';
+import multipleChoice from '../../resources/quiz/multipleChoice.json';
+import './OsrsQuiz.css';
 
 const OsrsQuiz = () => {
   const [questions, setQuestions] = useState([]);

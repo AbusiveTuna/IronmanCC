@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './css/JustenMeme.css';
+import './JustenMeme.css';
 
 const JustenMeme = () => {
   const [playerStats, setPlayerStats] = useState({ kc: null, rank: null });

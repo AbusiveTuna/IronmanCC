@@ -1,7 +1,8 @@
 import React from 'react';
-import './css/WelcomePage.css';
-import discordIcon from '../resources/discord.png';
-import RankTable from '../components/RankTable';
+import discordIcon from '../../resources/discord.png';
+import RankTable from '../../components/RankTable';
+
+import './WelcomePage.css';
 
 const WelcomePage = () => {
   return (
