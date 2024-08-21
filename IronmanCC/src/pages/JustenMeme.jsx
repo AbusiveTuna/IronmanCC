@@ -8,7 +8,6 @@ const JustenMeme = () => {
   useEffect(() => {
     document.body.classList.add('justen-meme-page');
 
-    // Fetch KC and Rank from your API
     const fetchPlayerStats = async () => {
       try {
         const response = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/justenTbow'); 
