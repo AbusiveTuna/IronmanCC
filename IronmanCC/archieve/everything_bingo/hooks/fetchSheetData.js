@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { calculateTopPlayers, calculateCombinedTopPlayers } from '../pages/everything_bingo/bingoUtils';
+import { calculateTopPlayers, calculateCombinedTopPlayers } from '../bingoUtils';
 
 const fetchSheetData = (data) => {
   const [sheetData, setSheetData] = useState([]);
