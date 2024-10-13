@@ -1,0 +1,109 @@
+/* LukasBingo.css */
+.bingo-grid {
+    text-align: center;
+    margin: 20px;
+    color: white;
+}
+
+.bingo-tile {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    min-width: 100px;
+    min-height: 100px;
+    background-color: #222; 
+}
+
+.bingo-tile.completed {
+    background-color: green;
+}
+
+.tile-image {
+    width: 80px;
+    height: 80px;
+}
+
+.tile-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 0.8em;
+    z-index: 1;
+}
+
+.tile-counter {
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.lukas-bingo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lukas-bingo > .row {
+    width: 100%;
+    justify-content: center;
+}
+
+.sabotage-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 70px;
+    height: 70px;
+}
+
+.admin-grid .admin-tile {
+    position: relative;
+}
+
+.admin-grid .tile-counter-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.admin-grid .tile-counter {
+    position: static;
+    margin-bottom: 5px;
+}
+
+.admin-grid .tile-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.admin-grid .tile-actions button {
+    font-size: 14px;
+    padding: 2px 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.admin-grid .tile-actions button:hover {
+    background-color: #0056b3;
+}
+
+.bingo-grid:not(.admin-grid) .tile-counter {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.bingo-grid:not(.admin-grid) .tile-actions {
+    display: none;
+}
