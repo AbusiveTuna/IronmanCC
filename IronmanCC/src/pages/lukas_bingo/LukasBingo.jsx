@@ -71,16 +71,19 @@ const LukasBingo = () => {
                 }
                 const currentCount = counts[tileIndex];
                 const isSabotaged = sabotage[tileIndex];
-                const tileCompleted = currentCount >= amount;
-
+                let tileProgress = '';
+                if(currentCount > 0) {
+                  tileProgress = '-inprogress';
+                }
+                if(currentCount >= amount) {
+                  tileProgress = '-complete';
+                }
+                const tileClass = 'tile' + tileProgress;
+                
                 return (
                   <Col
                     key={colIndex}
-                    className={`bingo-tile ${tileCompleted ? 'completed' : ''}`}
-                    style={{
-                      backgroundColor: tileCompleted ? 'green' : 'transparent',
-                      position: 'relative',
-                    }}
+                    className={`bingo-tile ${tileClass}`}
                   >
                     <div className="tile-description">{description}</div>
                     <img src={getIconUrl(imageName)} alt={imageName} className="tile-image" />

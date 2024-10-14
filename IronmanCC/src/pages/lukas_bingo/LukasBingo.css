@@ -14,8 +14,16 @@
     background-color: #222;
 }
 
-.bingo-tile.completed {
+.bingo-tile {
+    background-color: transparent;
+}
+
+.tile-complete {
     background-color: green;
+}
+
+.tile-inprogress {
+    background-color: rgb(211, 188, 55);
 }
 
 .tile-image {
