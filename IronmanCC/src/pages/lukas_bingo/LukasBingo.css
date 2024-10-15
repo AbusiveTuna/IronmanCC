@@ -70,10 +70,10 @@
 }
 
 .bingo-container {
-  max-width: 95%;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+    max-width: 95%;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .view-buttons {
