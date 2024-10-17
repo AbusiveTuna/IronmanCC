@@ -1,12 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import './LukasBingo.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BingoTile from './BingoTile';
 import lukasTiles from './TileInfo.json';
 
-const Grid = ({ teamKey, counts, sabotage, handleShow }) => {
+const Grid = ({ teamKey, counts, handleShow, updateCompletedTiles }) => {
   const displayName = teamKey === 'A' ? 'Mong and the Salties' : 'The Faladorable Guards';
+
+  useEffect(() => {
+    if (counts) {
+      const newTileArray = [];
+      for (let rowIndex = 0; rowIndex < 7; rowIndex++) {
+        for (let colIndex = 0; colIndex < 7; colIndex++) {
+          const tileIndex = rowIndex * 7 + colIndex;
+          if (tileIndex >= lukasTiles.tiles.length) continue;
+
+          const currentTile = lukasTiles.tiles[tileIndex];
+          const currentCount = counts[tileIndex];
+          const isComplete = currentTile.totalAmount / currentCount === 1;
+
+          newTileArray.push({
+            team: teamKey,
+            tileIndex: tileIndex,
+            column: colIndex,
+            isComplete: isComplete,
+          });
+        }
+      }
+      updateCompletedTiles(newTileArray);
+    }
+  }, [counts]); 
 
   return (
     <div className="bingo-grid">
@@ -16,17 +40,18 @@ const Grid = ({ teamKey, counts, sabotage, handleShow }) => {
           <Row key={rowIndex}>
             {[...Array(7)].map((_, colIndex) => {
               const tileIndex = rowIndex * 7 + colIndex;
-              const currentCol = colIndex;
               if (tileIndex >= lukasTiles.tiles.length) return null;
               const currentTile = lukasTiles.tiles[tileIndex];
-              if (counts == null) {
-                return; //data hasn't loaded yet.
-              }
-              const currentCount = counts[tileIndex];
-              const isSabotaged = sabotage[tileIndex];
+              const currentCount = counts ? counts[tileIndex] : null;
 
-              return(
-              <BingoTile currentTile={currentTile} colIndex={currentCol} currentCount={currentCount} isSabotaged={isSabotaged} handleShow={handleShow} />
+              return (
+                <BingoTile 
+                  key={tileIndex} 
+                  currentTile={currentTile} 
+                  colIndex={colIndex} 
+                  currentCount={currentCount} 
+                  handleShow={handleShow} 
+                />
               );
             })}
           </Row>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 
-const BingoTile = ({ currentTile, colIndex, currentCount, isSabotaged, handleShow }) => {
+const BingoTile = ({ currentTile, colIndex, currentCount, handleShow }) => {
   const getIconUrl = (imageName) => {
     return `/resources/bingo/${encodeURIComponent(imageName)}.png`;
   };
@@ -30,13 +30,6 @@ const BingoTile = ({ currentTile, colIndex, currentCount, isSabotaged, handleSho
         {currentCount}/{amount}
       </div>
 
-      {isSabotaged && (
-        <img
-          src={getIconUrl('sabotage')}
-          alt="Sabotage"
-          className="sabotage-icon"
-        />
-      )}
       {currentTile.information != "" && (
         <img
           src={`/resources/icons/${encodeURIComponent('info')}.png`}
