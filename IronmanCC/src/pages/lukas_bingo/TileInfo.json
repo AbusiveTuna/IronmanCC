@@ -200,9 +200,9 @@
         },
         {
             "name": "masori",
-            "description": "Masori from Scratch",
-            "information": "Complete full Fortified Masori as a team. Including Armadyl Plates",
-            "totalAmount": 3
+            "description": "Masori Piece from Scratch",
+            "information": "Complete a single full Fortified Masori piece as a team. Including Armadyl Plates",
+            "totalAmount": 2
         },
         {
             "name": "bandosboots",
