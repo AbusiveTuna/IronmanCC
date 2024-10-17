@@ -70,7 +70,7 @@ const LukasBingo = () => {
         }
         
         if(diagonalComplete == true) {
-          diagonalPoints += 5;
+          diagonalPoints += 10;
         }
       }
 
@@ -83,7 +83,7 @@ const LukasBingo = () => {
           }
         }
         if(rowComplete) {
-          rowPoints += 3;
+          rowPoints += 10;
         }
       }
 
@@ -96,7 +96,7 @@ const LukasBingo = () => {
         }
 
         if(columnComplete) {
-          columnPoints += 3;
+          columnPoints += 10;
         }
       }
     }
