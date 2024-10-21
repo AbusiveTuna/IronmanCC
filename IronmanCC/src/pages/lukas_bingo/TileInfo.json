@@ -250,7 +250,7 @@
             "name": "mining",
             "description": "5M Mining XP",
             "information": "Must get 5 million mining xp total as a team.",
-            "totalAmount": 1
+            "totalAmount": 5
         },
         {
             "name": "blackcore",
