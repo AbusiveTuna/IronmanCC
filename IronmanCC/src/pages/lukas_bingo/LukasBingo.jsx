@@ -57,7 +57,7 @@ const LukasBingo = () => {
         }
 
         if(diagonalComplete == true) {
-          diagonalPoints += 5;
+          diagonalPoints += 10;
         }
       }
 
