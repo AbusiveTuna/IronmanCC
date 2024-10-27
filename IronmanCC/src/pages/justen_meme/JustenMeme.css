@@ -5,7 +5,7 @@
   
   .justen-meme-page h1 {
     font-family: 'OSRSFont', sans-serif;
-    font-size: 300px;
+    font-size: 100px;
     text-align: center;
     color: var(--osrs-text-color);
     text-shadow: 2px 2px 0 var(--accent-color-dark), -2px 2px 0 var(--accent-color-dark), -2px -2px 0 var(--accent-color-dark), 2px -2px 0 var(--accent-color-dark);
