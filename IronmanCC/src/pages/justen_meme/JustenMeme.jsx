@@ -34,6 +34,7 @@ const JustenMeme = () => {
       <h1>YES!</h1>
       {playerStats.kc !== null && playerStats.rank !== null ? (
         <div className="justenTbowStats">
+          <p>Justen got his tbow after 3843 Chambers on 10/26/24</p>
           <p>Chambers of Xeric KC: {playerStats.kc}</p>
           <p>Rank: {playerStats.rank}</p>
         </div>
