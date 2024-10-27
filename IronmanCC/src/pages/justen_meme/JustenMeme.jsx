@@ -31,7 +31,7 @@ const JustenMeme = () => {
 
   return (
     <div>
-      <h1>No</h1>
+      <h1>YES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h1>
       {playerStats.kc !== null && playerStats.rank !== null ? (
         <div className="justenTbowStats">
           <p>Chambers of Xeric KC: {playerStats.kc}</p>
