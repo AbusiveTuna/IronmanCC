@@ -108,11 +108,6 @@ const LukasBingo = () => {
     } else {
       setPointsTeamB(points);
     }
-    // console.log('Tile Points: ' + tilePoints);
-    // console.log('Diagonal Points: ' + diagonalPoints);
-    // console.log('Row Points: ' + rowPoints);
-    // console.log('Column Points: ' + columnPoints);
-    // console.log('Total Points: ' + points);
   }
 
   useEffect(() => {
@@ -133,62 +128,65 @@ const LukasBingo = () => {
   }
 
   return (
-    <Container className="bingo-container" fluid>
-      {view == 'bothBoards' && (
-        <Row>
-          <Col>
-          <Grid teamKey={'A'} counts={countsTeamA} handleShow={handleShow} updateCompletedTiles={updateCompletedTiles}/>
-          <PointsDisplay points={pointsTeamA}/>
-          </Col>
-          <Col>
-          <Grid teamKey={'B'} counts={countsTeamB} handleShow={handleShow} updateCompletedTiles={updateCompletedTiles}/>
-          <PointsDisplay points={pointsTeamB}/>
-          </Col>
-        </Row>
-      )}
-
-      {view == 'mongBoard' && (
-        <Row>
-          <Col>
-          <Grid teamKey={'A'} counts={countsTeamA} handleShow={handleShow} updateCompletedTiles={updateCompletedTiles}/> 
-          <PointsDisplay points={pointsTeamA}/> 
-          </Col>
-        </Row>
-      )}
-
-      {view == 'falaBoard' && (
-        <Row>
-          <Col>
-          <Grid teamKey={'B'} counts={countsTeamB} handleShow={handleShow} updateCompletedTiles={updateCompletedTiles}/>
-          <PointsDisplay points={pointsTeamB}/>
-          </Col>
-        </Row>
-      )}
-
-      <Row>
-        <Col className="view-buttons">
-          <button className={view == "bothBoards" ? "active-lukas-view-button" : "lukas-view-button"} value="bothBoards" onClick={() => changeView('bothBoards')}>Both Boards</button>
-          <button className={view == "mongBoard" ? "active-lukas-view-button" : "lukas-view-button"} value="mongBoard" onClick={() => changeView('mongBoard')}>Mong and the Salties Board</button>
-          <button className={view == "falaBoard" ? "active-lukas-view-button" : "lukas-view-button"} value="falaBoard" onClick={() => changeView('falaBoard')}>The Faladorable Guards Board</button>
-          <button className={view == "players" ? "active-lukas-view-button" : "lukas-view-button"} value="players" onClick={() => changeView('players')}>Players</button>
-          <button className={view == "rules" ? "active-lukas-view-button" : "lukas-view-button"} value="rules" onClick={() => changeView('rules')}>Bingo Rules</button>
-        </Col>
-      </Row>
-
-      {view == 'players' && (
-        <Players />
-      )}
-
-      {view == 'rules' && (
-        <Rules />
-      )}
-
-      <TileInfoModal
-        modalInfo={modalInfo}
-        show={showModal}
-        handleClose={handleClose}
-      />
+    <Container className="bingo-grid" fluid>
+    <h3>Guards win with 135 Points to Salties 103. Thanks for Playing!</h3>
     </Container>
+    // <Container className="bingo-container" fluid>
+    //   {view == 'bothBoards' && (
+    //     <Row>
+    //       <Col>
+    //       <Grid teamKey={'A'} counts={countsTeamA} handleShow={handleShow} updateCompletedTiles={updateCompletedTiles}/>
+    //       <PointsDisplay points={pointsTeamA}/>
+    //       </Col>
+    //       <Col>
+    //       <Grid teamKey={'B'} counts={countsTeamB} handleShow={handleShow} updateCompletedTiles={updateCompletedTiles}/>
+    //       <PointsDisplay points={pointsTeamB}/>
+    //       </Col>
+    //     </Row>
+    //   )}
+
+    //   {view == 'mongBoard' && (
+    //     <Row>
+    //       <Col>
+    //       <Grid teamKey={'A'} counts={countsTeamA} handleShow={handleShow} updateCompletedTiles={updateCompletedTiles}/> 
+    //       <PointsDisplay points={pointsTeamA}/> 
+    //       </Col>
+    //     </Row>
+    //   )}
+
+    //   {view == 'falaBoard' && (
+    //     <Row>
+    //       <Col>
+    //       <Grid teamKey={'B'} counts={countsTeamB} handleShow={handleShow} updateCompletedTiles={updateCompletedTiles}/>
+    //       <PointsDisplay points={pointsTeamB}/>
+    //       </Col>
+    //     </Row>
+    //   )}
+
+    //   <Row>
+    //     <Col className="view-buttons">
+    //       <button className={view == "bothBoards" ? "active-lukas-view-button" : "lukas-view-button"} value="bothBoards" onClick={() => changeView('bothBoards')}>Both Boards</button>
+    //       <button className={view == "mongBoard" ? "active-lukas-view-button" : "lukas-view-button"} value="mongBoard" onClick={() => changeView('mongBoard')}>Mong and the Salties Board</button>
+    //       <button className={view == "falaBoard" ? "active-lukas-view-button" : "lukas-view-button"} value="falaBoard" onClick={() => changeView('falaBoard')}>The Faladorable Guards Board</button>
+    //       <button className={view == "players" ? "active-lukas-view-button" : "lukas-view-button"} value="players" onClick={() => changeView('players')}>Players</button>
+    //       <button className={view == "rules" ? "active-lukas-view-button" : "lukas-view-button"} value="rules" onClick={() => changeView('rules')}>Bingo Rules</button>
+    //     </Col>
+    //   </Row>
+
+    //   {view == 'players' && (
+    //     <Players />
+    //   )}
+
+    //   {view == 'rules' && (
+    //     <Rules />
+    //   )}
+
+    //   <TileInfoModal
+    //     modalInfo={modalInfo}
+    //     show={showModal}
+    //     handleClose={handleClose}
+    //   />
+    // </Container>
 
   );
 };

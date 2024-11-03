@@ -22,7 +22,6 @@ function App() {
         <Route path="/previousEvents" element={<PreviousEvents/>} />
         <Route path="/runerdle" element={<Runerdle />} />
         <Route path="/lukasBingo" element={<LukasBingo />} />
-        <Route path="/bingoAdmin28889" element={<BingoAdmin /> } />
       </Routes>
 
       <Footer />
