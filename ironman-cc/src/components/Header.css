@@ -1,0 +1,55 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+    background-color: var(--primary-color-translucent);
+    color: #fff;
+    height: var(--header-height);
+    /* Header always stays on top */
+    position: fixed; 
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ironman-logo {
+    height: 40px;
+    width: 40px;
+    margin-right: 1rem;
+  }
+  
+  .clan-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .header-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .header-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-link:hover {
+    color: #ccc;
+  }
+  
+  .header-link-icon {
+    height: 35px;
+    width: 35px;
+    margin-left: .5rem;
+  }

@@ -1,0 +1,28 @@
+:root {
+  --background-color: #071022;
+  --primary-color: #172136;
+  --primary-color-translucent: #172136ab;
+  --secondary-color: #222e45;
+  --third-color: #313e59;
+  --fourth-color: #596e96;
+  --accent-color-light: #8cabe6; 
+  --text-color: #cbd9f4;
+  --osrs-text-color: #f9d000;
+
+  --header-height: 50px;
+}
+
+html, body {
+  background-color: var(--background-color);
+  font-family: "PT Serif", "Palatino", "Georgia", serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.page-content {
+  padding-top: var(--header-height);
+}
+
+/* Wiki Styling: https://oldschool.runescape.wiki/w/RuneScape:Theme */
