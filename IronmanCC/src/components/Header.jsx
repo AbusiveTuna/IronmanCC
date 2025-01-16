@@ -1,10 +1,10 @@
 import React from 'react';
-import './css/Header.css';
+import './Header.css';
 const Header = () => {
   return (
     <div className="header">
       <a href="/justenTbow">Did Justen Get His Tbow Yet?</a>
-      <p>New Updated Site Coming Soon! (probably)</p>
+      <a href="/battleshipBingo">Battleship Bingo 2025</a>
       <a href="https://templeosrs.com/groups/overview.php?id=2176">Ironman CC Group Page</a>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/Footer.css';
+import './Header.css';
 
 import zz from '../resources/images/zz.png';
 

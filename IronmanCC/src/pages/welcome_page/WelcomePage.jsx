@@ -1,6 +1,6 @@
 import React from 'react';
 import discordIcon from '../../resources/discord.png';
-import RankTable from '../../components/RankTable';
+import RankTable from './RankTable';
 
 import './WelcomePage.css';
 

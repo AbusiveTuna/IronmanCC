@@ -1,0 +1,48 @@
+.game-board-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.column-labels {
+    display: grid;
+    grid-template-columns: repeat(11, 40px); /* 10 tiles + 1 empty corner */
+    margin-bottom: 5px;
+}
+
+.corner-label {
+    width: 40px;
+    height: 40px;
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(11, 40px); /* 10 tiles + 1 row label */
+}
+
+.label {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+}
+
+.tile {
+    width: 40px;
+    height: 40px;
+    background-color: #cce7ff;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tile:hover {
+    background-color: #b3d8ff;
+}

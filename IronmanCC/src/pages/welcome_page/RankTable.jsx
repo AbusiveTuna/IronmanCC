@@ -1,20 +1,20 @@
 import React from 'react';
 
-import ownerIcon from '../resources/ranks/Owner.webp';
-import deputyOwnerIcon from '../resources/ranks/Deputy_owner.webp';
-import administratorIcon from '../resources/ranks/Administrator.webp';
-import mod2Icon from '../resources/ranks/Brigadier.webp';
-import modIcon from '../resources/ranks/Colonel.webp';
-import retiredModIcon from '../resources/ranks/Legacy.webp';
-import vouch3Icon from '../resources/ranks/Commander.webp';
-import vouch2Icon from '../resources/ranks/Officer.webp';
-import vouch1Icon from '../resources/ranks/General.webp';
-import sergeantIcon from '../resources/ranks/Sergeant.webp';
-import corporalIcon from '../resources/ranks/Corporal.webp';
-import recruitIcon from '../resources/ranks/Recruit.webp';
-import championIcon from '../resources/ranks/Champion.webp';
-import dunceIcon from '../resources/ranks/Gnome_Child.webp';
-import guestIcon from '../resources/ranks/Guest.webp';
+import ownerIcon from '../../resources/ranks/Owner.webp';
+import deputyOwnerIcon from '../../resources/ranks/Deputy_owner.webp';
+import administratorIcon from '../../resources/ranks/Administrator.webp';
+import mod2Icon from '../../resources/ranks/Brigadier.webp';
+import modIcon from '../../resources/ranks/Colonel.webp';
+import retiredModIcon from '../../resources/ranks/Legacy.webp';
+import vouch3Icon from '../../resources/ranks/Commander.webp';
+import vouch2Icon from '../../resources/ranks/Officer.webp';
+import vouch1Icon from '../../resources/ranks/General.webp';
+import sergeantIcon from '../../resources/ranks/Sergeant.webp';
+import corporalIcon from '../../resources/ranks/Corporal.webp';
+import recruitIcon from '../../resources/ranks/Recruit.webp';
+import championIcon from '../../resources/ranks/Champion.webp';
+import dunceIcon from '../../resources/ranks/Gnome_Child.webp';
+import guestIcon from '../../resources/ranks/Guest.webp';
 
 const data = [
     { icon: ownerIcon, text: 'Owner' },

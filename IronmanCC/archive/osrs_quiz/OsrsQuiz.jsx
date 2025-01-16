@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import multipleChoice from '../../resources/quiz/multipleChoice.json';
+import multipleChoice from '../../src/resources/quiz/multipleChoice.json';
 import './OsrsQuiz.css';
 
 const OsrsQuiz = () => {
