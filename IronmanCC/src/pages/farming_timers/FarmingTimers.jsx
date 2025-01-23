@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import './FarmingTimers.css';
 
 const FarmingTimers = () => {
+    const startingTime = new Date(Date.now());
     const [time, setTime] = useState({});
     const [flowerTimer, setFlowerTimer] = useState({}); //has to be set to how much time remaining.
     const [allotmentTimer, setAllotmentTimer] = useState({});
@@ -10,62 +11,60 @@ const FarmingTimers = () => {
     const [treeTimer, setTreeTimer] = useState({});
     const [cactusTimer, setCactusTimer] = useState({});
     const [fruitTreeTimer, setFruitTreeTimer] = useState({});
-    //so we get the current hour minutes and seconds from the user.
+    const [spiritTreeTimer, setSpiritTreeTimer] = useState({});
+    const [hardwoodTimer, setHardwoodTimer] = useState({});
+  
     const intervalId = setInterval(() => {
-        const currentTime = new Date(Date.now());
         setTime({
-            'hour': currentTime.getHours(),
-            'minute': currentTime.getMinutes(),
-            'second': currentTime.getSeconds(),
+            'hour': startingTime.getHours(),
+            'minute': startingTime.getMinutes(),
+            'second': startingTime.getSeconds(),
         });
     }, 1000);
-    
+
     useEffect(() => {
         minutePatches(setFlowerTimer, 5);
         minutePatches(setAllotmentTimer, 10);
         minutePatches(setHerbTimer, 20);
         minutePatches(setTreeTimer, 40);
-        minutePatches(setCactusTimer, 80);
-        minutePatches(setFruitTreeTimer, 160);
-    },[time]);
-    
-//herbs and bushes are every 20 minutes
-
-//trees, mushrooms are every 40 minutes
+        hourPatches(setCactusTimer, 80);
+        hourPatches(setFruitTreeTimer, 160);
+        hourPatches(setSpiritTreeTimer, 320);
+        hourPatches(setHardwoodTimer, 640);
+    }, [time]);
 
     const minutePatches = (patchToSet, patchTimer) => {
-        let hoursLeft = 0;
         let minutesLeft = patchTimer - (time.minute % patchTimer);
-        let secondsLeft = 60 - time.second; 
+        let secondsLeft = 60 - time.second;
 
-        if(secondsLeft == 60) {
+        if (secondsLeft == 60) {
             minutesLeft = minutesLeft + 1;
             secondsLeft = '00';
         }
 
-        if(secondsLeft > 0 && secondsLeft < 10){
+        if (secondsLeft > 0 && secondsLeft < 10) {
             secondsLeft = '0' + secondsLeft;
         }
 
-        if(minutesLeft > 59) {
-            while(minutesLeft > 59){
-                minutesLeft = minutesLeft - 60;
-                hoursLeft = hoursLeft + 1;
-            }
-            patchToSet({
-                'hour': hoursLeft,
-                'minute' : minutesLeft,
-                'second' : secondsLeft,
-            });
-        } else {
-            patchToSet({
-                'minute' : minutesLeft,
-                'second' : secondsLeft,
-            });
-        }
+        patchToSet({
+            'minute': minutesLeft,
+            'second': secondsLeft,
+        });
+
 
     };
-    
+
+    const hourPatches = (patchToSet, patchTimer) => {
+        let hoursLeft = 0;
+        let minutesLeft = 0;
+        let secondsLeft = 0;
+        patchToSet({
+            'hour': hoursLeft,
+            'minute': minutesLeft,
+            'second': secondsLeft,
+        });
+    }
+
     let timeString = time.hour + ":" + time.minute + ":" + time.second;
     let hoursLeft = 0;
     return (
@@ -96,21 +95,31 @@ const FarmingTimers = () => {
             <span>Time until mushrooms grow: {treeTimer.minute + ":" + treeTimer.second}</span>
             <br></br>
             <br></br>
-            <span>Time until cactus grows: {hoursLeft ? cactusTimer.hour : '00' + ":" + cactusTimer.minute + ":" + cactusTimer.second}</span>
+            <span>Time until cactus grows: {cactusTimer.hour + ":" + cactusTimer.minute + ":" + cactusTimer.second}</span>
             <br></br>
-            <span>Time until crystal trees grow: {hoursLeft ? cactusTimer.hour : '00' + ":" + cactusTimer.minute + ":" + cactusTimer.second}</span>
+            <span>Time until crystal trees grow: {cactusTimer.hour + ":" + cactusTimer.minute + ":" + cactusTimer.second}</span>
             <br></br>
-            <span>Time until belladonna grows: {hoursLeft ? cactusTimer.hour : '00' + ":" + cactusTimer.minute + ":" + cactusTimer.second}</span>
-            <br></br>
-            <br></br>
-            <span>Time until fruit trees grow: {hoursLeft ? fruitTreeTimer.hour : '00' + ":" + fruitTreeTimer.minute + ":" + fruitTreeTimer.second}</span>
-            <br></br>
-            <span>Time until celestrus tree grows: {hoursLeft ? fruitTreeTimer.hour : '00' + ":" + fruitTreeTimer.minute + ":" + fruitTreeTimer.second}</span>
-            <br></br>
-            <span>Time until belladonna grows: {hoursLeft ? fruitTreeTimer.hour : '00' + ":" + fruitTreeTimer.minute + ":" + fruitTreeTimer.second}</span>
+            <span>Time until belladonna grows: {cactusTimer.hour + ":" + cactusTimer.minute + ":" + cactusTimer.second}</span>
             <br></br>
             <br></br>
-            
+            <span>Time until fruit trees grow: {fruitTreeTimer.hour + ":" + fruitTreeTimer.minute + ":" + fruitTreeTimer.second}</span>
+            <br></br>
+            <span>Time until celestrus tree grows: {fruitTreeTimer.hour + ":" + fruitTreeTimer.minute + ":" + fruitTreeTimer.second}</span>
+            <br></br>
+            <span>Time until calquat tree grows: {fruitTreeTimer.hour + ":" + fruitTreeTimer.minute + ":" + fruitTreeTimer.second}</span>
+            <br></br>
+            <br></br>
+            <span>Time until spirit tree grows: {spiritTreeTimer.hour + ":" + spiritTreeTimer.minute + ":" + spiritTreeTimer.second}</span>
+            <br></br>
+            <br></br>
+            <span>Time until hardwood trees grows: {hardwoodTimer.hour + ":" + hardwoodTimer.minute + ":" + hardwoodTimer.second}</span>
+            <br></br>
+            <span>Time until anima grows: {hardwoodTimer.hour + ":" + hardwoodTimer.minute + ":" + hardwoodTimer.second}</span>
+            <br></br>
+            <span>Time until Redwood tree grows: {hardwoodTimer.hour + ":" + hardwoodTimer.minute + ":" + hardwoodTimer.second}</span>
+            <br></br>
+            <span>Time until Hespori grows: {hardwoodTimer.hour + ":" + hardwoodTimer.minute + ":" + hardwoodTimer.second}</span>
+            <br></br>
         </div>
     );
 };
