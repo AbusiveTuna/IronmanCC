@@ -6,8 +6,6 @@ import './Battleship.css';
 
 const Battleship = () => {
 
-
-
     const [firedCoordinate, setFiredCoordinate] = useState(null);
 
     const [playerBoards, setPlayerBoards] = useState({
