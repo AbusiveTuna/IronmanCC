@@ -15,8 +15,9 @@
 .welcome-page h1 {
     margin-bottom: 20px; 
     font-weight: bold;
+    font-size: 32px;
+    color: var(--accent-color);
 }
-
 
 .welcome-page-grid-container {
     display: grid;
@@ -28,27 +29,30 @@
     box-sizing: border-box; 
 }
 
-.discord-info {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.discord-info, .toolbar-info, .clan-information, .additional-info, .how-to-join {
+    padding: 15px;
+    border-radius: 8px;
     background-color: var(--secondary-color); 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.toolbar-info {
+.section-header {
+    font-size: 22px;
+    font-weight: bold;
     padding: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
     border-radius: 5px;
-    background-color: var(--secondary-color); 
 }
 
-.clan-information, .additional-info, .how-to-join {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: var(--secondary-color); 
+.section-content {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
 }
 
+/* Discord block */
 .discord {
     display: flex;
     align-items: center;
@@ -60,6 +64,7 @@
     width: 50px; 
 }
 
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .welcome-page {
         padding: 10px;
@@ -82,10 +87,11 @@
     }
 
     .discord-info, .how-to-join, .clan-information, .toolbar-info, .additional-info {
-        padding: 5px;
+        padding: 10px;
     }
 }
 
+/* Rank Table */
 .rank-table {
     width: 100%;
     border-collapse: collapse;
@@ -95,7 +101,9 @@
     font-size: 20px;
     text-align: center;
     font-weight: bold;
-    padding: 8px;
+    padding: 10px;
+    background-color: var(--tertiary-color);
+    border-radius: 5px;
 }
 
 .rank-category-header th {

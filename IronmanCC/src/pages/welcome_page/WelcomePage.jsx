@@ -34,11 +34,13 @@ const WelcomePage = () => {
             <img src={discordIcon} alt="Discord" />
             <a href="https://discord.gg/kW6XDk9PYM" target="_blank" rel="noopener noreferrer">IronmanCC Event Server</a>
           </div>
+          <p> The event discord is open to everyone, and is primarly used to host events such as "bingos"</p>
           <h2>Join the Ironscape Discord</h2>
           <div className="discord">
             <img src={discordIcon} alt="Discord" />
             <a href="https://discord.gg/ironscape" target="_blank" rel="noopener noreferrer">Join Ironscape</a>
           </div>
+          <p> The ironscape discord is the main discord of the larger Iconscape community. While the Ironman CC in general does not have a discord many members use this one.</p>
         </div>
       </div>
     </div>
