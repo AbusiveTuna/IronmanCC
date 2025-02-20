@@ -1,49 +1,6 @@
 import { useState, useEffect } from 'react';
+import {zeroPad, buildDateUTCForToday, getNextCycleTimes, formatHMS, formatMS} from './farmingTimersUtil';
 import './FarmingTimers.css';
-
-const zeroPad = (num) => (num < 10 ? '0' + num : num);
-
-const getNextCycleTimes = (timer) => {
-    const hour = timer.hour || 0;
-    const minute = timer.minute || 0;
-    const second = timer.second || 0;
-
-    const totalSeconds = hour * 3600 + minute * 60 + second;
-    const nowMillis = Date.now();
-    const futureMillis = nowMillis + totalSeconds * 1000;
-    const futureRoundedMillis = Math.ceil(futureMillis / 1000) * 1000;
-    const future = new Date(futureRoundedMillis);
-
-
-    const localTime = future.toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true,
-    });
-
-    const gmtTime = future.toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true,
-        timeZone: 'UTC',
-    });
-
-    return { localTime, gmtTime };
-};
-
-const formatHMS = (timer) => {
-    const h = zeroPad(timer.hour || 0);
-    const m = zeroPad(timer.minute || 0);
-    const s = zeroPad(timer.second || 0);
-    return `${h}:${m}:${s}`;
-};
-
-
-const formatMS = (timer) => {
-    const m = zeroPad(timer.minute || 0);
-    const s = zeroPad(timer.second || 0);
-    return `${m}:${s}`;
-};
 
 const FarmingTimers = () => {
     const [time, setTime] = useState({ hour: 0, minute: 0, second: 0 });
@@ -58,7 +15,6 @@ const FarmingTimers = () => {
     const [fruitTreeTimer, setFruitTreeTimer] = useState({});
     const [spiritTreeTimer, setSpiritTreeTimer] = useState({});
     const [hardwoodTimer, setHardwoodTimer] = useState({});
-
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -138,17 +94,10 @@ const FarmingTimers = () => {
         });
     };
 
-    // Official times in 24-hour for Spirit Tree
-    const SPIRIT_DAY1 = ["00:00", "05:20", "10:40", "16:00", "21:20"];
-    const SPIRIT_DAY2 = ["02:40", "08:00", "13:20", "18:40"];
-
-    // Official times in 24-hour for Hardwood Trees
-    const HARDWOOD_DAY1 = ["00:00","10:40","21:20"];
-    const HARDWOOD_DAY2 = ["08:00","18:40"];
-    const HARDWOOD_DAY3 = ["05:20","16:00"];
-    const HARDWOOD_DAY4 = ["02:40","13:20"];
-
     const updateSpiritTree = () => {
+        const SPIRIT_DAY1 = ["00:00", "05:20", "10:40", "16:00", "21:20"];
+        const SPIRIT_DAY2 = ["02:40", "08:00", "13:20", "18:40"];
+
         const REF = Date.UTC(2025, 1, 20);
 
         const now = new Date();
@@ -192,6 +141,11 @@ const FarmingTimers = () => {
     };
 
     const updateHardwood = () => {
+        const HARDWOOD_DAY1 = ["00:00","10:40","21:20"];
+        const HARDWOOD_DAY2 = ["08:00","18:40"];
+        const HARDWOOD_DAY3 = ["05:20","16:00"];
+        const HARDWOOD_DAY4 = ["02:40","13:20"];
+        
         const REF = Date.UTC(2025, 1, 20);
         const now = new Date();
         const todayMidnight = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
@@ -241,21 +195,6 @@ const FarmingTimers = () => {
           second: secondsLeft,
         });
       };
-
-
-    const buildDateUTCForToday = (hhmm) => {
-        const [HH, MM] = hhmm.split(':').map(Number);
-        const now = new Date();
-        const d = new Date(Date.UTC(
-            now.getUTCFullYear(),
-            now.getUTCMonth(),
-            now.getUTCDate(),
-            HH,
-            MM,
-            0
-        ));
-        return d;
-    };
 
     const localTimeString = `${zeroPad(localTime.hour)}:${zeroPad(localTime.minute)}:${zeroPad(localTime.second)}`;
     const timeString = `${zeroPad(time.hour)}:${zeroPad(time.minute)}:${zeroPad(time.second)}`;
