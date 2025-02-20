@@ -10,7 +10,7 @@ import vouch1Icon from '../../resources/ranks/General.webp';
 import corporalIcon from '../../resources/ranks/Corporal.webp';
 import recruitIcon from '../../resources/ranks/Recruit.webp';
 import championIcon from '../../resources/ranks/Champion.webp';
-import dunceIcon from '../../resources/ranks/Gnome_Child.webp';
+import dunceIcon from '../../resources/ranks/gnomeRank.webp';
 import guestIcon from '../../resources/ranks/Guest.webp';
 import competitorIcon from '../../resources/ranks/competitorRank.webp';
 import wrathIcon from '../../resources/ranks/wrathRank.webp';
