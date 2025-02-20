@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import {zeroPad, buildDateUTCForToday, getNextCycleTimes, formatHMS, formatMS} from './farmingTimersUtil';
+import { zeroPad, buildDateUTCForToday, getNextCycleTimes, formatHMS, formatMS } from './farmingTimersUtil';
+import { REF, HARDWOOD_DAY1, HARDWOOD_DAY2, HARDWOOD_DAY3, HARDWOOD_DAY4, SPIRIT_DAY1, SPIRIT_DAY2 } from './farmingTimersUtil';
+import FarmingGraph from './FarmingGraph';
 import './FarmingTimers.css';
 
 const FarmingTimers = () => {
@@ -95,10 +97,7 @@ const FarmingTimers = () => {
     };
 
     const updateSpiritTree = () => {
-        const SPIRIT_DAY1 = ["00:00", "05:20", "10:40", "16:00", "21:20"];
-        const SPIRIT_DAY2 = ["02:40", "08:00", "13:20", "18:40"];
 
-        const REF = Date.UTC(2025, 1, 20);
 
         const now = new Date();
         const todayMidnight = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
@@ -141,60 +140,55 @@ const FarmingTimers = () => {
     };
 
     const updateHardwood = () => {
-        const HARDWOOD_DAY1 = ["00:00","10:40","21:20"];
-        const HARDWOOD_DAY2 = ["08:00","18:40"];
-        const HARDWOOD_DAY3 = ["05:20","16:00"];
-        const HARDWOOD_DAY4 = ["02:40","13:20"];
-        
         const REF = Date.UTC(2025, 1, 20);
         const now = new Date();
         const todayMidnight = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
         const diffDays = Math.floor((todayMidnight - REF) / (24 * 3600 * 1000));
-        const dayIndex = (4 + (diffDays % 4)) % 4;  
+        const dayIndex = (4 + (diffDays % 4)) % 4;
         let times;
-        switch(dayIndex) {
-          case 0:
-            times = HARDWOOD_DAY4;
-            break;
-          case 1:
-            times = HARDWOOD_DAY1;
-            break;
-          case 2:
-            times = HARDWOOD_DAY2;
-            break;
-          case 3:
-            times = HARDWOOD_DAY3;
-            break;
-          default:
-            times = HARDWOOD_DAY4;
+        switch (dayIndex) {
+            case 0:
+                times = HARDWOOD_DAY4;
+                break;
+            case 1:
+                times = HARDWOOD_DAY1;
+                break;
+            case 2:
+                times = HARDWOOD_DAY2;
+                break;
+            case 3:
+                times = HARDWOOD_DAY3;
+                break;
+            default:
+                times = HARDWOOD_DAY4;
         }
-      
+
         const candidateDates = times.map((hm) => buildDateUTCForToday(hm));
-      
+
         const nowUTC = new Date();
         let nextTick = candidateDates.find((d) => d > nowUTC);
-      
+
         if (!nextTick) {
-          nextTick = new Date(candidateDates[0].getTime() + 24 * 3600 * 1000);
+            nextTick = new Date(candidateDates[0].getTime() + 24 * 3600 * 1000);
         }
-      
+
         const diffSec = Math.floor((nextTick - nowUTC) / 1000);
         if (diffSec <= 0) {
-          setHardwoodTimer({ hour: 0, minute: 0, second: 0 });
-          return;
+            setHardwoodTimer({ hour: 0, minute: 0, second: 0 });
+            return;
         }
-      
+
         const hoursLeft = Math.floor(diffSec / 3600);
         const leftover = diffSec % 3600;
         const minutesLeft = Math.floor(leftover / 60);
         const secondsLeft = leftover % 60;
-      
+
         setHardwoodTimer({
-          hour: hoursLeft,
-          minute: minutesLeft,
-          second: secondsLeft,
+            hour: hoursLeft,
+            minute: minutesLeft,
+            second: secondsLeft,
         });
-      };
+    };
 
     const localTimeString = `${zeroPad(localTime.hour)}:${zeroPad(localTime.minute)}:${zeroPad(localTime.second)}`;
     const timeString = `${zeroPad(time.hour)}:${zeroPad(time.minute)}:${zeroPad(time.second)}`;
@@ -209,100 +203,102 @@ const FarmingTimers = () => {
 
     return (
         <div className="farmingTimers">
-            <h1 className="page-title">Farming Timers</h1>
+            {/* <h1 className="page-title">Farming Timers</h1>
             <div className="current-time">Current Local Time: {localTimeString}</div>
-            <div className="current-time">Current GMT/UTC Time: {timeString}</div>
-
-            <div className="category flowers-saplings">
-                <h2>Flowers &amp; Saplings</h2>
-                <p className="next-cycle">
-                    Next cycle: {flowerNextCycle.localTime} (Local) / {flowerNextCycle.gmtTime} (GMT)
-                </p>
-                <div className="timers-row">
-                    <div>Flowers: {formatMS(flowerTimer)}</div>
-                    <div>Saplings: {formatMS(flowerTimer)}</div>
+            <div className="current-time">Current GMT/UTC Time: {timeString}</div> */}
+            <FarmingGraph />
+            <div className="farming-cycles">
+                <div className="category flowers-saplings">
+                    <h2>Flowers &amp; Saplings</h2>
+                    <p className="next-cycle">
+                        Next cycle: {flowerNextCycle.localTime} (Local) / {flowerNextCycle.gmtTime} (GMT)
+                    </p>
+                    <div className="timers-row">
+                        <div>Flowers: {formatMS(flowerTimer)}</div>
+                        <div>Saplings: {formatMS(flowerTimer)}</div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="category allotments">
-                <h2>Allotments, Hops, Potato Cactus, Seaweed</h2>
-                <p className="next-cycle">
-                    Next cycle: {allotmentNextCycle.localTime} (Local) / {allotmentNextCycle.gmtTime} (GMT)
-                </p>
-                <div className="timers-row">
-                    <div>Allotments: {formatMS(allotmentTimer)}</div>
-                    <div>Hops: {formatMS(allotmentTimer)}</div>
-                    <div>Potato Cactus: {formatMS(allotmentTimer)}</div>
-                    <div>Seaweed: {formatMS(allotmentTimer)}</div>
+                <div className="category allotments">
+                    <h2>Allotments, Hops, Potato Cactus, Seaweed</h2>
+                    <p className="next-cycle">
+                        Next cycle: {allotmentNextCycle.localTime} (Local) / {allotmentNextCycle.gmtTime} (GMT)
+                    </p>
+                    <div className="timers-row">
+                        <div>Allotments: {formatMS(allotmentTimer)}</div>
+                        <div>Hops: {formatMS(allotmentTimer)}</div>
+                        <div>Potato Cactus: {formatMS(allotmentTimer)}</div>
+                        <div>Seaweed: {formatMS(allotmentTimer)}</div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="category herbs">
-                <h2>Herbs &amp; Bushes</h2>
-                <p className="next-cycle">
-                    Next cycle: {herbNextCycle.localTime} (Local) / {herbNextCycle.gmtTime} (GMT)
-                </p>
-                <div className="timers-row">
-                    <div>Herbs: {formatMS(herbTimer)}</div>
-                    <div>Bushes: {formatMS(herbTimer)}</div>
+                <div className="category herbs">
+                    <h2>Herbs &amp; Bushes</h2>
+                    <p className="next-cycle">
+                        Next cycle: {herbNextCycle.localTime} (Local) / {herbNextCycle.gmtTime} (GMT)
+                    </p>
+                    <div className="timers-row">
+                        <div>Herbs: {formatMS(herbTimer)}</div>
+                        <div>Bushes: {formatMS(herbTimer)}</div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="category trees">
-                <h2>Trees &amp; Mushrooms</h2>
-                <p className="next-cycle">
-                    Next cycle: {treeNextCycle.localTime} (Local) / {treeNextCycle.gmtTime} (GMT)
-                </p>
-                <div className="timers-row">
-                    <div>Trees: {formatMS(treeTimer)}</div>
-                    <div>Mushrooms: {formatMS(treeTimer)}</div>
+                <div className="category trees">
+                    <h2>Trees &amp; Mushrooms</h2>
+                    <p className="next-cycle">
+                        Next cycle: {treeNextCycle.localTime} (Local) / {treeNextCycle.gmtTime} (GMT)
+                    </p>
+                    <div className="timers-row">
+                        <div>Trees: {formatMS(treeTimer)}</div>
+                        <div>Mushrooms: {formatMS(treeTimer)}</div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="category cactus">
-                <h2>Cactus, Crystal Trees, Belladonna</h2>
-                <p className="next-cycle">
-                    Next cycle: {cactusNextCycle.localTime} (Local) / {cactusNextCycle.gmtTime} (GMT)
-                </p>
-                <div className="timers-row">
-                    <div>Cactus: {formatHMS(cactusTimer)}</div>
-                    <div>Crystal Trees: {formatHMS(cactusTimer)}</div>
-                    <div>Belladonna: {formatHMS(cactusTimer)}</div>
+                <div className="category cactus">
+                    <h2>Cactus, Crystal Trees, Belladonna</h2>
+                    <p className="next-cycle">
+                        Next cycle: {cactusNextCycle.localTime} (Local) / {cactusNextCycle.gmtTime} (GMT)
+                    </p>
+                    <div className="timers-row">
+                        <div>Cactus: {formatHMS(cactusTimer)}</div>
+                        <div>Crystal Trees: {formatHMS(cactusTimer)}</div>
+                        <div>Belladonna: {formatHMS(cactusTimer)}</div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="category fruit-trees">
-                <h2>Fruit Trees, Celestrus, Calquat</h2>
-                <p className="next-cycle">
-                    Next cycle: {fruitNextCycle.localTime} (Local) / {fruitNextCycle.gmtTime} (GMT)
-                </p>
-                <div className="timers-row">
-                    <div>Fruit Trees: {formatHMS(fruitTreeTimer)}</div>
-                    <div>Celestrus: {formatHMS(fruitTreeTimer)}</div>
-                    <div>Calquat: {formatHMS(fruitTreeTimer)}</div>
+                <div className="category fruit-trees">
+                    <h2>Fruit Trees, Celestrus, Calquat</h2>
+                    <p className="next-cycle">
+                        Next cycle: {fruitNextCycle.localTime} (Local) / {fruitNextCycle.gmtTime} (GMT)
+                    </p>
+                    <div className="timers-row">
+                        <div>Fruit Trees: {formatHMS(fruitTreeTimer)}</div>
+                        <div>Celestrus: {formatHMS(fruitTreeTimer)}</div>
+                        <div>Calquat: {formatHMS(fruitTreeTimer)}</div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="category spirit-tree">
-                <h2>Spirit Tree</h2>
-                <p className="next-cycle">
-                    Next cycle: {spiritNextCycle.localTime} (Local) / {spiritNextCycle.gmtTime} (GMT)
-                </p>
-                <div className="timers-row">
-                    <div>Spirit Tree: {formatHMS(spiritTreeTimer)}</div>
+                <div className="category spirit-tree">
+                    <h2>Spirit Tree</h2>
+                    <p className="next-cycle">
+                        Next cycle: {spiritNextCycle.localTime} (Local) / {spiritNextCycle.gmtTime} (GMT)
+                    </p>
+                    <div className="timers-row">
+                        <div>Spirit Tree: {formatHMS(spiritTreeTimer)}</div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="category hardwood">
-                <h2>Hardwood, Anima, Redwood, Hespori</h2>
-                <p className="next-cycle">
-                    Next cycle: {hardwoodNextCycle.localTime} (Local) / {hardwoodNextCycle.gmtTime} (GMT)
-                </p>
-                <div className="timers-row">
-                    <div>Hardwood: {formatHMS(hardwoodTimer)}</div>
-                    <div>Anima: {formatHMS(hardwoodTimer)}</div>
-                    <div>Redwood: {formatHMS(hardwoodTimer)}</div>
-                    <div>Hespori: {formatHMS(hardwoodTimer)}</div>
+                <div className="category hardwood">
+                    <h2>Hardwood, Anima, Redwood, Hespori</h2>
+                    <p className="next-cycle">
+                        Next cycle: {hardwoodNextCycle.localTime} (Local) / {hardwoodNextCycle.gmtTime} (GMT)
+                    </p>
+                    <div className="timers-row">
+                        <div>Hardwood: {formatHMS(hardwoodTimer)}</div>
+                        <div>Anima: {formatHMS(hardwoodTimer)}</div>
+                        <div>Redwood: {formatHMS(hardwoodTimer)}</div>
+                        <div>Hespori: {formatHMS(hardwoodTimer)}</div>
+                    </div>
                 </div>
             </div>
         </div>
