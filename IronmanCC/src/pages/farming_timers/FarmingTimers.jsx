@@ -203,9 +203,6 @@ const FarmingTimers = () => {
 
     return (
         <div className="farmingTimers">
-            {/* <h1 className="page-title">Farming Timers</h1>
-            <div className="current-time">Current Local Time: {localTimeString}</div>
-            <div className="current-time">Current GMT/UTC Time: {timeString}</div> */}
             <FarmingGraph />
             <div className="farming-cycles">
                 <div className="category flowers-saplings">
