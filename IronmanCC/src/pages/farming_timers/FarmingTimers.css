@@ -1,4 +1,67 @@
-.farmingTimers{
-    color: white;
-    font-size: 20px;
-}
+.farmingTimers {
+    color: #ffffff;
+    padding: 2rem;
+    font-family: sans-serif;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .current-time {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .category {
+    margin-bottom: 1.5rem;
+  }
+  
+  .timers-row {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-size: 1.1rem;
+  }
+  
+  .flowers-saplings .timers-row, .flowers-saplings .next-cycle {
+    color: #ffd700;
+  }
+  
+  .allotments .timers-row, .allotments .next-cycle {
+    color: #70db70;
+  }
+  
+  .herbs .timers-row, .herbs .next-cycle {
+    color: #adff2f;
+  }
+  
+  .trees .timers-row, .trees .next-cycle {
+    color: #ffa07a;
+  }
+  
+  .cactus .timers-row, .cactus .next-cycle {
+    color: #66cdaa;
+  }
+  
+  .fruit-trees .timers-row, .fruit-trees .next-cycle {
+    color: #ff7f50;
+  }
+  
+  /* Spirit Tree */
+  .spirit-tree .timers-row, .spirit-tree .next-cycle {
+    color: #cdafff;
+  }
+  
+  .hardwood .timers-row, .hardwood .next-cycle {
+    color: #ff1493;
+  }
+  
+  .category h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.3rem;
+  }
+  
