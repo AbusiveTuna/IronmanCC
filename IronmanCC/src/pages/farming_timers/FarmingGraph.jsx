@@ -70,7 +70,6 @@ const FarmingGraph = () => {
   const slots = useMemo(() => {
     const now = new Date();
     
-    // Reference time in UTC
     const referenceTime = new Date(Date.UTC(
       now.getUTCFullYear(),
       now.getUTCMonth(),
@@ -80,7 +79,6 @@ const FarmingGraph = () => {
       0
     ));
 
-    // Display range: 3 hours before & after
     const past = new Date(referenceTime.getTime() - 2 * 60 * 60 * 1000);
     const future = new Date(referenceTime.getTime() + 2 * 60 * 60 * 1000);
 
@@ -93,7 +91,7 @@ const FarmingGraph = () => {
     return out;
   }, []);
 
-  // Auto-scroll to center the current time on mount
+
   useEffect(() => {
     if (scrollRef.current) {
       const container = scrollRef.current;
