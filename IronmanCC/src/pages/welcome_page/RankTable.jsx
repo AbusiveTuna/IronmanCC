@@ -20,6 +20,7 @@ import archerRank from '../../resources/ranks/archerRank.webp';
 import achieverRank from '../../resources/ranks/achieverRank.webp';
 import maxedRank from '../../resources/ranks/maxedRank.webp';
 import xericianIcon from '../../resources/ranks/xericianRank.webp';
+import clueRank from '../../resources/ranks/clueRank.webp'; 
 
 const rankCategories = [
   { title: 'Moderator Ranks', ranks: [
@@ -36,6 +37,7 @@ const rankCategories = [
   { title: 'Achievement Ranks', ranks: [
     { icon: competitorIcon, text: '200M in a Single Skill or 1B Total Exp' },
     { icon: wrathIcon, text: 'Master/GM CAs or Blood Torva' },
+    { icon: clueRank, text: '2277+ Total Clues' },
     { icon: scholarIcon, text: '1000+ Collection Logs' },
     { icon: xericianIcon, text: 'More than 1000 Combined Raids Cleared' },
     { icon: infernalRank, text: 'Inferno Completion' },
