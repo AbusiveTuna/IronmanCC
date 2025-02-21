@@ -41,6 +41,8 @@ const WelcomePage = () => {
             <a href="https://discord.gg/ironscape" target="_blank" rel="noopener noreferrer">Join Ironscape</a>
           </div>
           <p> The ironscape discord is the main discord of the larger Iconscape community. While the Ironman CC in general does not have a discord many members use this one.</p>
+          <h2>General Ironscape rules/guidelines</h2>
+          <a href="https://i.imgur.com/ri5GsdG.png">Ironscape Rules</a>
         </div>
       </div>
     </div>
