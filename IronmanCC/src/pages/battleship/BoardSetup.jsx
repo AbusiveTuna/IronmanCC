@@ -7,6 +7,7 @@ import './gameboard/GameBoard.css';
 
 const BoardSetup = () => {
     const { captainId } = useParams();
+    const [captainName, compId] = captainId.split("-");
 
     const [ships, setShips] = useState([
         { id: 'carrier', size: 5, direction: 'horizontal' },
@@ -69,37 +70,38 @@ const BoardSetup = () => {
 
     const saveShipPlacement = async () => {
         const boardData = {
-            captainId,
+            captainName,
+            compId,
             placedShips
         };
 
         console.log("Sending board data to backend:", boardData);
 
-        // try {
-        //     const response = await fetch("http://your-backend-api.com/saveBoard", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify(boardData)
-        //     });
+        try {
+            const response = await fetch("https://ironmancc-89ded0fcdb2b.herokuapp.com/saveBoard", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(boardData)
+            });
 
-        //     if (!response.ok) {
-        //         throw new Error("Failed to save board placement.");
-        //     }
+            if (!response.ok) {
+                throw new Error("Failed to save board placement.");
+            }
 
-        //     const data = await response.json();
-        //     console.log("Board saved successfully:", data);
-        // } catch (error) {
-        //     console.error("Error saving board placement:", error);
-        // }
+            const data = await response.json();
+            console.log("Board saved successfully:", data);
+        } catch (error) {
+            console.error("Error saving board placement:", error);
+        }
     };
 
     return (
         <div className='board-setup'>
         <Container className="mt-4">
           <h2>Game Setup</h2>
-          <p>Welcome Captain {captainId}, please configure your game setup.</p>
+          <p>Welcome Captain {captainName}, please configure your game setup.</p>
 
           <div className="ship-selection">
               {ships.map((ship) => (

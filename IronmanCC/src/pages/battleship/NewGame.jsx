@@ -9,25 +9,23 @@ const NewGame = () => {
     const [teamTwo, setTeamTwo] = useState("");
     const [gameLinks, setGameLinks] = useState(null);
 
-    const handleSubmit = (e) => {
+    //untested
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        //call to the backend saying "Hey we created a new game here's captain one and their team name and captain two and their team name"
-        // const response = await fetch("https://your-backend.com/api/new-game", {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({
-        //       captainOne,
-        //       teamOne,
-        //       captainTwo,
-        //       teamTwo,
-        //     }),
-        //   });
+        const response = await fetch("https://ironmancc-89ded0fcdb2b.herokuapp.com/battleship-new-game", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              captainOne,
+              teamOne,
+              captainTwo,
+              teamTwo,
+            }),
+          });
     
-        //   const data = await response.json();
+          const data = await response.json();
 
-        // const {captainOneId, captainTwoId} = data;
-        const captainOneId = 'test123';
-        const captainTwoId = 'test321';
+        const {competionId, captainOneId, captainTwoId} = data;
         setGameLinks({
             captainOneLink: `/setup/${captainOneId}`,
             captainTwoLink: `/setup/${captainTwoId}`,

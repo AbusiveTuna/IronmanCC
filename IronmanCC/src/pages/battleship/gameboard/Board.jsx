@@ -2,7 +2,7 @@ import React from "react";
 import Tile from "./Tile";
 import "./GameBoard.css";
 
-const Board = ({ placedShips, placeShip }) => {
+const Board = ({ placedShips, placeShip, onSelectTile }) => {
     const columns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 
@@ -32,6 +32,7 @@ const Board = ({ placedShips, placeShip }) => {
                                     hasShip={placeShip ? !!tile : tile?.isHit && tile?.hasShip}
                                     isHit={tile?.isHit || false}
                                     placeShip={placeShip}
+                                    onSelect={onSelectTile}
                                 />
                             );
                         })}

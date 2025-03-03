@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Container, Button, Form } from "react-bootstrap";
+import ShotInput from './ShotInput';
 import Board from "./gameboard/Board";
 import "./gameboard/GameBoard.css";
 import './Battleship.css';
@@ -10,7 +11,7 @@ const fakeData = {
       "name": "Team Alpha",
       "captain": "Captain A",
       "board": [
-        {"row": 0, "col": 0, "isHit": false},
+        {"row": 0, "col": 0, "isHit": true},
         {"row": 0, "col": 1, "isHit": true, "hasShip": false},
         {"row": 0, "col": 2, "isHit": true, "hasShip": true}
       ]
@@ -19,7 +20,7 @@ const fakeData = {
       "name": "Team Bravo",
       "captain": "Captain B",
       "board": [
-        {"row": 0, "col": 0, "isHit": false},
+        {"row": 0, "col": 0, "isHit": true},
         {"row": 0, "col": 1, "isHit": true, "hasShip": false},
         {"row": 0, "col": 2, "isHit": true, "hasShip": true}
       ]
@@ -28,6 +29,7 @@ const fakeData = {
 
 const Battleship = () => {
     const [gameData, setGameData] = useState(null);
+    const [selectedShot, setSelectedShot] = useState(null);
     const [shotCode, setShotCode] = useState("");
 
     useEffect(() => {
@@ -48,25 +50,38 @@ const Battleship = () => {
         setGameData(fakeData);
     }, []);
 
+    const handleSelectTile = (row,col) => {
+      setSelectedShot({row,col});
+    }
+
+    const handleFireShot = (shot) => {
+      console.log("Shot fired:", shot);
+      setSelectedShot(null);
+      // In the future, send this to the backend
+  };
+
     if (!gameData) return <div>Loading game...</div>;
 
     return (
-        <div className="Battleship-Bingo">
-        <Container className="mt-4 game-container">
-            <h2>Battleship Game</h2>
-            <div className="team-headers">
-                <h3>{gameData.teamOne.name} (Captain {gameData.teamOne.captain})</h3>
-                <h3>{gameData.teamTwo.name} (Captain {gameData.teamTwo.captain})</h3>
-            </div>
+      <div className="Battleship-Bingo">
+          <Container className="game-container">
 
-            <div className="board-display">
-                <Board placedShips={gameData.teamOne.board} />
-                <Board placedShips={gameData.teamTwo.board} />
-            </div>
+              <div className="board-section">
+                  <div className="team-headers">
+                      <h3>{gameData.teamOne.name} (Captain {gameData.teamOne.captain})</h3>
+                      <h3>{gameData.teamTwo.name} (Captain {gameData.teamTwo.captain})</h3>
+                  </div>
 
-        </Container>
-        </div>
-    );
+                  <div className="board-wrapper">
+                      <Board placedShips={gameData.teamOne.board} onSelectTile={handleSelectTile} />
+                      <Board placedShips={gameData.teamTwo.board} onSelectTile={handleSelectTile} />
+                  </div>
+              </div>
+
+              <ShotInput gameData={gameData} onFireShot={handleFireShot} selectedShot={selectedShot} />
+          </Container>
+      </div>
+  );
 };
 
 export default Battleship;
