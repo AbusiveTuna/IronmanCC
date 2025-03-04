@@ -9,7 +9,6 @@ const NewGame = () => {
     const [teamTwo, setTeamTwo] = useState("");
     const [gameLinks, setGameLinks] = useState(null);
 
-    //untested
     const handleSubmit = async(e) => {
         e.preventDefault();
         const response = await fetch("https://ironmancc-89ded0fcdb2b.herokuapp.com/battleship-new-game", {

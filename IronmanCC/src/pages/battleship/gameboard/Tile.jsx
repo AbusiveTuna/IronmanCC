@@ -2,7 +2,7 @@ import React from "react";
 import { useDrop } from "react-dnd";
 import "./GameBoard.css";
 
-const Tile = ({ row, col, hasShip, isHit, placeShip, onSelect }) => {
+const Tile = ({ row, col, hasShip, isHit, shipHit, placeShip, onSelect }) => {
     const [{ isOver, canDrop }, drop] = useDrop(
         () => ({
             accept: "SHIP",
@@ -30,7 +30,7 @@ const Tile = ({ row, col, hasShip, isHit, placeShip, onSelect }) => {
             ref={placeShip ? drop : null}
             className={`tile 
                 ${isOver ? "tile-hover" : ""} 
-                ${isHit ? (hasShip ? "hit-ship" : "hit-miss") : ""}
+                ${isHit ? (shipHit ? "hit-ship" : "hit-miss") : ""}
                 ${placeShip && hasShip ? "occupied" : ""}  // Show ships only in setup mode
             `}
             onClick={handleClick}

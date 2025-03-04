@@ -18,6 +18,7 @@ const BoardSetup = () => {
     ]);
 
     const [placedShips, setPlacedShips] = useState([]);
+    const [message, setMessage] = useState("Welcome Captain " + captainName + ", please configure your game setup.");
 
     const allShipsPlaced = ships.length === 0;
 
@@ -78,7 +79,7 @@ const BoardSetup = () => {
         console.log("Sending board data to backend:", boardData);
 
         try {
-            const response = await fetch("https://ironmancc-89ded0fcdb2b.herokuapp.com/saveBoard", {
+            const response = await fetch("https://ironmancc-89ded0fcdb2b.herokuapp.com/battleship-save-board", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -92,6 +93,7 @@ const BoardSetup = () => {
 
             const data = await response.json();
             console.log("Board saved successfully:", data);
+            setMessage("Board saved successfully. Please take a screenshot of your board as you will not be able to access it again.");
         } catch (error) {
             console.error("Error saving board placement:", error);
         }
@@ -101,7 +103,7 @@ const BoardSetup = () => {
         <div className='board-setup'>
         <Container className="mt-4">
           <h2>Game Setup</h2>
-          <p>Welcome Captain {captainName}, please configure your game setup.</p>
+          <p>{message}</p>
 
           <div className="ship-selection">
               {ships.map((ship) => (

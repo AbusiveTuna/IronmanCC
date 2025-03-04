@@ -31,6 +31,7 @@ const Board = ({ placedShips, placeShip, onSelectTile }) => {
                                     col={colIndex}
                                     hasShip={placeShip ? !!tile : tile?.isHit && tile?.hasShip}
                                     isHit={tile?.isHit || false}
+                                    shipHit={tile?.hitShip || false}
                                     placeShip={placeShip}
                                     onSelect={onSelectTile}
                                 />

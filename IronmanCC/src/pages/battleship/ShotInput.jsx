@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const ShotInput = ({ gameData, onFireShot, selectedShot }) => {
-    const [selectedBoard, setSelectedBoard] = useState("teamOne");
+    const [selectedBoard, setSelectedBoard] = useState("");
     const [shotCode, setShotCode] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
     const handleFireShot = () => {
+
+        if(!selectedBoard){
+            setErrorMessage("Select a board to fire at.");
+        }
+
         if (!shotCode) {
             setErrorMessage("Enter a valid shot code.");
             return;
@@ -35,7 +40,11 @@ const ShotInput = ({ gameData, onFireShot, selectedShot }) => {
         <div className="shot-input">
             <Form.Group>
                 <Form.Label>Select Board</Form.Label>
-                <Form.Select value={selectedBoard} onChange={(e) => setSelectedBoard(e.target.value)}>
+                <Form.Select
+                    value={selectedBoard}
+                    onChange={(e) => setSelectedBoard(e.target.value)}
+                >
+                    <option value="" disabled>Select a team</option>
                     <option value="teamOne">{gameData.teamOne.name}</option>
                     <option value="teamTwo">{gameData.teamTwo.name}</option>
                 </Form.Select>
