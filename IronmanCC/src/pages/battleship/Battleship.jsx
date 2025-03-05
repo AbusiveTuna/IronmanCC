@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import ShotInput from "./ShotInput";
 import Board from "./gameboard/Board";
-import "./gameboard/GameBoard.css";
+import "./gameboard/Board.css";
 import "./Battleship.css";
 
 const gameId = 2;
@@ -10,6 +10,7 @@ const gameId = 2;
 const Battleship = () => {
     const [gameData, setGameData] = useState(null);
     const [selectedShot, setSelectedShot] = useState(null);
+    const [selectedBoard, setSelectedBoard] = useState(null);
 
     const fetchGameData = async () => {
         try {
@@ -26,8 +27,9 @@ const Battleship = () => {
         fetchGameData();
     }, []);
 
-    const handleSelectTile = (row, col) => {
+    const handleSelectTile = (row, col, board) => {
         setSelectedShot({ row, col });
+        setSelectedBoard(board);
     };
 
     const handleFireShot = async ({ board, row, col, shotCode }) => {
@@ -76,12 +78,12 @@ const Battleship = () => {
                     </div>
 
                     <div className="board-wrapper">
-                        <Board placedShips={gameData.teamOne.board} onSelectTile={handleSelectTile} />
-                        <Board placedShips={gameData.teamTwo.board} onSelectTile={handleSelectTile} />
+                        <Board placedShips={gameData.teamOne.board} onSelectTile={(row,col)=> handleSelectTile(row,col,"one")} selectedShot={selectedShot} selectedBoard={selectedBoard} team={'one'}/>
+                        <Board placedShips={gameData.teamTwo.board} onSelectTile={(row,col)=> handleSelectTile(row,col,"two")} selectedShot={selectedShot} selectedBoard={selectedBoard} team={'two'}/>
                     </div>
                 </div>
 
-                <ShotInput gameData={gameData} onFireShot={handleFireShot} selectedShot={selectedShot} />
+                <ShotInput gameData={gameData} onFireShot={handleFireShot} selectedShot={selectedShot} selectedBoard={selectedBoard}/>
             </Container>
         </div>
     );

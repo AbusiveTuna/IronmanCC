@@ -1,0 +1,71 @@
+.shot-input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 280px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    align-self: center;
+    text-align: center;
+}
+
+.shot-title {
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.shot-instructions {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.shot-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.shot-select, .shot-input-box {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+}
+
+.si-selected-tile {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.fire-button {
+    background: linear-gradient(90deg, #ff4b1f, #ff9068);
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.fire-button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+.fire-button:hover {
+    transform: scale(1.05);
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-weight: bold;
+}

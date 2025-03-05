@@ -1,14 +1,17 @@
 import React from "react";
 import Tile from "./Tile";
-import "./GameBoard.css";
+import "./Board.css";
 
-const Board = ({ placedShips, placeShip, onSelectTile }) => {
+const Board = ({ placedShips, placeShip, onSelectTile, team, selectedShot, selectedBoard }) => {
     const columns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 
+    const isBoardSelected = (selectedBoard === "one" && team === "one") || 
+    (selectedBoard === "two" && team === "two");
+
     return (
         <div className="board-container">
-            <div className="battleship-board">
+            <div className={`battleship-board ${team === 'one' ? 'team-one-board' : 'team-two-board'}`}>
                 <div className="board-header-row">
                     <div className="board-corner"></div>
                     {columns.map((col) => (
@@ -34,6 +37,7 @@ const Board = ({ placedShips, placeShip, onSelectTile }) => {
                                     shipHit={tile?.hitShip || false}
                                     placeShip={placeShip}
                                     onSelect={onSelectTile}
+                                    isSelected={isBoardSelected && selectedShot?.row === rowIndex && selectedShot?.col === colIndex}
                                 />
                             );
                         })}

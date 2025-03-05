@@ -5,10 +5,10 @@ import JustenMeme from './pages/justen_meme/JustenMeme';
 import Battleship from './pages/battleship/Battleship';
 import NewGame from './pages/battleship/NewGame';
 import BoardSetup from './pages/battleship/BoardSetup';
-import Progress from './pages/Progress';
 import FarmingTimers from './pages/farming_timers/FarmingTimers';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
@@ -26,7 +26,6 @@ function App() {
         <Route path="/battleshipBingo" element={<Battleship />} />
         <Route path="/newBattleshipGame" element={<NewGame />} />
         <Route path="/setup/:captainId" element={<BoardSetup />} />
-        <Route path="/inProgress" element={<Progress />} />
         <Route path="/farmingTimers" element={<FarmingTimers />} />
       </Routes>
       <Footer />

@@ -38,14 +38,3 @@
     width: 100%;
 }
 
-.shot-input {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 250px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    align-self: center; 
-}

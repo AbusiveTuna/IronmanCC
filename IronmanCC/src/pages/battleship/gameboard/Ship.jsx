@@ -1,6 +1,6 @@
 import React from "react";
 import { useDrag } from "react-dnd";
-import "./GameBoard.css";
+import "./Ship.css";
 
 const Ship = ({ id, size, direction, rotateShip }) => {
     const [{ isDragging }, drag] = useDrag(() => ({

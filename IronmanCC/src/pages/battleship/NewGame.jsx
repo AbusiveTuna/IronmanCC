@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Form, Button, Container, Alert } from "react-bootstrap";
-import './gameboard/GameBoard.css';
+import './gameboard/Board.css';
 
 const NewGame = () => {
     const [captainOne, setCaptainOne] = useState("");

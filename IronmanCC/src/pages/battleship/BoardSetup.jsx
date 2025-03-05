@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import Board from './gameboard/Board';
 import Ship from './gameboard/Ship';
-import './gameboard/GameBoard.css';
+import './gameboard/Board.css';
 
 const BoardSetup = () => {
     const { captainId } = useParams();
@@ -75,8 +75,6 @@ const BoardSetup = () => {
             compId,
             placedShips
         };
-
-        console.log("Sending board data to backend:", boardData);
 
         try {
             const response = await fetch("https://ironmancc-89ded0fcdb2b.herokuapp.com/battleship-save-board", {
