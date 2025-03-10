@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./ShotInput.css";
 
-const ShotInput = ({ gameData, onFireShot, selectedShot }) => {
-    const [selectedBoard, setSelectedBoard] = useState("");
+const ShotInput = ({ gameData, onFireShot, selectedShot, selectedBoard }) => {
     const [shotCode, setShotCode] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
 
     const handleFireShot = () => {
         if (!selectedBoard) {
@@ -31,7 +29,6 @@ const ShotInput = ({ gameData, onFireShot, selectedShot }) => {
         });
 
         setShotCode("");
-        setErrorMessage("");
     };
 
     return (
@@ -40,19 +37,13 @@ const ShotInput = ({ gameData, onFireShot, selectedShot }) => {
             <p className="shot-instructions">
                 Select the enemy team, enter your shot code, and choose a target tile.
             </p>
-
             <Form.Group className="shot-form-group">
                 <Form.Label>Target Team</Form.Label>
-                <Form.Select
-                    value={selectedBoard}
-                    onChange={(e) => setSelectedBoard(e.target.value)}
-                    className="shot-select"
-                >
-                    <option value="" disabled>Select a team</option>
-                    <option value="teamOne"> {gameData.teamOne.name} </option>
-                    <option value="teamTwo"> {gameData.teamTwo.name} </option>
-                </Form.Select>
+                <p className="target-team-display">
+                    {selectedBoard === "one" ? gameData.teamOne.name : gameData.teamTwo.name}
+                </p>
             </Form.Group>
+
 
             <Form.Group className="shot-form-group">
                 <Form.Label>Shot Code</Form.Label>
@@ -67,7 +58,7 @@ const ShotInput = ({ gameData, onFireShot, selectedShot }) => {
 
             {selectedShot && (
                 <p className="si-selected-tile">
-                    Targeting <strong>{String.fromCharCode(65 + selectedShot.row)}{selectedShot.col + 1}</strong> on <strong>{selectedBoard === "teamOne" ? gameData.teamOne.name : gameData.teamTwo.name}</strong>'s board.
+                    Targeting <strong>{String.fromCharCode(65 + selectedShot.row)}{selectedShot.col + 1}</strong> on <strong>{selectedBoard === "one" ? gameData.teamOne.name : gameData.teamTwo.name}</strong>'s board.
                 </p>
             )}
 
@@ -79,7 +70,6 @@ const ShotInput = ({ gameData, onFireShot, selectedShot }) => {
                 FIRE!
             </Button>
 
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
     );
 };

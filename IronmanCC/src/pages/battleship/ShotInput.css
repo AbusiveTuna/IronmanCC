@@ -2,70 +2,88 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 280px;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    width: 320px;
+    background: rgba(30, 60, 114, 0.95); 
     color: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    align-self: center;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
     text-align: center;
+    border: 2px solid #2a5298;
 }
 
 .shot-title {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: #FFD700;
 }
 
 .shot-instructions {
-    font-size: 14px;
+    font-size: 15px;
     opacity: 0.8;
+    color: #ddd;
 }
 
 .shot-form-group {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
+    align-items: center;
 }
 
 .shot-select, .shot-input-box {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ffffff55;
     font-size: 16px;
     text-align: center;
+    width: 90%;
+    background: #1e3c72;
+    color: white;
+    outline: none;
 }
 
 .si-selected-tile {
     font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
+    color: #FFD700;
 }
 
 .fire-button {
     background: linear-gradient(90deg, #ff4b1f, #ff9068);
     border: none;
-    padding: 12px;
+    padding: 14px;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
 }
 
 .fire-button:disabled {
     background: gray;
     cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .fire-button:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
+    box-shadow: 0 4px 10px rgba(255, 75, 31, 0.5);
 }
 
 .error-message {
     color: #ff6b6b;
     font-weight: bold;
+    font-size: 14px;
+}
+
+.target-team-display {
+    font-weight: bold;
+    font-size: 18px;
+    color: #FFD700;
 }
