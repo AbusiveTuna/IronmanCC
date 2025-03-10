@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
 import ShotErrorModal from "./ShotErrorModal";
 import ShotInput from "./ShotInput";
 import Board from "./gameboard/Board";
@@ -59,7 +58,6 @@ const Battleship = () => {
             });
 
             const data = await response.json();
-
             if (!response.ok) {
                 setErrorMessage(data.error || "Shot failed. Please try again.");
                 setShowErrorModal(true);
@@ -75,47 +73,43 @@ const Battleship = () => {
         }
     };
 
-    if (!gameData) return <div>Loading game...</div>;
+    if (!gameData) {
+        return <div>Loading game...</div>;
+    }
 
     return (
         <div className="Battleship-Bingo">
-            <Container className="game-container">
-                <div className="board-section">
-                    <div className="team-headers">
-                        <div className="team-info">
-                            <span className="team-label">Captain:</span> {gameData.teamOne.captain} &nbsp;&nbsp;
-                            <span className="team-label">Team:</span> {gameData.teamOne.name}
-                        </div>
-                        <div className="team-info">
-                            <span className="team-label">Captain:</span> {gameData.teamTwo.captain} &nbsp;&nbsp;
-                            <span className="team-label">Team:</span> {gameData.teamTwo.name}
-                        </div>
-                    </div>
-
-                    <div className="board-wrapper">
-                        <Board
-                            placedShips={gameData.teamOne.board}
-                            onSelectTile={(row, col) => handleSelectTile(row, col, "one")}
-                            selectedShot={selectedShot}
-                            selectedBoard={selectedBoard}
-                            team={'one'}
-                        />
-                        <Board
-                            placedShips={gameData.teamTwo.board}
-                            onSelectTile={(row, col) => handleSelectTile(row, col, "two")}
-                            selectedShot={selectedShot}
-                            selectedBoard={selectedBoard}
-                            team={'two'}
-                        />
-                    </div>
+            <div className="board-section">
+                <div className="team-info">
+                    <span className="team-label">Captain:</span> {gameData.teamOne.captain}
+                    <br />
+                    <span className="team-label">Team:</span> {gameData.teamOne.name}
                 </div>
-
-                <ShotErrorModal
-                    showErrorModal={showErrorModal}
-                    setShowErrorModal={setShowErrorModal}
-                    errorMessage={errorMessage}
+                <Board
+                    placedShips={gameData.teamOne.board}
+                    onSelectTile={(r, c) => handleSelectTile(r, c, "one")}
+                    selectedShot={selectedShot}
+                    selectedBoard={selectedBoard}
+                    team="one"
                 />
-                <div className="shot-input-container">
+            </div>
+
+            <div className="board-section">
+                <div className="team-info">
+                    <span className="team-label">Captain:</span> {gameData.teamTwo.captain}
+                    <br />
+                    <span className="team-label">Team:</span> {gameData.teamTwo.name}
+                </div>
+                <Board
+                    placedShips={gameData.teamTwo.board}
+                    onSelectTile={(r, c) => handleSelectTile(r, c, "two")}
+                    selectedShot={selectedShot}
+                    selectedBoard={selectedBoard}
+                    team="two"
+                />
+            </div>
+
+            <div className="shot-input-container">
                 <ShotInput
                     gameData={gameData}
                     onFireShot={handleFireShot}
@@ -123,9 +117,13 @@ const Battleship = () => {
                     selectedBoard={selectedBoard}
                     setSelectedBoard={setSelectedBoard}
                 />
-                </div>
-            
-            </Container>
+            </div>
+
+            <ShotErrorModal
+                showErrorModal={showErrorModal}
+                setShowErrorModal={setShowErrorModal}
+                errorMessage={errorMessage}
+            />
         </div>
     );
 };

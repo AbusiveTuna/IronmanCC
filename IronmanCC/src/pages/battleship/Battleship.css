@@ -1,40 +1,37 @@
 .Battleship-Bingo {
-    background-color: #D2B48C;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
+    width: 100vw;
+    height: 100vh;
 
-.game-container {
+    background-color: #D2B48C;
+
+    overflow: hidden;
+
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+
     gap: 40px;
-    max-width: 1200px;
 }
 
 .board-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
 }
 
-.board-wrapper {
+.shot-input-container {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
+    flex-direction: column;
     align-items: center;
 }
 
-.team-headers {
-    display: flex;
-    justify-content: center;
-    gap: 100px; 
-    text-align: center;
+.team-info {
     font-weight: bold;
-    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
 }
 
+.team-label {
+    margin-right: 0.2rem;
+}
