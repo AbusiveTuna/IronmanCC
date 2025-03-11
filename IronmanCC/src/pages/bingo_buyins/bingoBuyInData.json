@@ -142,5 +142,9 @@
   {
     "name": "J_mes",
     "donation": 10
+  },
+  {
+    "name": "BathWater30",
+    "donation": 10
   }
 ]
