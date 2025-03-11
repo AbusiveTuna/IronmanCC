@@ -40,28 +40,43 @@ const OSRSTiles = () => {
     setModalContent({});
   };
 
+  if (!tileData) {
+    return (
+      <div>
+        <h2>Team: {teamName}</h2>
+        <p>Loading tiles...</p>
+      </div>
+    );
+  }
+
+  const completedCount = tileData.filter((tile) => tile.IsCompleted).length;
+  const additionalGroups = Math.floor(completedCount / 3);
+  const revealedTilesCount = 5 + additionalGroups * 5;
+
   return (
     <div>
       <h2>Team: {teamName}</h2>
-      {!tileData ? (
-        <p>Loading tiles...</p>
-      ) : (
-        <div className="osrs-board">
-          {tileData.map((tile) => {
-            const tileMeta = tilesMetadata.find(
-              (meta) => meta.TileNumber === tile.TileNumber
-            );
-            return (
-              <OSRSTile
-                key={tile.TileNumber}
-                tile={tile}
-                tileMeta={tileMeta}
-                onInfoClick={handleInfoClick}
-              />
-            );
-          })}
-        </div>
-      )}
+      <div className="osrs-board">
+        {tileData.map((tile) => {
+          const tileMeta = tilesMetadata.find(
+            (meta) => meta.TileNumber === tile.TileNumber
+          );
+          const isRevealed = tile.TileNumber <= revealedTilesCount;
+
+          const displayMeta = isRevealed
+            ? tileMeta
+            : { name: "?", description: "Hidden Tile" };
+
+          return (
+            <OSRSTile
+              key={tile.TileNumber}
+              tile={tile}
+              tileMeta={displayMeta}
+              onInfoClick={isRevealed ? handleInfoClick : null}
+            />
+          );
+        })}
+      </div>
 
       {showModal && (
         <TilesModal onClose={handleCloseModal}>
