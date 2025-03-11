@@ -1,0 +1,19 @@
+[
+    {
+        "TileNumber": 1,
+        "name": "Kill a Goblin",
+        "image": "/resources/osrs_icons/Agility.png",
+        "description": "Slay any goblin near Lumbridge."
+    },
+    {
+        "TileNumber": 2,
+        "name": "Chop an Oak Tree",
+        "image": "/resources/osrs_icons/Attack.png",
+        "description": "Use your hatchet to chop down an Oak tree."
+    },
+    {
+        "TileNumber": 3,
+        "name": "Bake a Bread Loaf",
+        "image": "/resources/osrs_icons/Callisto.png"
+    }
+]
