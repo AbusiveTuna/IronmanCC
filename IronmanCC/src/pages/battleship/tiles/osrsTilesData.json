@@ -132,13 +132,14 @@
     },
     {
         "TileNumber": 26,
-        "name": "Kill a Cow",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "The Tuna Tile - Obtain an 'afkable' pet.",
+        "image": "/resources/osrs_icons/burnttuna.png",
+        "description": "King Black Dragon, Callisto/Artio, Heron, Rock Goblem, Beaver, Abyssal Protector, Sarachia, Scurry. If you can argue to me that it is afkable, I will allow it."
     },
     {
         "TileNumber": 27,
-        "name": "Kill a Chicken",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "Obtain full Sunfire Fanatic Armour",
+        "image": "/resources/osrs_icons/sunfire.webp"
     },
     {
         "TileNumber": 28,
