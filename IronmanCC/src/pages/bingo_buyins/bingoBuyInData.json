@@ -146,5 +146,9 @@
   {
     "name": "BathWater30",
     "donation": 10
+  },
+  {
+    "name": "Puritionite",
+    "donation": 10
   }
 ]
