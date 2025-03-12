@@ -1,40 +1,40 @@
 [
     {
         "TileNumber": 1,
-        "name": "Kill a Goblin",
-        "image": "/resources/osrs_icons/Agility.png",
-        "description": "Slay any goblin near Lumbridge."
+        "name": "Obtain a boss pet with a drop rate of 1/4000 or more",
+        "image": "/resources/osrs_icons/Zulrah.png",
+        "description": "Includes: DKS, Corp, GWD bosses (except Nex), WT, Temp, Zulrah"
     },
     {
         "TileNumber": 2,
-        "name": "Chop an Oak Tree",
-        "image": "/resources/osrs_icons/Attack.png",
-        "description": "Use your hatchet to chop down an Oak tree."
+        "name": "Get an Araxyte fang",
+        "image": "/resources/osrs_icons/Araxxor.png",
+        "description": ""
     },
     {
         "TileNumber": 3,
-        "name": "Bake a Bread Loaf",
-        "image": "/resources/osrs_icons/Callisto.png"
+        "name": "Obtain an Armadyl crossbow",
+        "image": "/resources/osrs_icons/Commander Zilyana.png"
     },
     {
         "TileNumber": 4,
-        "name": "Catch a Fish",
-        "image": "/resources/osrs_icons/Chaos Elemental.png"
+        "name": "Obtain two Crystal Armour Seeds",
+        "image": "/resources/osrs_icons/Crystal seed.png"
     },
     {
         "TileNumber": 5,
-        "name": "Mine some Iron Ore",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "Obtain two purples from Chambers of Xeric",
+        "image": "/resources/osrs_icons/Chambers of Xeric.png"
     },
     {
         "TileNumber": 6,
-        "name": "Craft a Leather Body",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "Receive one purple from Theatre of Blood",
+        "image": "/resources/osrs_icons/Theatre of Blood.png"
     },
     {
         "TileNumber": 7,
-        "name": "Burn a Log",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "Obtain 3 Unsired",
+        "image": "/resources/osrs_icons/Abyssal Sire.png"
     },
     {
         "TileNumber": 8,
@@ -54,9 +54,9 @@
     },
     {
         "TileNumber": 11,
-        "name": "Chop an Oak Tree",
-        "image": "/resources/osrs_icons/Attack.png",
-        "description": "Use your hatchet to chop down an Oak tree."
+        "name": "Obtain Bran from the Royal Titans",
+        "image": "/resources/osrs_icons/Bran.png",
+        "description": ""
     },
     {
         "TileNumber": 12,

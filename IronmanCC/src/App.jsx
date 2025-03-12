@@ -29,7 +29,7 @@ function App() {
         <Route path="/battleshipBingo" element={<Battleship />} />
         <Route path="/bingoBuyIns" element={<BingoBuyIns /> } />
         <Route path="/newBattleshipGame" element={<NewGame />} />
-        <Route path="/battleshipBingoTiles/:teamId" element={<OSRSTiles />} />
+        <Route path="/bingoTiles/:teamId" element={<OSRSTiles />} />
         <Route path="/k6d0zl12ete/:teamId" element={<AdminPanel />} />
         <Route path="/setup/:captainId" element={<BoardSetup />} />
         <Route path="/farmingTimers" element={<FarmingTimers />} />
