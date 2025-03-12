@@ -8,8 +8,7 @@
     {
         "TileNumber": 2,
         "name": "Get an Araxyte fang",
-        "image": "/resources/osrs_icons/Araxxor.png",
-        "description": ""
+        "image": "/resources/osrs_icons/Araxxor.png"
     },
     {
         "TileNumber": 3,
@@ -38,25 +37,23 @@
     },
     {
         "TileNumber": 8,
-        "name": "Kill a Cow",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "Obtain a Bottomless Compost Bucket",
+        "image": "/resources/osrs_icons/Hespori.png"
     },
     {
         "TileNumber": 9,
-        "name": "Kill a Chicken",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "Obtain any Virtus piece",
+        "image": "/resources/osrs_icons/Virtus.png"
     },
     {
         "TileNumber": 10,
-        "name": "Kill a Goblin",
-        "image": "/resources/osrs_icons/Agility.png",
-        "description": "Slay any goblin near Lumbridge."
+        "name": "Receive two purples from Tombs of Amascut",
+        "image": "/resources/osrs_icons/Tombs of Amascut.png"
     },
     {
         "TileNumber": 11,
         "name": "Obtain Bran from the Royal Titans",
-        "image": "/resources/osrs_icons/Bran.png",
-        "description": ""
+        "image": "/resources/osrs_icons/Bran.png"
     },
     {
         "TileNumber": 12,
@@ -80,8 +77,8 @@
     },
     {
         "TileNumber": 16,
-        "name": "Burn a Log",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "Obtain any Mega Rare from a raid",
+        "image": "/resources/osrs_icons/Purple Totals.png"
     },
     {
         "TileNumber": 17,
@@ -414,7 +411,7 @@
     },
     {
         "TileNumber": 80,
-        "name": "Kill a Cow",
+        "name": "If we've hit this point, that means both teams have been really bad at this game.",
         "image": "/resources/osrs_icons/Chaos Fanatic.png"
     },
     {
@@ -498,29 +495,29 @@
     },
     {
         "TileNumber": 96,
-        "name": "Craft a Leather Body",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "Obtain Every Mega Rare",
+        "image": "/resources/osrs_icons/Purple Totals.png"
     },
     {
         "TileNumber": 97,
-        "name": "Burn a Log",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "Blame Tuna for something",
+        "image": "/resources/osrs_icons/burnttuna.png"
     },
     {
         "TileNumber": 98,
-        "name": "Kill a Cow",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "Insult Goose World",
+        "image": "/resources/osrs_icons/Goose.png"
     },
     {
         "TileNumber": 99,
-        "name": "Kill a Chicken",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png"
+        "name": "Kill Iron Chkn",
+        "image": "/resources/osrs_icons/Iron.png"
     },
     {
         "TileNumber": 100,
         "name": "Kill a Goblin",
-        "image": "/resources/osrs_icons/Agility.png",
-        "description": "Slay any goblin near Lumbridge."
+        "image": "/resources/osrs_icons/Goblin.png",
+        "description": "No Seriously, that's it."
     }
     
 ]

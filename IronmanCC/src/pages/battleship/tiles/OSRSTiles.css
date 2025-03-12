@@ -1,11 +1,48 @@
-.osrs-board {
-    display: grid;
-    grid-template-columns: repeat(10, 120px);
-    gap: 8px;
-    margin-top: 2rem;
-}
+.battleship-tiles-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .battleship-tiles-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .battleship-tiles-button-group {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
 
-.osrs-tile {
+  .battleship-tiles-toggle-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .battleship-tiles-toggle-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .battleship-tiles-board-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .osrs-board {
+    display: grid;
+    grid-template-columns: repeat(12, 120px);
+    gap: 8px;
+  }
+  
+  .osrs-tile {
     background: #003366;
     border: 1px solid #ccc;
     color: #fff;
@@ -15,13 +52,13 @@
     align-items: center;
     text-align: center;
     position: relative;
-}
-
-.osrs-tile.completed {
+  }
+  
+  .osrs-tile.completed {
     position: relative;
-}
-
-.osrs-tile.completed::after {
+  }
+  
+  .osrs-tile.completed::after {
     content: "X";
     position: absolute;
     top: 50%;
@@ -32,20 +69,20 @@
     font-weight: bold;
     opacity: 0.8;
     pointer-events: none;
-}
-
-.osrs-tile img {
+  }
+  
+  .osrs-tile img {
     max-width: 80px;
     max-height: 80px;
     object-fit: contain;
-}
-
-.osrs-tile .tile-name {
+  }
+  
+  .osrs-tile .tile-name {
     font-size: 0.9em;
     margin-top: 4px;
-}
-
-.osrs-tile .info-button {
+  }
+  
+  .osrs-tile .info-button {
     position: absolute;
     top: 4px;
     right: 4px;
@@ -59,9 +96,9 @@
     line-height: 18px;
     text-align: center;
     padding: 0;
-}
-
-.modal-overlay {
+  }
+  
+  .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -71,12 +108,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.modal-content {
+  }
+  
+  .modal-content {
     background: #fff;
     color: #000;
     padding: 1rem;
     max-width: 300px;
     border-radius: 4px;
-}
+  }
+  

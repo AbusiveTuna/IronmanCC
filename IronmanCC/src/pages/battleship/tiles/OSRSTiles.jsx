@@ -12,6 +12,17 @@ const OSRSTiles = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
 
+  // (1) Load the user’s previous setting from local storage or default to 'false'
+  const [hideCompleted, setHideCompleted] = useState(() => {
+    const saved = localStorage.getItem("hideCompleted");
+    return saved ? JSON.parse(saved) : false;
+  });
+
+  const [hideUnrevealed, setHideUnrevealed] = useState(() => {
+    const saved = localStorage.getItem("hideUnrevealed");
+    return saved ? JSON.parse(saved) : false;
+  });
+
   useEffect(() => {
     const fetchGameData = async () => {
       try {
@@ -40,42 +51,90 @@ const OSRSTiles = () => {
     setModalContent({});
   };
 
+  // (2) When toggling, update both React state and local storage
+  const handleToggleCompleted = () => {
+    setHideCompleted((prev) => {
+      const newValue = !prev;
+      localStorage.setItem("hideCompleted", JSON.stringify(newValue));
+      return newValue;
+    });
+  };
+
+  const handleToggleUnrevealed = () => {
+    setHideUnrevealed((prev) => {
+      const newValue = !prev;
+      localStorage.setItem("hideUnrevealed", JSON.stringify(newValue));
+      return newValue;
+    });
+  };
+
   if (!tileData) {
     return (
-      <div>
+      <div className="container">
         <h2>Team: {teamName}</h2>
         <p>Loading tiles...</p>
       </div>
     );
   }
 
+  // Logic to calculate which tiles are revealed
   const completedCount = tileData.filter((tile) => tile.IsCompleted).length;
   const additionalGroups = Math.floor(completedCount / 3);
   const revealedTilesCount = 5 + additionalGroups * 5;
 
   return (
-    <div>
-      <h2>Team: {teamName}</h2>
-      <div className="osrs-board">
-        {tileData.map((tile) => {
-          const tileMeta = tilesMetadata.find(
-            (meta) => meta.TileNumber === tile.TileNumber
-          );
-          const isRevealed = tile.TileNumber <= revealedTilesCount;
+    <div className="battleship-tiles-container">
+      <div className="battleship-tiles-header-container">
+        <h2>Team: {teamName}</h2>
+        <div className="battleship-tiles-button-group">
+          <button
+            className="battleship-tiles-toggle-button"
+            onClick={handleToggleCompleted}
+          >
+            {hideCompleted ? "Show Completed Tiles" : "Hide Completed Tiles"}
+          </button>
 
-          const displayMeta = isRevealed
-            ? tileMeta
-            : { name: "?", description: "Hidden Tile" };
+          <button
+            className="battleship-tiles-toggle-button"
+            onClick={handleToggleUnrevealed}
+          >
+            {hideUnrevealed ? "Show Unrevealed Tiles" : "Hide Unrevealed Tiles"}
+          </button>
+        </div>
+      </div>
 
-          return (
-            <OSRSTile
-              key={tile.TileNumber}
-              tile={tile}
-              tileMeta={displayMeta}
-              onInfoClick={isRevealed ? handleInfoClick : null}
-            />
-          );
-        })}
+      <div className="battleship-tiles-board-container">
+        <div className="osrs-board">
+          {tileData
+            .filter((tile) => {
+              if (hideCompleted && tile.IsCompleted) {
+                return false;
+              }
+              if (hideUnrevealed && tile.TileNumber > revealedTilesCount) {
+                return false;
+              }
+              return true;
+            })
+            .map((tile) => {
+              const tileMeta = tilesMetadata.find(
+                (meta) => meta.TileNumber === tile.TileNumber
+              );
+              const isRevealed = tile.TileNumber <= revealedTilesCount;
+
+              const displayMeta = isRevealed
+                ? tileMeta
+                : { name: "?", description: "Hidden Tile" };
+
+              return (
+                <OSRSTile
+                  key={tile.TileNumber}
+                  tile={tile}
+                  tileMeta={displayMeta}
+                  onInfoClick={isRevealed ? handleInfoClick : null}
+                />
+              );
+            })}
+        </div>
       </div>
 
       {showModal && (
