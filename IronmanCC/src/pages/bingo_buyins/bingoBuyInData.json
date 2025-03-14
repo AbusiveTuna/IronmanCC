@@ -5,7 +5,7 @@
   },
   {
     "name": "Bid Whist",
-    "donation": 40
+    "donation": 10
   },
   {
     "name": "Raevid",
@@ -225,6 +225,18 @@
   },
   {
     "name": "tmo",
+    "donation": 10
+  },
+  {
+    "name": "teratron",
+    "donation": 10
+  },
+  {
+    "name": "bid1",
+    "donation": 10
+  },
+  {
+    "name": "bid2",
     "donation": 10
   }
 ]
