@@ -5,7 +5,7 @@
   },
   {
     "name": "Bid Whist",
-    "donation": 10
+    "donation": 40
   },
   {
     "name": "Raevid",
@@ -221,6 +221,10 @@
   },
   {
     "name": "love bees",
+    "donation": 10
+  },
+  {
+    "name": "tmo",
     "donation": 10
   }
 ]
