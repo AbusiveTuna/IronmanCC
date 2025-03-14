@@ -5,7 +5,7 @@
   },
   {
     "name": "Bid Whist",
-    "donation": 70
+    "donation": 10
   },
   {
     "name": "Raevid",
@@ -197,6 +197,30 @@
   },
   {
     "name": "Astraleos",
+    "donation": 10
+  },
+  {
+    "name": "gainsaid",
+    "donation": 10
+  },
+  {
+    "name": "ohtoodles",
+    "donation": 10
+  },
+  {
+    "name": "raze",
+    "donation": 10
+  },
+  {
+    "name": "the weeb",
+    "donation": 10
+  },
+  {
+    "name": "hey its nemo",
+    "donation": 10
+  },
+  {
+    "name": "love bees",
     "donation": 10
   }
 ]
