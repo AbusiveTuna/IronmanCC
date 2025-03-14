@@ -167,11 +167,11 @@
     "name": "ExpiredRicex",
     "donation": 10
   },
-    {
+  {
     "name": "Ninef",
     "donation": 10
   },
-      {
+  {
     "name": "VorkathChan",
     "donation": 10
   },
@@ -183,13 +183,20 @@
     "name": "Vegetti",
     "donation": 10
   },
-    {
+  {
     "name": "Imago Loop",
     "donation": 10
   },
-    {
+  {
     "name": "Sailor Terry",
     "donation": 10
+  },
+  {
+    "name": "Reveler",
+    "donation": 10
+  },
+  {
+    "name": "Astraleos",
+    "donation": 10
   }
-  
 ]
