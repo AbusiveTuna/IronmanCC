@@ -33,7 +33,7 @@
     },
     {
         "count": "6",
-        "name": "Obtain 1 purple from each Raid",
+        "name": "Obtain one purple from each Raid",
         "image": "/resources/osrs_icons/Raids.png",
         "category": "Late"
     },
@@ -98,6 +98,24 @@
         "name": "Get a collection log from one of the following items: Torn Prayer Scroll, Vial of Blood, or Thread of Elidinis",
         "image": "/resources/osrs_icons/Raids.png",
         "description": "Can not be an alt, and can not be a player with large raid completions on other accounts",
+        "category": "Late"
+    },
+    {
+        "count": "17",
+        "name": "Offhands: Obtain a Elidinis' Ward, Avernic Defender Hilt, or Twisted Buckler",
+        "image": "/resources/osrs_icons/Raids.png",
+        "category": "Late"
+    },
+    {
+        "count": "18",
+        "name": "Obtain a duplicate Thread of Elidinis",
+        "image": "/resources/osrs_icons/Thread.webp",
+        "category": "Late"
+    },
+    {
+        "count": "19",
+        "name": "Obtain a piece of Torva",
+        "image": "/resources/osrs_icons/Nex.png",
         "category": "Late"
     }
 ]

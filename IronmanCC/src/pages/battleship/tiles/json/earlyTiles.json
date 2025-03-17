@@ -5,7 +5,6 @@
         "image": "/resources/osrs_icons/Grotesque Guardians.png",
         "category": "Early"
     },
-
     {
         "count": "2",
         "name": "Obtain any of the three Revenant weapons",
@@ -90,7 +89,7 @@
     },
     {
         "count": "14",
-        "name": "Obtain the Dragon Hunter Wand OR a Hydra's Claw",
+        "name": "Obtain the Dragon Hunter Wand OR Hydra's Claw",
         "image": "/resources/osrs_icons/Huey.webp",
         "category": "Early"
     },
@@ -115,13 +114,13 @@
     },
     {
         "count": "18",
-        "name": "Obtain the Malediction ward or Odium ward as a team",
+        "name": "Obtain the Odium ward as a team",
         "image": "/resources/osrs_icons/Odium Ward.webp",
         "category": "Early"
     },
     {
         "count": "19",
-        "name": "Obtain 3 Sarachnis Cudgels",
+        "name": "Obtain 4 Sarachnis Cudgels",
         "image": "/resources/osrs_icons/Sarachnis.png",
         "category": "Early"
     },

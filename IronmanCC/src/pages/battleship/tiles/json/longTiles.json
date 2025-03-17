@@ -57,5 +57,43 @@
         "name": "Obtain an Eternal Gem or Imbued Heart",
         "image": "/resources/osrs_icons/Imbued Heart.webp",
         "category": "Long"
+    },
+    {
+        "count": "10",
+        "name": "Obtain a Raid pet",
+        "image": "/resources/osrs_icons/Chambers of Xeric.png",
+        "description": "Obtain a pet from one of the 4 raids: Cox, Tob, Toa, BA",
+        "category": "Long"
+    },
+    {
+        "count": "11",
+        "name": "Obtain a Twisted Bow",
+        "image": "/resources/osrs_icons/Twisted Bow.webp",
+        "category": "Long"
+    },
+    {
+        "count": "12",
+        "name": "Obtain a Scythe of Vitur",
+        "image": "/resources/osrs_icons/Scythe.webp",
+        "category": "Long"
+    },
+    {
+        "count": "13",
+        "name": "Obtain a Shadow of Tumeken",
+        "image": "/resources/osrs_icons/Shadow.webp",
+        "category": "Long"
+    },
+    {
+        "count": "14",
+        "name": "Obtain the Soul Reaper's Axe as a team",
+        "image": "/resources/osrs_icons/SRA.webp",
+        "category": "Long"
+    },
+    {
+        "count": "15",
+        "name": "Obtain a Wave based Pet",
+        "image": "/resources/osrs_icons/Tztok-Jad.png",
+        "description": "Includes Colo, Inferno, Jad, BA, but not Tempoross.",
+        "category": "Long"
     }
 ]
