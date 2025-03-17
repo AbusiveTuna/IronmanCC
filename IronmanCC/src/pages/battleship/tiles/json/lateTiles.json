@@ -66,5 +66,38 @@
         "name": "Obtain the Ring of Endurance",
         "image": "/resources/osrs_icons/Agility.png",
         "category": "Late"
+    },
+    {
+        "count": "12",
+        "name": "Complete the 4 awakended DT2 bosses as a team for the first time.",
+        "image": "/resources/osrs_icons/Blorva.png",
+        "description": "Each Boss MUST be done by a player who has 0 awakended KC across all accounts.",
+        "category": "Late"
+    },
+    {
+        "count": "13",
+        "name": "Obtain any Unique from PNM (Exlcudes Egg, and Tablet)",
+        "image": "/resources/osrs_icons/Phosanis Nightmare.png",
+        "category": "Late"
+    },
+    {
+        "count": "14",
+        "name": "Obtain a Twisted ancestral colour kit",
+        "image": "/resources/osrs_icons/Twisted.webp",
+        "category": "Late"
+    },
+    {
+        "count": "15",
+        "name": "Obtain a HMT unique",
+        "image": "/resources/osrs_icons/Theatre of Blood Challenge Mode.png",
+        "description": "Includes Sanguine Dust, Holy Ornament Kit, and Sanguine Ornament Kit",
+        "category": "Late"
+    },
+    {
+        "count": "16",
+        "name": "Get a collection log from one of the following items: Torn Prayer Scroll, Vial of Blood, or Thread of Elidinis",
+        "image": "/resources/osrs_icons/Raids.png",
+        "description": "Can not be an alt, and can not be a player with large raid completions on other accounts",
+        "category": "Late"
     }
 ]
