@@ -1,0 +1,110 @@
+[
+    {
+        "count": "1",
+        "name": "Obtain a Black tourmaline core from GGs",
+        "image": "/resources/osrs_icons/Grotesque Guardians.png",
+        "category": "Early"
+    },
+
+    {
+        "count": "2",
+        "name": "Obtain any of the three Revenant weapons",
+        "image": "/resources/osrs_icons/Revs.webp",
+        "category": "Early"
+    },
+ 
+    {
+        "count": "3",
+        "name": "Complete the Void Waker as a team",
+        "image": "/resources/osrs_icons/Voidwaker.webp",
+        "category": "Early"
+    },
+    {
+        "count": "4",
+        "name": "Receive the Ham Joint or Flared Trousers from an easy clue scroll",
+        "image": "/resources/osrs_icons/Easy Clue.png",
+        "category": "Early"
+    },
+    {
+        "count": "5",
+        "name": "Betray a teammate - Pirate Hook from Scratch",
+        "image": "/resources/osrs_icons/Agility.png",
+        "description": "I'd recommend picking your least favorite teammate and sending them to the Brim dungeon for about 13 hours.",
+        "category": "Early"
+    },
+    {
+        "count": "6",
+        "name": "Complete a Barrows Set as a team",
+        "image": "/resources/osrs_icons/Barrows Chests.png",
+        "description": "Must be a single full set.",
+        "category": "Early"
+    },
+
+    {
+        "count": "7",
+        "name": "Full Guild Hunter Outfit or Quetzin",
+        "image": "/resources/osrs_icons/Hunter.png",
+        "description": "Obtain all 4 pieces of the hunter outfit, or the pet.",
+        "category": "Early"
+    },
+
+    {
+        "count": "8",
+        "name": "One Rangers - Obtain a pair of Ranger Boots",
+        "image": "/resources/osrs_icons/rangers.png",
+        "category": "Early"
+    },
+
+    {
+        "count": "9",
+        "name": "Obtain a Tome",
+        "image": "/resources/osrs_icons/Tome.png",
+        "description": "Tome of Fire, Tome of Water, or Tome of Earth.",
+        "category": "Early"
+    },
+    {
+        "count": "10",
+        "name": "Obtain a Bottomless Compost Bucket",
+        "image": "/resources/osrs_icons/Hespori.png",
+        "category": "Early"
+    },
+    {
+        "count": "11",
+        "name": "Obtain Bran from the Royal Titans",
+        "image": "/resources/osrs_icons/Bran.png",
+        "category": "Early"
+    },
+    {
+        "count": "12",
+        "name": "Lord of the Rings - Obtain all 4 rings from DKS",
+        "image": "/resources/osrs_icons/Combined_DKS.png",
+        "description": "Does not include ring of life.",
+        "category": "Early"
+    },
+    {
+        "count": "13",
+        "name": "Greenlog Perilous Moons as a team",
+        "image": "/resources/osrs_icons/Lunar Chests.png",
+        "description": "Obtain all 12 uniques from Perilous Moons.",
+        "category": "Early"
+    },
+    {
+        "count": "14",
+        "name": "Obtain the Dragon Hunter Wand OR a Hydra's Claw",
+        "image": "/resources/osrs_icons/Huey.webp",
+        "category": "Early"
+    },
+    {
+        "count": "15",
+        "name": "Fish Barrel! - Obtain a Fish Barrel from Tempoross",
+        "image": "/resources/osrs_icons/FishBarrel.webp",
+        "category": "Early"
+    },
+    {
+        "count": "16",
+        "name": "Obtain a Moon Key as a team",
+        "image": "/resources/osrs_icons/Moon Key.webp",
+        "description": "Obtain the Tooth half, and Loop half of the key as a team.",
+        "category": "Early"
+    }
+]

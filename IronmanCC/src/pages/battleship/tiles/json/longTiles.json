@@ -1,0 +1,30 @@
+[
+    {
+        "count": "1",
+        "name": "JARS (THREE OF THEM)",
+        "image": "/resources/osrs_icons/Chaos Fanatic.png",
+        "description": "Jars must be unique.",
+        "category": "Long"
+    },
+    {
+        "count": "2",
+        "name": "The Tuna Tile - Obtain an 'afkable' pet.",
+        "image": "/resources/osrs_icons/burnttuna.png",
+        "description": "King Black Dragon, Callisto/Artio, Heron, Rock Goblem, Beaver, Abyssal Protector, Sarachia, Scurry. If you can argue to me that it is afkable, I will allow it.",
+        "category": "Long"
+    },
+    {
+        "count": "3",
+        "name": "Obtain a boss pet with a drop rate of 1/4000 or more",
+        "image": "/resources/osrs_icons/Zulrah.png",
+        "description": "Includes: DKS, Corp, GWD bosses (except Nex), WT, Temp, Zulrah",
+        "category": "Long"
+    },
+    {
+        "count": "4",
+        "name": "Obtain Gilded or 3rd Age from a clue casket",
+        "image": "/resources/osrs_icons/Master Clue.png",
+        "description": "Any 3rd age or Gilded counts.",
+        "category": "Long"
+    }
+]

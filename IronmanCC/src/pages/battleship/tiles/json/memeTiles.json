@@ -1,0 +1,39 @@
+[
+    {
+        "count": "1",
+        "name": "Sacrifice a HCIM with a total level of 1000 or higher",
+        "image": "/resources/osrs_icons/hcim.jpg",
+        "category": "Meme"
+    },
+    {
+        "count": "2",
+        "name": "Obtain Every Mega Rare",
+        "image": "/resources/osrs_icons/Purple Totals.png",
+        "category": "Meme"
+    },
+    {
+        "count": "3",
+        "name": "Blame Tuna for something",
+        "image": "/resources/osrs_icons/burnttuna.png",
+        "category": "Meme"
+    },
+    {
+        "count": "4",
+        "name": "Insult Goose World",
+        "image": "/resources/osrs_icons/Goose.png",
+        "category": "Meme"
+    },
+    {
+        "count": "5",
+        "name": "Kill Iron Chkn",
+        "image": "/resources/osrs_icons/Iron.png",
+        "category": "Meme"
+    },
+    {
+        "count": "6",
+        "name": "Kill a Goblin",
+        "image": "/resources/osrs_icons/Goblin.png",
+        "description": "No Seriously, that's it.",
+        "category": "Meme"
+    }
+]

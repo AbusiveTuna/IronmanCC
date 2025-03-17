@@ -1,0 +1,56 @@
+[
+    {
+        "count": "1",
+        "name": "Obtain 4 Venator Shards",
+        "image": "/resources/osrs_icons/Phantom Muspah.png",
+        "category": "Mid"
+    },
+    {
+        "count": "2",
+        "name": "Complete a Godsword blade",
+        "image": "/resources/osrs_icons/Godsword Blade.png",
+        "category": "Mid"
+    },
+    {
+        "count": "3",
+        "name": "Classic Bosses, New Items - Obtain a Dragon Pickaxe from KQ or KBD",
+        "image": "/resources/osrs_icons/Kalphite Queen.png",
+        "category": "Mid"
+    },
+    {
+        "count": "4",
+        "name": "The Jinx Tile - Obtain a Zamorak Hilt",
+        "image": "/resources/osrs_icons/Kril Tsutsaroth.png",
+        "category": "Mid"
+    },
+    {
+        "count": "5",
+        "name": "Obtain any Virtus piece",
+        "image": "/resources/osrs_icons/Virtus.png",
+        "category": "Mid"
+    },
+    {
+        "count": "6",
+        "name": "Obtain 3 Unsired",
+        "image": "/resources/osrs_icons/Abyssal Sire.png",
+        "category": "Mid"
+    },
+    {
+        "count": "7",
+        "name": "Get an Araxyte fang",
+        "image": "/resources/osrs_icons/Araxxor.png",
+        "category": "Mid"
+    },
+    {
+        "count": "8",
+        "name": "Obtain an Armadyl crossbow",
+        "image": "/resources/osrs_icons/Commander Zilyana.png",
+        "category": "Mid"
+    },
+    {
+        "count": "9",
+        "name": "Obtain two Crystal Armour Seeds",
+        "image": "/resources/osrs_icons/Crystal seed.png",
+        "category": "Mid"
+    }
+]
