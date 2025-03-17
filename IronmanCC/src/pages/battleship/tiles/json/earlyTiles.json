@@ -106,5 +106,38 @@
         "image": "/resources/osrs_icons/Moon Key.webp",
         "description": "Obtain the Tooth half, and Loop half of the key as a team.",
         "category": "Early"
+    },
+    {
+        "count": "17",
+        "name": "Obtain the Hill Giant Club or Bryophyta's essence",
+        "image": "/resources/osrs_icons/Bryophyta.png",
+        "category": "Early"
+    },
+    {
+        "count": "18",
+        "name": "Obtain the Malediction ward or Odium ward as a team",
+        "image": "/resources/osrs_icons/Odium Ward.webp",
+        "category": "Early"
+    },
+    {
+        "count": "19",
+        "name": "Obtain 3 Sarachnis Cudgels",
+        "image": "/resources/osrs_icons/Sarachnis.png",
+        "category": "Early"
+    },
+    {
+        "count": "20",
+        "name": "Obtain any unique from Zalcano",
+        "image": "/resources/osrs_icons/Zalcano.png",
+        "description": "Includes Crystal tool seed, Zalcano Shard, Smolcano, and Uncut onyx",
+        "category": "Early"
+    },
+    {
+        "count": "21",
+        "name": "Obtain Full Infinity Robes",
+        "image": "/resources/osrs_icons/Infinity.png",
+        "description": "Post a screenshot of your points before you start. Complete the set as a team. You do not need to purchase the items, you can just show the points earned.",
+        "category": "Early"
     }
+
 ]

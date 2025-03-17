@@ -26,5 +26,36 @@
         "image": "/resources/osrs_icons/Master Clue.png",
         "description": "Any 3rd age or Gilded counts.",
         "category": "Long"
+    },
+    {
+        "count": "5",
+        "name": "Obtain a skilling pet",
+        "image": "/resources/osrs_icons/Overall.png",
+        "description": "Players with 200m xp in a skill are not eligible for this tile.",
+        "category": "Long"
+    },
+    {
+        "count": "6",
+        "name": "Obtain the Dragon Full Helm",
+        "image": "/resources/osrs_icons/DFH.webp",
+        "category": "Long"
+    },
+    {
+        "count": "7",
+        "name": "Obtain a Dragonic visage of any kind",
+        "image": "/resources/osrs_icons/Iron.png",
+        "category": "Long"
+    },
+    {
+        "count": "8",
+        "name": "Obtain one of the following: Mutagen (Zulrah), Dragon Axe (WT), Dragon Harpoon (Temp), Dark Totem (Skotizo)",
+        "image": "/resources/osrs_icons/Zulrah.png",
+        "category": "Long"
+    },
+    {
+        "count": "9",
+        "name": "Obtain an Eternal Gem or Imbued Heart",
+        "image": "/resources/osrs_icons/Imbued Heart.webp",
+        "category": "Long"
     }
 ]

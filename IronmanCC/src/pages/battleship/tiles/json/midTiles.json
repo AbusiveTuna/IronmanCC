@@ -49,8 +49,66 @@
     },
     {
         "count": "9",
-        "name": "Obtain two Crystal Armour Seeds",
+        "name": "Obtain three Crystal Armour Seeds",
         "image": "/resources/osrs_icons/Crystal seed.png",
+        "category": "Mid"
+    },
+    {
+        "count": "10",
+        "name": "Obtain three Crystal Weapon Seeds from Corrupted Gauntlet or the Gauntlet",
+        "image": "/resources/osrs_icons/Crystal seed.png",
+        "category": "Mid"
+    },
+    {
+        "count": "11",
+        "name": "Obtain the burning claws as a team",
+        "image": "/resources/osrs_icons/Burning Claws.png",
+        "description": "Obtain two burning claw total.",
+        "category": "Mid"
+    },
+    {
+        "count": "12",
+        "name": "Obtain any unique from Vorkath (Excluding Vorkath's Head)",
+        "image": "/resources/osrs_icons/Vorkath.png",
+        "description": "Includes: Dragonbone necklace, Jar, pet, and visages",
+        "category": "Mid"
+    },
+    {
+        "count": "13",
+        "name": "Obtain the Magic Fang from Zulrah",
+        "image": "/resources/osrs_icons/Zulrah.png",
+        "category": "Mid"
+    },
+    {
+        "count": "14",
+        "name": "Immense Wealth: Obtain a Sheild Left half from a boss.",
+        "image": "/resources/osrs_icons/Wealth.png",
+        "category": "Mid"
+    },
+    {
+        "count": "15",
+        "name": "Defense Drainer: Obtain a Dragon Warhammer, Bandos Godsword, or Eldermaul",
+        "image": "/resources/osrs_icons/Sote.webp",
+        "category": "Mid"
+    },
+    {
+        "count": "16",
+        "name": "Immense Wealth: Obtain a Sheild Left half from a boss.",
+        "image": "/resources/osrs_icons/Wealth.png",
+        "category": "Mid"
+    },
+    {
+        "count": "17",
+        "name": "Obtain 2 Unique Crystals or Stones from Cerberus",
+        "image": "/resources/osrs_icons/Cerberus.png",
+        "description": "Includes: Eternal, Pegasian, Primordial, Smouldering Stone. Must be unique.",
+        "category": "Mid"
+    },
+    {
+        "count": "18",
+        "name": "Obtain 2 Chromium Ingots",
+        "image": "/resources/osrs_icons/Ingot.png",
+        "description": "Must be from one of the four DT2 bosses.",
         "category": "Mid"
     }
 ]

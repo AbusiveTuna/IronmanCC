@@ -54,5 +54,17 @@
         "name": "Receive one purple from Theatre of Blood",
         "image": "/resources/osrs_icons/Theatre of Blood.png",
         "category": "Late"
+    },
+    {
+        "count": "10",
+        "name": "Obtain the Holy elixir from Corp",
+        "image": "/resources/osrs_icons/Corporeal Beast.png",
+        "category": "Late"
+    },
+    {
+        "count": "11",
+        "name": "Obtain the Ring of Endurance",
+        "image": "/resources/osrs_icons/Agility.png",
+        "category": "Late"
     }
 ]
