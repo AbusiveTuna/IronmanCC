@@ -9,6 +9,7 @@ import BingoBuyIns from './pages/bingo_buyins/BingoBuyIns';
 import OSRSTiles from './pages/battleship/tiles/OSRSTiles';
 import AdminPanel from './pages/battleship/tiles/AdminPanel';
 import FarmingTimers from './pages/farming_timers/FarmingTimers';
+import Draft from './pages/bingo_buyins/Draft';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -33,6 +34,7 @@ function App() {
         <Route path="/k6d0zl12ete/:teamId" element={<AdminPanel />} />
         <Route path="/setup/:captainId" element={<BoardSetup />} />
         <Route path="/farmingTimers" element={<FarmingTimers />} />
+        <Route path="/draftDay2025" element={<Draft/>} />
       </Routes>
       <Footer />
     </Router>
