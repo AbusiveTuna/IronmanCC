@@ -10,7 +10,6 @@ const AdminPanel = () => {
   const [tileData, setTileData] = useState([]);
   const [hasChanges, setHasChanges] = useState(false);
 
-  // Track which tile (if any) was changed to block further changes
   const [changedTileIndex, setChangedTileIndex] = useState(null);
 
   useEffect(() => {
@@ -31,17 +30,14 @@ const AdminPanel = () => {
     fetchTileData();
   }, [teamName, compId]);
 
-  // Same reveal logic as OSRSTiles
   const completedCount = tileData.filter((tile) => tile.IsCompleted).length;
   const additionalGroups = Math.floor(completedCount / 3);
   const revealedTilesCount = 5 + additionalGroups * 5;
 
   const handleTileClick = (index) => {
-    // If we've already changed a different tile, block further changes
     if (changedTileIndex !== null && changedTileIndex !== index) {
       return;
     }
-    // Toggle the selected tile
     const updatedTiles = [...tileData];
     updatedTiles[index] = {
       ...updatedTiles[index],
@@ -49,7 +45,6 @@ const AdminPanel = () => {
     };
     setTileData(updatedTiles);
     setHasChanges(true);
-    // Mark this tile as changed, preventing further toggles on other tiles
     setChangedTileIndex(index);
   };
 
@@ -71,14 +66,13 @@ const AdminPanel = () => {
         throw new Error("Failed to save tile data.");
       }
       setHasChanges(false);
-      setChangedTileIndex(null); // Reset so user can toggle another tile
+      setChangedTileIndex(null);
       console.log("Tile data saved successfully.");
     } catch (error) {
       console.error("Error saving tile data:", error);
     }
   };
 
-  // Filter out any tiles beyond revealedTilesCount, just like OSRSTiles
   const visibleTiles = tileData.filter(
     (tile) => tile.TileNumber <= revealedTilesCount
   );
@@ -102,8 +96,6 @@ const AdminPanel = () => {
       ) : (
         <div className="osrs-board">
           {visibleTiles.map((tile, index) => {
-            // We need the index from the *visible* subset
-            // But the original index is from tileData. Let's find it:
             const fullIndex = tileData.findIndex(
               (t) => t.TileNumber === tile.TileNumber
             );
