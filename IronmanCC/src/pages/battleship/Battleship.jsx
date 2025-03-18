@@ -64,6 +64,12 @@ const Battleship = () => {
                 return;
             }
 
+            if (data.isHit) {
+                new Audio("/sounds/hit.mp3").play();
+            } else {
+                new Audio("/sounds/miss.mp3").play();
+            }
+
             setErrorMessage("");
             setShowErrorModal(false);
             fetchGameData();
