@@ -11,13 +11,10 @@ const OSRSTiles = () => {
   const [tileData, setTileData] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
-
-  // (1) Load the user’s previous setting from local storage or default to 'false'
   const [hideCompleted, setHideCompleted] = useState(() => {
     const saved = localStorage.getItem("hideCompleted");
     return saved ? JSON.parse(saved) : false;
   });
-
   const [hideUnrevealed, setHideUnrevealed] = useState(() => {
     const saved = localStorage.getItem("hideUnrevealed");
     return saved ? JSON.parse(saved) : false;
@@ -51,7 +48,6 @@ const OSRSTiles = () => {
     setModalContent({});
   };
 
-  // (2) When toggling, update both React state and local storage
   const handleToggleCompleted = () => {
     setHideCompleted((prev) => {
       const newValue = !prev;
@@ -77,7 +73,6 @@ const OSRSTiles = () => {
     );
   }
 
-  // Logic to calculate which tiles are revealed
   const completedCount = tileData.filter((tile) => tile.IsCompleted).length;
   const additionalGroups = Math.floor(completedCount / 3);
   const revealedTilesCount = 5 + additionalGroups * 5;
@@ -85,6 +80,24 @@ const OSRSTiles = () => {
   return (
     <div className="battleship-tiles-container">
       <div className="battleship-tiles-header-container">
+        <div className="battleship-tiles-legend">
+          <div className="legend-item">
+            <span className="legend-color-box green" />
+            Early Game
+          </div>
+          <div className="legend-item">
+            <span className="legend-color-box yellow" />
+            Mid Game
+          </div>
+          <div className="legend-item">
+            <span className="legend-color-box red" />
+            Late Game
+          </div>
+          <div className="legend-item">
+            <span className="legend-color-box purple" />
+            Long/Passive Tile
+          </div>
+        </div>
         <h2>Team: {teamName}</h2>
         <div className="battleship-tiles-button-group">
           <button
@@ -93,7 +106,6 @@ const OSRSTiles = () => {
           >
             {hideCompleted ? "Show Completed Tiles" : "Hide Completed Tiles"}
           </button>
-
           <button
             className="battleship-tiles-toggle-button"
             onClick={handleToggleUnrevealed}

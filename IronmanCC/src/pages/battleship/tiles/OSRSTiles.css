@@ -1,120 +1,212 @@
 .battleship-tiles-container {
-    width: 90%;
-    margin: 0 auto;
-  }
-  
-  .battleship-tiles-header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
-  }
-  
-  .battleship-tiles-button-group {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
+  width: 90%;
+  margin: 0 auto;
+}
 
-  .battleship-tiles-toggle-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 4px 8px;
-    font-size: 0.8rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .battleship-tiles-toggle-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .battleship-tiles-board-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  
-  .osrs-board {
-    display: grid;
-    grid-template-columns: repeat(12, 120px);
-    gap: 8px;
-  }
-  
-  .osrs-tile {
-    background: #003366;
-    border: 1px solid #ccc;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-  }
-  
-  .osrs-tile.completed {
-    position: relative;
-  }
-  
-  .osrs-tile.completed::after {
-    content: "X";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: red;
-    font-size: 3rem;
-    font-weight: bold;
-    opacity: 0.8;
-    pointer-events: none;
-  }
-  
-  .osrs-tile img {
-    max-width: 80px;
-    max-height: 80px;
-    object-fit: contain;
-  }
-  
-  .osrs-tile .tile-name {
-    font-size: 0.9em;
-    margin-top: 4px;
-  }
-  
-  .osrs-tile .info-button {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    cursor: pointer;
-    background: #ccc;
-    border: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    font-size: 0.9em;
-    line-height: 18px;
-    text-align: center;
-    padding: 0;
-  }
-  
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background: #fff;
-    color: #000;
-    padding: 1rem;
-    max-width: 300px;
-    border-radius: 4px;
-  }
-  
+.admin-panel-container {
+  color: white;
+}
+
+.battleship-tiles-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.battleship-tiles-button-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.battleship-tiles-toggle-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.battleship-tiles-toggle-button:hover {
+  background-color: #0056b3;
+}
+
+.battleship-tiles-board-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.osrs-board {
+  display: grid;
+  grid-template-columns: repeat(12, 120px);
+  gap: 8px;
+}
+
+.osrs-tile {
+  width: 120px;
+  height: 120px;
+  box-sizing: border-box;
+  background: #003366;
+  border: 1px solid #ccc;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 4px;
+}
+
+.osrs-tile.completed {
+  background-color: gray !important;
+  color: #000;
+  border-color: gray;
+}
+
+.osrs-tile.completed::after {
+  content: "";
+}
+
+.osrs-tile.completed img {
+  opacity: 0.4;
+}
+
+.osrs-tile.completed .tile-name {
+  text-decoration: line-through;
+}
+
+.osrs-tile img {
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: contain;
+}
+
+.osrs-tile .tile-name {
+  font-size: 0.8em;
+  margin-top: 4px;
+  white-space: normal;
+  word-wrap: break-word;
+  max-height: 40px;
+  line-height: 1.2;
+  width: 100%;
+  padding: 0 4px;
+}
+
+.osrs-tile .info-button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  cursor: pointer;
+  background: #ccc;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.9em;
+  line-height: 18px;
+  text-align: center;
+  padding: 0;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  color: #000;
+  padding: 1rem;
+  max-width: 300px;
+  border-radius: 4px;
+}
+
+.osrs-tile.early {
+  background-color: green;
+}
+
+.osrs-tile.mid {
+  background-color: rgb(201, 201, 9);
+  color: #000;
+}
+
+.osrs-tile.late {
+  background-color: rgb(165, 0, 0);
+}
+
+.osrs-tile.long {
+  background-color: purple;
+}
+
+.battleship-tiles-legend {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: white;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-color-box {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #000;
+}
+
+.legend-color-box.green {
+  background-color: green;
+}
+
+.legend-color-box.yellow {
+  background-color: rgb(201, 201, 9);
+}
+
+.legend-color-box.red {
+  background-color: rgb(165, 0, 0);
+}
+
+.legend-color-box.purple {
+  background-color: purple;
+}
+
+.admin-panel-container {
+  margin: 1rem auto;
+  width: 90%;
+}
+
+.admin-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.save-changes-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-changes-button:hover {
+  background-color: #218838;
+}
