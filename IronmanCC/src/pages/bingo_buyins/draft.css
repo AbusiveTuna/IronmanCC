@@ -7,7 +7,7 @@ body {
     background: url('https://oldschool.runescape.wiki/images/thumb/6/64/Background.webp/1000px-Background.webp.png') repeat;
     font-family: 'OSRSFont', Arial, sans-serif;
     color: #ffcc00;
-    text-align: center;
+    text-align: center; 
 }
 
 .draft-container {
