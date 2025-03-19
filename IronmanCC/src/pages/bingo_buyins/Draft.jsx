@@ -47,7 +47,7 @@ const Draft = () => {
                     <h2>Team Tuna</h2>
                     <table>
                         <thead>
-                            <tr><th>Name</th></tr>
+                            <tr><th>The Fish</th></tr>
                         </thead>
                         <tbody>
                             {teamOne.map((player, index) => (
@@ -63,7 +63,7 @@ const Draft = () => {
                     <h2>Team Bid</h2>
                     <table>
                         <thead>
-                            <tr><th>Name</th></tr>
+                            <tr><th>The Whists</th></tr>
                         </thead>
                         <tbody>
                             {teamTwo.map((player, index) => (
