@@ -71,7 +71,7 @@ const Draft = () => {
         </div>
 
         <div className="table-container">
-          <h2>Team Bid</h2>
+          <h2>Goose's Giggle Monsters</h2>
           <table>
             <thead>
               <tr>
