@@ -6,10 +6,10 @@ import tilesMetadata from "./osrsTilesData.json";
 
 const AdminPanel = () => {
   const { teamId } = useParams();
+  const [nextShotCode, setNextShotCode] = useState("");
   const [teamName, compId] = teamId.split("-");
   const [tileData, setTileData] = useState([]);
   const [hasChanges, setHasChanges] = useState(false);
-
   const [changedTileIndex, setChangedTileIndex] = useState(null);
 
   useEffect(() => {
@@ -67,6 +67,17 @@ const AdminPanel = () => {
       }
       setHasChanges(false);
       setChangedTileIndex(null);
+
+      // Fetch the next shot code
+      const shotResponse = await fetch(
+        `https://ironmancc-89ded0fcdb2b.herokuapp.com/admin-battleship-get-next-shot?teamName=${teamName}&compId=${compId}`
+      );
+
+      if (!shotResponse.ok) {
+        throw new Error("Failed to fetch next shot.");
+      }
+
+      setNextShotCode(await shotResponse.json());
       console.log("Tile data saved successfully.");
     } catch (error) {
       console.error("Error saving tile data:", error);
@@ -90,7 +101,15 @@ const AdminPanel = () => {
           </button>
         )}
       </div>
-
+  
+      {nextShotCode && (
+        <div className="next-shot-container">
+          <h3>Next Shot Code:</h3>
+          <p className="next-shot-code">{nextShotCode}</p>
+          <p className="next-shot-code">Note: if this code isn't used by the time you input another tile, you will get the same code.</p>
+        </div>
+      )}
+  
       {!tileData.length ? (
         <p>Loading tiles...</p>
       ) : (
@@ -102,7 +121,7 @@ const AdminPanel = () => {
             const tileMeta = tilesMetadata.find(
               (meta) => meta.TileNumber === tile.TileNumber
             );
-
+  
             return (
               <AdminTile
                 key={tile.TileNumber}
@@ -116,6 +135,7 @@ const AdminPanel = () => {
       )}
     </div>
   );
+  
 };
 
 export default AdminPanel;

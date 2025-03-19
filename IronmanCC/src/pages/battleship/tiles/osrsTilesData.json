@@ -4,7 +4,8 @@
         "name": "Greenlog Perilous Moons as a team",
         "image": "/resources/osrs_icons/Lunar Chests.png",
         "description": "Obtain all 12 uniques from Perilous Moons.",
-        "category": "Early"
+        "category": "Early",
+        "itemsNeeded": 12
     },
     {
         "TileNumber": 2,
@@ -16,13 +17,15 @@
         "TileNumber": 3,
         "name": "Obtain 4 Venator Shards",
         "image": "/resources/osrs_icons/Phantom Muspah.png",
-        "category": "Mid"
+        "category": "Mid",
+        "itemsNeeded": 4
     },    
     {
         "TileNumber": 4,
         "name": "Obtain two purples from Chambers of Xeric",
         "image": "/resources/osrs_icons/Chambers of Xeric.png",
-        "category": "Late"
+        "category": "Late",
+        "itemsNeeded": 2
     },
     {
         "TileNumber": 5,
@@ -48,13 +51,15 @@
         "TileNumber": 8,
         "name": "Obtain three Crystal Armour Seeds",
         "image": "/resources/osrs_icons/Crystal seed.png",
-        "category": "Mid"
+        "category": "Mid",
+        "itemsNeeded": 3
     },
     {
         "TileNumber": 9,
         "name": "Obtain one purple from each Raid",
         "image": "/resources/osrs_icons/Raids.png",
-        "category": "Late"
+        "category": "Late",
+        "itemsNeeded": 3
     },
     {
         "TileNumber": 10,
@@ -77,9 +82,10 @@
     {
         "TileNumber": 13,
         "name": "Obtain a full set of Raid armour (Can be mixed)",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png",
+        "image": "/resources/osrs_icons/Justi.webp",
         "description": "Must obtain 1 Hat, 1 Top, and 1 Bottom armor piece from any of the three raids. Example: Ancestral hat, Justiciar Top, Ancestral Bottoms.",
-        "category": "Late"
+        "category": "Late",
+        "itemsNeeded": 3
     },
     {
         "TileNumber": 14,
@@ -90,9 +96,10 @@
     {
         "TileNumber": 15,
         "name": "JARS (THREE OF THEM)",
-        "image": "/resources/osrs_icons/Chaos Fanatic.png",
+        "image": "/resources/osrs_icons/Jar.webp",
         "description": "Jars must be unique.",
-        "category": "Long"
+        "category": "Long",
+        "itemsNeeded": 3
     },
     {
         "TileNumber": 16,

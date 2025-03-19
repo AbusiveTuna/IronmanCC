@@ -210,3 +210,17 @@
 .save-changes-button:hover {
   background-color: #218838;
 }
+
+.next-shot-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.next-shot-code {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+}
