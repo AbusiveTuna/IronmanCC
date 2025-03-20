@@ -9,8 +9,9 @@
     },
     {
         "TileNumber": 2,
-        "name": "Obtain a Bottomless Compost Bucket",
-        "image": "/resources/osrs_icons/Hespori.png",
+        "name": "Lord of the Rings - Obtain all 4 rings from DKS",
+        "image": "/resources/osrs_icons/Combined_DKS.png",
+        "description": "Does not include ring of life.",
         "category": "Early"
     },
     {
@@ -109,9 +110,8 @@
     },
     {
         "TileNumber": 17,
-        "name": "Lord of the Rings - Obtain all 4 rings from DKS",
-        "image": "/resources/osrs_icons/Combined_DKS.png",
-        "description": "Does not include ring of life.",
+        "name": "Obtain a Bottomless Compost Bucket",
+        "image": "/resources/osrs_icons/Hespori.png",
         "category": "Early"
     },
     {
