@@ -98,7 +98,7 @@ const OSRSTiles = () => {
             Long/Passive Tile
           </div>
         </div>
-        <h2>Team: {teamName}</h2>
+        {/* <h2>Team: {teamName}</h2> */}
         <div className="battleship-tiles-button-group">
           <button
             className="battleship-tiles-toggle-button"
