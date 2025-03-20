@@ -15,73 +15,70 @@ const Draft = () => {
     setTeamTwo(bidData);
   }, []);
 
-  // Build arrays of names in lowercase for case-insensitive checks
   const teamOneNames = teamOne.map(player => player.name.toLowerCase());
   const teamTwoNames = teamTwo.map(player => player.name.toLowerCase());
 
   const filteredPlayers = players
-    // Filter out players who appear in either team (case-insensitive)
     .filter(
       player =>
         !teamOneNames.includes(player.name.toLowerCase()) &&
         !teamTwoNames.includes(player.name.toLowerCase())
     )
-    // Sort in a case-insensitive manner
     .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
   return (
     <div className="draft-container">
-      <h1>Draft</h1>
+      <h1 className='d-h1'>Draft</h1>
 
-      <div className="tables-container">
-        <div className="table-container">
-          <h2>Available Players</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
+      <div className="d-tables-container">
+        <div className="d-table-container">
+          <h2 className="d-h2">Available Players</h2>
+          <table className="d-table">
+            <thead className="d-thead">
+              <tr className="d-tr">
+                <th className="d-th">Name</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="d-tbody">
               {filteredPlayers.map((player, index) => (
-                <tr key={index}>
-                  <td>{player.name}</td>
+                <tr key={index} className="d-tr">
+                  <td className="d-td">{player.name}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="table-container">
-          <h2>Team Tuna</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>The Fish</th>
+        <div className="d-table-container">
+          <h2 className="d-h2">Team Tuna</h2>
+          <table className="d-table">
+            <thead className="d-thead">
+              <tr className="d-tr">
+                <th className="d-th">The Fish</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="d-tbody">
               {teamOne.map((player, index) => (
-                <tr key={index}>
-                  <td>{player.name}</td>
+                <tr key={index} className="d-tr">
+                  <td className="d-td">{player.name}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="table-container">
-          <h2>Goose's Giggle Monsters</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>The Whists</th>
+        <div className="d-table-container">
+          <h2 className="d-h2">Goose's Giggle Monsters</h2>
+          <table className="d-table">
+            <thead className="d-thead">
+              <tr className="d-tr">
+                <th className="d-th">The Whists</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="d-tbody">
               {teamTwo.map((player, index) => (
-                <tr key={index}>
-                  <td>{player.name}</td>
+                <tr key={index} className="d-tr">
+                  <td className="d-td">{player.name}</td>
                 </tr>
               ))}
             </tbody>

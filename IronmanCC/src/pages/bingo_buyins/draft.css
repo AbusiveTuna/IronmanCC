@@ -3,15 +3,11 @@
     src: url('../../resources/fonts/osrsFont.ttf') format('truetype');
 }
 
-body {
-    background: url('https://oldschool.runescape.wiki/images/thumb/6/64/Background.webp/1000px-Background.webp.png') repeat;
+.draft-container {
+    background: url('https://oldschool.runescape.wiki/images/Bank_background_detail.png') repeat;
     font-family: 'OSRSFont', Arial, sans-serif;
     color: #ffcc00;
     text-align: center; 
-}
-
-.draft-container {
-    background: url('https://oldschool.runescape.wiki/images/Bank_background_detail.png') repeat;
     border: 3px solid #665533;
     padding: 15px;
     display: flex;
@@ -21,14 +17,14 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
 }
 
-h1 {
+.d-h1 {
     font-size: 32px;
     font-weight: bold;
     color: #ffcc00;
     text-shadow: 2px 2px 4px #000;
 }
 
-.tables-container {
+.d-tables-container {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -37,7 +33,7 @@ h1 {
     margin-top: 20px;
 }
 
-.table-container {
+.d-table-container {
     background: #2b2b2b;
     border: 3px solid #aa7733;
     border-radius: 10px;
@@ -47,41 +43,41 @@ h1 {
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.7);
 }
 
-h2 {
+.d-h2 {
     font-size: 24px;
     color: #ffcc00;
     text-shadow: 1px 1px 3px #000;
     margin-bottom: 10px;
 }
 
-table {
+.d-table {
     width: 100%;
     border-collapse: collapse;
     background: #1a1a1a;
     color: #ffcc00;
 }
 
-th {
+.d-th {
     background: #222222;
     padding: 10px;
     border-bottom: 2px solid #aa7733;
 }
 
-td {
+.d-td {
     padding: 8px;
     border-bottom: 1px solid #444;
 }
 
-tr:nth-child(even) {
+.d-tr:nth-child(even) {
     background: #1e1e1e;
 }
 
-tr:hover {
+.d-tr:hover {
     background: #3a3a3a;
     cursor: pointer;
 }
 
-button {
+.d-button {
     background: #664422;
     border: 2px solid #aa7733;
     padding: 10px 15px;
@@ -94,6 +90,6 @@ button {
     margin: 5px;
 }
 
-button:hover {
+.d-button:hover {
     background: #996633;
 }
