@@ -6,7 +6,7 @@ import "./gameboard/Board.css";
 import "./Battleship.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const gameId = 2;
+const gameId = 3;
 
 const Battleship = () => {
     const [gameData, setGameData] = useState(null);
