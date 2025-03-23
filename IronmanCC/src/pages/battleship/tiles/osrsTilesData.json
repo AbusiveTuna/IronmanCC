@@ -137,6 +137,7 @@
         "TileNumber": 21,
         "name": "Fish Barrel! - Obtain a Fish Barrel from Tempoross",
         "image": "/resources/osrs_icons/FishBarrel.webp",
+        "description": "Or obtain 25 soaked pages twice.",
         "category": "Early"
     },
     {
