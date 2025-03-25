@@ -83,6 +83,12 @@ const Battleship = () => {
         return <div>Loading game...</div>;
     }
 
+    const countHits = (board) => {
+        return board.filter(tile => tile.hitShip === true).length;
+    };
+    
+    const shotsLeftToWin = (board) => 17 - countHits(board);
+
     return (
         <div className="Battleship-Bingo">
             <div className="board-section">
@@ -90,6 +96,9 @@ const Battleship = () => {
                     <span className="team-label">Captain:</span> {gameData.teamOne.captain}
                     <br />
                     <span className="team-label">Team:</span> {gameData.teamOne.name}
+                    <div className="shots-left">
+                    Shots left to win: {shotsLeftToWin(gameData.teamOne.board)}
+                    </div>
                 </div>
                 <Board
                     placedShips={gameData.teamOne.board}
@@ -105,6 +114,9 @@ const Battleship = () => {
                     <span className="team-label">Captain:</span> {gameData.teamTwo.captain}
                     <br />
                     <span className="team-label">Team:</span> {gameData.teamTwo.name}
+                    <div className="shots-left">
+                    Shots left to win: {shotsLeftToWin(gameData.teamTwo.board)}
+                    </div>
                 </div>
                 <Board
                     placedShips={gameData.teamTwo.board}
