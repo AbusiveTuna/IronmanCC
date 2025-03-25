@@ -75,7 +75,7 @@ const OSRSTiles = () => {
 
   const completedCount = tileData.filter((tile) => tile.IsCompleted).length;
   const additionalGroups = Math.floor(completedCount / 3);
-  const revealedTilesCount = 100;
+  const revealedTilesCount = 5 + additionalGroups * 5;
 
   return (
     <div className="battleship-tiles-container">
