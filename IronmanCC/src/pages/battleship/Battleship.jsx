@@ -97,7 +97,7 @@ const Battleship = () => {
                     <br />
                     <span className="team-label">Team:</span> {gameData.teamOne.name}
                     <div className="shots-left">
-                    Shots left to win: {shotsLeftToWin(gameData.teamOne.board)}
+                    Shots left for Team Bid to win: {shotsLeftToWin(gameData.teamOne.board)}
                     </div>
                 </div>
                 <Board
@@ -115,7 +115,7 @@ const Battleship = () => {
                     <br />
                     <span className="team-label">Team:</span> {gameData.teamTwo.name}
                     <div className="shots-left">
-                    Shots left to win: {shotsLeftToWin(gameData.teamTwo.board)}
+                    Shots left for Team Tuna to win: {shotsLeftToWin(gameData.teamTwo.board)}
                     </div>
                 </div>
                 <Board
@@ -147,3 +147,5 @@ const Battleship = () => {
 };
 
 export default Battleship;
+
+
