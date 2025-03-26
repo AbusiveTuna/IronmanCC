@@ -20,20 +20,20 @@ import './App.css'
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<WelcomePage/>} />
-        <Route path="/justenTbow" element={<JustenMeme />} />
-        <Route path="/battleshipBingo" element={<Battleship />} />
-        <Route path="/newBattleshipGame" element={<NewGame />} />
-        <Route path="/bingoTiles/:teamId" element={<OSRSTiles />} />
-        <Route path="/admin/:teamId" element={<AdminPanel />} />
-        <Route path="/setup/:captainId" element={<BoardSetup />} />
-        <Route path="/farmingTimers" element={<FarmingTimers />} />
-      </Routes>
-      <Footer />
-    </Router>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/justenTbow" element={<JustenMeme />} />
+          <Route path="/battleshipBingo" element={<Battleship />} />
+          <Route path="/newBattleshipGame" element={<NewGame />} />
+          <Route path="/bingoTiles/:teamId" element={<OSRSTiles />} />
+          <Route path="/admin/:teamId" element={<AdminPanel />} />
+          <Route path="/setup/:captainId" element={<BoardSetup />} />
+          <Route path="/farmingTimers" element={<FarmingTimers />} />
+        </Routes>
+        <Footer />
+      </Router>
     </DndProvider>
   );
 }

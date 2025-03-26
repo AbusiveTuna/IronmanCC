@@ -1,0 +1,5 @@
+.osrs-board {
+    display: grid;
+    grid-template-columns: repeat(12, 120px);
+    gap: 8px;
+  }

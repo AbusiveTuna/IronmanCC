@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import useGetTileData from "./hooks/useGetTileData";
 import { useParams } from "react-router-dom";
-import tilesMetadata from "./json/March2025Tiles.json";
-import BingoTile from "./components/BingoTile";
+import TileBoard from './components/TileBoard';
+import TileFilterButtons from "../gameboard/TileFilterButtons";
 import TilesModal from "./components/TilesModal";
 import Legend from "./components/Legend";
 import "./OSRSTiles.css";
@@ -65,55 +65,23 @@ const OSRSTiles = () => {
   return (
     <div className="battleship-tiles-container">
       <div className="battleship-tiles-header-container">
-        <Legend/>
-        <div className="battleship-tiles-button-group">
-          <button
-            className="battleship-tiles-toggle-button"
-            onClick={handleToggleCompleted}
-          >
-            {hideCompleted ? "Show Completed Tiles" : "Hide Completed Tiles"}
-          </button>
-          <button
-            className="battleship-tiles-toggle-button"
-            onClick={handleToggleUnrevealed}
-          >
-            {hideUnrevealed ? "Show Unrevealed Tiles" : "Hide Unrevealed Tiles"}
-          </button>
-        </div>
+        <Legend />
+        <TileFilterButtons 
+        handleToggleCompleted={handleToggleCompleted} 
+        handleToggleUnrevealed={handleToggleUnrevealed} 
+        hideCompleted={hideCompleted} 
+        hideUnrevealed={hideUnrevealed} 
+        />
       </div>
 
       <div className="battleship-tiles-board-container">
-        <div className="osrs-board">
-          {tileData
-            .filter((tile) => {
-              if (hideCompleted && tile.IsCompleted) {
-                return false;
-              }
-              if (hideUnrevealed && tile.TileNumber > revealedTilesCount) {
-                return false;
-              }
-              return true;
-            })
-            .map((tile) => {
-              const tileMeta = tilesMetadata.find(
-                (meta) => meta.TileNumber === tile.TileNumber
-              );
-              const isRevealed = tile.TileNumber <= revealedTilesCount;
-
-              const displayMeta = isRevealed
-                ? tileMeta
-                : { name: "?", description: "Hidden Tile" };
-
-              return (
-                <BingoTile
-                  key={tile.TileNumber}
-                  tile={tile}
-                  tileMeta={displayMeta}
-                  onInfoClick={isRevealed ? handleInfoClick : null}
-                />
-              );
-            })}
-        </div>
+        <TileBoard 
+        tileData={tileData}
+        hideCompleted={hideCompleted}
+        hideUnrevealed={hideUnrevealed}
+        revealedTilesCount={revealedTilesCount}
+        onInfoClick={handleInfoClick}
+        />
       </div>
 
       {showModal && (
