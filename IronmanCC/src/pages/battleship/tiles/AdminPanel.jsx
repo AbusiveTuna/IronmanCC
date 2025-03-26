@@ -1,34 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import useGetTileData from "./hooks/useGetTileData";
 import { useParams } from "react-router-dom";
 import "./OSRSTiles.css";
-import AdminTile from "./AdminTile";
-import tilesMetadata from "./osrsTilesData.json";
+import BingoTile from "./components/BingoTile";
+import tilesMetadata from "./json/March2025Tiles.json";
 
 const AdminPanel = () => {
   const { teamId } = useParams();
   const [nextShotCode, setNextShotCode] = useState("");
   const [teamName, compId] = teamId.split("-");
-  const [tileData, setTileData] = useState([]);
   const [hasChanges, setHasChanges] = useState(false);
   const [changedTileIndex, setChangedTileIndex] = useState(null);
 
-  useEffect(() => {
-    const fetchTileData = async () => {
-      try {
-        const response = await fetch(
-          `https://ironmancc-89ded0fcdb2b.herokuapp.com/battleship-tiles?teamName=${teamName}&compId=${compId}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch tile data.");
-        }
-        const data = await response.json();
-        setTileData(data);
-      } catch (error) {
-        console.error("Error fetching tile data:", error);
-      }
-    };
-    fetchTileData();
-  }, [teamName, compId]);
+  const [tileData, setTileData] = useGetTileData(teamName, compId);
+
+  if(tileData == null){ 
+    return;
+  }
 
   const completedCount = tileData.filter((tile) => tile.IsCompleted).length;
   const additionalGroups = Math.floor(completedCount / 3);
@@ -123,11 +111,12 @@ const AdminPanel = () => {
             );
   
             return (
-              <AdminTile
+              <BingoTile
                 key={tile.TileNumber}
                 tile={tile}
                 tileMeta={tileMeta}
-                onClick={() => handleTileClick(fullIndex)}
+                onInfoClick={() => {}}
+                onAdminClick={() => handleTileClick(fullIndex)}
               />
             );
           })}

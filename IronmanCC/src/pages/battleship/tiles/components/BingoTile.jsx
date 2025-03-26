@@ -1,6 +1,7 @@
 import React from "react";
+import "./BingoTile.css";
 
-function OSRSTile({ tile, tileMeta, onInfoClick }) {
+const BingoTile = ({ tile, tileMeta, onInfoClick, onAdminClick }) => {
   const categoryClass = tileMeta?.category
     ? tileMeta.category.toLowerCase()
     : "";
@@ -15,7 +16,7 @@ function OSRSTile({ tile, tileMeta, onInfoClick }) {
 
   return (
     <div
-      className={`osrs-tile ${tile.IsCompleted ? "completed" : ""} ${categoryClass}`}
+      className={`osrs-tile ${tile.IsCompleted ? "completed" : ""} ${categoryClass}`} onClick={onAdminClick}
     >
       {tileMeta.image && (
         <img
@@ -38,4 +39,4 @@ function OSRSTile({ tile, tileMeta, onInfoClick }) {
   );
 }
 
-export default OSRSTile;
+export default BingoTile;

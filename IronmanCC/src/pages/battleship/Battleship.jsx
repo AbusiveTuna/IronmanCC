@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ShotErrorModal from "./ShotErrorModal";
-import ShotInput from "./ShotInput";
+import ShotErrorModal from "./shotinput/ShotErrorModal";
+import ShotInput from "./shotinput/ShotInput";
 import Board from "./gameboard/Board";
 import "./gameboard/Board.css";
 import "./Battleship.css";

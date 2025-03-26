@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WelcomePage from './pages/welcome_page/WelcomePage';
 import JustenMeme from './pages/justen_meme/JustenMeme';
 import Battleship from './pages/battleship/Battleship';
+import OSRSTiles from './pages/battleship/tiles/OSRSTiles';
+import AdminPanel from './pages/battleship/tiles/AdminPanel';
 import NewGame from './pages/battleship/NewGame';
 import BoardSetup from './pages/battleship/BoardSetup';
 import FarmingTimers from './pages/farming_timers/FarmingTimers';
@@ -25,6 +27,8 @@ function App() {
         <Route path="/justenTbow" element={<JustenMeme />} />
         <Route path="/battleshipBingo" element={<Battleship />} />
         <Route path="/newBattleshipGame" element={<NewGame />} />
+        <Route path="/bingoTiles/:teamId" element={<OSRSTiles />} />
+        <Route path="/admin/:teamId" element={<AdminPanel />} />
         <Route path="/setup/:captainId" element={<BoardSetup />} />
         <Route path="/farmingTimers" element={<FarmingTimers />} />
       </Routes>

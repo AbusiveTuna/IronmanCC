@@ -12,7 +12,7 @@
     border: 2px solid #2a5298;
 }
 
-.shot-title {
+.shot-input-title {
     font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
@@ -20,20 +20,20 @@
     color: #FFD700;
 }
 
-.shot-instructions {
+.shot-input-instructions {
     font-size: 15px;
     opacity: 0.8;
     color: #ddd;
 }
 
-.shot-form-group {
+.shot-input-form-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
     align-items: center;
 }
 
-.shot-select, .shot-input-box {
+.shot-input-select, .shot-input-box {
     padding: 12px;
     border-radius: 6px;
     border: 1px solid #ffffff55;
@@ -45,14 +45,14 @@
     outline: none;
 }
 
-.si-selected-tile {
+.shot-input-selected-tile {
     font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
     color: #FFD700;
 }
 
-.fire-button {
+.shot-input-fire-button {
     background: linear-gradient(90deg, #ff4b1f, #ff9068);
     border: none;
     padding: 14px;
@@ -65,24 +65,24 @@
     width: 100%;
 }
 
-.fire-button:disabled {
+.shot-input-fire-button:disabled {
     background: gray;
     cursor: not-allowed;
     opacity: 0.5;
 }
 
-.fire-button:hover {
+.shot-input-fire-button:hover {
     transform: scale(1.07);
     box-shadow: 0 4px 10px rgba(255, 75, 31, 0.5);
 }
 
-.error-message {
+.shot-input-error-message {
     color: #ff6b6b;
     font-weight: bold;
     font-size: 14px;
 }
 
-.target-team-display {
+.shot-input-target-team-display {
     font-weight: bold;
     font-size: 18px;
     color: #FFD700;

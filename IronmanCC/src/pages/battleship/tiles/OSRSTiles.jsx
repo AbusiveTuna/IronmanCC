@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import useGetTileData from "./hooks/useGetTileData";
 import { useParams } from "react-router-dom";
-import tilesMetadata from "./osrsTilesData.json";
-import OSRSTile from "./OSRSTile";
-import TilesModal from "./TilesModal";
+import tilesMetadata from "./json/March2025Tiles.json";
+import BingoTile from "./components/BingoTile";
+import TilesModal from "./components/TilesModal";
+import Legend from "./components/Legend";
 import "./OSRSTiles.css";
 
 const OSRSTiles = () => {
   const { teamId } = useParams();
   const [teamName, compId] = teamId.split("-");
-  const [tileData, setTileData] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
   const [hideCompleted, setHideCompleted] = useState(() => {
@@ -20,23 +21,7 @@ const OSRSTiles = () => {
     return saved ? JSON.parse(saved) : false;
   });
 
-  useEffect(() => {
-    const fetchGameData = async () => {
-      try {
-        const response = await fetch(
-          `https://ironmancc-89ded0fcdb2b.herokuapp.com/battleship-tiles?teamName=${teamName}&compId=${compId}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch game data.");
-        }
-        const data = await response.json();
-        setTileData(data);
-      } catch (error) {
-        console.error("Error fetching game data:", error);
-      }
-    };
-    fetchGameData();
-  }, [teamName, compId]);
+  const [tileData] = useGetTileData(teamName, compId);
 
   const handleInfoClick = (tileMeta) => {
     setModalContent(tileMeta);
@@ -80,25 +65,7 @@ const OSRSTiles = () => {
   return (
     <div className="battleship-tiles-container">
       <div className="battleship-tiles-header-container">
-        <div className="battleship-tiles-legend">
-          <div className="legend-item">
-            <span className="legend-color-box green" />
-            Early Game
-          </div>
-          <div className="legend-item">
-            <span className="legend-color-box yellow" />
-            Mid Game
-          </div>
-          <div className="legend-item">
-            <span className="legend-color-box red" />
-            Late Game
-          </div>
-          <div className="legend-item">
-            <span className="legend-color-box purple" />
-            Long/Passive Tile
-          </div>
-        </div>
-        {/* <h2>Team: {teamName}</h2> */}
+        <Legend/>
         <div className="battleship-tiles-button-group">
           <button
             className="battleship-tiles-toggle-button"
@@ -138,7 +105,7 @@ const OSRSTiles = () => {
                 : { name: "?", description: "Hidden Tile" };
 
               return (
-                <OSRSTile
+                <BingoTile
                   key={tile.TileNumber}
                   tile={tile}
                   tileMeta={displayMeta}

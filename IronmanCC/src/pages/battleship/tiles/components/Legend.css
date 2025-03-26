@@ -1,0 +1,34 @@
+.battleship-tiles-legend {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: white;
+}
+
+.battleship-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.battleship-legend-color-box {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #000;
+}
+
+.battleship-legend-color-box.green {
+  background-color: green;
+}
+
+.battleship-legend-color-box.yellow {
+  background-color: rgb(201, 201, 9);
+}
+
+.battleship-legend-color-box.red {
+  background-color: rgb(165, 0, 0);
+}
+
+.battleship-legend-color-box.purple {
+  background-color: purple;
+}

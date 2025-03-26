@@ -33,19 +33,19 @@ const ShotInput = ({ gameData, onFireShot, selectedShot, selectedBoard }) => {
 
     return (
         <div className="shot-input">
-            <h2 className="shot-title">Fire Your Shot</h2>
-            <p className="shot-instructions">
+            <h2 className="shot-input-title">Fire Your Shot</h2>
+            <p className="shot-input-instructions">
                 Select the enemy team, enter your shot code, and choose a target tile.
             </p>
-            <Form.Group className="shot-form-group">
+            <Form.Group className="shot-input-form-group">
                 <Form.Label>Target Team</Form.Label>
-                <p className="target-team-display">
+                <p className="shot-input-target-team-display">
                     {selectedBoard === "one" ? gameData.teamOne.name : gameData.teamTwo.name}
                 </p>
             </Form.Group>
 
 
-            <Form.Group className="shot-form-group">
+            <Form.Group className="shot-input-form-group">
                 <Form.Label>Shot Code</Form.Label>
                 <Form.Control
                     type="text"
@@ -57,13 +57,13 @@ const ShotInput = ({ gameData, onFireShot, selectedShot, selectedBoard }) => {
             </Form.Group>
 
             {selectedShot && (
-                <p className="si-selected-tile">
+                <p className="shot-input-selected-tile">
                     Targeting <strong>{String.fromCharCode(65 + selectedShot.row)}{selectedShot.col + 1}</strong> on <strong>{selectedBoard === "one" ? gameData.teamOne.name : gameData.teamTwo.name}</strong>'s board.
                 </p>
             )}
 
             <Button
-                className="fire-button"
+                className="shot-input-fire-button"
                 onClick={handleFireShot}
                 disabled={!shotCode || !selectedShot || !selectedBoard}
             >

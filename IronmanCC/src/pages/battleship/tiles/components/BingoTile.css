@@ -1,0 +1,85 @@
+
+.osrs-tile {
+    width: 120px;
+    height: 120px;
+    box-sizing: border-box;
+    background: #003366;
+    border: 1px solid #ccc;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 4px;
+  }
+  
+  .osrs-tile.completed {
+    background-color: gray !important;
+    color: #000;
+    border-color: gray;
+  }
+  
+  .osrs-tile.completed::after {
+    content: "";
+  }
+  
+  .osrs-tile.completed img {
+    opacity: 0.4;
+  }
+  
+  .osrs-tile.completed .tile-name {
+    text-decoration: line-through;
+  }
+  
+  .osrs-tile img {
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: contain;
+  }
+  
+  .osrs-tile .tile-name {
+    font-size: 0.8em;
+    margin-top: 4px;
+    white-space: normal;
+    word-wrap: break-word;
+    max-height: 40px;
+    line-height: 1.2;
+    width: 100%;
+    padding: 0 4px;
+  }
+  
+  .osrs-tile .info-button {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    cursor: pointer;
+    background: #ccc;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.9em;
+    line-height: 18px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .osrs-tile.early {
+    background-color: green;
+  }
+  
+  .osrs-tile.mid {
+    background-color: rgb(201, 201, 9);
+    color: #000;
+  }
+  
+  .osrs-tile.late {
+    background-color: rgb(165, 0, 0);
+  }
+  
+  .osrs-tile.long {
+    background-color: purple;
+  }
