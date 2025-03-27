@@ -3,8 +3,6 @@ import useGetTileData from "./hooks/useGetTileData";
 import { useParams } from "react-router-dom";
 import "./OSRSTiles.css";
 import TileBoard from "./components/TileBoard";
-import BingoTile from "./components/BingoTile";
-import tilesMetadata from "./json/March2025Tiles.json";
 
 const AdminPanel = () => {
   const { teamId } = useParams();

@@ -1,5 +1,5 @@
 
-.osrs-tile {
+.bingo-tile {
     width: 120px;
     height: 120px;
     box-sizing: border-box;
@@ -16,31 +16,31 @@
     padding-top: 4px;
   }
   
-  .osrs-tile.completed {
+  .bingo-tile.completed {
     background-color: gray !important;
     color: #000;
     border-color: gray;
   }
   
-  .osrs-tile.completed::after {
+  .bingo-tile.completed::after {
     content: "";
   }
   
-  .osrs-tile.completed img {
+  .bingo-tile.completed img {
     opacity: 0.4;
   }
   
-  .osrs-tile.completed .tile-name {
+  .bingo-tile.completed .bingo-tile-name {
     text-decoration: line-through;
   }
   
-  .osrs-tile img {
+  .bingo-tile img {
     max-width: 50px;
     max-height: 50px;
     object-fit: contain;
   }
   
-  .osrs-tile .tile-name {
+  .bingo-tile .bingo-tile-name {
     font-size: 0.8em;
     margin-top: 4px;
     white-space: normal;
@@ -51,7 +51,7 @@
     padding: 0 4px;
   }
   
-  .osrs-tile .info-button {
+  .bingo-tile .bingo-tile-info-button {
     position: absolute;
     top: 4px;
     right: 4px;
@@ -67,19 +67,19 @@
     padding: 0;
   }
 
-  .osrs-tile.early {
+  .bingo-tile.early {
     background-color: green;
   }
   
-  .osrs-tile.mid {
+  .bingo-tile.mid {
     background-color: rgb(201, 201, 9);
     color: #000;
   }
   
-  .osrs-tile.late {
+  .bingo-tile.late {
     background-color: rgb(165, 0, 0);
   }
   
-  .osrs-tile.long {
+  .bingo-tile.long {
     background-color: purple;
   }

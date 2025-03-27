@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Dexterous prayer scroll",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Dex.webp"
+    },
+    {
+        "name": "Arcane prayer scroll",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Arcane.webp"
+    },
+    {
+        "name": "Dinh's Bulwark",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Dinhs_Bulwark.webp"
+    },
+    {
+        "name": "Dragon Hunter Crossbow",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Dragon_Hunter_Crossbow.webp"
+    },
+    {
+        "name": "Twisted Buckler",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Twisted_Buckler.webp"
+    },
+    {
+        "name": "Ancestral Hat",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Ancestral_Hat.webp"
+    },
+    {
+        "name": "Ancestral Robe Top",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Ancestral_Robe_Top.webp"
+    },
+    {
+        "name": "Ancestral Robe Bottom",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Ancestral_Robe_Bottom.webp"
+    },
+    {
+        "name": "Dragon Claws",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Dragon_Claws.webp"
+    },
+    {
+        "name": "Kodai Insignia",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Kodai_Insignia.webp"
+    },
+    {
+        "name": "Elder Maul",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Elder_Maul.webp"
+    },
+    {
+        "name": "Twisted Bow",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/Twisted_Bow.webp"
+    },
+    {
+        "name": "Avernic Defender",
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Avernic_Defender_Hilt.webp"
+    },
+    {
+        "name": "Ghrazi Rapier",
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Ghrazi_Rapier.webp"
+    },
+    {
+        "name": "Sanguinesti Staff",
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Sanguinesti_Staff.webp"
+    },
+    {
+        "name": "Justiciar Faceguard",
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Justiciar_Faceguard.webp"
+    },
+    {
+        "name": "Justiciar Chestguard",
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Justiciar_Chestguard.webp"
+    },
+    {
+        "name": "Justiticar Legguards",
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Justiciar_Legguards.webp"
+    },
+    {
+        "name": "Scythe of Vitur",
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Scythe_Of_Vitur.webp"
+    },
+    {
+        "name": "Lightbearer",
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Lightbearer.webp"
+    },
+    {
+        "name": "Osmumtens Fang",
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Osmumtens_Fang.webp"
+    },
+    {
+        "name": "Elidinis Ward",
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Elidinis_Ward.webp"
+    },
+    {
+        "name": "Masori Mask",
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Masori_Mask.webp"
+    },
+    {
+        "name": "Masori Body",
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Masori_Body.webp"
+    },
+    {
+        "name": "Masori Chaps",
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Masori_Chaps.webp"
+    },
+    {
+        "name": "Tumeken's Shadow",
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Tumekens_Shadow.webp"
+    }
+
+]

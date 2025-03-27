@@ -1,16 +1,12 @@
 .Battleship-Bingo {
     width: 100vw;
     height: 100vh;
-
     background-color: #D2B48C;
-
     overflow: hidden;
-
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
     gap: 40px;
 }
 

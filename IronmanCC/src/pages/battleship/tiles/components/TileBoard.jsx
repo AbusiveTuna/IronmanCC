@@ -1,6 +1,6 @@
 import React from "react";
-import BingoTile from "./BingoTile";
-import tilesMetadata from "../json/March2025Tiles.json";
+import BingoTile from "components/tiles/BingoTile";
+import tilesMetadata from "common/json/March2025Tiles.json";
 import './TileBoard.css';
 
 const TileBoard = ({

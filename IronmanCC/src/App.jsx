@@ -7,6 +7,7 @@ import OSRSTiles from './pages/battleship/tiles/OSRSTiles';
 import AdminPanel from './pages/battleship/tiles/AdminPanel';
 import NewGame from './pages/battleship/NewGame';
 import BoardSetup from './pages/battleship/BoardSetup';
+import RaidBingo from './pages/raid_bingo/RaidBingo';
 import FarmingTimers from './pages/farming_timers/FarmingTimers';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/battleshipBingo" element={<Battleship />} />
           <Route path="/newBattleshipGame" element={<NewGame />} />
           <Route path="/bingoTiles/:teamId" element={<OSRSTiles />} />
+          <Route path="/raidBingo" element={<RaidBingo />} />
           <Route path="/admin/:teamId" element={<AdminPanel />} />
           <Route path="/setup/:captainId" element={<BoardSetup />} />
           <Route path="/farmingTimers" element={<FarmingTimers />} />

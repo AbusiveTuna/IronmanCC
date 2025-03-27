@@ -8,28 +8,28 @@ const BingoTile = ({ tile, tileMeta, onInfoClick, onAdminClick }) => {
 
   if (!tileMeta) {
     return (
-      <div className={`osrs-tile ${tile.IsCompleted ? "completed" : ""}`}>
-        <p className="tile-name">Tile {tile.TileNumber}</p>
+      <div className={`bingo-tile ${tile.IsCompleted ? "completed" : ""}`}>
+        <p className="bingo-tile-name">Tile {tile.TileNumber}</p>
       </div>
     );
   }
 
   return (
     <div
-      className={`osrs-tile ${tile.IsCompleted ? "completed" : ""} ${categoryClass}`} onClick={onAdminClick}
+      className={`bingo-tile ${tile.IsCompleted ? "completed" : ""} ${categoryClass}`} onClick={onAdminClick}
     >
       {tileMeta.image && (
         <img
           src={tileMeta.image}
           alt={tileMeta.name}
-          className="tile-image"
+          className="bingo-tile-image"
         />
       )}
-      <div className="tile-name">{tileMeta.name}</div>
+      <div className="bingo-tile-name">{tileMeta.name}</div>
 
       {tileMeta.description && onInfoClick && (
         <button
-          className="info-button"
+          className="bingo-tile-info-button"
           onClick={() => onInfoClick(tileMeta)}
         >
           i
