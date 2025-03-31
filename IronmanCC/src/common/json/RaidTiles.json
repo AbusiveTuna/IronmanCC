@@ -76,32 +76,75 @@
         "image": "/resources/osrs_icons/Theatre_Of_Blood/Scythe_Of_Vitur.webp"
     },
     {
+        "name": "Holy Ornament Kit",
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Holy_Ornament_Kit.webp"
+    },
+    {
+        "name": "Sanguine Ornament Kit",
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Sanguine_Ornament_Kit.webp"
+    },
+    {
+        "name": "Sanguine Dust",
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Sanguine_Dust.webp"
+    },
+    {
         "name": "Lightbearer",
-        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Lightbearer.webp"
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Lightbearer.webp",
+        "count": "2"
     },
     {
         "name": "Osmumtens Fang",
-        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Osmumtens_Fang.webp"
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Osmumtens_Fang.webp",
+        "count": "2"
     },
     {
         "name": "Elidinis Ward",
-        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Elidinis_Ward.webp"
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Elidinis_Ward.webp",
+        "count": "2"
     },
     {
         "name": "Masori Mask",
-        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Masori_Mask.webp"
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Masori_Mask.webp",
+        "count": "2"
     },
     {
         "name": "Masori Body",
-        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Masori_Body.webp"
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Masori_Body.webp",
+        "count": "2"
     },
     {
         "name": "Masori Chaps",
-        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Masori_Chaps.webp"
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Masori_Chaps.webp",
+        "count": "2"
     },
     {
         "name": "Tumeken's Shadow",
-        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Tumekens_Shadow.webp"
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Tumekens_Shadow.webp",
+        "count": "2"
+    },
+    {
+        "name": "Zaryte Vambraces",
+        "image": "/resources/osrs_icons/Nex/Zaryte_Vambraces.webp"
+    },
+    {
+        "name": "Nihil Horn",
+        "image": "/resources/osrs_icons/Nex/Nihil_Horn.webp"
+    },
+    {
+        "name": "Torva Full Helm",
+        "image": "/resources/osrs_icons/Nex/Torva_Helm.webp"
+    },
+    {
+        "name": "Torva Platebody",
+        "image": "/resources/osrs_icons/Nex/Torva_Platebody.webp"
+    },
+    {
+        "name": "Torva Platelegs",
+        "image": "/resources/osrs_icons/Nex/Torva_Platelegs.webp"
+    },
+    {
+        "name": "Ancient Hilt",
+        "image": "/resources/osrs_icons/Nex/Ancient_Hilt.webp"
     }
 
 ]

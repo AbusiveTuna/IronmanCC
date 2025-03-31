@@ -1,20 +1,21 @@
-
 .bingo-tile {
-    width: 120px;
-    height: 120px;
-    box-sizing: border-box;
-    background: #003366;
-    border: 1px solid #ccc;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    padding-top: 4px;
-  }
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  max-width: 120px;
+  box-sizing: border-box;
+  background: #003366;
+  border: 1px solid #ccc;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 4px;
+  flex: 1 1 0;
+}
   
   .bingo-tile.completed {
     background-color: gray !important;
