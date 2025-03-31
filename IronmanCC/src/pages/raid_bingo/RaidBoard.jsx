@@ -11,6 +11,13 @@ const RaidBoard = () => {
     [3, 3],       // Section 4
   ];
 
+  const sections = [
+    "Chambers of Xeric",
+    "Theatre of Blood",
+    "Tombs of Amascut",
+    "Nex"
+  ];
+
   const handleInfoClick = (tileMeta) => {
     console.log("Info clicked on tile:", tileMeta);
   };
@@ -19,30 +26,37 @@ const RaidBoard = () => {
 
   return (
     <div className="raid-board">
-      {rowGroups.map((group, sectionIndex) => (
-        <div className="raid-section" key={`section-${sectionIndex}`}>
-          {group.map((size, rowIndex) => {
-            const rowTiles = raidTiles.slice(currentIndex, currentIndex + size);
-            currentIndex += size;
+{rowGroups.map((group, sectionIndex) => (
+  <div className="raid-section" key={`section-${sectionIndex}`}>
+    <div className="raid-section-header">
+      <h3>{sections[sectionIndex]}</h3>
+      <hr />
+    </div>
 
-            const rowClass = size === 1 ? "raid-row single-tile-row" : "raid-row";
+    {group.map((size, rowIndex) => {
+      const rowTiles = raidTiles.slice(currentIndex, currentIndex + size);
+      currentIndex += size;
 
-            return (
-              <div className={rowClass} key={`row-${sectionIndex}-${rowIndex}`}>
-                {rowTiles.map((tile) => (
-                  <BingoTile
-                    key={tile.TileNumber}
-                    tile={tile}
-                    tileMeta={tile}
-                    onInfoClick={handleInfoClick}
-                    onAdminClick={null}
-                  />
-                ))}
-              </div>
-            );
-          })}
+      const rowClass = size === 1 ? "raid-row single-tile-row" : "raid-row";
+
+      return (
+        <div className={rowClass} key={`row-${sectionIndex}-${rowIndex}`}>
+          {rowTiles.map((tile) => (
+            <BingoTile
+              key={tile.TileNumber}
+              tile={tile}
+              tileMeta={tile}
+              onInfoClick={handleInfoClick}
+              onAdminClick={null}
+              size="medium"
+            />
+          ))}
         </div>
-      ))}
+      );
+    })}
+  </div>
+))}
+
     </div>
   );
 };

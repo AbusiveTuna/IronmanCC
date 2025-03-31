@@ -1,11 +1,10 @@
 .bingo-tile {
   width: 100%;
-  aspect-ratio: 1 / 1; 
-  max-width: 120px;
+  aspect-ratio: 1 / 1;
   box-sizing: border-box;
-  background: #003366;
-  border: 1px solid #ccc;
-  color: #fff;
+  background: #1e1e1e;
+  border: 1px solid #8B6F47;
+  color: #f0e6d2;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -14,73 +13,118 @@
   position: relative;
   overflow: hidden;
   padding-top: 4px;
-  flex: 1 1 0;
+  flex: 0 0 auto;
 }
-  
-  .bingo-tile.completed {
-    background-color: gray !important;
-    color: #000;
-    border-color: gray;
-  }
-  
-  .bingo-tile.completed::after {
-    content: "";
-  }
-  
-  .bingo-tile.completed img {
-    opacity: 0.4;
-  }
-  
-  .bingo-tile.completed .bingo-tile-name {
-    text-decoration: line-through;
-  }
-  
-  .bingo-tile img {
-    max-width: 50px;
-    max-height: 50px;
-    object-fit: contain;
-  }
-  
-  .bingo-tile .bingo-tile-name {
-    font-size: 0.8em;
-    margin-top: 4px;
-    white-space: normal;
-    word-wrap: break-word;
-    max-height: 40px;
-    line-height: 1.2;
-    width: 100%;
-    padding: 0 4px;
-  }
-  
-  .bingo-tile .bingo-tile-info-button {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    cursor: pointer;
-    background: #ccc;
-    border: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    font-size: 0.9em;
-    line-height: 18px;
-    text-align: center;
-    padding: 0;
+
+.bingo-tile.small {
+  max-width: 80px;
+}
+
+.bingo-tile.medium {
+  max-width: 100px;
+}
+
+.bingo-tile.large {
+  max-width: 120px;
+}
+
+.bingo-tile.small img {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.bingo-tile.medium img {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.bingo-tile.large img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.bingo-tile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+
+.bingo-tile.completed {
+  background-color: gray !important;
+  color: #000;
+  border-color: gray;
+}
+
+.bingo-tile.completed::after {
+  content: "";
+}
+
+.bingo-tile.completed img {
+  opacity: 0.4;
+}
+
+.bingo-tile.completed .bingo-tile-name {
+  text-decoration: line-through;
+}
+
+.bingo-tile img {
+  object-fit: contain;
+}
+
+.bingo-tile .bingo-tile-name {
+  font-size: 0.8em;
+  margin-top: 4px;
+  white-space: normal;
+  word-wrap: break-word;
+  max-height: 40px;
+  line-height: 1.2;
+  width: 100%;
+  padding: 0 4px;
+}
+
+.bingo-tile .bingo-tile-info-button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  cursor: pointer;
+  background: #ccc;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.9em;
+  line-height: 18px;
+  text-align: center;
+  padding: 0;
+}
+
+.bingo-tile.early {
+  background-color: green;
+}
+
+.bingo-tile.mid {
+  background-color: rgb(201, 201, 9);
+  color: #000;
+}
+
+.bingo-tile.late {
+  background-color: rgb(165, 0, 0);
+}
+
+.bingo-tile.long {
+  background-color: purple;
+}
+
+@media (max-width: 600px) {
+  .bingo-tile {
+    max-width: 80px !important;
   }
 
-  .bingo-tile.early {
-    background-color: green;
+  .bingo-tile img {
+    max-width: 30px !important;
+    max-height: 30px !important;
   }
-  
-  .bingo-tile.mid {
-    background-color: rgb(201, 201, 9);
-    color: #000;
-  }
-  
-  .bingo-tile.late {
-    background-color: rgb(165, 0, 0);
-  }
-  
-  .bingo-tile.long {
-    background-color: purple;
-  }
+}
