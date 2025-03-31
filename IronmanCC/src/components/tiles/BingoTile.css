@@ -74,7 +74,7 @@
   object-fit: contain;
 }
 
-.bingo-tile .bingo-tile-name {
+.bingo-tile .bingo-tile-name .bingo-tile-count-progress {
   font-size: 0.8em;
   margin-top: 4px;
   white-space: normal;
@@ -109,6 +109,7 @@
   background-color: rgb(201, 201, 9);
   color: #000;
 }
+
 
 .bingo-tile.late {
   background-color: rgb(165, 0, 0);

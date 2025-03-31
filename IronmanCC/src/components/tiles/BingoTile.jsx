@@ -2,7 +2,17 @@ import React from "react";
 import "./BingoTile.css";
 
 const BingoTile = ({ tile, tileMeta, onInfoClick, onAdminClick, size = "medium" }) => {
-  const categoryClass = tileMeta?.category ? tileMeta.category.toLowerCase() : "";
+  let categoryClass = tileMeta?.category ? tileMeta.category.toLowerCase() : "";
+  const tileCount = tile.currentCount;
+  const maxCount = tile.maxCount;
+  let tileCountDisplay;
+  
+  if(tileCount !== undefined && maxCount !== undefined && maxCount > 1) {
+      tileCountDisplay = `${tileCount}/${maxCount}`;
+      if(tileCount > 0 && tileCount != maxCount){
+        categoryClass = "mid";
+      }
+  }
 
   if (!tileMeta) {
     return (
@@ -26,6 +36,7 @@ const BingoTile = ({ tile, tileMeta, onInfoClick, onAdminClick, size = "medium" 
           />
         )}
         <div className="bingo-tile-name">{tileMeta.name}</div>
+        <div className="bingo-tile-count-progress">{tileCountDisplay}</div>
       </div>
 
       {tileMeta.description && onInfoClick && (

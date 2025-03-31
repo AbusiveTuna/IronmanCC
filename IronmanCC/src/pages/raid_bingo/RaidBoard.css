@@ -57,6 +57,11 @@
   grid-column: 2;
 }
 
+.raid-board-admin-button {
+  color: white;
+  background-color: #8B6F47;
+}
+
 @media (max-width: 600px) {
   .raid-board {
     display: flex;
