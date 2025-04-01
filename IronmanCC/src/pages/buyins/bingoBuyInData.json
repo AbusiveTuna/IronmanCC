@@ -81,7 +81,7 @@
      },
      {
         "name":"Goose World",
-        "donation": 100
+        "donation": 110
      },
      {
         "name":"Bathwater30",
@@ -90,5 +90,13 @@
      {
         "name":"Paramecia",
         "donation": 10
+     },
+     {
+        "name":"A sqrd",
+        "donation": 25
+     },
+     {
+        "name":"AbusiveTunaa",
+        "donation": 111
      }
   ]
