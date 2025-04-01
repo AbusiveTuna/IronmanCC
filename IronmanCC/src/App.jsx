@@ -4,7 +4,7 @@ import WelcomePage from './pages/welcome_page/WelcomePage';
 import JustenMeme from './pages/justen_meme/JustenMeme';
 import RaidBingo from './pages/raid_bingo/RaidBingo';
 import RaidBingoAdmin from './pages/raid_bingo/RaidBingoAdmin';
-import BingoBuyIns from './pages/raid_bingo/BingoBuyIns';
+import BingoBuyIns from './pages/buyins/BingoBuyIns';
 import FarmingTimers from './pages/farming_timers/FarmingTimers';
 import EventHistory from './pages/event_history/EventHistory';
 import Header from './components/Header';
