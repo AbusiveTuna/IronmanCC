@@ -53,7 +53,7 @@ const BingoBuyIns = () => {
     <div className="buyins-wrapper">
       <div className="buyins-column wide">
         <div className="buyins-section">
-          <h2>Current Event Donations</h2>
+          <h2>Raid Bingo 2025 Donations</h2>
           <div className="buyin-table-container">
             <table className="buyin-table">
               <thead>
