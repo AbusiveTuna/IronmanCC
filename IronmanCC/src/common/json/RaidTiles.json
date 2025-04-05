@@ -48,44 +48,61 @@
         "image": "/resources/osrs_icons/Chambers_Of_Xeric/Twisted_Bow.webp"
     },
     {
+        "name": "Omlet",
+        "image": "/resources/osrs_icons/Pets/Olmlet.webp"
+    },
+    {
         "name": "Avernic Defender",
-        "image": "/resources/osrs_icons/Theatre_Of_Blood/Avernic_Defender_Hilt.webp"
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Avernic_Defender_Hilt.webp",
+        "count": "2"
     },
     {
         "name": "Ghrazi Rapier",
-        "image": "/resources/osrs_icons/Theatre_Of_Blood/Ghrazi_Rapier.webp"
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Ghrazi_Rapier.webp",
+        "count": "2"
     },
     {
         "name": "Sanguinesti Staff",
-        "image": "/resources/osrs_icons/Theatre_Of_Blood/Sanguinesti_Staff.webp"
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Sanguinesti_Staff.webp",
+        "count": "2"
     },
     {
         "name": "Justiciar Faceguard",
-        "image": "/resources/osrs_icons/Theatre_Of_Blood/Justiciar_Faceguard.webp"
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Justiciar_Faceguard.webp",
+        "count": "2"
     },
     {
         "name": "Justiciar Chestguard",
-        "image": "/resources/osrs_icons/Theatre_Of_Blood/Justiciar_Chestguard.webp"
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Justiciar_Chestguard.webp",
+        "count": "2"
     },
     {
         "name": "Justiticar Legguards",
-        "image": "/resources/osrs_icons/Theatre_Of_Blood/Justiciar_Legguards.webp"
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Justiciar_Legguards.webp",
+        "count": "2"
     },
     {
         "name": "Scythe of Vitur",
-        "image": "/resources/osrs_icons/Theatre_Of_Blood/Scythe_Of_Vitur.webp"
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Scythe_Of_Vitur.webp",
+        "count": "2"
     },
     {
         "name": "Holy Ornament Kit",
-        "image": "/resources/osrs_icons/Theatre_Of_Blood/Holy_Ornament_Kit.webp"
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Holy_Ornament_Kit.webp",
+        "count": "2"
     },
     {
         "name": "Sanguine Ornament Kit",
-        "image": "/resources/osrs_icons/Theatre_Of_Blood/Sanguine_Ornament_Kit.webp"
+        "image": "/resources/osrs_icons/Theatre_Of_Blood/Sanguine_Ornament_Kit.webp",
+        "count": "2"
     },
     {
         "name": "Sanguine Dust",
         "image": "/resources/osrs_icons/Theatre_Of_Blood/Sanguine_Dust.webp"
+    },
+    {
+        "name": "Lil Zik",
+        "image": "/resources/osrs_icons/Pets/zik.webp"
     },
     {
         "name": "Lightbearer",
@@ -123,6 +140,10 @@
         "count": "2"
     },
     {
+        "name": "Tumeken's Guardian",
+        "image": "/resources/osrs_icons/Pets/Tumeken.webp"
+    },
+    {
         "name": "Zaryte Vambraces",
         "image": "/resources/osrs_icons/Nex/Zaryte_Vambraces.webp"
     },
@@ -145,6 +166,10 @@
     {
         "name": "Ancient Hilt",
         "image": "/resources/osrs_icons/Nex/Ancient_Hilt.webp"
+    },
+    {
+        "name": "Nexling",
+        "image": "/resources/osrs_icons/Pets/nexling.png"
     }
 
 ]
