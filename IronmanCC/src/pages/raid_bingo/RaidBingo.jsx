@@ -6,13 +6,13 @@ const RaidBingo = () => {
   return (
     <div className="raid-bingo">
       <div className="raid-board-wrapper">
-        <h2 className="raid-bingo-team-name">Team Tuna</h2>
-        <RaidBoard isAdmin={false} teamName={"team tuna"}/>
+        <h2 className="raid-bingo-team-name">Team 2F1</h2>
+        <RaidBoard isAdmin={false} teamName={"Team 2F1"}/>
       </div>
 
       <div className="raid-board-wrapper">
-        <h2 className="raid-bingo-team-name">Team Goose</h2>
-        <RaidBoard isAdmin={false} teamName={"team goose"}/>
+        <h2 className="raid-bingo-team-name">Team Ags friend</h2>
+        <RaidBoard isAdmin={false} teamName={"Team Ags friend"}/>
       </div>
     </div>
   );
