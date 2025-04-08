@@ -4,7 +4,7 @@ import BingoTile from "components/tiles/BingoTile";
 import raidTiles from "json/RaidTiles.json";
 import axios from "axios";
 
-const competitionId = 1;
+const competitionId = 34;
 
 const RaidBoard = ({ isAdmin, teamName }) => {
   const [completionMap, setCompletionMap] = useState({});
