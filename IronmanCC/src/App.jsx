@@ -24,7 +24,7 @@ function App() {
           <Route path="/" element={<WelcomePage />} />
           <Route path="/justenTbow" element={<JustenMeme />} />
           <Route path="/raidBingo" element={<RaidBingo />} />
-          <Route path="/raidBingoAdmin" element={<RaidBingoAdmin />} />
+          <Route path="/gja92plq/raidBingoAdmin" element={<RaidBingoAdmin />} />
           <Route path="/bingoBuyIns" element={<BingoBuyIns />} />
           <Route path="/eventHistory" element={<EventHistory />} />
           <Route path="/farmingTimers" element={<FarmingTimers />} />
