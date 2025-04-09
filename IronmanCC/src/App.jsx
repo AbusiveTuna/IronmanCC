@@ -7,6 +7,7 @@ import RaidBingoAdmin from './pages/raid_bingo/RaidBingoAdmin';
 import BingoBuyIns from './pages/buyins/BingoBuyIns';
 import FarmingTimers from './pages/farming_timers/FarmingTimers';
 import EventHistory from './pages/event_history/EventHistory';
+import Draft from './pages/draft/Draft';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -25,6 +26,7 @@ function App() {
           <Route path="/justenTbow" element={<JustenMeme />} />
           <Route path="/raidBingo" element={<RaidBingo />} />
           <Route path="/gja92plq/raidBingoAdmin" element={<RaidBingoAdmin />} />
+          <Route path="/draft" element={<Draft />} />
           <Route path="/bingoBuyIns" element={<BingoBuyIns />} />
           <Route path="/eventHistory" element={<EventHistory />} />
           <Route path="/farmingTimers" element={<FarmingTimers />} />
@@ -35,15 +37,3 @@ function App() {
   );
 }
 export default App
-
-//Battleship Bingo pages and imports.
-// import Battleship from './pages/battleship/Battleship';
-// import OSRSTiles from './pages/battleship/tiles/OSRSTiles';
-// import AdminPanel from './pages/battleship/tiles/AdminPanel';
-// import NewGame from './pages/battleship/NewGame';
-// import BoardSetup from './pages/battleship/BoardSetup';
-{/* <Route path="/battleshipBingo" element={<Battleship />} />
-<Route path="/newBattleshipGame" element={<NewGame />} />
-<Route path="/bingoTiles/:teamId" element={<OSRSTiles />} />
-<Route path="/admin/:teamId" element={<AdminPanel />} />
-<Route path="/setup/:captainId" element={<BoardSetup />} /> */}

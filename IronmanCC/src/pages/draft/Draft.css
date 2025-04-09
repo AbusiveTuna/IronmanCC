@@ -1,0 +1,120 @@
+.draft-wrapper {
+  background-color: #1a1a1a;
+  border: 2px solid #8B6F47;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(139, 111, 71, 0.2);
+  color: #FFFFFF;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.draft-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: #FFD700;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.draft-top-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.save-draft-button {
+  background-color: #8B6F47;
+  color: #FFFFFF;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border: 1px solid #FFD700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.save-draft-button:hover {
+  filter: brightness(1.1);
+}
+
+.draft-layout {
+  display: grid;
+  grid-template-columns: 22% 50% 22%;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.player-pool {
+  background-color: #2b2b2b;
+  border: 1px solid #8B6F47;
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.player-pool h2 {
+  margin: 0 0 1rem;
+}
+
+.player-pool-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.player-card {
+  background-color: #8B6F47;
+  border: 1px solid #FFD700;
+  border-radius: 4px;
+  padding: 10px;
+  width: 120px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  box-shadow: 0 0 4px rgba(139, 111, 71, 0.2);
+}
+
+.player-name {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.team-container {
+  background-color: #2b2b2b;
+  border: 1px solid #8B6F47;
+  border-radius: 6px;
+  padding: 1rem;
+  min-height: 200px;
+  box-shadow: 0 0 8px rgba(139, 111, 71, 0.2);
+  text-align: center;
+}
+
+.team-name {
+  margin-bottom: 10px;
+  color: #FFD700;
+  text-shadow: 1px 1px 2px #000;
+  font-weight: bold;
+}
+
+.team-roster {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  justify-items: center;
+}
+
+.team-player {
+  background-color: #5E4A2C;
+  border: 1px solid #FFD700;
+  border-radius: 4px;
+  padding: 8px;
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  box-shadow: 0 0 4px rgba(139, 111, 71, 0.2);
+  font-size: 0.95rem;
+}
