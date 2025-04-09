@@ -3,8 +3,9 @@ import { useDrop } from 'react-dnd';
 import PlayerCard from './PlayerCard';
 
 const PlayerPool = ({ players, setPlayers, onDropFromTeam }) => {
-  const [{ isOver }, drop] = useDrop(() => ({
+  const [{ isOver, canDrop }, drop] = useDrop(() => ({
     accept: 'player',
+    canDrop: (item) => item.fromTeamId != null,
     drop: (item, monitor) => {
       if (item.fromTeamId) {
         onDropFromTeam(item.player, item.fromTeamId);
@@ -12,6 +13,7 @@ const PlayerPool = ({ players, setPlayers, onDropFromTeam }) => {
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
+      canDrop: monitor.canDrop(),
     }),
   }));
 

@@ -5,7 +5,7 @@ import Team from './Team';
 import './Draft.css';
 
 const Draft = () => {
-  const COMPETITION_ID = 34; 
+  const COMPETITION_ID = 34;
 
   const [teams, setTeams] = useState([
     { id: 1, name: 'New Purple Order', members: [] },
@@ -13,6 +13,7 @@ const Draft = () => {
   ]);
 
   const [playerPool, setPlayerPool] = useState(currentData);
+  const [toastMessage, setToastMessage] = useState(null);
 
   useEffect(() => {
     const loadDraft = async () => {
@@ -25,7 +26,7 @@ const Draft = () => {
           return;
         }
         const data = await response.json();
-        
+
         if (data && data.teams) {
           setTeams(data.teams);
           const usedNames = new Set(
@@ -71,11 +72,7 @@ const Draft = () => {
 
   const handleSaveDraft = async () => {
     try {
-      const payload = {
-        competitionId: COMPETITION_ID,
-        teams,
-      };
-
+      const payload = { competitionId: COMPETITION_ID, teams };
       const response = await fetch(
         'https://ironmancc-89ded0fcdb2b.herokuapp.com/raids-bingo-draft/save',
         {
@@ -84,7 +81,6 @@ const Draft = () => {
           body: JSON.stringify(payload),
         }
       );
-
       if (!response.ok) {
         const error = await response.json();
         console.error("Failed to save draft:", error.error || response.statusText);
@@ -97,13 +93,26 @@ const Draft = () => {
     }
   };
 
-  // Reset both teams to empty, and repopulate the pool with the original JSON
   const handleResetDraft = () => {
+    const confirmed = window.confirm("Are you sure you want to reset the draft?");
+    if (!confirmed) return; // If they cancel, do nothing
+
     setTeams([
       { id: 1, name: 'New Purple Order', members: [] },
       { id: 2, name: 'Complaining Raiders and Ben', members: [] },
     ]);
     setPlayerPool(currentData);
+  };
+
+  const handleExportTemple = (teamIndex) => {
+    const names = teams[teamIndex].members.map((m) => m.name).join(', ');
+    navigator.clipboard
+      .writeText(names)
+      .then(() => {
+        setToastMessage(`Copied to clipboard: ${names}`);
+        setTimeout(() => setToastMessage(null), 2000);
+      })
+      .catch((err) => console.error("Clipboard error:", err));
   };
 
   if (teams.length < 2) {
@@ -117,8 +126,9 @@ const Draft = () => {
 
   return (
     <div className="draft-wrapper">
-      <h1 className="draft-title">Raids Bingo 2025 Draft</h1>
+      {toastMessage && <div className="toast">{toastMessage}</div>}
 
+      <h1 className="draft-title">Raids Bingo 2025 Draft</h1>
       <div className="draft-top-bar">
         <button onClick={handleSaveDraft} className="save-draft-button">
           Save Draft
@@ -127,23 +137,36 @@ const Draft = () => {
           Reset Draft
         </button>
       </div>
-
       <div className="draft-layout">
-        <Team
-          team={teams[0]}
-          onDropPlayer={handleAddPlayerToTeam}
-        />
-
+        <div className="team-wrapper">
+          <Team
+            team={teams[0]}
+            onDropPlayer={handleAddPlayerToTeam}
+          />
+          <button
+            onClick={() => handleExportTemple(0)}
+            className="save-draft-button"
+          >
+            Export for Temple
+          </button>
+        </div>
         <PlayerPool
           players={playerPool}
           setPlayers={setPlayerPool}
           onDropFromTeam={handleRemovePlayerFromTeam}
         />
-
-        <Team
-          team={teams[1]}
-          onDropPlayer={handleAddPlayerToTeam}
-        />
+        <div className="team-wrapper">
+          <Team
+            team={teams[1]}
+            onDropPlayer={handleAddPlayerToTeam}
+          />
+          <button
+            onClick={() => handleExportTemple(1)}
+            className="save-draft-button"
+          >
+            Export for Temple
+          </button>
+        </div>
       </div>
     </div>
   );

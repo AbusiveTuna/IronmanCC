@@ -1,14 +1,17 @@
 import React from 'react';
 import { useDrop } from 'react-dnd';
+import TeamMember from './TeamMember';
 
 const Team = ({ team, onDropPlayer }) => {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'player',
+    canDrop: (item) => item.fromTeamId === null,
     drop: (item) => {
       onDropPlayer(item.player, team.id);
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
+      canDrop: monitor.canDrop(),
     }),
   }));
 
@@ -31,31 +34,3 @@ const Team = ({ team, onDropPlayer }) => {
 };
 
 export default Team;
-
-import { useDrag } from 'react-dnd';
-
-const TeamMember = ({ player, teamId }) => {
-  const [{ isDragging }, drag] = useDrag(() => ({
-    type: 'player',
-    item: {
-      player,
-      fromTeamId: teamId,
-    },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
-    }),
-  }));
-
-  return (
-    <div
-      ref={drag}
-      className="team-player"
-      style={{
-        opacity: isDragging ? 0.5 : 1,
-        cursor: 'grab',
-      }}
-    >
-      {player.name}
-    </div>
-  );
-};

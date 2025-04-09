@@ -1,10 +1,12 @@
-import React from 'react';
 import { useDrag } from 'react-dnd';
 
-const PlayerCard = ({ player }) => {
+const TeamMember = ({ player, teamId }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'player',
-    item: { player, fromTeamId: null },
+    item: {
+      player,
+      fromTeamId: teamId,
+    },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -13,15 +15,15 @@ const PlayerCard = ({ player }) => {
   return (
     <div
       ref={drag}
-      className="player-card"
+      className="team-player"
       style={{
         opacity: isDragging ? 0.5 : 1,
         cursor: 'grab',
       }}
     >
-      <div className="player-name">{player.name}</div>
+      {player.name}
     </div>
   );
 };
 
-export default PlayerCard;
+export default TeamMember;
