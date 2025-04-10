@@ -48,6 +48,10 @@
         "image": "/resources/osrs_icons/Chambers_Of_Xeric/Twisted_Bow.webp"
     },
     {
+        "name": "Metamorphic Dust",
+        "image": "/resources/osrs_icons/Chambers_Of_Xeric/dust.webp"
+    },
+    {
         "name": "Omlet",
         "image": "/resources/osrs_icons/Pets/Olmlet.webp"
     },
@@ -138,6 +142,10 @@
         "name": "Tumeken's Shadow",
         "image": "/resources/osrs_icons/Tombs_Of_Amascut/Tumekens_Shadow.webp",
         "count": "2"
+    },
+    {
+        "name": "Fang Kit",
+        "image": "/resources/osrs_icons/Tombs_Of_Amascut/Fang_Kit.webp"
     },
     {
         "name": "Tumeken's Guardian",
