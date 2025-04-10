@@ -11,7 +11,7 @@ const RaidBingoAdmin = () => {
       </div>
 
       <div className="raid-board-wrapper">
-        <h2 className="raid-bingo-team-name">Complaining Raiders and Ben</h2>
+        <h2 className="raid-bingo-team-name">Shanty Pass Shankers</h2>
         <RaidBoard isAdmin={true} teamName={"Complaining Raiders and Ben"}/>
       </div>
     </div>
