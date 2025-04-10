@@ -130,12 +130,12 @@ const Draft = () => {
 
       <h1 className="draft-title">Raids Bingo 2025 Draft</h1>
       <div className="draft-top-bar">
-        <button onClick={handleSaveDraft} className="save-draft-button">
+        {/* <button onClick={handleSaveDraft} className="save-draft-button">
           Save Draft
         </button>
         <button onClick={handleResetDraft} className="save-draft-button" style={{ marginLeft: '1rem' }}>
           Reset Draft
-        </button>
+        </button> */}
       </div>
       <div className="draft-layout">
         <div className="team-wrapper">
