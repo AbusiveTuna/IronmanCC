@@ -81,7 +81,7 @@
    },
    {
       "name": "Goose World",
-      "donation": 110
+      "donation": 130
    },
    {
       "name": "Bathwater30",
@@ -153,10 +153,6 @@
    },
    {
       "name": "Astraleos",
-      "donation": 10
-   },
-   {
-      "name": "High Bonsai",
       "donation": 10
    },
    {
@@ -280,10 +276,6 @@
       "donation": 10
    },
    {
-      "name": "dkho",
-      "donation": 10
-   },
-   {
       "name": "BA Pet",
       "donation": 10
    },
@@ -345,6 +337,14 @@
    },
    {
       "name": "d lmp",
+      "donation": 10
+   },
+   {
+      "name": "Rob Died",
+      "donation": 10
+   },
+   {
+      "name": "snp5000",
       "donation": 10
    }
 ]
