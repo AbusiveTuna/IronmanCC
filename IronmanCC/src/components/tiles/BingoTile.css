@@ -53,8 +53,8 @@
 
 
 .bingo-tile.completed {
-  background-color: gray !important;
-  color: #000;
+  background-color: #4B0082 !important;
+  color: white;
   border-color: gray;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .bingo-tile.completed img {
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
 .bingo-tile.completed .bingo-tile-name {
