@@ -88,3 +88,121 @@
     grid-column: auto;
   }
 }
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background-color: #2b2b2b;
+  color: #FFD700;
+  border: 2px solid #8B6F47;
+  border-radius: 8px;
+  padding: 1.5rem 1rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(139, 111, 71, 0.4); 
+  text-align: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.modal-content h3 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px #000;
+  word-break: break-word;
+}
+
+.modal-buttons {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.modal-buttons button {
+  background-color: #8B6F47;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  flex: 1 1 40%;
+  min-width: 100px;
+}
+
+.modal-buttons button:hover {
+  opacity: 0.9;
+}
+
+.raid-drops {
+  border: 2px solid #8B6F47;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0 auto;
+  background-color: #1a1a1a;
+  color: #FFD700;
+  width: fit-content;
+  box-shadow: 0 0 10px rgba(139, 111, 71, 0.4);
+}
+
+.raid-drops h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.raid-drops-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  background-color: #2b2b2b;
+}
+
+.raid-drops-table thead {
+  background-color: #2b2b2b;
+}
+
+.raid-drops-table th,
+.raid-drops-table td {
+  border: 1px solid #8B6F47;
+  padding: 0.5rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.raid-drops-table th {
+  color: #FFD700;
+}
+
+.raid-drops-table tr:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+.raid-drops-table tr:hover {
+  background-color: #333;
+}
+
+.raid-drops-table button {
+  background: transparent;
+  border: none;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}

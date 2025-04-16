@@ -1,20 +1,30 @@
 .raid-bingo {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
+  
+  .raid-bingo-toggle {
+    margin-bottom: 1rem;
+  }
+  
+  .raid-bingo-teams {
+    display: flex;
     gap: 2rem;
-}
-
-.raid-board-wrapper {
+    justify-content: center;
+  }
+  
+  .raid-board-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.raid-bingo-team-name {
+    min-width: 300px;
+  }
+  
+  .raid-bingo-team-name {
     margin-bottom: 1rem;
     font-size: 1.3rem;
-}
-
-.raid-bingo-team-name {
     color: gold;
-}
+  }
+  
