@@ -16,7 +16,7 @@ const BingoTile = ({
 
   if (tileCount !== undefined && maxCount !== undefined) {
     tileCountDisplay = `${tileCount}/${maxCount}`;
-    if (tileCount > 0 && tileCount !== maxCount) {
+    if (tileCount > 0 && tileCount < maxCount) {
       categoryClass = "mid";
     }
   }
