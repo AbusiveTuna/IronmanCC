@@ -8,7 +8,7 @@ import BingoBuyIns from './pages/buyins/BingoBuyIns';
 import FarmingTimers from './pages/farming_timers/FarmingTimers';
 import EventHistory from './pages/event_history/EventHistory';
 import Draft from './pages/draft/Draft';
-import Header from './components/Header';
+import Header from './components/header/Header';
 import Footer from './components/Footer';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { HTML5Backend } from "react-dnd-html5-backend";
