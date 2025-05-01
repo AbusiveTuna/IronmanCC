@@ -6,5 +6,14 @@
         "winningTeam": "Captain Tuna and the Department of Oppressively Dysfunctional Iron Efficiency",
         "losingTeam": "Captain Bid Whist and the Goose's Gigglers",
         "image": "/resources/event_history/battleship_bingo_2025.png"
+    },
+
+    {
+        "event": "Goose's Raids Bingo 2025",
+        "date": "April 11th 2025 to ?",
+        "description": "The second raids bingo, with a new format. 2x Drops from Tob/Toa and added Nex",
+        "winningTeam": "New Purple Order or Shanty Pass Shankers",
+        "losingTeam": "New Purple Order or Shanty Pass Shankers",
+        "image": ""
     }
 ]
