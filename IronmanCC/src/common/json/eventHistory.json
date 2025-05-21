@@ -10,10 +10,19 @@
 
     {
         "event": "Goose's Raids Bingo 2025",
-        "date": "April 11th 2025 to ?",
+        "date": "April 11th 2025 to May 12th",
         "description": "The second raids bingo, with a new format. 2x Drops from Tob/Toa and added Nex",
-        "winningTeam": "New Purple Order or Shanty Pass Shankers",
-        "losingTeam": "New Purple Order or Shanty Pass Shankers",
+        "winningTeam": "Shanty Pass Shankers",
+        "losingTeam": "New Purple Order",
+        "image": "/resources/event_history/raidBingo2.png"
+    },
+
+    {
+        "event": "Everything Bingo V2",
+        "date": "June ? To ?",
+        "description": "",
+        "winningTeam": "",
+        "losingTeam": "",
         "image": ""
     }
 ]
