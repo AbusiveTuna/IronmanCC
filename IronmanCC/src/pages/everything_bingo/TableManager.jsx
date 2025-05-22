@@ -1,11 +1,9 @@
 import React from 'react';
 import BingoTable from './BingoTable';
-import { calculateRanks } from './bingoUtils';
 
 const TableManager = ({ type, data, showEHP }) => {
   let headers = [];
   let dataKeys = [];
-  let rankedData;
 
   switch (type) {
     case 'players':
@@ -17,11 +15,6 @@ const TableManager = ({ type, data, showEHP }) => {
         dataKeys = ['playerName', 'team', 'points'];
       }
       break;
-    case 'sheetData':
-      headers = ['Place', 'Player', 'Team', 'Value', 'Points'];
-      dataKeys = ['name', 'team', 'value', 'points'];
-      data = calculateRanks(data);
-      break;
     case 'skillData':
       headers = ['Place', 'Player', 'Gain', 'Team', 'Points', 'EHP/EHB'];
       dataKeys = ['playerName', 'xpGained', 'teamName', 'points', 'efficiency'];
@@ -29,24 +22,6 @@ const TableManager = ({ type, data, showEHP }) => {
     case 'teamTotals':
       headers = ['Place', 'Team', 'Points'];
       dataKeys = ['teamName', 'points'];
-      break;
-
-    case 'purpleData':
-      headers = ['Place', 'Raid', 'Team', 'Purple Count', 'Points'];
-      dataKeys = ['raidName', 'teamName', 'purpleCount', 'points'];
-      data = data.reduce((acc, raid) => {
-        const sortedTeams = raid.teams.sort((a, b) => b.points - a.points);
-        sortedTeams.forEach((team, index) => {
-          acc.push({
-            rank: index + 1,
-            raidName: raid.raidName,
-            teamName: team.teamName,
-            purpleCount: team.purpleCount,
-            points: team.points,
-          });
-        });
-        return acc;
-      }, []);
       break;
 
     default:
