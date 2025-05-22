@@ -25,12 +25,10 @@ const EverythingBingo = () => {
 
   const skillDisplayNames = {
     'Combined Totals': 'Combined Totals',
-    'Data Totals': 'KC/Xp Totals'
   };
 
   const skillButtonsData = [
     { name: 'Combined Totals', displayName: 'Combined Totals' },
-    { name: 'Data Totals', displayName: 'KC/Xp Totals' },
     ...templeMap.map(([name]) => ({ name, displayName: name }))
   ];
 
@@ -61,6 +59,10 @@ const EverythingBingo = () => {
   const formatSkillName = (skill) => skill.replace(/_/g, ' ');
 
   const getIconUrl = (skill) => {
+    if (skill === 'Combined Totals') {
+      return `/resources/osrs_icons/Goose.png`;
+    };
+
     const entry = templeMap.find(([name]) => name === skill);
     if (!entry || !entry[5]) {
       console.warn(`Missing icon path for skill: ${skill}`);
