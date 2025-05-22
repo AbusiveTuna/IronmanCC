@@ -33,7 +33,7 @@ const BingoBuyInsAdmin = () => {
     }
   }, [status]);
 
-  const playerOptions = Array.from(new Set(buyins.map(b => b.player_name.toLowerCase())));
+  const playerOptions = Array.from(new Set(buyins.map(b => b.player_name.toLowerCase()))).sort();
   const eventOptions = Array.from(new Set(buyins.map(b => b.event_name.toLowerCase())));
 
   const handleSubmit = async (e) => {
