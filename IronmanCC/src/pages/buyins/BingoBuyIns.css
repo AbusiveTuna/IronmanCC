@@ -133,3 +133,36 @@
     font-size: 1rem;
   }
 }
+
+.buyin-input {
+  width: 100%;
+  padding: 8px;
+  background-color: #1a150d;
+  border: 1px solid #bfa44f;
+  border-radius: 4px;
+  color: #f0e6c0;
+  font-family: 'OSRSFont', cursive;
+  font-size: 1rem;
+}
+
+.buyin-input:focus {
+  outline: none;
+  border-color: #ffda66;
+  box-shadow: 0 0 5px #ffda66;
+}
+
+.buyin-submit-button {
+  background-color: #2e240f;
+  border: 2px ridge #bfa44f;
+  color: #ffda66;
+  font-family: 'OSRSFont', cursive;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buyin-submit-button:hover {
+  background-color: #3a2f16;
+}

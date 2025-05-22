@@ -1,36 +1,47 @@
-import React, { useState } from 'react';
-import currentData from 'common/json/raidBingo2025Buyins.json';
-import historicalData from 'common/json/battleship_bingo_2025_buyins.json';
+import React, { useState, useEffect } from 'react';
 import './BingoBuyIns.css';
 
+const CURRENT_EVENT_NAME = "everything bingo v2";
+
 const BingoBuyIns = () => {
+  const [buyins, setBuyins] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [currentSort, setCurrentSort] = useState({ key: 'donation', direction: 'desc' });
   const [allTimeSort, setAllTimeSort] = useState({ key: 'donation', direction: 'desc' });
 
-  const sortedCurrent = [...currentData].sort((a, b) => {
-    if (currentSort.key === 'donation') {
-      return currentSort.direction === 'asc' ? a.donation - b.donation : b.donation - a.donation;
-    } else {
-      return currentSort.direction === 'asc'
-        ? a.name.localeCompare(b.name)
-        : b.name.localeCompare(a.name);
-    }
-  });
+  useEffect(() => {
+    const fetchBuyIns = async () => {
+      try {
+        const response = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/ironmancc/buyins');
+        const data = await response.json();
+        setBuyins(data);
+      } catch (err) {
+        console.error('Error fetching buyins:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBuyIns();
+  }, []);
 
-  const totalCurrent = currentData.reduce((sum, player) => sum + player.donation, 0);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const currentData = buyins.filter(b => b.event_name === CURRENT_EVENT_NAME);
+  const totalCurrent = currentData.reduce((sum, b) => sum + b.amount, 0);
 
   const allTimeMap = {};
-  [...historicalData, ...currentData].forEach(({ name, donation }) => {
-    const key = name.toLowerCase();
+  buyins.forEach(({ player_name, amount }) => {
+    const key = player_name.toLowerCase();
     if (!allTimeMap[key]) {
-      allTimeMap[key] = { name, donation };
+      allTimeMap[key] = { name: player_name, donation: amount };
     } else {
-      allTimeMap[key].donation += donation;
+      allTimeMap[key].donation += amount;
     }
   });
 
-  let allTimeSorted = Object.values(allTimeMap);
-  allTimeSorted.sort((a, b) => {
+  let allTimeSorted = Object.values(allTimeMap).sort((a, b) => {
     if (allTimeSort.key === 'donation') {
       return allTimeSort.direction === 'asc' ? a.donation - b.donation : b.donation - a.donation;
     } else {
@@ -39,107 +50,112 @@ const BingoBuyIns = () => {
         : b.name.localeCompare(a.name);
     }
   });
+  const totalAllTime = allTimeSorted.reduce((sum, b) => sum + b.donation, 0);
 
-  const totalAllTime = allTimeSorted.reduce((sum, player) => sum + player.donation, 0);
+  const sortedCurrent = [...currentData].sort((a, b) => {
+    if (currentSort.key === 'donation') {
+      return currentSort.direction === 'asc' ? a.amount - b.amount : b.amount - a.amount;
+    } else {
+      return currentSort.direction === 'asc'
+        ? a.player_name.localeCompare(b.player_name)
+        : b.player_name.localeCompare(a.player_name);
+    }
+  });
 
   const formatGP = (amount) => {
-    if (amount >= 1000) {
-      return `${(amount / 1000).toFixed(1)}b`;
-    }
-    return `${amount}m`;
+    return amount >= 1000 ? `${(amount / 1000).toFixed(1)}b` : `${amount}m`;
   };
 
-return (
-  <div className="buyins-wrapper">
-    {/* 
-    <div className="buyins-column wide">
-      <div className="buyins-section">
-        <h2>Raid Bingo 2025 Donations</h2>
-        <div className="buyin-table-container">
-          <table className="buyin-table">
-            <thead>
-              <tr>
-                <th
-                  onClick={() =>
-                    setCurrentSort({
-                      key: 'name',
-                      direction: currentSort.key === 'name' && currentSort.direction === 'asc' ? 'desc' : 'asc'
-                    })
-                  }
-                >
-                  Player {currentSort.key === 'name' ? (currentSort.direction === 'asc' ? '↑' : '↓') : ''}
-                </th>
-                <th
-                  onClick={() =>
-                    setCurrentSort({
-                      key: 'donation',
-                      direction: currentSort.key === 'donation' && currentSort.direction === 'asc' ? 'desc' : 'asc'
-                    })
-                  }
-                >
-                  Donation {currentSort.key === 'donation' ? (currentSort.direction === 'asc' ? '↑' : '↓') : ''}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {sortedCurrent.map((player, index) => (
-                <tr key={player.name + index}>
-                  <td title={`Inspect ${player.name}`}>{player.name}</td>
-                  <td title={`${formatGP(player.donation)} donated`}>{formatGP(player.donation)}</td>
+  return (
+    <div className="buyins-wrapper">
+      <div className="buyins-column wide">
+        <div className="buyins-section">
+          <h2>Everything Bingo V2 Donations</h2>
+          <div className="buyin-table-container">
+            <table className="buyin-table">
+              <thead>
+                <tr>
+                  <th
+                    onClick={() =>
+                      setCurrentSort({
+                        key: 'name',
+                        direction: currentSort.key === 'name' && currentSort.direction === 'asc' ? 'desc' : 'asc'
+                      })
+                    }
+                  >
+                    Player {currentSort.key === 'name' ? (currentSort.direction === 'asc' ? '↑' : '↓') : ''}
+                  </th>
+                  <th
+                    onClick={() =>
+                      setCurrentSort({
+                        key: 'donation',
+                        direction: currentSort.key === 'donation' && currentSort.direction === 'asc' ? 'desc' : 'asc'
+                      })
+                    }
+                  >
+                    Donation {currentSort.key === 'donation' ? (currentSort.direction === 'asc' ? '↑' : '↓') : ''}
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="buyin-totals">Total: {formatGP(totalCurrent)}</div>
-      </div>
-    </div>
-    */}
+              </thead>
+              <tbody>
+                {sortedCurrent.map((player, index) => (
+                  <tr key={player.player_name + index}>
+                    <td title={`Inspect ${player.player_name}`}>{player.player_name}</td>
+                    <td title={`${formatGP(player.amount)} donated`}>{formatGP(player.amount)}</td>
+                  </tr>
+                ))}
 
-    <div className="buyins-column full">
-      <div className="buyins-section">
-        <h2>All-Time Donations</h2>
-        <div className="buyin-table-container">
-          <table className="buyin-table">
-            <thead>
-              <tr>
-                <th
-                  onClick={() =>
-                    setAllTimeSort({
-                      key: 'name',
-                      direction: allTimeSort.key === 'name' && allTimeSort.direction === 'asc' ? 'desc' : 'asc'
-                    })
-                  }
-                >
-                  Player {allTimeSort.key === 'name' ? (allTimeSort.direction === 'asc' ? '↑' : '↓') : ''}
-                </th>
-                <th
-                  onClick={() =>
-                    setAllTimeSort({
-                      key: 'donation',
-                      direction: allTimeSort.key === 'donation' && allTimeSort.direction === 'asc' ? 'desc' : 'asc'
-                    })
-                  }
-                >
-                  Total {allTimeSort.key === 'donation' ? (allTimeSort.direction === 'asc' ? '↑' : '↓') : ''}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {allTimeSorted.map((player, index) => (
-                <tr key={player.name + index}>
-                  <td title={`Inspect ${player.name}`}>{player.name}</td>
-                  <td title={`${formatGP(player.donation)} total`}>{formatGP(player.donation)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
+          <div className="buyin-totals">Total: {formatGP(totalCurrent)}</div>
         </div>
-        <div className="buyin-totals">Total: {formatGP(totalAllTime)}</div>
+      </div>
+
+      <div className="buyins-column full">
+        <div className="buyins-section">
+          <h2>All-Time Donations</h2>
+          <div className="buyin-table-container">
+            <table className="buyin-table">
+              <thead>
+                <tr>
+                  <th
+                    onClick={() =>
+                      setAllTimeSort({
+                        key: 'name',
+                        direction: allTimeSort.key === 'name' && allTimeSort.direction === 'asc' ? 'desc' : 'asc'
+                      })
+                    }
+                  >
+                    Player {allTimeSort.key === 'name' ? (allTimeSort.direction === 'asc' ? '↑' : '↓') : ''}
+                  </th>
+                  <th
+                    onClick={() =>
+                      setAllTimeSort({
+                        key: 'donation',
+                        direction: allTimeSort.key === 'donation' && allTimeSort.direction === 'asc' ? 'desc' : 'asc'
+                      })
+                    }
+                  >
+                    Total {allTimeSort.key === 'donation' ? (allTimeSort.direction === 'asc' ? '↑' : '↓') : ''}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {allTimeSorted.map((player, index) => (
+                  <tr key={player.name + index}>
+                    <td title={`Inspect ${player.name}`}>{player.name}</td>
+                    <td title={`${formatGP(player.donation)} total`}>{formatGP(player.donation)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="buyin-totals">Total: {formatGP(totalAllTime)}</div>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
 
 };
 

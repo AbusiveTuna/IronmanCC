@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WelcomePage from './pages/welcome_page/WelcomePage';
 import JustenMeme from './pages/justen_meme/JustenMeme';
 import BingoBuyIns from './pages/buyins/BingoBuyIns';
+import BingoBuyInsAdmin from './pages/buyins/BingoBuyInsAdmin';
 import FarmingTimers from './pages/farming_timers/FarmingTimers';
 import EverythingBingo from './pages/everything_bingo/EverythingBingo';
 import EventHistory from './pages/event_history/EventHistory';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/justenTbow" element={<JustenMeme />} />
           <Route path="/everythingBingo" element={<EverythingBingo />} />
           <Route path="/bingoBuyIns" element={<BingoBuyIns />} />
+          <Route path="/buyInsAdmin" element={<BingoBuyInsAdmin />} />
           <Route path="/eventHistory" element={<EventHistory />} />
           <Route path="/farmingTimers" element={<FarmingTimers />} />
         </Routes>

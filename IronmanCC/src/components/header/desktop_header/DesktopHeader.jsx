@@ -1,7 +1,6 @@
 import React from 'react';
 import { HeaderLinks } from '../HeaderLinks';
 const DesktopHeader = () => {
-  console.log('HeaderLinks', HeaderLinks);
   return (
     <div className="header desktop-header">
       {/* Map throgh the HeaderLinks and create the relevant anchor tags.*/}

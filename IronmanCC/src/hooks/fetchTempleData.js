@@ -7,7 +7,7 @@ const fetchTempleData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/results');
+        const response = await axios.get('https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/results');
         const responseData = response.data;
         setData(responseData);
       } catch (error) {
