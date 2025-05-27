@@ -29,6 +29,7 @@ const BingoBuyIns = () => {
   }
 
   const currentData = buyins.filter(b => b.event_name === CURRENT_EVENT_NAME);
+  const uniqueCurrentPlayers = new Set(currentData.map(b => b.player_name.toLowerCase())).size;
   const totalCurrent = currentData.reduce((sum, b) => sum + b.amount, 0);
 
   const allTimeMap = {};
@@ -108,7 +109,10 @@ const BingoBuyIns = () => {
               </tbody>
             </table>
           </div>
-          <div className="buyin-totals">Total: {formatGP(totalCurrent)}</div>
+          <div className="buyin-totals">
+            <span className="buyin-total-amount">Total GP: {formatGP(totalCurrent)}</span>
+            <span className="buyin-total-unique">Unique Players: {uniqueCurrentPlayers}</span>
+          </div>
         </div>
       </div>
 
