@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AdminTable from './AdminTable';
 import './BingoBuyIns.css';
 
 const BingoBuyInsAdmin = () => {
@@ -67,6 +68,52 @@ const BingoBuyInsAdmin = () => {
       setStatus('Request failed');
     }
   };
+
+  const handleUpdate = async (player_name, event_name, amount) => {
+    const payload = { player_name, event_name, amount: Number(amount) };
+    try {
+      const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/ironmancc/buyins', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        setStatus('Updated!');
+      } else {
+        setStatus('Update failed');
+      }
+    } catch (err) {
+      console.error('Update error:', err);
+      setStatus('Update error');
+    }
+  };
+
+  const handleDelete = async (player_name, event_name) => {
+    const confirmed = window.confirm(`Delete buy-in for ${player_name}?`);
+    if (!confirmed) return;
+
+    try {
+      const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/ironmancc/buyins', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ player_name, event_name })
+      });
+
+      if (res.ok) {
+        setBuyins(prev =>
+          prev.filter(b => !(b.player_name === player_name && b.event_name === event_name))
+        );
+        setStatus('Deleted!');
+      } else {
+        setStatus('Delete failed');
+      }
+    } catch (err) {
+      console.error('Delete error:', err);
+      setStatus('Delete error');
+    }
+  };
+
 
   return (
     <div className="buyins-wrapper">
@@ -141,6 +188,14 @@ const BingoBuyInsAdmin = () => {
           </form>
         </div>
       </div>
+
+      <AdminTable
+        buyins={buyins}
+        setBuyins={setBuyins}
+        onUpdate={handleUpdate}
+        onDelete={handleDelete}
+      />
+
     </div>
   );
 };

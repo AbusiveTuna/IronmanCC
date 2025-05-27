@@ -166,3 +166,29 @@
 .buyin-submit-button:hover {
   background-color: #3a2f16;
 }
+
+.buyin-action-button {
+  background-color: #2e240f;
+  border: 2px ridge #bfa44f;
+  color: #ffda66;
+  font-family: 'OSRSFont', cursive;
+  font-size: 1rem;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buyin-action-button:hover {
+  background-color: #3a2f16;
+}
+
+.buyin-action-button.delete {
+  color: #ff9999;
+  border-color: #ff6666;
+}
+
+.buyin-amount-input {
+  width: 80px;
+}
