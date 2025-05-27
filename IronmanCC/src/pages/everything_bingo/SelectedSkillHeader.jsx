@@ -1,8 +1,6 @@
 import React from 'react';
 
 const SelectedSkillHeader = ({ skill, displayName, getIconUrl }) => {
-  console.log(skill);
-  console.log(displayName);
   return (
     <div className="selected-skill-header">
       <img
