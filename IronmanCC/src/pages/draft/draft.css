@@ -76,8 +76,8 @@
 }
 
 .d-button {
-    background: #664422;
-    border: 2px solid #aa7733;
+    background: #cfc42d;
+    border: 2px solid #cfc42d;
     padding: 10px 15px;
     font-family: 'RuneScape', Arial, sans-serif;
     font-size: 16px;
@@ -90,6 +90,23 @@
 
 .d-button:hover {
     background: #996633;
+}
+
+.d-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.d-save-btn {
+    background-color: #cfc42d
+}
+
+.d-copy-btn {
+  background-color: #cfc42d;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  cursor: pointer;
 }
 
 @media (min-width: 1200px) {

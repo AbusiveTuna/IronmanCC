@@ -139,9 +139,22 @@ const DraftTable = ({ title, data, onDrop }) => {
     () => ({ accept: TYPE, drop: (item) => onDrop(item.player) }),
     [onDrop]
   );
+
+  const handleCopy = () => {
+    const names = data.map((p) => p.name).join(', ');
+    navigator.clipboard.writeText(names).then(() => {
+      console.log(`Copied ${title} names to clipboard`);
+    });
+  };
+
   return (
     <div ref={drop} className="d-table-container">
-      <h2 className="d-h2">{title}</h2>
+      <div className="d-table-header">
+        <h2 className="d-h2">{title}</h2>
+        <button className="d-copy-btn" onClick={handleCopy}>
+          Copy Names
+        </button>
+      </div>
       <table className="d-table">
         <thead className="d-thead">
           <tr className="d-tr">
@@ -157,6 +170,7 @@ const DraftTable = ({ title, data, onDrop }) => {
     </div>
   );
 };
+
 
 const DraggableRow = ({ player }) => {
   const [{ isDragging }, drag] = useDrag(
