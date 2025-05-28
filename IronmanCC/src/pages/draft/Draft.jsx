@@ -8,13 +8,17 @@ const DRAFT_URL = 'https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/
 const TYPE = 'PLAYER';
 const EVENT_NAME = 'everything bingo v2';
 
+const INITIAL_TEAM_NAMES = [
+  'Barely Legal Seafood',
+  'The Butter Churners',
+  'Everything but the Tub',
+  'Sophanem Sigmas'
+];
+
 const Draft = () => {
   const [buyins, setBuyins] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [teamOne, setTeamOne] = useState([]);
-  const [teamTwo, setTeamTwo] = useState([]);
-  const [teamThree, setTeamThree] = useState([]);
-  const [teamFour, setTeamFour] = useState([]);
+  const [teams, setTeams] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,15 +30,19 @@ const Draft = () => {
             ({ event_name }) => event_name && event_name.toLowerCase() === EVENT_NAME
           )
         );
+
+        const initialTeams = {};
+        INITIAL_TEAM_NAMES.forEach((name) => (initialTeams[name] = []));
+
         if (draftRes.ok) {
           const draftData = await draftRes.json();
           if (draftData?.teams) {
-            setTeamOne(draftData.teams.teamOne || []);
-            setTeamTwo(draftData.teams.teamTwo || []);
-            setTeamThree(draftData.teams.teamThree || []);
-            setTeamFour(draftData.teams.teamFour || []);
+            for (const name of INITIAL_TEAM_NAMES) {
+              initialTeams[name] = draftData.teams[name] || [];
+            }
           }
         }
+        setTeams(initialTeams);
       } catch (err) {
         console.error(err);
       } finally {
@@ -51,47 +59,42 @@ const Draft = () => {
     return [...names].map((n) => ({ name: n }));
   }, [buyins]);
 
-  const draftedNames = useMemo(
-    () =>
-      [...teamOne, ...teamTwo, ...teamThree, ...teamFour].map((p) =>
-        p.name.toLowerCase()
-      ),
-    [teamOne, teamTwo, teamThree, teamFour]
-  );
+  const draftedNames = useMemo(() => {
+    return Object.values(teams).flat().map((p) => p.name.toLowerCase());
+  }, [teams]);
 
-  const availablePlayers = useMemo(
-    () =>
-      allPlayers
-        .filter((p) => !draftedNames.includes(p.name.toLowerCase()))
-        .sort((a, b) => a.name.localeCompare(b.name)),
-    [allPlayers, draftedNames]
-  );
+  const availablePlayers = useMemo(() => {
+    return allPlayers
+      .filter((p) => !draftedNames.includes(p.name.toLowerCase()))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [allPlayers, draftedNames]);
 
-  const movePlayer = useCallback((player, dest) => {
-    setTeamOne((t) => t.filter((p) => p.name !== player.name));
-    setTeamTwo((t) => t.filter((p) => p.name !== player.name));
-    setTeamThree((t) => t.filter((p) => p.name !== player.name));
-    setTeamFour((t) => t.filter((p) => p.name !== player.name));
-    if (dest === 'teamOne') setTeamOne((t) => [...t, player]);
-    if (dest === 'teamTwo') setTeamTwo((t) => [...t, player]);
-    if (dest === 'teamThree') setTeamThree((t) => [...t, player]);
-    if (dest === 'teamFour') setTeamFour((t) => [...t, player]);
+  const movePlayer = useCallback((player, destTeam) => {
+    setTeams((prev) => {
+      const updated = {};
+      for (const [teamName, members] of Object.entries(prev)) {
+        updated[teamName] = members.filter((p) => p.name !== player.name);
+      }
+      if (destTeam && updated[destTeam]) {
+        updated[destTeam] = [...updated[destTeam], player];
+      }
+      return updated;
+    });
   }, []);
 
   const handleSaveDraft = useCallback(async () => {
-    const payload = { teams: { teamOne, teamTwo, teamThree, teamFour } };
     try {
       await fetch(DRAFT_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ teams }),
       });
       alert('Draft saved.');
     } catch (err) {
       console.error(err);
       alert('Failed to save draft.');
     }
-  }, [teamOne, teamTwo, teamThree, teamFour]);
+  }, [teams]);
 
   if (loading) return <div className="draft-container">Loading…</div>;
 
@@ -108,31 +111,20 @@ const Draft = () => {
             data={availablePlayers}
             onDrop={(p) => movePlayer(p, null)}
           />
-          <DraftTable
-            title="Team 1"
-            data={teamOne}
-            onDrop={(p) => movePlayer(p, 'teamOne')}
-          />
-          <DraftTable
-            title="Team 2"
-            data={teamTwo}
-            onDrop={(p) => movePlayer(p, 'teamTwo')}
-          />
-          <DraftTable
-            title="Team 3"
-            data={teamThree}
-            onDrop={(p) => movePlayer(p, 'teamThree')}
-          />
-          <DraftTable
-            title="Team 4"
-            data={teamFour}
-            onDrop={(p) => movePlayer(p, 'teamFour')}
-          />
+          {Object.entries(teams).map(([teamName, members]) => (
+            <DraftTable
+              key={teamName}
+              title={teamName}
+              data={members}
+              onDrop={(p) => movePlayer(p, teamName)}
+            />
+          ))}
         </div>
       </div>
     </DndProvider>
   );
 };
+
 
 const DraftTable = ({ title, data, onDrop }) => {
   const [, drop] = useDrop(
