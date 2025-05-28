@@ -1,184 +1,200 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Container, Row, Col, FormControl, InputGroup } from 'react-bootstrap';
 import fetchTempleData from '../../hooks/fetchTempleData';
 import { templeMap } from '../../common/templeMap';
 import './EverythingBingo.css';
-import { calculateCombinedTeamTotals, calculateDataTeamTotals, calculateRanks } from './bingoUtils';
 import SkillButtons from './SkillButtons';
 import SelectedSkillHeader from './SelectedSkillHeader';
 import TableManager from './TableManager';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import categories from './Categories.json';
 
+/* utility: team totals from a { skill: [players] } object */
+const makeTeamTotals = (resultsObj) => {
+  const m = new Map();
+  Object.values(resultsObj).forEach((arr) =>
+    arr.forEach((p) => {
+      const team = (p.teamName ?? p.team_name ?? '').trim();
+      const pts  = Number(p.points) || 0;
+      m.set(team, (m.get(team) || 0) + pts);
+    })
+  );
+  return [...m.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([teamName, points], i) => ({ rank: i + 1, teamName, points }));
+};
+
+/* normalise admin rows to match temple keys */
+const normaliseArr = (arr) =>
+  arr.map((p) => ({
+    ...p,
+    playerName: p.playerName ?? p.player_name,
+    teamName:   p.teamName   ?? p.team_name,
+  }));
+
 const EverythingBingo = () => {
-  const data = fetchTempleData();
+  const data = fetchTempleData();                       // temple skills
+  const [adminData, setAdminData] = useState(null);     // manual categories
+
+  const [selectedTile, setSelectedTile] = useState('Combined Totals');
+  const [selectedSkill, setSelectedSkill] = useState('Combined Totals');
   const [isAdminCategory, setIsAdminCategory] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
-  const [adminData, setAdminData] = useState(null);
-  const [skillData, setSkillData] = useState(null);
-  const [selectedTile, setSelectedTile] = useState(null);
-  const [selectedSkill, setSelectedSkill] = useState('Combined Totals');
+
+  const [skillData, setSkillData]   = useState(null);
   const [teamTotals, setTeamTotals] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
+  /* fetch admin once */
   useEffect(() => {
-    const fetchAdminResults = async () => {
+    (async () => {
       try {
-        const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/admin/results');
+        const res  = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/admin/results');
         const json = await res.json();
-        if (json.success) {
-          setAdminData(json.data);
-        }
-      } catch (err) {
-        console.error('Error fetching admin results:', err);
+        if (json?.success) setAdminData(json.data);
+      } catch (e) {
+        console.error('admin fetch failed:', e);
       }
-    };
-
-    fetchAdminResults();
+    })();
   }, []);
 
+  /* merge temple + admin -> combinedResults */
+  const combinedResults = useMemo(() => {
+    const r = {};
+    if (data?.results)
+      Object.entries(data.results).forEach(([k, v]) => (r[k] = normaliseArr(v)));
+    if (adminData?.results)
+      Object.entries(adminData.results).forEach(
+        ([k, v]) => (r[k] = normaliseArr(v))
+      );
+    return r;
+  }, [data, adminData]);
+
+  /* initialise combined team totals */
   useEffect(() => {
-    if (data) {
-      setTeamTotals(calculateCombinedTeamTotals(data));
-    }
-  }, [data]);
+    if (Object.keys(combinedResults).length)
+      setTeamTotals(makeTeamTotals(combinedResults));
+  }, [combinedResults]);
 
-  const skillDisplayNames = {
-    'Combined Totals': 'Combined Totals',
-  };
-
-  const baseSkillButtons = [
-    { name: 'Combined Totals', displayName: 'Combined Totals' },
-    ...templeMap.map(([name]) => ({ name, displayName: name }))
+  /* button lists */
+  const baseButtons = [
+    { name: 'Combined Totals', displayName: 'Combined Totals', isCategory: false },
+    ...templeMap.map(([n]) => ({ name: n, displayName: n, isCategory: false })),
   ];
-
-  const categoryButtons = categories.map(cat => ({
-    name: cat.name,
-    displayName: `${cat.name} (${cat.Type})`
+  const catButtons = categories.map((c) => ({
+    name: c.name,
+    displayName: c.name,
+    isCategory: true,
   }));
-
   const skillButtonsData = showCategories
-    ? [...baseSkillButtons, ...categoryButtons]
-    : baseSkillButtons;
+    ? [...baseButtons, ...catButtons]
+    : baseButtons;
 
-  const handleClick = async (skill) => {
+  /* Top players */
+  const topPlayers = useMemo(() => {
+    const m = new Map();
+    const add = (pName, tName, pts) => {
+      const k = pName.trim().toLowerCase();
+      if (!m.has(k)) m.set(k, { playerName: pName.trim(), teamName: tName, points: 0 });
+      m.get(k).points += pts;
+      if (!m.get(k).teamName && tName) m.get(k).teamName = tName;
+    };
+    Object.values(combinedResults).forEach((arr) =>
+      arr.forEach((p) => add(p.playerName, p.teamName, Number(p.points) || 0))
+    );
+    return [...m.values()]
+      .sort((a, b) => b.points - a.points)
+      .map((o, i) => ({ rank: i + 1, ...o }));
+  }, [combinedResults]);
+
+  const filteredPlayers = topPlayers.filter((p) =>
+    p.playerName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  /* click handler */
+  const handleClick = (skill) => {
     setSelectedTile(skill);
     setSelectedSkill(skill);
 
     if (skill === 'Combined Totals') {
       setIsAdminCategory(false);
       setSkillData(null);
-      setTeamTotals(calculateCombinedTeamTotals(data));
+      setTeamTotals(makeTeamTotals(combinedResults));
       return;
     }
 
-    // Determine if this is an admin category
-    const isCategory = categories.some(cat => cat.name === skill);
-    setIsAdminCategory(isCategory);
+    const isCat = categories.some((c) => c.name === skill);
+    setIsAdminCategory(isCat);
 
-    if (isCategory) {
-      try {
-        const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/admin/results');
-        const json = await res.json();
-        const key = skill.toLowerCase().trim();
-
-        if (!json?.data?.results?.[key]) {
-          console.warn(`No data found for category: ${key}`);
-          return;
-        }
-
-        const categoryResults = json.data.results[key];
-        setSkillData(categoryResults);
-
-        const teamTotals = calculateCombinedTeamTotals({ results: { [skill]: categoryResults } });
-        setTeamTotals(teamTotals);
-      } catch (err) {
-        console.error('Error fetching admin results:', err);
-      }
-    } else if (data && data.results && data.results[skill]) {
-      const skillData = data.results[skill].map(player => {
-        const rateEntry = templeMap.find(([name]) => name === skill);
-        const rate = rateEntry ? rateEntry[4] : 0;
-        const efficiency = rate ? (player.xpGained / rate) : 0;
-        return { ...player, efficiency };
+    if (isCat) {
+      const key = skill.toLowerCase().trim();
+      const raw = adminData?.results?.[key];
+      if (!raw) return;
+      const arr     = normaliseArr(raw);
+      const ranked  = arr
+        .slice()
+        .sort((a, b) => b.points - a.points)
+        .map((r, i) => ({ rank: i + 1, ...r }));
+      setSkillData(ranked);
+      setTeamTotals(makeTeamTotals({ [skill]: arr }));
+    } else if (combinedResults?.[skill]) {
+      const arr = combinedResults[skill].map((p) => {
+        const rateEntry = templeMap.find(([n]) => n === skill);
+        const rate      = rateEntry ? rateEntry[4] : 0;
+        return { ...p, efficiency: rate ? p.xpGained / rate : 0 };
       });
-
       setIsAdminCategory(false);
-      setSkillData(skillData);
-      setTeamTotals(calculateCombinedTeamTotals({ results: { [skill]: data.results[skill] } }));
-    } else {
-      console.warn(`No data available for skill: ${skill}`);
+      setSkillData(arr);
+      setTeamTotals(makeTeamTotals({ [skill]: arr }));
     }
   };
 
-
-
-  const formatSkillName = (skill) => skill.replace(/_/g, ' ');
-
-  const getIconUrl = (skill) => {
-    const isCategory = categories.some(cat => cat.name === skill);
-    if (isCategory) return null;
-
-    if (skill === 'Combined Totals') {
-      return `/resources/osrs_icons/Goose.png`;
-    }
-
-    const entry = templeMap.find(([name]) => name === skill);
-    if (!entry || !entry[5]) {
-      return '/resources/osrs_icons/Misc/unknown.png';
-    }
-
-    const [folder, rawFile] = entry[5].split('/');
-    const encodedFile = encodeURIComponent(rawFile);
-    return `/resources/osrs_icons/${folder}/${encodedFile}`;
+  /* helpers */
+  const iconUrl = (skill) => {
+    if (categories.some((c) => c.name === skill)) return null;
+    if (skill === 'Combined Totals') return '/resources/osrs_icons/Goose.png';
+    const e = templeMap.find(([n]) => n === skill);
+    if (!e || !e[5]) return '/resources/osrs_icons/Misc/unknown.png';
+    const [folder, file] = e[5].split('/');
+    return `/resources/osrs_icons/${folder}/${encodeURIComponent(file)}`;
   };
+  const prettify = (s) => s.replace(/_/g, ' ');
 
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const filteredPlayers = calculateRanks(data?.topPlayers || []).filter(player =>
-    player.playerName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
+  /* JSX */
   return (
     <Container className="bingo-container" fluid>
       <Row className="mb-2 justify-content-center mt-4">
         <SkillButtons
           skills={skillButtonsData}
           handleClick={handleClick}
-          getIconUrl={getIconUrl}
+          getIconUrl={iconUrl}
           selectedTile={selectedTile}
         />
       </Row>
+
       <Row className="mb-2 justify-content-center">
-        <button
-          className="buyin-submit-button"
-          onClick={() => setShowCategories(!showCategories)}
-        >
+        <button className="buyin-submit-button" onClick={() => setShowCategories(!showCategories)}>
           {showCategories ? 'Hide Categories' : 'Show Categories'}
         </button>
       </Row>
 
       <Row className="justify-content-center">
         <Col xs={12} md={7} className="text-center">
-          {['Combined Totals', 'Data Totals'].includes(selectedSkill) && (
+          {selectedSkill === 'Combined Totals' ? (
             <>
               <SelectedSkillHeader
-                skill={selectedSkill}
-                displayName={skillDisplayNames[selectedSkill]}
-                getIconUrl={getIconUrl}
+                skill="Combined Totals"
+                displayName="Combined Totals"
+                getIconUrl={iconUrl}
               />
               <TableManager type="teamTotals" data={teamTotals} />
             </>
-          )}
-
-          {selectedSkill && !selectedSkill.includes('Totals') && (
+          ) : (
             <>
               <SelectedSkillHeader
                 skill={selectedSkill}
-                displayName={formatSkillName(selectedSkill)}
-                getIconUrl={getIconUrl}
+                displayName={prettify(selectedSkill)}
+                getIconUrl={iconUrl}
               />
               <TableManager
                 type={isAdminCategory ? 'adminCategory' : 'skillData'}
@@ -187,22 +203,21 @@ const EverythingBingo = () => {
               />
             </>
           )}
-
         </Col>
 
         <Col xs={12} md={5} className="text-center">
           <div className="selected-skill-header">
             <span className="selected-skill-text">Top Players</span>
           </div>
-          <TableManager type="players" data={filteredPlayers} showEHP />
-          <InputGroup className="mt-3 search-bar">
+          <InputGroup className="mb-3 search-bar">
             <FormControl
               type="text"
               placeholder="Search player..."
               value={searchTerm}
-              onChange={handleSearch}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </InputGroup>
+          <TableManager type="players" data={filteredPlayers} showEHP />
         </Col>
       </Row>
     </Container>

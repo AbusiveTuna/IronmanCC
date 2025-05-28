@@ -4,7 +4,7 @@ import { Button, Col } from 'react-bootstrap';
 const SkillButtons = ({ skills, handleClick, getIconUrl, selectedTile }) => (
   <>
     {skills.map((skill, index) => {
-      const isCategory = skill.displayName.includes('('); // crude check to distinguish categories
+      const isCategory = skill.isCategory;
       return (
         <Col key={index} xs="auto" className="mb-1 p-1 text-center">
           <Button

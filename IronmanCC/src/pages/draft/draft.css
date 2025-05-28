@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'OSRSFont';
+    src: url('../../resources/fonts/osrsFont.ttf') format('truetype');
+}
+
+.draft-container {
+    background: url('https://oldschool.runescape.wiki/images/Bank_background_detail.png') repeat;
+    font-family: 'OSRSFont', Arial, sans-serif;
+    color: #ffcc00;
+    text-align: center;
+    border: 3px solid #665533;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.d-h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.d-h2 {
+    font-size: 24px;
+    color: #ffcc00;
+    text-shadow: 1px 1px 3px #000;
+    margin-bottom: 10px;
+}
+
+.d-tables-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.d-table-container {
+    background: #2b2b2b;
+    border: 3px solid #aa7733;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 220px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.d-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1a1a1a;
+    color: #ffcc00;
+}
+
+.d-th {
+    background: #222222;
+    padding: 10px;
+    border-bottom: 2px solid #aa7733;
+}
+
+.d-td {
+    padding: 8px;
+    border-bottom: 1px solid #444;
+}
+
+.d-tr:nth-child(even) {
+    background: #1e1e1e;
+}
+
+.d-tr:hover {
+    background: #3a3a3a;
+    cursor: pointer;
+}
+
+.d-button {
+    background: #664422;
+    border: 2px solid #aa7733;
+    padding: 10px 15px;
+    font-family: 'RuneScape', Arial, sans-serif;
+    font-size: 16px;
+    color: #ffcc00;
+    text-shadow: 1px 1px 2px #000;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.d-button:hover {
+    background: #996633;
+}
+
+@media (min-width: 1200px) {
+    .d-h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .d-h1 {
+        font-size: 28px;
+    }
+    .d-h2 {
+        font-size: 20px;
+    }
+}

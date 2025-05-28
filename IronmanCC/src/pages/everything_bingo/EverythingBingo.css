@@ -160,3 +160,14 @@ button:hover {
   margin-right: auto;
   margin-bottom: 20px;
 }
+
+.skill-button > span:not(.visually-hidden) {
+  display: block;
+  width: 100%;
+  padding: 0 2px;
+  font-size: 11px;
+  line-height: 1.1;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+}
