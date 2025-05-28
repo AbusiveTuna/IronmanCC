@@ -26,7 +26,7 @@ function App() {
           <Route path="/" element={<WelcomePage />} />
           <Route path="/justenTbow" element={<JustenMeme />} />
           <Route path="/everythingBingo" element={<EverythingBingo />} />
-          <Route path="/everythingBingoAdmin" element={<EverythingBingoAdmin />} />
+          <Route path="/bingoAdmin2890axz00" element={<EverythingBingoAdmin />} />
           <Route path="/bingoBuyIns" element={<BingoBuyIns />} />
           <Route path="/buyInsAdmin" element={<BingoBuyInsAdmin />} />
           <Route path="/eventHistory" element={<EventHistory />} />
