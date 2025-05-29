@@ -9,13 +9,12 @@ import TableManager from './TableManager';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import categories from './Categories.json';
 
-/* utility: team totals from a { skill: [players] } object */
 const makeTeamTotals = (resultsObj) => {
   const m = new Map();
   Object.values(resultsObj).forEach((arr) =>
     arr.forEach((p) => {
       const team = (p.teamName ?? p.team_name ?? '').trim();
-      const pts  = Number(p.points) || 0;
+      const pts = Number(p.points) || 0;
       m.set(team, (m.get(team) || 0) + pts);
     })
   );
@@ -29,27 +28,26 @@ const normaliseArr = (arr) =>
   arr.map((p) => ({
     ...p,
     playerName: p.playerName ?? p.player_name,
-    teamName:   p.teamName   ?? p.team_name,
+    teamName: p.teamName ?? p.team_name,
   }));
 
 const EverythingBingo = () => {
-  const data = fetchTempleData();                       // temple skills
-  const [adminData, setAdminData] = useState(null);     // manual categories
+  const data = fetchTempleData();
+  const [adminData, setAdminData] = useState(null);
 
   const [selectedTile, setSelectedTile] = useState('Combined Totals');
   const [selectedSkill, setSelectedSkill] = useState('Combined Totals');
   const [isAdminCategory, setIsAdminCategory] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
 
-  const [skillData, setSkillData]   = useState(null);
+  const [skillData, setSkillData] = useState(null);
   const [teamTotals, setTeamTotals] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  /* fetch admin once */
   useEffect(() => {
     (async () => {
       try {
-        const res  = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/admin/results');
+        const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/admin/results');
         const json = await res.json();
         if (json?.success) setAdminData(json.data);
       } catch (e) {
@@ -58,7 +56,6 @@ const EverythingBingo = () => {
     })();
   }, []);
 
-  /* merge temple + admin -> combinedResults */
   const combinedResults = useMemo(() => {
     const r = {};
     if (data?.results)
@@ -70,13 +67,11 @@ const EverythingBingo = () => {
     return r;
   }, [data, adminData]);
 
-  /* initialise combined team totals */
   useEffect(() => {
     if (Object.keys(combinedResults).length)
       setTeamTotals(makeTeamTotals(combinedResults));
   }, [combinedResults]);
 
-  /* button lists */
   const baseButtons = [
     { name: 'Combined Totals', displayName: 'Combined Totals', isCategory: false },
     ...templeMap.map(([n]) => ({ name: n, displayName: n, isCategory: false })),
@@ -90,7 +85,6 @@ const EverythingBingo = () => {
     ? [...baseButtons, ...catButtons]
     : baseButtons;
 
-  /* Top players */
   const topPlayers = useMemo(() => {
     const m = new Map();
     const add = (pName, tName, pts) => {
@@ -111,7 +105,6 @@ const EverythingBingo = () => {
     p.playerName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  /* click handler */
   const handleClick = (skill) => {
     setSelectedTile(skill);
     setSelectedSkill(skill);
@@ -130,8 +123,8 @@ const EverythingBingo = () => {
       const key = skill.toLowerCase().trim();
       const raw = adminData?.results?.[key];
       if (!raw) return;
-      const arr     = normaliseArr(raw);
-      const ranked  = arr
+      const arr = normaliseArr(raw);
+      const ranked = arr
         .slice()
         .sort((a, b) => b.points - a.points)
         .map((r, i) => ({ rank: i + 1, ...r }));
@@ -140,7 +133,7 @@ const EverythingBingo = () => {
     } else if (combinedResults?.[skill]) {
       const arr = combinedResults[skill].map((p) => {
         const rateEntry = templeMap.find(([n]) => n === skill);
-        const rate      = rateEntry ? rateEntry[4] : 0;
+        const rate = rateEntry ? rateEntry[4] : 0;
         return { ...p, efficiency: rate ? p.xpGained / rate : 0 };
       });
       setIsAdminCategory(false);
@@ -149,7 +142,6 @@ const EverythingBingo = () => {
     }
   };
 
-  /* helpers */
   const iconUrl = (skill) => {
     if (categories.some((c) => c.name === skill)) return null;
     if (skill === 'Combined Totals') return '/resources/osrs_icons/Goose.png';
@@ -160,7 +152,6 @@ const EverythingBingo = () => {
   };
   const prettify = (s) => s.replace(/_/g, ' ');
 
-  /* JSX */
   return (
     <Container className="bingo-container" fluid>
       <Row className="mb-2 justify-content-center mt-4">
