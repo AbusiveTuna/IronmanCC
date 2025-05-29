@@ -30,7 +30,6 @@ function App() {
           <Route path="/bingoBuyIns" element={<BingoBuyIns />} />
           <Route path="/buyInsAdmin" element={<BingoBuyInsAdmin />} />
           <Route path="/eventHistory" element={<EventHistory />} />
-          <Route path="/everythingDraft" element={<Draft />} />
           <Route path="/farmingTimers" element={<FarmingTimers />} />
         </Routes>
         <Footer />
