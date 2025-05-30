@@ -3,19 +3,19 @@ import categories from './Categories.json';
 
 const CURRENT_EVENT_NAME = 'everything bingo v2';
 const API_ROOT = 'https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo';
-const DRAFT_URL ='https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/draft';
+const DRAFT_URL = 'https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/draft';
 
 const EverythingBingoAdmin = () => {
-  const [teamsData, setTeamsData]     = useState({});
-  const [teamNames, setTeamNames]     = useState([]);
-  const [players, setPlayers]         = useState([]);
-  const [entries, setEntries]         = useState([]);
+  const [teamsData, setTeamsData] = useState({});
+  const [teamNames, setTeamNames] = useState([]);
+  const [players, setPlayers] = useState([]);
+  const [entries, setEntries] = useState([]);
 
-  const [selectedTeam, setSelectedTeam]         = useState('');
-  const [selectedPlayer, setSelectedPlayer]     = useState('');
+  const [selectedTeam, setSelectedTeam] = useState('');
+  const [selectedPlayer, setSelectedPlayer] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [inputValue, setInputValue]             = useState('');
-  const [status, setStatus]                     = useState('');
+  const [inputValue, setInputValue] = useState('');
+  const [status, setStatus] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -56,9 +56,18 @@ const EverythingBingoAdmin = () => {
     setSelectedPlayer('');
   }, [selectedTeam, teamsData]);
 
-  const soloCats   = categories.filter((c) => c.Type === 'Solo');
-  const teamCats   = categories.filter((c) => c.Type === 'Team');
-  const purpleCats = categories.filter((c) => c.Type === 'Purples');
+  const soloCats = categories
+    .filter((c) => c.Type === 'Solo')
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const teamCats = categories
+    .filter((c) => c.Type === 'Team')
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const purpleCats = categories
+    .filter((c) => c.Type === 'Purples')
+    .sort((a, b) => a.name.localeCompare(b.name));
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,14 +77,14 @@ const EverythingBingoAdmin = () => {
     }
     try {
       const res = await fetch(`${API_ROOT}/entries`, {
-        method : 'POST',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body   : JSON.stringify({
+        body: JSON.stringify({
           player_name: selectedPlayer,
-          team_name  : selectedTeam,
-          category   : selectedCategory,
-          event_name : CURRENT_EVENT_NAME,
-          entry      : inputValue.trim(),
+          team_name: selectedTeam,
+          category: selectedCategory,
+          event_name: CURRENT_EVENT_NAME,
+          entry: inputValue.trim(),
         }),
       });
       if (res.ok) {
@@ -121,10 +130,10 @@ const EverythingBingoAdmin = () => {
       <div className="buyins-column full">
         <div className="buyins-section">
           <h2>Everything Bingo Admin Panel</h2>
-          <form onSubmit={handleSubmit} style={{ display:'flex', flexDirection:'column', gap:'16px' }}>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div>
               <label>Team & Player:</label>
-              <div style={{ display:'flex', gap:'12px' }}>
+              <div style={{ display: 'flex', gap: '12px' }}>
                 <select value={selectedTeam} onChange={(e) => setSelectedTeam(e.target.value)} className="buyin-input">
                   <option value="">-- Select Team --</option>
                   {teamNames.map((t) => <option key={t} value={t}>{t}</option>)}
@@ -139,9 +148,9 @@ const EverythingBingoAdmin = () => {
 
             <div>
               <label>Category:</label>
-              <div style={{ display:'flex', gap:'12px' }}>
-                {catSelect('Solo',   soloCats)}
-                {catSelect('Team',   teamCats)}
+              <div style={{ display: 'flex', gap: '12px' }}>
+                {catSelect('Solo', soloCats)}
+                {catSelect('Team', teamCats)}
                 {catSelect('Purples', purpleCats)}
               </div>
             </div>
@@ -158,14 +167,14 @@ const EverythingBingoAdmin = () => {
             </div>
 
             <button type="submit" className="buyin-submit-button">Submit Entry</button>
-            {status && <p style={{ textAlign:'center', color: status.includes('submitted') ? '#33ff66' : '#ff6666' }}>{status}</p>}
+            {status && <p style={{ textAlign: 'center', color: status.includes('submitted') ? '#33ff66' : '#ff6666' }}>{status}</p>}
           </form>
 
-          <h3 style={{ marginTop:'32px' }}>Existing Entries</h3>
+          <h3 style={{ marginTop: '32px' }}>Existing Entries</h3>
           {entries.length === 0 ? (
             <p>No entries yet.</p>
           ) : (
-            <table className="custom-table" style={{ width:'100%' }}>
+            <table className="custom-table" style={{ width: '100%' }}>
               <thead>
                 <tr>
                   <th>ID</th><th>Player</th><th>Team</th><th>Category</th>
@@ -183,7 +192,7 @@ const EverythingBingoAdmin = () => {
                     <td>
                       <button
                         className="buyin-submit-button"
-                        style={{ padding:'4px 8px' }}
+                        style={{ padding: '4px 8px' }}
                         onClick={() => handleDelete(e.id)}
                       >
                         Delete

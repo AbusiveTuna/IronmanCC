@@ -23,13 +23,20 @@ const makeTeamTotals = (resultsObj) => {
     .map(([teamName, points], i) => ({ rank: i + 1, teamName, points }));
 };
 
-/* normalise admin rows to match temple keys */
 const normaliseArr = (arr) =>
   arr.map((p) => ({
     ...p,
     playerName: p.playerName ?? p.player_name,
     teamName: p.teamName ?? p.team_name,
   }));
+
+const getDisplayName = (skill, isAdminCategory) => {
+  if (isAdminCategory && skill === 'ToA Purples') return 'Total Team Toa Purples';
+  if (isAdminCategory && skill === 'Cox Purples') return 'Total Team CoX Purples';
+  if (isAdminCategory && skill === 'ToB Purples') return 'Total Team ToB Purples';
+  if (isAdminCategory && skill === 'CG') return 'Corrupted Gauntlet';
+  return skill.replace(/_/g, ' ');
+};
 
 const EverythingBingo = () => {
   const data = fetchTempleData();
@@ -47,7 +54,9 @@ const EverythingBingo = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/admin/results');
+        const res = await fetch(
+          'https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/admin/results'
+        );
         const json = await res.json();
         if (json?.success) setAdminData(json.data);
       } catch (e) {
@@ -76,11 +85,16 @@ const EverythingBingo = () => {
     { name: 'Combined Totals', displayName: 'Combined Totals', isCategory: false },
     ...templeMap.map(([n]) => ({ name: n, displayName: n, isCategory: false })),
   ];
-  const catButtons = categories.map((c) => ({
+
+const catButtons = categories
+  .slice()
+  .sort((a, b) => a.name.localeCompare(b.name)) 
+  .map((c) => ({
     name: c.name,
     displayName: c.name,
     isCategory: true,
   }));
+
   const skillButtonsData = showCategories
     ? [...baseButtons, ...catButtons]
     : baseButtons;
@@ -150,7 +164,6 @@ const EverythingBingo = () => {
     const [folder, file] = e[5].split('/');
     return `/resources/osrs_icons/${folder}/${encodeURIComponent(file)}`;
   };
-  const prettify = (s) => s.replace(/_/g, ' ');
 
   return (
     <Container className="bingo-container" fluid>
@@ -164,7 +177,10 @@ const EverythingBingo = () => {
       </Row>
 
       <Row className="mb-2 justify-content-center">
-        <button className="buyin-submit-button" onClick={() => setShowCategories(!showCategories)}>
+        <button
+          className="buyin-submit-button"
+          onClick={() => setShowCategories(!showCategories)}
+        >
           {showCategories ? 'Hide Categories' : 'Show Categories'}
         </button>
       </Row>
@@ -184,7 +200,7 @@ const EverythingBingo = () => {
             <>
               <SelectedSkillHeader
                 skill={selectedSkill}
-                displayName={prettify(selectedSkill)}
+                displayName={getDisplayName(selectedSkill, isAdminCategory)}
                 getIconUrl={iconUrl}
               />
               <TableManager
