@@ -34,6 +34,8 @@ export const templeMap = [
     ["Elite Clue", "Elite Clues", 2, 30,1,"Items/Elite Clue.png"],
     ["Master Clue", "Master Clues", 2, 31,.5,"Items/Master Clue.png"],
     ["LMS", "LMS",1, 32, 1000,"Misc/LMS.png"],
+    ["Abyssal_Sire", "Sire", 2, 33],
+    ["Alchemical_Hydra", "Hydra", 1, 34],
     ["Barrows Chests", "Barrows", 1, 35, 22, "Bosses/Barrows Chests.png"],
     ["Bryophyta", "Bryophyta", 1, 36, 6, "Bosses/Bryophyta.png"],
     ["Callisto", "Callisto", 1, 37, 85, "Bosses/Callisto.png"],
