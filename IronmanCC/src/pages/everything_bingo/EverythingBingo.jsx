@@ -42,6 +42,7 @@ const getDisplayName = (skill, isAdminCategory) => {
   if (isAdminCategory && skill === 'ToA Purples') return 'Total Team Toa Purples';
   if (isAdminCategory && skill === 'Cox Purples') return 'Total Team CoX Purples';
   if (isAdminCategory && skill === 'ToB Purples') return 'Total Team ToB Purples';
+  if (skill === 'Scurrius') return 'F aladorables';
   if (isAdminCategory && skill === 'CG') return 'Corrupted Gauntlet';
   return skill.replace(/_/g, ' ');
 };
@@ -49,47 +50,60 @@ const getDisplayName = (skill, isAdminCategory) => {
 const EverythingBingo = () => {
   const data = fetchTempleData();
   const [adminData, setAdminData] = useState(null);
-
   const [selectedTile, setSelectedTile] = useState('Combined Totals');
   const [selectedSkill, setSelectedSkill] = useState('Combined Totals');
   const [isAdminCategory, setIsAdminCategory] = useState(false);
-
-  const [showCategories, setShowCategories] = useState(true);
-
-  const [showTeamcolors, setShowTeamcolors] = useState(false);
-
+  const [showCategories, setShowCategories] = useState(() => {
+    const stored = localStorage.getItem('showCategories');
+    return stored ? JSON.parse(stored) : true;
+  });
+  const [showTeamcolors, setShowTeamcolors] = useState(() => {
+    const stored = localStorage.getItem('showTeamcolors');
+    return stored ? JSON.parse(stored) : false;
+  });
   const [skillData, setSkillData] = useState(null);
   const [teamTotals, setTeamTotals] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    (async () => {
+    localStorage.setItem('showCategories', JSON.stringify(showCategories));
+  }, [showCategories]);
+
+  useEffect(() => {
+    localStorage.setItem('showTeamcolors', JSON.stringify(showTeamcolors));
+  }, [showTeamcolors]);
+
+  useEffect(() => {
+    const fetchAdmin = async () => {
       try {
-        const res = await fetch(
-          'https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/admin/results'
-        );
+        const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/admin/results');
         const json = await res.json();
         if (json?.success) setAdminData(json.data);
       } catch (e) {
         console.error('admin fetch failed:', e);
       }
-    })();
+    };
+    fetchAdmin();
+    const id = setInterval(fetchAdmin, 600000);
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      window.location.reload();
+    }, 600000);
+    return () => clearInterval(id);
   }, []);
 
   const combinedResults = useMemo(() => {
     const r = {};
-    if (data?.results)
-      Object.entries(data.results).forEach(([k, v]) => (r[k] = normaliseArr(v)));
-    if (adminData?.results)
-      Object.entries(adminData.results).forEach(
-        ([k, v]) => (r[k] = normaliseArr(v))
-      );
+    if (data?.results) Object.entries(data.results).forEach(([k, v]) => (r[k] = normaliseArr(v)));
+    if (adminData?.results) Object.entries(adminData.results).forEach(([k, v]) => (r[k] = normaliseArr(v)));
     return r;
   }, [data, adminData]);
 
   useEffect(() => {
-    if (Object.keys(combinedResults).length)
-      setTeamTotals(makeTeamTotals(combinedResults));
+    if (Object.keys(combinedResults).length) setTeamTotals(makeTeamTotals(combinedResults));
   }, [combinedResults]);
 
   const lowerToDisplay = useMemo(() => {
@@ -108,23 +122,19 @@ const EverythingBingo = () => {
       const displayKey = lowerToDisplay[key] ?? key;
       map[displayKey] = BUTTON_COLORS[leader];
     });
-    if (teamTotals.length) {
-      map['Combined Totals'] = BUTTON_COLORS[teamTotals[0].teamName.trim()];
-    }
+    if (teamTotals.length) map['Combined Totals'] = BUTTON_COLORS[teamTotals[0].teamName.trim()];
     return map;
   }, [combinedResults, teamTotals, lowerToDisplay]);
-
-
 
   const baseButtons = [
     { name: 'Combined Totals', displayName: 'Combined Totals', isCategory: false },
     ...templeMap.map(([n]) => ({ name: n, displayName: n, isCategory: false })),
   ];
-  const catButtons = categories
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .map((c) => ({ name: c.name, displayName: c.name, isCategory: true }));
-
+  const catButtons = categories.slice().sort((a, b) => a.name.localeCompare(b.name)).map((c) => ({
+    name: c.name,
+    displayName: c.name,
+    isCategory: true,
+  }));
   const skillButtonsData = showCategories ? [...baseButtons, ...catButtons] : baseButtons;
 
   const topPlayers = useMemo(() => {
@@ -135,41 +145,29 @@ const EverythingBingo = () => {
       m.get(k).points += pts;
       if (!m.get(k).teamName && tName) m.get(k).teamName = tName;
     };
-    Object.values(combinedResults).forEach((arr) =>
-      arr.forEach((p) => add(p.playerName, p.teamName, Number(p.points) || 0))
-    );
-    return [...m.values()]
-      .sort((a, b) => b.points - a.points)
-      .map((o, i) => ({ rank: i + 1, ...o }));
+    Object.values(combinedResults).forEach((arr) => arr.forEach((p) => add(p.playerName, p.teamName, Number(p.points) || 0)));
+    return [...m.values()].sort((a, b) => b.points - a.points).map((o, i) => ({ rank: i + 1, ...o }));
   }, [combinedResults]);
 
-  const filteredPlayers = topPlayers.filter((p) =>
-    p.playerName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredPlayers = topPlayers.filter((p) => p.playerName.toLowerCase().includes(searchTerm.toLowerCase()));
 
   const handleClick = (skill) => {
     setSelectedTile(skill);
     setSelectedSkill(skill);
     setSkillData(null);
-
     if (skill === 'Combined Totals') {
       setIsAdminCategory(false);
       setSkillData(null);
       setTeamTotals(makeTeamTotals(combinedResults));
       return;
     }
-
     const isCat = categories.some((c) => c.name === skill);
     setIsAdminCategory(isCat);
-
     if (isCat) {
       const key = skill.toLowerCase().trim();
       const raw = adminData?.results?.[key];
       if (!raw) return;
-      const arr = normaliseArr(raw)
-        .slice()
-        .sort((a, b) => b.points - a.points)
-        .map((r, i) => ({ rank: i + 1, ...r }));
+      const arr = normaliseArr(raw).slice().sort((a, b) => b.points - a.points).map((r, i) => ({ rank: i + 1, ...r }));
       setSkillData(arr);
       setTeamTotals(makeTeamTotals({ [skill]: arr }));
     } else if (combinedResults?.[skill]) {
@@ -202,7 +200,7 @@ const EverythingBingo = () => {
             id="teamColorToggle"
             label="Team Colors"
             checked={showTeamcolors}
-            onChange={() => setShowTeamcolors(!showTeamcolors)}
+            onChange={() => setShowTeamcolors((prev) => !prev)}
             className="ms-4 text-white"
           />
         </Col>
@@ -220,10 +218,7 @@ const EverythingBingo = () => {
       </Row>
 
       <Row className="mb-2 justify-content-center">
-        <button
-          className="buyin-submit-button"
-          onClick={() => setShowCategories(!showCategories)}
-        >
+        <button className="buyin-submit-button" onClick={() => setShowCategories((prev) => !prev)}>
           {showCategories ? 'Hide Categories' : 'Show Categories'}
         </button>
       </Row>
@@ -232,11 +227,7 @@ const EverythingBingo = () => {
         <Col xs={12} md={7} className="text-center">
           {selectedSkill === 'Combined Totals' ? (
             <>
-              <SelectedSkillHeader
-                skill="Combined Totals"
-                displayName="Combined Totals"
-                getIconUrl={iconUrl}
-              />
+              <SelectedSkillHeader skill="Combined Totals" displayName="Combined Totals" getIconUrl={iconUrl} />
               <TableManager type="teamTotals" data={teamTotals} />
             </>
           ) : (
@@ -246,11 +237,7 @@ const EverythingBingo = () => {
                 displayName={getDisplayName(selectedSkill, isAdminCategory)}
                 getIconUrl={iconUrl}
               />
-              <TableManager
-                type={isAdminCategory ? 'adminCategory' : 'skillData'}
-                data={skillData}
-                showEHP={!isAdminCategory}
-              />
+              <TableManager type={isAdminCategory ? 'adminCategory' : 'skillData'} data={skillData} showEHP={!isAdminCategory} />
             </>
           )}
         </Col>
@@ -260,12 +247,7 @@ const EverythingBingo = () => {
             <span className="selected-skill-text">Top Players</span>
           </div>
           <InputGroup className="mb-3 search-bar">
-            <FormControl
-              type="text"
-              placeholder="Search player..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
+            <FormControl type="text" placeholder="Search player..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
           </InputGroup>
           <TableManager type="players" data={filteredPlayers} showEHP />
         </Col>
