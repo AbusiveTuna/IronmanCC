@@ -75,7 +75,7 @@ export const templeMap = [
     ["Wintertodt", "Wintertodt", 1, 73, 12, "Bosses/Wintertodt.png"],
     ["Zalcano", "Zalcano", 1, 74, 20, "Bosses/Zalcano.png"],
     ["Zulrah", "Zulrah", 2, 75, 39, "Bosses/Zulrah.png"],
-    ["The Nightmare", "Nightmare", 2, 82, 11, "Bosses/The Nightmare.png"],
+    ["Nightmare", "Nightmare", 2, 82, 11, "Bosses/The Nightmare.png"],
     ["Soul Wars Zeal", "Soul Wars", 1, 83, 200, "Misc/Soul Wars Zeal.png"],
     ["Tempoross", "Tempoross", 1, 84, 10, "Bosses/Tempoross.png"],
     ["Theatre of Blood Hard Mode", "HMT ToB", 3, 85, 2.7, "Bosses/Theatre of Blood Challenge Mode.png"],
