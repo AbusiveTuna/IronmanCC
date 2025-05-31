@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Container, Row, Col, FormControl, InputGroup } from 'react-bootstrap';
+import { Container, Row, Col, FormControl, InputGroup, FormCheck } from 'react-bootstrap';
 import fetchTempleData from '../../hooks/fetchTempleData';
 import { templeMap } from '../../common/templeMap';
 import './EverythingBingo.css';
@@ -8,6 +8,14 @@ import SelectedSkillHeader from './SelectedSkillHeader';
 import TableManager from './TableManager';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import categories from './Categories.json';
+import TeamsLegend from './TeamsLegend';
+
+const BUTTON_COLORS = {
+  'Barely Legal Seafood': 'rgb(247, 125, 12)',
+  'Everything but the Tub': 'rgba(55, 0, 255, 0.82)',
+  'Sophanem Sigmas': 'rgba(220, 53, 70, 0.63)',
+  'The Butter Churners': 'rgba(255, 217, 0, 0.86)',
+};
 
 const makeTeamTotals = (resultsObj) => {
   const m = new Map();
@@ -45,7 +53,10 @@ const EverythingBingo = () => {
   const [selectedTile, setSelectedTile] = useState('Combined Totals');
   const [selectedSkill, setSelectedSkill] = useState('Combined Totals');
   const [isAdminCategory, setIsAdminCategory] = useState(false);
-  const [showCategories, setShowCategories] = useState(false);
+
+  const [showCategories, setShowCategories] = useState(true);
+
+  const [showTeamcolors, setShowTeamcolors] = useState(false);
 
   const [skillData, setSkillData] = useState(null);
   const [teamTotals, setTeamTotals] = useState([]);
@@ -81,23 +92,40 @@ const EverythingBingo = () => {
       setTeamTotals(makeTeamTotals(combinedResults));
   }, [combinedResults]);
 
+  const lowerToDisplay = useMemo(() => {
+    const m = {};
+    categories.forEach((c) => {
+      m[c.name.toLowerCase().trim()] = c.name;
+    });
+    return m;
+  }, []);
+
+  const leadercolorMap = useMemo(() => {
+    const map = {};
+    Object.entries(combinedResults).forEach(([key, arr]) => {
+      if (!arr?.length) return;
+      const leader = arr[0].teamName?.trim();
+      const displayKey = lowerToDisplay[key] ?? key;
+      map[displayKey] = BUTTON_COLORS[leader];
+    });
+    if (teamTotals.length) {
+      map['Combined Totals'] = BUTTON_COLORS[teamTotals[0].teamName.trim()];
+    }
+    return map;
+  }, [combinedResults, teamTotals, lowerToDisplay]);
+
+
+
   const baseButtons = [
     { name: 'Combined Totals', displayName: 'Combined Totals', isCategory: false },
     ...templeMap.map(([n]) => ({ name: n, displayName: n, isCategory: false })),
   ];
+  const catButtons = categories
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((c) => ({ name: c.name, displayName: c.name, isCategory: true }));
 
-const catButtons = categories
-  .slice()
-  .sort((a, b) => a.name.localeCompare(b.name)) 
-  .map((c) => ({
-    name: c.name,
-    displayName: c.name,
-    isCategory: true,
-  }));
-
-  const skillButtonsData = showCategories
-    ? [...baseButtons, ...catButtons]
-    : baseButtons;
+  const skillButtonsData = showCategories ? [...baseButtons, ...catButtons] : baseButtons;
 
   const topPlayers = useMemo(() => {
     const m = new Map();
@@ -137,12 +165,11 @@ const catButtons = categories
       const key = skill.toLowerCase().trim();
       const raw = adminData?.results?.[key];
       if (!raw) return;
-      const arr = normaliseArr(raw);
-      const ranked = arr
+      const arr = normaliseArr(raw)
         .slice()
         .sort((a, b) => b.points - a.points)
         .map((r, i) => ({ rank: i + 1, ...r }));
-      setSkillData(ranked);
+      setSkillData(arr);
       setTeamTotals(makeTeamTotals({ [skill]: arr }));
     } else if (combinedResults?.[skill]) {
       const arr = combinedResults[skill].map((p) => {
@@ -150,7 +177,6 @@ const catButtons = categories
         const rate = rateEntry ? rateEntry[4] : 0;
         return { ...p, efficiency: rate ? p.xpGained / rate : 0 };
       });
-      setIsAdminCategory(false);
       setSkillData(arr);
       setTeamTotals(makeTeamTotals({ [skill]: arr }));
     }
@@ -167,12 +193,28 @@ const catButtons = categories
 
   return (
     <Container className="bingo-container" fluid>
+      <Row className="justify-content-center align-items-center mt-3">
+        <Col xs="auto" className="d-flex align-items-center flex-wrap">
+          <TeamsLegend />
+          <FormCheck
+            type="checkbox"
+            id="teamColorToggle"
+            label="Team Colors"
+            checked={showTeamcolors}
+            onChange={() => setShowTeamcolors(!showTeamcolors)}
+            className="ms-4 text-white"
+          />
+        </Col>
+      </Row>
+
       <Row className="mb-2 justify-content-center mt-4">
         <SkillButtons
           skills={skillButtonsData}
           handleClick={handleClick}
           getIconUrl={iconUrl}
           selectedTile={selectedTile}
+          colorMap={leadercolorMap}
+          showTeamcolors={showTeamcolors}
         />
       </Row>
 

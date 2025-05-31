@@ -171,3 +171,24 @@ button:hover {
   white-space: normal;
   word-break: break-word;
 }
+
+.legend-row {
+  margin-bottom: 8px;
+}
+
+.team-legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1px solid #444;
+  display: inline-block;
+}
+
+.team-legend-text {
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.skill-button.team-tint:not(.selected-tile) {
+  border: none;
+}
