@@ -150,6 +150,7 @@ const EverythingBingo = () => {
   const handleClick = (skill) => {
     setSelectedTile(skill);
     setSelectedSkill(skill);
+    setSkillData(null);
 
     if (skill === 'Combined Totals') {
       setIsAdminCategory(false);
