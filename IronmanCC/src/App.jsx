@@ -8,7 +8,6 @@ import EverythingBingoAdmin from './pages/everything_bingo/EverythingBingoAdmin'
 import FarmingTimers from './pages/farming_timers/FarmingTimers';
 import EverythingBingo from './pages/everything_bingo/EverythingBingo';
 import EventHistory from './pages/event_history/EventHistory';
-import Draft from './pages/draft/Draft';
 import Header from './components/header/Header';
 import Footer from './components/Footer';
 import "@fortawesome/fontawesome-free/css/all.min.css";

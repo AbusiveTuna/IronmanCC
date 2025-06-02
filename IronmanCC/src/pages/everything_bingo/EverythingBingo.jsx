@@ -140,8 +140,8 @@ const EverythingBingo = () => {
   const topPlayers = useMemo(() => {
     const m = new Map();
     const add = (pName, tName, pts) => {
-      const k = pName.trim().toLowerCase();
-      if (!m.has(k)) m.set(k, { playerName: pName.trim(), teamName: tName, points: 0 });
+      const k = pName?.trim().toLowerCase();
+      if (!m.has(k)) m.set(k, { playerName: pName?.trim(), teamName: tName, points: 0 });
       m.get(k).points += pts;
       if (!m.get(k).teamName && tName) m.get(k).teamName = tName;
     };
@@ -149,7 +149,7 @@ const EverythingBingo = () => {
     return [...m.values()].sort((a, b) => b.points - a.points).map((o, i) => ({ rank: i + 1, ...o }));
   }, [combinedResults]);
 
-  const filteredPlayers = topPlayers.filter((p) => p.playerName.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredPlayers = topPlayers.filter((p) => p.playerName?.toLowerCase().includes(searchTerm.toLowerCase()));
 
   const handleClick = (skill) => {
     setSelectedTile(skill);
