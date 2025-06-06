@@ -73,6 +73,19 @@ const EverythingBingo = () => {
     localStorage.setItem('showTeamcolors', JSON.stringify(showTeamcolors));
   }, [showTeamcolors]);
 
+  useEffect(() => {
+    const fetchAdmin = async () => {
+      try {
+        const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/admin/results');
+        const json = await res.json();
+        if (json?.success) setAdminData(json.data);
+      } catch (e) {
+        console.error('admin fetch failed:', e);
+      }
+    };
+    fetchAdmin();
+  }, []);
+
   const combinedResults = useMemo(() => {
     const r = {};
     if (data?.results) Object.entries(data.results).forEach(([k, v]) => (r[k] = normaliseArr(v)));
@@ -118,11 +131,8 @@ const EverythingBingo = () => {
   const topPlayers = useMemo(() => {
     const m = new Map();
     const add = (pName, tName, pts) => {
-      if (!pName) return;
       const k = pName.trim().toLowerCase();
-      if (!m.has(k)) {
-        m.set(k, { playerName: pName.trim(), teamName: tName ?? '', points: 0 });
-      }
+      if (!m.has(k)) m.set(k, { playerName: pName.trim(), teamName: tName, points: 0 });
       m.get(k).points += pts;
       if (!m.get(k).teamName && tName) m.get(k).teamName = tName;
     };
