@@ -118,8 +118,11 @@ const EverythingBingo = () => {
   const topPlayers = useMemo(() => {
     const m = new Map();
     const add = (pName, tName, pts) => {
+      if (!pName) return;
       const k = pName.trim().toLowerCase();
-      if (!m.has(k)) m.set(k, { playerName: pName.trim(), teamName: tName, points: 0 });
+      if (!m.has(k)) {
+        m.set(k, { playerName: pName.trim(), teamName: tName ?? '', points: 0 });
+      }
       m.get(k).points += pts;
       if (!m.get(k).teamName && tName) m.get(k).teamName = tName;
     };
