@@ -84,6 +84,15 @@ const EverythingBingo = () => {
       }
     };
     fetchAdmin();
+    const id = setInterval(fetchAdmin, 600000);
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      window.location.reload();
+    }, 600000);
+    return () => clearInterval(id);
   }, []);
 
   const combinedResults = useMemo(() => {
