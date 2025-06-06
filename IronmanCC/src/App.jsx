@@ -8,7 +8,7 @@ import EverythingBingoAdmin from './pages/everything_bingo/EverythingBingoAdmin'
 import FarmingTimers from './pages/farming_timers/FarmingTimers';
 import EverythingBingo from './pages/everything_bingo/EverythingBingo';
 import EventHistory from './pages/event_history/EventHistory';
-import Draft from './pages/draft/Draft';
+import BingoCalculator from './pages/everything_bingo/BingoCalculator';
 import Header from './components/header/Header';
 import Footer from './components/Footer';
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -31,6 +31,7 @@ function App() {
           <Route path="/buyInsAdmin" element={<BingoBuyInsAdmin />} />
           <Route path="/eventHistory" element={<EventHistory />} />
           <Route path="/farmingTimers" element={<FarmingTimers />} />
+          <Route path="/bingoCalc" element={<BingoCalculator/>} />
         </Routes>
         <Footer />
       </Router>

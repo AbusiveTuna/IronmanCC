@@ -73,28 +73,6 @@ const EverythingBingo = () => {
     localStorage.setItem('showTeamcolors', JSON.stringify(showTeamcolors));
   }, [showTeamcolors]);
 
-  useEffect(() => {
-    const fetchAdmin = async () => {
-      try {
-        const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/admin/results');
-        const json = await res.json();
-        if (json?.success) setAdminData(json.data);
-      } catch (e) {
-        console.error('admin fetch failed:', e);
-      }
-    };
-    fetchAdmin();
-    const id = setInterval(fetchAdmin, 600000);
-    return () => clearInterval(id);
-  }, []);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      window.location.reload();
-    }, 600000);
-    return () => clearInterval(id);
-  }, []);
-
   const combinedResults = useMemo(() => {
     const r = {};
     if (data?.results) Object.entries(data.results).forEach(([k, v]) => (r[k] = normaliseArr(v)));
