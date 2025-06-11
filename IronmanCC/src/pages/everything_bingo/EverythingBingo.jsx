@@ -73,6 +73,7 @@ const EverythingBingo = () => {
     localStorage.setItem('showTeamcolors', JSON.stringify(showTeamcolors));
   }, [showTeamcolors]);
 
+  // Fetch admin data once on mount
   useEffect(() => {
     const fetchAdmin = async () => {
       try {
@@ -84,15 +85,6 @@ const EverythingBingo = () => {
       }
     };
     fetchAdmin();
-    const id = setInterval(fetchAdmin, 600000);
-    return () => clearInterval(id);
-  }, []);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      window.location.reload();
-    }, 600000);
-    return () => clearInterval(id);
   }, []);
 
   const combinedResults = useMemo(() => {
@@ -130,27 +122,39 @@ const EverythingBingo = () => {
     { name: 'Combined Totals', displayName: 'Combined Totals', isCategory: false },
     ...templeMap.map(([n]) => ({ name: n, displayName: n, isCategory: false })),
   ];
-  const catButtons = categories.slice().sort((a, b) => a.name.localeCompare(b.name)).map((c) => ({
-    name: c.name,
-    displayName: c.name,
-    isCategory: true,
-  }));
+  const catButtons = categories
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((c) => ({
+      name: c.name,
+      displayName: c.name,
+      isCategory: true,
+    }));
   const skillButtonsData = showCategories ? [...baseButtons, ...catButtons] : baseButtons;
 
-  const topPlayers = useMemo(() => {
-    const m = new Map();
-    const add = (pName, tName, pts) => {
-      if (!pName) return;
-      const k = pName.trim().toLowerCase();
-      if (!m.has(k)) {
-        m.set(k, { playerName: pName.trim(), teamName: tName ?? '', points: 0 });
-      }
-      m.get(k).points += pts;
-      if (!m.get(k).teamName && tName) m.get(k).teamName = tName;
-    };
-    Object.values(combinedResults).forEach((arr) => arr.forEach((p) => add(p.playerName, p.teamName, Number(p.points) || 0)));
-    return [...m.values()].sort((a, b) => b.points - a.points).map((o, i) => ({ rank: i + 1, ...o }));
-  }, [combinedResults]);
+const topPlayers = useMemo(() => {
+  const m = new Map();
+
+  const add = (pName, tName, pts) => {
+    if (!pName) return;
+    const key = pName.trim().toLowerCase();
+    if (!m.has(key)) {
+      m.set(key, { playerName: pName.trim(), teamName: tName, points: 0 });
+    }
+    const entry = m.get(key);
+    entry.points += pts;
+    if (!entry.teamName && tName) entry.teamName = tName;
+  };
+
+  Object.values(combinedResults).forEach(arr =>
+    arr.forEach(p => add(p.playerName, p.teamName, Number(p.points) || 0))
+  );
+
+  return [...m.values()]
+    .sort((a, b) => b.points - a.points)
+    .map((o, i) => ({ rank: i + 1, ...o }));
+}, [combinedResults]);
+
 
   const filteredPlayers = topPlayers.filter((p) => p.playerName.toLowerCase().includes(searchTerm.toLowerCase()));
 
@@ -170,7 +174,10 @@ const EverythingBingo = () => {
       const key = skill.toLowerCase().trim();
       const raw = adminData?.results?.[key];
       if (!raw) return;
-      const arr = normaliseArr(raw).slice().sort((a, b) => b.points - a.points).map((r, i) => ({ rank: i + 1, ...r }));
+      const arr = normaliseArr(raw)
+        .slice()
+        .sort((a, b) => b.points - a.points)
+        .map((r, i) => ({ rank: i + 1, ...r }));
       setSkillData(arr);
       setTeamTotals(makeTeamTotals({ [skill]: arr }));
     } else if (combinedResults?.[skill]) {

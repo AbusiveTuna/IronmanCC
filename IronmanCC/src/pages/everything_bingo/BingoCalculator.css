@@ -1,0 +1,23 @@
+.inputs-header {
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .input-row {
+    margin-bottom: 2rem;
+  }
+  
+  label {
+    color: white;
+  }
+  
+  th {
+    cursor: pointer;
+  }
+  
+  th:hover {
+    text-decoration: underline;
+  }
+  

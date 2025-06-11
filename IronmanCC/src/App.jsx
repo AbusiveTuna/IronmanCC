@@ -8,6 +8,7 @@ import EverythingBingoAdmin from './pages/everything_bingo/EverythingBingoAdmin'
 import FarmingTimers from './pages/farming_timers/FarmingTimers';
 import EverythingBingo from './pages/everything_bingo/EverythingBingo';
 import EventHistory from './pages/event_history/EventHistory';
+import BingoCalculator from './pages/everything_bingo/BingoCalculator';
 import Header from './components/header/Header';
 import Footer from './components/Footer';
 import Leaderboard from './pages/clan_leaderboard/Leaderboard';
