@@ -7,11 +7,13 @@ import EverythingBingo from './pages/everything_bingo/EverythingBingo';
 import EventHistory from './pages/event_history/EventHistory';
 import Header from './components/header/Header';
 import Footer from './components/Footer';
+import Leaderboard from './pages/clan_leaderboard/Leaderboard';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 
 import './App.css'
+
 
 function App() {
   return (
