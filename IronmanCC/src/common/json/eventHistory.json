@@ -19,10 +19,10 @@
 
     {
         "event": "Everything Bingo V2",
-        "date": "June ? To ?",
+        "date": "May 30th To June 13",
         "description": "",
-        "winningTeam": "",
-        "losingTeam": "",
-        "image": ""
+        "winningTeam": "Everything but the Tub",
+        "losingTeam": "Barely Legal Seafood, The Butter Churners, Sophanem Sigmas",
+        "image": "/resources/event_history/everythingBingo2.png"
     }
 ]
