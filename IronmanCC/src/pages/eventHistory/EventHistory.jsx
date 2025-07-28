@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import eventHistoryData from 'json/eventHistory.json';
+import eventHistoryData from './eventHistory.json';
 import './EventHistory.css';
 
 const EventHistory = () => {
@@ -13,6 +13,8 @@ const EventHistory = () => {
     setSelectedImage(null);
   };
 
+  //TODO: Add previous teams, captains, etc.
+  
   return (
     <main className="event-history-container">
       <h1 className="event-history-title">Event History</h1>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './BingoBuyIns.css';
 
 const CURRENT_EVENT_NAME = "everything bingo v2";

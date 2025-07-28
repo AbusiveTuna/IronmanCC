@@ -1,4 +1,3 @@
-// A list of NavLinks and their associated URLs.
 export const HeaderLinks = {
   "Home": "/",
   "Did Justen Get His Tbow Yet?": "/justenTbow",

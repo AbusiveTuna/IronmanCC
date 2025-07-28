@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import menuIcon from '../../../resources/images/menuIcon.svg';
-import closeIcon from '../../../resources/images/closeIcon.svg';
+import { useState } from 'react';
 import { HeaderLinks } from '../HeaderLinks';
 
 const MobileHeader = () => {
@@ -10,7 +8,7 @@ const MobileHeader = () => {
     <div className="mobile-header-container">
       <div className="header mobile-header">
         <button className="hamburger-menu-button" onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)} >
-          <img src={isHamburgerMenuOpen ? closeIcon : menuIcon} alt="Open Menu Button" />
+          <img src={isHamburgerMenuOpen ? "closeIcon.svg" : "menuIcon.svg"} alt="Open Menu Button" />
         </button>
       </div>
       {isHamburgerMenuOpen && (

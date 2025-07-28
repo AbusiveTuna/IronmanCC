@@ -5,7 +5,7 @@
         "description": "The first battleship bingo, and first event in the Ironman CC Event Discord",
         "winningTeam": "Captain Tuna and the Department of Oppressively Dysfunctional Iron Efficiency",
         "losingTeam": "Captain Bid Whist and the Goose's Gigglers",
-        "image": "/resources/event_history/battleship_bingo_2025.png"
+        "image": "/eventHistory/battleshipBingo2025.png"
     },
 
     {
@@ -14,7 +14,7 @@
         "description": "The second raids bingo, with a new format. 2x Drops from Tob/Toa and added Nex",
         "winningTeam": "Shanty Pass Shankers",
         "losingTeam": "New Purple Order",
-        "image": "/resources/event_history/raidBingo2.png"
+        "image": "/eventHistory/raidBingo2.png"
     },
 
     {
@@ -23,6 +23,6 @@
         "description": "A bingo that includes everything!",
         "winningTeam": "Everything but the Tub",
         "losingTeam": "Barely Legal Seafood, The Butter Churners, Sophanem Sigmas",
-        "image": "/resources/event_history/everythingBingo2.png"
+        "image": "/eventHistory/everythingBingo2.png"
     }
 ]

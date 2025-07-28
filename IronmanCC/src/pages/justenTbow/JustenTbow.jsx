@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
-import './JustenMeme.css';
-import justenTbow from '/resources/justenTbow.png';
+import { useEffect } from 'react';
 
-const JustenMeme = () => {
+const JustenTbow = () => {
   useEffect(() => {
     document.body.classList.add('justen-meme-page');
     return () => {
@@ -18,10 +16,10 @@ const JustenMeme = () => {
           <p>147 Purples</p>
           <p>and 900 days</p>
           <p>Justen got his tbow after 3843 Chambers on 10/26/24</p>
-          <img src={justenTbow} alt="justenTbow" />
+          <img src="justenTbow.png" alt="justenTbow" />
         </div>
     </div>
   );
 };
 
-export default JustenMeme;
+export default JustenTbow;
