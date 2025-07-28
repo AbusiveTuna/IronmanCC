@@ -1,9 +1,8 @@
 import React from 'react';
-import './WelcomePage.css';
-import discordIcon from '../../resources/discord.png';
+import './LandingPage.css';
 import RankTable from './RankTable';
 
-const WelcomePage = () => {
+const LandingPage = () => {
   return (
     <div className="welcome-page">
       <h1>Welcome to IronmanCC.com</h1>
@@ -31,13 +30,13 @@ const WelcomePage = () => {
         <div className="discord-info">
           <h2>Join the Event Discord!</h2>
           <div className="discord">
-            <img src={discordIcon} alt="Discord" />
+            <img src="/discord.png" alt="Discord" />
             <a href="https://discord.gg/kW6XDk9PYM" target="_blank" rel="noopener noreferrer">IronmanCC Event Server</a>
           </div>
           <p> The event discord is open to everyone, and is primarly used to host events such as "bingos"</p>
           <h2>Join the Ironscape Discord</h2>
           <div className="discord">
-            <img src={discordIcon} alt="Discord" />
+            <img src="/discord.png" alt="Discord" />
             <a href="https://discord.gg/ironscape" target="_blank" rel="noopener noreferrer">Join Ironscape</a>
           </div>
           <p> The ironscape discord is the main discord of the larger Iconscape community. While the Ironman CC in general does not have a discord many members use this one.</p>
@@ -49,4 +48,4 @@ const WelcomePage = () => {
   );
 };
 
-export default WelcomePage;
+export default LandingPage;

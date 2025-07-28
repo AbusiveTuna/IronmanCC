@@ -1,0 +1,22 @@
+@import './variables.css';
+
+@font-face {
+  font-family: 'OSRS';
+  src: url('/fonts/osrsFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* reset / box-sizing / body defaults */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  background: var(--primary-color);
+  color: var(--text-color);
+  font-family: 'OSRS', sans-serif;
+}
