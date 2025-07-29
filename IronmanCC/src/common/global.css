@@ -21,6 +21,5 @@ body {
   font-family: 'OSRS', sans-serif;
 }
 
-
-a, .btn-primary { background: var(--accent-color); color: var(--text-on-accent); }
-a:hover, .btn-primary:hover { background: var(--accent-light); }
+.btn-primary { background: var(--accent-color); color: var(--text-on-accent); }
+.btn-primary:hover { background: var(--accent-light); }

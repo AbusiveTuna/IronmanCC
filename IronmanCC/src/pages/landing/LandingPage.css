@@ -1,97 +1,109 @@
-.welcome-page {
-    display: flex;
-    font-size: 18px;
-    flex-direction: column;
-    min-height: 100vh; 
+.lp-wrapper {
+    --max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+    color: var(--text-color);
+}
+
+.lp-hero {
     text-align: center;
-    color: var(--text-color);
-    background-color: var(--primary-color);
-    padding: 20px;
-    padding-bottom: 40px; 
-    box-sizing: border-box; 
-    overflow: hidden; 
+    margin-bottom: 2.5rem;
 }
 
-.welcome-page h1 {
-    margin-bottom: 20px; 
-    font-weight: bold;
-    font-size: 32px;
+.lp-hero h1 {
+    font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
     color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-family: sans-serif;
 }
 
-.welcome-page-grid-container {
+.lp-tagline {
+    font-size: 1.1rem;
+    max-width: 45ch;
+    margin: 0 auto;
+    opacity: 0.85;
+}
+
+.lp-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    gap: 20px; 
-    margin: 0 auto; 
-    max-width: 1600px; 
-    width: 100%; 
-    box-sizing: border-box; 
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: var(--max-width);
+    margin: 0 auto 2.5rem;
 }
 
-.discord-info, .toolbar-info, .clan-information, .additional-info, .how-to-join {
-    padding: 15px;
+.lp-card {
+    background: var(--secondary-color);
     border-radius: 8px;
-    background-color: var(--secondary-color); 
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1.4rem 1.6rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
 }
 
-.section-header {
-    font-size: 22px;
-    font-weight: bold;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--tertiary-color);
-    color: var(--text-color);
-    border-radius: 5px;
+.lp-card h2,
+.lp-card h3 {
+    margin-top: 0.4rem;
+    color: var(--accent-light);
+    font-family: sans-serif;
 }
 
-.section-content {
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: left;
+.lp-discord-section {
+    text-align: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
 }
 
-/* Discord block */
-.discord {
+.lp-discords {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
     justify-content: center;
-    gap: 10px;
+    margin-top: 1rem;
 }
 
-.discord img {
-    width: 50px; 
+.lp-discord-card {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    background: var(--secondary-color);
+    border-radius: 6px;
+    padding: 0.8rem 1.2rem;
+    text-decoration: none;
+    transition: background 0.15s;
+    max-width: 300px;
+    font-size: 1.05rem;
+    color: var(--text-color);
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .welcome-page {
-        padding: 10px;
-        min-height: auto;
-        padding-bottom: 60px;
-    }
-
-    .welcome-page-grid-container {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        max-width: 100%;
-    }
-
-    .discord img {
-        width: 40px;
-    }
-
-    .welcome-page h1 {
-        font-size: 24px;
-    }
-
-    .discord-info, .how-to-join, .clan-information, .toolbar-info, .additional-info {
-        padding: 10px;
-    }
+.lp-discord-card:hover {
+    background: var(--panel-color);
 }
 
-/* Rank Table */
+.lp-discord-card strong {
+    font-size: 1.25em;
+    color: var(--accent-light);
+    font-family: sans-serif;
+}
+
+.lp-discord-card p {
+    margin: 0;
+    font-size: 0.95em;
+    opacity: 0.9;
+    color: var(--text-color);
+}
+
+.lp-discord-card img {
+    width: 48px;
+    flex-shrink: 0;
+}
+
+.lp-clan .lp-rules-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    color: var(--accent-light);
+    text-decoration: underline;
+}
+
 .rank-table {
     width: 100%;
     border-collapse: collapse;
@@ -129,4 +141,10 @@
 .rank-text {
     padding: 3px;
     text-align: left;
+}
+
+@media (max-width: 900px) {
+    .lp-grid {
+        grid-template-columns: 1fr;
+    }
 }

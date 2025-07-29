@@ -3,6 +3,7 @@ export default [
   { path: '/',              label: 'Home' },
   { path: '/justen-tbow', label: 'Did Justen get his Tbow yet?' },
   { path: '/farming-timers', label: 'Farming Timers'},
+  { path: '/summer-bingo', label: 'Summer Bingo 2025'},
   { path: '/buy-ins',        label: 'Bingo Buy-ins' },
   { path: '/event-history', label: 'Event History' }
 ];

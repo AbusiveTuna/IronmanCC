@@ -1,11 +1,9 @@
 :root {
-
-  --primary-color:   #0d0d0d;
-  --secondary-color: #15181b;
-  --panel-color:     #222831;
+  --primary-color:   #15181b;
+  --secondary-color: #222831;
   --accent-color:    #ff981f;
   --accent-light:    #ffc66d;
   --text-color:      #e5e5e5;
   --text-on-accent:  #0a0a0a;
-
+  --osrs-text-color: #f9d000;
 }

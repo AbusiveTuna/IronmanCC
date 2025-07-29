@@ -4,7 +4,7 @@ import navLinks from './headerLinks';
 
 const Header = () => {
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: 'var(--panel-color)' }} elevation={0}>
+    <AppBar position="sticky" sx={{ backgroundColor: 'var(--secondary-color)' }} elevation={0}>
       <Toolbar variant="dense" sx={{ gap: 2 }}>
         {navLinks.map(({ path, label }) => (
           <HeaderNavButton key={path} to={path}>
