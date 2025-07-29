@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useEffect } from 'react';
+import { useMemo, useRef, useEffect } from 'react';
 import {
   REF,
   HARDWOOD_DAY1, HARDWOOD_DAY2, HARDWOOD_DAY3, HARDWOOD_DAY4,
@@ -69,7 +69,7 @@ const FarmingGraph = () => {
 
   const slots = useMemo(() => {
     const now = new Date();
-    
+
     const referenceTime = new Date(Date.UTC(
       now.getUTCFullYear(),
       now.getUTCMonth(),
@@ -114,14 +114,14 @@ const FarmingGraph = () => {
             timeZone: 'UTC'
           });
           return (
-            <div className={`timeline-col ${i === Math.floor(slots.length / 2) ? 'highlight' : ''}`} key={i}>
-              <div className="square-stack">
+            <div className={`farming-graph-timeline ${i === Math.floor(slots.length / 2) ? 'highlight' : ''}`} key={i}>
+              <div className="farming-graph-stack">
                 {PATCHES.map((p, idx2) => {
                   const active = matched[idx2];
                   return (
                     <div
                       key={p.key}
-                      className="square"
+                      className="farming-graph-square"
                       style={{
                         backgroundColor: active ? p.color : 'transparent',
                         borderColor: active ? p.color : '#888'
@@ -130,7 +130,7 @@ const FarmingGraph = () => {
                   );
                 })}
               </div>
-              <div className="time-label">{label}</div>
+              <div className="farming-graph-time-label">{label}</div>
             </div>
           );
         })}

@@ -1,7 +1,11 @@
 :root {
-  --primary-color:   #1B262C;
-  --secondary-color: #0F4C75;
-  --accent-color-light: #3282B8;
-  --text-color:      #ffffff;
-  --osrs-text-color: #f9d000;
+
+  --primary-color:   #0d0d0d;
+  --secondary-color: #15181b;
+  --panel-color:     #222831;
+  --accent-color:    #ff981f;
+  --accent-light:    #ffc66d;
+  --text-color:      #e5e5e5;
+  --text-on-accent:  #0a0a0a;
+
 }

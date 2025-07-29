@@ -20,3 +20,7 @@ body {
   color: var(--text-color);
   font-family: 'OSRS', sans-serif;
 }
+
+
+a, .btn-primary { background: var(--accent-color); color: var(--text-on-accent); }
+a:hover, .btn-primary:hover { background: var(--accent-light); }

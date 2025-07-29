@@ -3,10 +3,10 @@ export const zeroPad = (num) => (num < 10 ? '0' + num : num);
 export const SPIRIT_DAY1 = ["00:00", "05:20", "10:40", "16:00", "21:20"];
 export const SPIRIT_DAY2 = ["02:40", "08:00", "13:20", "18:40"];
 export const REF = Date.UTC(2025, 1, 20); //Day 4
-export const HARDWOOD_DAY1 = ["00:00","10:40","21:20"];
-export const HARDWOOD_DAY2 = ["08:00","18:40"];
-export const HARDWOOD_DAY3 = ["05:20","16:00"];
-export const HARDWOOD_DAY4 = ["02:40","13:20"];
+export const HARDWOOD_DAY1 = ["00:00", "10:40", "21:20"];
+export const HARDWOOD_DAY2 = ["08:00", "18:40"];
+export const HARDWOOD_DAY3 = ["05:20", "16:00"];
+export const HARDWOOD_DAY4 = ["02:40", "13:20"];
 
 export const buildDateUTCForToday = (hhmm) => {
     const [HH, MM] = hhmm.split(':').map(Number);
