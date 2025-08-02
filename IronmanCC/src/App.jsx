@@ -1,34 +1,39 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import WelcomePage from './pages/welcome_page/WelcomePage';
-import JustenMeme from './pages/justen_meme/JustenMeme';
-import FarmingTimers from './pages/farming_timers/FarmingTimers';
-import EventHistory from './pages/event_history/EventHistory';
-import Header from './components/header/Header';
-import Footer from './components/Footer';
-import SummerBingo from './pages/summerBingo/SummerBingo';
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 
-import './App.css'
+// Pages
+import LandingPage from 'pages/landing/LandingPage';
+import JustenTbow from 'pages/justenTbow/JustenTbow';
+import EventHistory from 'pages/eventHistory/EventHistory';
+import BingoBuyIns from 'pages/buyins/BingoBuyIns';
+import FarmingTimers from 'pages/farmingTimers/FarmingTimers';
+import SummerBingo from 'pages/summerBingo/SummerBingo';
 
+import Header from 'components/header/Header';
+
+import './App.css'
+import BingoBuyInsAdmin from './pages/buyins/BingoBuyInsAdmin';
 
 function App() {
+
   return (
     <DndProvider backend={HTML5Backend}>
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<WelcomePage />} />
-          <Route path="/justenTbow" element={<JustenMeme />} />
-          <Route path="/summerBingo" element={<SummerBingo />} />
-          <Route path="/eventHistory" element={<EventHistory />} />
-          <Route path="/farmingTimers" element={<FarmingTimers />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/justen-tbow" element={<JustenTbow />} />
+          <Route path="/farming-timers" element={<FarmingTimers />} />
+          <Route path="/summer-bingo" element={<SummerBingo />} />
+          <Route path="/event-history" element={<EventHistory />} />
+          <Route path="/buy-ins" element={<BingoBuyIns />} />
+          <Route path="/buy-ins-admin-82699" element={<BingoBuyInsAdmin />} />
         </Routes>
-        <Footer />
       </Router>
     </DndProvider>
-  );
+  )
 }
+
 export default App

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './BingoBuyIns.css';
 
-const CURRENT_EVENT_NAME = "everything bingo v2";
+const CURRENT_EVENT_NAME = "summer classic 2025";
 
 const BingoBuyIns = () => {
   const [buyins, setBuyins] = useState([]);
@@ -12,7 +12,7 @@ const BingoBuyIns = () => {
   useEffect(() => {
     const fetchBuyIns = async () => {
       try {
-        const response = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/ironmancc/buyins');
+        const response = await fetch('https://api.ironmancc.com/ironmancc/buyins');
         const data = await response.json();
         setBuyins(data);
       } catch (err) {
@@ -71,7 +71,7 @@ const BingoBuyIns = () => {
     <div className="buyins-wrapper">
       <div className="buyins-column wide">
         <div className="buyins-section">
-          <h2>Everything Bingo V2 Donations</h2>
+          <h2>Summer Classic 2025 Donations</h2>
           <div className="buyin-table-container">
             <table className="buyin-table">
               <thead>

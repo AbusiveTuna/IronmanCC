@@ -8,7 +8,7 @@ export default defineConfig({
     alias: {
       'common': fileURLToPath(new URL('./src/common', import.meta.url)),
       'components': fileURLToPath(new URL('./src/components', import.meta.url)),
-      'json': fileURLToPath(new URL('./src/common/json', import.meta.url)),
+      'pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
   },
 },
 })

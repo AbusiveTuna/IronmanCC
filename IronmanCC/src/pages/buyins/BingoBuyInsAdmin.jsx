@@ -12,7 +12,7 @@ const BingoBuyInsAdmin = () => {
   useEffect(() => {
     const fetchBuyins = async () => {
       try {
-        const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/ironmancc/buyins');
+        const res = await fetch('https://api.ironmancc.com/ironmancc/buyins');
         const data = await res.json();
         setBuyins(data);
 
@@ -47,7 +47,7 @@ const BingoBuyInsAdmin = () => {
     };
 
     try {
-      const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/ironmancc/buyins', {
+      const res = await fetch('https://api.ironmancc.com/ironmancc/buyins', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -72,7 +72,7 @@ const BingoBuyInsAdmin = () => {
   const handleUpdate = async (player_name, event_name, amount) => {
     const payload = { player_name, event_name, amount: Number(amount) };
     try {
-      const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/ironmancc/buyins', {
+      const res = await fetch('https://api.ironmancc.com/ironmancc/buyins', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -94,7 +94,7 @@ const BingoBuyInsAdmin = () => {
     if (!confirmed) return;
 
     try {
-      const res = await fetch('https://ironmancc-89ded0fcdb2b.herokuapp.com/ironmancc/buyins', {
+      const res = await fetch('https://api.ironmancc.com/ironmancc/buyins', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ player_name, event_name })

@@ -1,0 +1,91 @@
+.farmingTimers {
+  color: #ffffff;
+  padding: 2rem;
+  font-family: sans-serif;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.farming-timers-category {
+  margin-bottom: 1.5rem;
+}
+
+.farming-timers-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+}
+
+.flowers-saplings .farming-timers-row,
+.flowers-saplings .farming-timers-next-cycle {
+  color: #ffd700;
+}
+
+.allotments .farming-timers-row,
+.allotments .farming-timers-next-cycle {
+  color: #70db70;
+}
+
+.herbs .farming-timers-row,
+.herbs .farming-timers-next-cycle {
+  color: #adff2f;
+}
+
+.trees .farming-timers-row,
+.trees .farming-timers-next-cycle {
+  color: #ffa07a;
+}
+
+.cactus .farming-timers-row,
+.cactus .farming-timers-next-cycle {
+  color: #66cdaa;
+}
+
+.fruit-trees .farming-timers-row,
+.fruit-trees .farming-timers-next-cycle {
+  color: #ff7f50;
+}
+
+/* Spirit Tree */
+.spirit-tree .farming-timers-row,
+.spirit-tree .farming-timers-next-cycle {
+  color: #cdafff;
+}
+
+.hardwood .farming-timers-row,
+.hardwood .farming-timers-next-cycle {
+  color: #ff1493;
+}
+
+.farming-timers-category h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.farming-cycles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.farming-timers-category {
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+}
+
+.farming-timers-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
