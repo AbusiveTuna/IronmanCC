@@ -14,6 +14,7 @@ import SummerBingo from 'pages/summerBingo/SummerBingo';
 import Header from 'components/header/Header';
 
 import './App.css'
+import BingoBuyInsAdmin from './pages/buyins/BingoBuyInsAdmin';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/summer-bingo" element={<SummerBingo />} />
           <Route path="/event-history" element={<EventHistory />} />
           <Route path="/buy-ins" element={<BingoBuyIns />} />
+          <Route path="/buy-ins-admin-82699" element={<BingoBuyInsAdmin />} />
         </Routes>
       </Router>
     </DndProvider>
