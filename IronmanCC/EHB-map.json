@@ -986,81 +986,36 @@
 		]
 	},
 	{
-		"Boss": "Venenatis",
-		"Category": "Wilderness",
-		"EHB": 33,
-		"Drops": [
-			{
-				"Item": "Fangs of venenatis",
-				"DropRate": 196
-			},
-			{
-				"Item": "Dragon 2h sword",
-				"DropRate": 256
-			},
-			{
-				"Item": "Dragon 2h sword",
-				"DropRate": 256
-			},
-			{
-				"Item": "Dragon pickaxe",
-				"DropRate": 256
-			},
-			{
-				"Item": "Voidwaker gem",
-				"DropRate": 360,
-				"Type": "Voidwaker"
-			},
-			{
-				"Item": "Treasonous ring",
-				"DropRate": 512,
-				"Type": "Wilderness Ring"
-			}
-		]
-	},
-	{
-		"Boss": "Vet'ion",
-		"EHB": 35,
-		"Drops": [
-			{
-				"Item": "Skull of vet'ion",
-				"DropRate": 196
-			},
-			{
-				"Item": "Dragon 2h sword",
-				"DropRate": 256
-			},
-			{
-				"Item": "Dragon 2h sword",
-				"DropRate": 256
-			},
-			{
-				"Item": "Dragon pickaxe",
-				"DropRate": 256
-			},
-			{
-				"Item": "Voidwaker blade",
-				"DropRate": 360,
-				"Type": "Voidwaker"
-			},
-			{
-				"Item": "Ring of the gods",
-				"DropRate": 512,
-				"Type": "Wilderness Ring"
-			}
-		]
-	},
-	{
 		"Boss": "Vorkath",
 		"EHB": 34,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
+				"Item": "Vorkath's head",
 				"DropRate": 50
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Dragone Bone Necklace",
+				"DropRate": 1000
+			},
+			{
+				"Item": "Jar of decay",
+				"DropRate": 3000,
+				"Type": "jar"
+			},
+			{
+				"Item": "Vorki",
+				"DropRate": 3000,
+				"Type": "pet"
+			},
+			{
+				"Item": "Draconic visage",
+				"DropRate": 5000,
+				"Type": "visage"
+			},
+			{
+				"Item": "Skeltal Visage",
+				"DropRate": 5000,
+				"Type": "visage"
 			}
 		]
 	},
@@ -1069,26 +1024,38 @@
 		"EHB": 39,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Tanzanite fang",
+				"DropRate": 512
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
-			}
-		]
-	},
-	{
-		"Boss": "The Nightmare",
-		"EHB": 11,
-		"Drops": [
-			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Magic fang",
+				"DropRate": 512
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Jar of swamp",
+				"DropRate": 3000,
+				"Type": "jar"
+			},
+			{
+				"Item": "Pet Snakling",
+				"DropRate": 4000,
+				"Type": "pet"
+			},
+			{
+				"Item": "Serpentine visage",
+				"DropRate": 512
+			},
+			{
+				"Item": "Uncut onyx",
+				"DropRate": 512
+			},
+			{
+				"Item": "Tanzanite mutagen",
+				"DropRate": 6554
+			},
+			{
+				"Item": "Magma mutagen",
+				"DropRate": 6554
 			}
 		]
 	},
@@ -1097,26 +1064,86 @@
 		"EHB": 6.7,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Parasitic egg",
+				"DropRate": 200
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Inquisitor's great helm",
+				"DropRate": 700
+			},
+			{
+				"Item": "Inquisitor's hauberk",
+				"DropRate": 700
+			},
+			{
+				"Item": "Inquisitor's plateskirt",
+				"DropRate": 700
+			},
+			{
+				"Item": "Inquisitor's mace",
+				"DropRate": 1250
+			},
+			{
+				"Item": "Nightmare staff",
+				"DropRate": 533
+			},
+			{
+				"Item": "Eldritch Orb",
+				"DropRate": 1600
+			},
+			{
+				"Item": "Harmonised Orb",
+				"DropRate": 1600
+			},
+			{
+				"Item": "Volatile Orb",
+				"DropRate": 1600
+			},
+			{
+				"Item": "Jar of Dreams",
+				"DropRate": 4000,
+				"Type": "jar"
+			},
+			{
+				"Item": "Little Nightmare",
+				"DropRate": 1400,
+				"Type": "pet"
 			}
 		]
 	},
 	{
 		"Boss": "Nex",
-		"EHB": 15,
+		"Category": "Godwars",
+		"EHB": 9,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Zaryte vambraces",
+				"DropRate": 172
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Nihil horn",
+				"DropRate": 258
+			},
+			{
+				"Item": "Torva full helm",
+				"DropRate": 258
+			},
+			{
+				"Item": "Torva platebody",
+				"DropRate": 258
+			},
+			{
+				"Item": "Torva platelegs",
+				"DropRate": 258
+			},
+			{
+				"Item": "Ancient Hilt",
+				"DropRate": 516
+			},
+			{
+				"Item": "Nexling",
+				"DropRate": 500,
+				"Type": "pet"
 			}
 		]
 	},
@@ -1169,113 +1196,306 @@
 	},
 	{
 		"Boss": "Phantom Muspah",
-		"EHB": 25,
+		"EHB": 27,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
+				"Item": "Ancient icon",
 				"DropRate": 50
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Venator shard",
+				"DropRate": 100
+			},
+			{
+				"Item": "Muphin",
+				"DropRate": 2500,
+				"Type": "pet"
 			}
 		]
 	},
 	{
 		"Boss": "Artio",
+		"Category": "Wilderness",
 		"EHB": 50,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Claws of Calisto",
+				"DropRate": 618
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Dragon 2h sword",
+				"DropRate": 358
+			},
+			{
+				"Item": "Dragon pickaxe",
+				"DropRate": 358
+			},
+			{
+				"Item": "Voidwaker Hilt",
+				"DropRate": 912,
+				"Type": "Voidwaker"
+			},
+			{
+				"Item": "Tyrannical Ring",
+				"DropRate": 716,
+				"Type": "Wilderness Ring"
+			},
+			{
+				"Item": "Artio jr",
+				"DropRate": 2800,
+				"Type": "pet"
 			}
 		]
 	},
 	{
 		"Boss": "Calvarion",
+		"Category": "Wilderness",
 		"EHB": 45,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Skull of vet'ion",
+				"DropRate": 618
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Dragon 2h sword",
+				"DropRate": 358
+			},
+			{
+				"Item": "Dragon pickaxe",
+				"DropRate": 358
+			},
+			{
+				"Item": "Voidwaker blade",
+				"DropRate": 912,
+				"Type": "Voidwaker"
+			},
+			{
+				"Item": "Ring of the gods",
+				"DropRate": 716,
+				"Type": "Wilderness Ring"
+			},
+			{
+				"Item": "Vet'ion jr",
+				"DropRate": 2800,
+				"Type": "pet"
 			}
 		]
 	},
 	{
 		"Boss": "Spindel",
+		"Category": "Wilderness",
 		"EHB": 50,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Fangs of venenatis",
+				"DropRate": 618
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Dragon 2h sword",
+				"DropRate": 358
+			},
+			{
+				"Item": "Dragon pickaxe",
+				"DropRate": 358
+			},
+			{
+				"Item": "Voidwaker gem",
+				"DropRate": 912,
+				"Type": "Voidwaker"
+			},
+			{
+				"Item": "Treasonous ring",
+				"DropRate": 716,
+				"Type": "Wilderness Ring"
+			},
+			{
+				"Item": "Venenatis jr",
+				"DropRate": 2800,
+				"Type": "pet"
 			}
 		]
 	},
 	{
 		"Boss": "Duke Sucellus",
+		"Category": "DT2",
 		"EHB": 30,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Chromium ingot",
+				"DropRate": 240
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Magus vestige",
+				"DropRate": 720,
+				"Type": "DT2 Rings"
+			},
+			{
+				"Item": "Eye of the duke",
+				"DropRate": 720,
+				"Type": "Soul Reaper Axe"
+			},
+			{
+				"Item": "Virtus Mask",
+				"DropRate": 2160
+			},
+			{
+				"Item": "Virtus Robe Top",
+				"DropRate": 2160
+			},
+			{
+				"Item": "Virtus Robe Bottom",
+				"DropRate": 2160
+			},
+			{
+				"Item": "Ice Quartz",
+				"DropRate": 207
+			},
+			{
+				"Item": "Awakener's Orb",
+				"DropRate": 49
+			},
+			{
+				"Item": "Baron",
+				"DropRate": 2500,
+				"Type": "pet"
 			}
 		]
 	},
 	{
 		"Boss": "The Leviathan",
+		"Category": "DT2",
 		"EHB": 25,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Chromium ingot",
+				"DropRate": 256
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Venator vestige",
+				"DropRate": 768,
+				"Type": "DT2 Rings"
+			},
+			{
+				"Item": "Leviathan's lure",
+				"DropRate": 768,
+				"Type": "Soul Reaper Axe"
+			},
+			{
+				"Item": "Virtus Mask",
+				"DropRate": 2304
+			},
+			{
+				"Item": "Virtus Robe Top",
+				"DropRate": 2304
+			},
+			{
+				"Item": "Virtus Robe Bottom",
+				"DropRate": 2304
+			},
+			{
+				"Item": "Smoke Quartz",
+				"DropRate": 206
+			},
+			{
+				"Item": "Awakener's Orb",
+				"DropRate": 54
+			},
+			{
+				"Item": "Lil'viathan",
+				"DropRate": 2500,
+				"Type": "pet"
 			}
 		]
 	},
 	{
 		"Boss": "The Whisperer",
+		"Category": "DT2",
 		"EHB": 21,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Chromium ingot",
+				"DropRate": 171
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Bellator vestige",
+				"DropRate": 512,
+				"Type": "DT2 Rings"
+			},
+			{
+				"Item": "Siren's Staff",
+				"DropRate": 512,
+				"Type": "Soul Reaper Axe"
+			},
+			{
+				"Item": "Virtus Mask",
+				"DropRate": 1536
+			},
+			{
+				"Item": "Virtus Robe Top",
+				"DropRate": 1536
+			},
+			{
+				"Item": "Virtus Robe Bottom",
+				"DropRate": 1536
+			},
+			{
+				"Item": "Shadow Quartz",
+				"DropRate": 209
+			},
+			{
+				"Item": "Awakener's Orb",
+				"DropRate": 35
+			},
+			{
+				"Item": "whisp",
+				"DropRate": 2000,
+				"Type": "pet"
 			}
 		]
 	},
 	{
 		"Boss": "Vardorvis",
+		"Category": "DT2",
 		"EHB": 33,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Chromium ingot",
+				"DropRate": 363
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Ultor vestige",
+				"DropRate": 1088,
+				"Type": "DT2 Rings"
+			},
+			{
+				"Item": "Executioner's Axe Head",
+				"DropRate": 1088,
+				"Type": "Soul Reaper Axe"
+			},
+			{
+				"Item": "Virtus Mask",
+				"DropRate": 3264
+			},
+			{
+				"Item": "Virtus Robe Top",
+				"DropRate": 3264
+			},
+			{
+				"Item": "Virtus Robe Bottom",
+				"DropRate": 3264
+			},
+			{
+				"Item": "Blood Quartz",
+				"DropRate": 204
+			},
+			{
+				"Item": "Awakener's Orb",
+				"DropRate": 81
+			},
+			{
+				"Item": "Butch",
+				"DropRate": 3000,
+				"Type": "pet"
 			}
 		]
 	},
@@ -1284,12 +1504,13 @@
 		"EHB": 60,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Scurrius' spine",
+				"DropRate": 33
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Scurry",
+				"DropRate": 3000,
+				"Type:": "pet"
 			}
 		]
 	},
@@ -1298,26 +1519,254 @@
 		"EHB": 18,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Eclipse atlatl",
+				"DropRate": 224
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Eclipse helm",
+				"DropRate": 224
+			},
+			{
+				"Item": "Eclipse chestplate",
+				"DropRate": 224
+			},
+			{
+				"Item": "Eclipse tassets",
+				"DropRate": 224
+			},
+			{
+				"Item": "Dual macuahuitl",
+				"DropRate": 224
+			},
+			{
+				"Item": "Blood moon helm",
+				"DropRate": 224
+			},
+			{
+				"Item": "Blood moon chestplate",
+				"DropRate": 224
+			},
+			{
+				"Item": "Blood moon tassets",
+				"DropRate": 224
+			},
+			{
+				"Item": "Blue moon spear",
+				"DropRate": 224
+			},
+			{
+				"Item": "Blue moon helm",
+				"DropRate": 224
+			},
+			{
+				"Item": "Blue moon chestplate",
+				"DropRate": 224
+			},
+			{
+				"Item": "Blue moon tassets",
+				"DropRate": 224
 			}
 		]
 	},
 	{
 		"Boss": "Sol Heredit",
+		"Category": "Wave based",
 		"EHB": 2.5,
 		"Drops": [
 			{
-				"Item": "Crystal weapon seed",
-				"DropRate": 50
+				"Item": "Tonalztics of Ralos",
+				"DropRate": 95
 			},
 			{
-				"Item": "Crystal armour seed",
-				"DropRate": 50
+				"Item": "Echo crystal",
+				"DropRate": 12
+			},
+			{
+				"Item": "Sunfire fanatic Helm",
+				"DropRate": 24
+			},
+			{
+				"Item": "Sunfire fanatic Chestplate",
+				"DropRate": 24
+			},
+			{
+				"Item": "Sunfire fanatic Chestlegs",
+				"DropRate": 24
+			},
+			{
+				"Item": "S'mol heredit",
+				"DropRate": 200
+			}
+		]
+	},
+	{
+		"Boss": "Araxxor",
+		"EHB": 38,
+		"Drops": [
+			{
+				"Item": "Noxious pommel",
+				"DropRate": 200,
+				"Type": "Noxious Halberd"
+			},
+			{
+				"Item": "Noxious blade",
+				"DropRate": 200,
+				"Type": "Noxious Halberd"
+			},
+			{
+				"Item": "Noxious point",
+				"DropRate": 200,
+				"Type": "Noxious Halberd"
+			},
+			{
+				"Item": "Araxyte fang",
+				"DropRate": 600
+			},
+			{
+				"Item": "Nid",
+				"DropRate": 3000,
+				"Type:": "pet"
+			},
+			{
+				"Item": "Jar of venom",
+				"DropRate": 1500,
+				"Type:": "jar"
+			},
+			{
+				"Item": "Araxyte head",
+				"DropRate": 250,
+				"Type:": "heads"
+			}
+		]
+	},
+	{
+		"Boss": "The Hueycoatl",
+		"EHB": 9,
+		"Drops": [
+			{
+				"Item": "Hueycoatl hide",
+				"DropRate": 29
+			},
+			{
+				"Item": "Tome of earth (empty)",
+				"DropRate": 90
+			},
+			{
+				"Item": "Dragon hunter wand",
+				"DropRate": 105
+			},			
+			{
+				"Item": "Hubert",
+				"DropRate": 400,
+				"Type:": "pet"
+			}
+		]
+	},
+	{
+		"Boss": "Amoxliatl",
+		"EHB": 71,
+		"Drops": [
+			{
+				"Item": "Tooth half of key (moon key)",
+				"DropRate": 500
+			},
+			{
+				"Item": "Glacial temotli",
+				"DropRate": 100
+			},
+			{
+				"Item": "Pendant of Ates",
+				"DropRate": 25
+			},
+			{
+				"Item": "Moxi",
+				"DropRate": 3000,
+				"Type:": "pet"
+			}
+		]
+	},
+	{
+		"Boss": "The Royal Titans",
+		"EHB": 28,
+		"Drops": [
+			{
+				"Item": "Giantsoul amulet",
+				"DropRate": 16
+			},
+			{
+				"Item": "Fire element staff crown",
+				"DropRate": 75
+			},
+			{
+				"Item": "Mystic vigour prayer scroll",
+				"DropRate": 75
+			},
+			{
+				"Item": "Deadeye prayer scroll",
+				"DropRate": 75
+			},
+			{
+				"Item": "Ice element staff crown",
+				"DropRate": 75
+			},
+			{
+				"Item": "Bran",
+				"DropRate": 3000,
+				"Type:": "pet"
+			}
+		]
+	},
+	{
+		"Boss": "Yama",
+		"EHB": 10,
+		"Drops": [
+			{
+				"Item": "Oathplate Helm",
+				"DropRate": 600
+			},
+			{
+				"Item": "Oathplate Chest",
+				"DropRate": 600
+			},		
+			{
+				"Item": "Oathplate Legs",
+				"DropRate": 600
+			},
+			{
+				"Item": "Soulflame Horn",
+				"DropRate": 300
+			},
+			{
+				"Item": "Yami",
+				"DropRate": 2500,
+				"Type:": "pet"
+			}
+		]
+	},
+	{
+		"Boss": "Doom of Mokhaiotl",
+		"EHB": 8,
+		"Drops": [
+			{
+				"Item": "Avernic treads",
+				"DropRate": 1000
+			},
+			{
+				"Item": "Eye of ayak (uncharged)",
+				"DropRate": 1000
+			},
+			{
+				"Item": "Mokhaiotl cloth",
+				"DropRate": 1000
+			},
+			{
+				"Item": "Tooth half of key (moon key)",
+				"DropRate": 105
+			},
+			{
+				"Item": "Dom",
+				"DropRate": 3000,
+				"Type:": "pet"
 			}
 		]
 	}
