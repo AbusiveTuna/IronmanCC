@@ -1,7 +1,7 @@
 [
 	{
 		"Boss": "Abyssal Sire",
-		"Category": "Slayer Boss",
+		"Categories": ["slayer boss"],
 		"EHB": 39,
 		"Drops": [
 			{
@@ -12,7 +12,7 @@
 	},
 	{
 		"Boss": "Alchemical Hydra",
-		"Category": "Slayer Boss",
+		"Categories": ["slayer boss"],
 		"EHB": 29,
 		"Drops": [
 			{
@@ -25,27 +25,29 @@
 			},
 			{
 				"Item": "Hydra's claw",
-				"DropRate": 1001
+				"DropRate": 1001,
+				"Types": ["dragon hunter lance"]
 			},
 			{
 				"Item": "Alchemical hydra heads",
-				"DropRate": 256
+				"DropRate": 256,
+				"Types": ["heads"]
 			},
 			{
 				"Item": "jar of chemicals",
 				"DropRate": 2000,
-				"Type": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "Ikkle hydra",
 				"DropRate": 3000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Barrows Chests",
-		"Category": "Early Game",
+		"Categories": ["early game"],
 		"EHB": 22,
 		"Drops": [
 			{
@@ -148,220 +150,140 @@
 	},
 	{
 		"Boss": "Bryophyta",
-		"Category": "Early Game",
+		"Categories": ["early game"],
 		"EHB": 9,
 		"Drops": [
 			{
 				"Item": "Bryophyta's essence",
 				"DropRate": 118,
-				"Type:": "clue item"
+				"Types": ["clue item"]
 			}
 		]
 	},
 	{
 		"Boss": "Cerberus",
-		"Category": "Slayer Boss",
+		"Categories": ["slayer boss"],
 		"EHB": 54,
 		"Drops": [
 			{
 				"Item": "Primordial crystal",
-				"DropRate": 512
+				"DropRate": 512,
+				"Types": ["avernic treads"]
 			},
 			{
 				"Item": "Pegasian crystal",
-				"DropRate": 512
+				"DropRate": 512,
+				"Types": ["avernic treads"]
 			},
 			{
 				"Item": "Eternal crystal",
-				"DropRate": 512
+				"DropRate": 512,
+				"Types": ["avernic treads"]
 			},
 			{
 				"Item": "Smouldering stone",
-				"DropRate": 512
+				"DropRate": 512,
+				"Types": ["clue item"]
 			},
 			{
 				"Item": "jar of souls",
 				"DropRate": 2000,
-				"Type": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "Hellpuppy",
 				"DropRate": 3000,
-				"Type": "pet"
-			}
-		]
-	},
-	{
-		"Boss": "Chambers of Xeric",
-		"Category": "Raid",
-		"EHB": 2.9,
-		"PurpleChestRate": 27,
-		"Drops": [
-			{
-				"Item": "Dexterous prayer scroll",
-				"ConditionalDropRate": 3.45,
-				"Type": "raid"
-			},
-			{
-				"Item": "Arcane prayer scroll",
-				"ConditionalDropRate": 3.45,
-				"Type": "raid"
-			},
-			{
-				"Item": "Twisted buckler",
-				"ConditionalDropRate": 17.25,
-				"Type": "raid"
-			},
-			{
-				"Item": "Dragon hunter crossbow",
-				"ConditionalDropRate": 17.25,
-				"Type": "raid"
-			},
-			{
-				"Item": "Dinh's bulwark",
-				"ConditionalDropRate": 23,
-				"Type": "raid"
-			},
-			{
-				"Item": "Ancestral hat",
-				"ConditionalDropRate": 23,
-				"Type": "raid"
-			},
-			{
-				"Item": "Ancestral robe top",
-				"ConditionalDropRate": 23,
-				"Type": "raid"
-			},
-			{
-				"Item": "Ancestral robe bottom",
-				"ConditionalDropRate": 23,
-				"Type": "raid"
-			},
-			{
-				"Item": "Elder maul",
-				"ConditionalDropRate": 34.5,
-				"Type": "raid"
-			},
-			{
-				"Item": "Kodai insignia",
-				"ConditionalDropRate": 34.5,
-				"Type": "raid"
-			},
-			{
-				"Item": "Twisted bow",
-				"ConditionalDropRate": 34.5,
-				"Type": "raid"
-			},
-			{
-				"Item": "Olmlet",
-				"ConditionalDropRate": 53,
-				"Type": "pet"
-			}
-		]
-	},
-	{
-		"Boss": "Chambers of Xeric Challenge Mode",
-		"Category": "Raid",
-		"EHB": 2.4,
-		"Drops": [
-			{
-				"Item": "Twisted Ancestral Colour Kit",
-				"DropRate": 75,
-				"Type": "Raid"
-			},
-			{
-				"Item": "Metamorphic dust",
-				"DropRate": 400,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Chaos Elemental",
-		"Category": "Wilderness",
+		"Categories": ["wilderness"],
 		"EHB": 48,
 		"Drops": [
 			{
 				"Item": "Dragon pickaxe",
-				"DropRate": 256
+				"DropRate": 256,
+				"Types": ["dragon pickaxe"]
 			},
 			{
 				"Item": "pet chaos elemental",
 				"DropRate": 300,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Chaos Fanatic",
-		"Category": "Wilderness",
+		"Categories": ["wilderness"],
 		"EHB": 80,
 		"Drops": [
 			{
 				"Item": "Odium shard 1",
-				"DropRate": 256
+				"DropRate": 256,
+				"Types": ["wilderness shield"]
 			},
 			{
 				"Item": "Malediction shard 1",
-				"DropRate": 256
+				"DropRate": 256,
+				"Types": ["wilderness shield"]
 			},
 			{
 				"Item": "pet chaos elemental",
 				"DropRate": 1000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Commander Zilyana",
-		"Category": "Godwars",
+		"Categories": ["godwars"],
 		"EHB": 30,
 		"Drops": [
 			{
 				"Item": "Saradomin sword",
-				"DropRate": 127,
-				"Type": "gwd"
+				"DropRate": 127
 			},
 			{
 				"Item": "Saradomin's light",
-				"DropRate": 254,
-				"Type": "gwd"
+				"DropRate": 254
 			},
 			{
 				"Item": "Armadyl crossbow",
 				"DropRate": 508,
-				"Type": "gwd"
+				"Types": ["zcb"]
 			},
 			{
 				"Item": "Saradomin hilt",
 				"DropRate": 508,
-				"Type": "gwd"
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Godsword shard 1",
 				"DropRate": 762,
-				"Type": "gwd"
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Godsword shard 2",
 				"DropRate": 762,
-				"Type": "gwd"
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Godsword shard 3",
 				"DropRate": 762,
-				"Type": "gwd"
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "pet zilyana",
 				"DropRate": 5000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Corporeal Beast",
-		"Category": "Long Grinds",
+		"Cateogories": ["long grinds"],
 		"EHB": 8.5,
 		"Drops": [
 			{
@@ -387,38 +309,41 @@
 			{
 				"Item": "jar of spirits",
 				"DropRate": 1000,
-				"Type": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "pet dark core",
 				"DropRate": 5000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Crazy Archaeologist",
-		"Category": "Wilderness",
+		"Categories": ["wilderness"],
 		"EHB": 75,
 		"Drops": [
 			{
 				"Item": "Odium shard 2",
-				"DropRate": 256
+				"DropRate": 256,
+				"Types": ["wilderness shield"]
 			},
 			{
 				"Item": "Malediction shard 2",
-				"DropRate": 256
+				"DropRate": 256,
+				"Types": ["wilderness shield"]
 			}
 		]
 	},
 	{
 		"Boss": "Dagannoth Prime",
-		"Category": "Early Game",
+		"Categories": ["early game"],
 		"EHB": 100,
 		"Drops": [
 			{
 				"Item": "Seers Ring",
-				"DropRate": 128
+				"DropRate": 128,
+				"Types": ["lord of the rings"]
 			},
 			{
 				"Item": "Dragon Axe",
@@ -427,22 +352,24 @@
 			{
 				"Item": "pet Dagannoth Prime",
 				"DropRate": 5000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Dagannoth Rex",
-		"Category": "Early Game",
+		"Categories": ["early game"],
 		"EHB": 100,
 		"Drops": [
 			{
 				"Item": "Beserker Ring",
-				"DropRate": 128
+				"DropRate": 128,
+				"Types": ["lord of the rings"]
 			},
 			{
 				"Item": "Warrior Ring",
-				"DropRate": 128
+				"DropRate": 128,
+				"Types": ["lord of the rings"]
 			},
 			{
 				"Item": "Dragon Axe",
@@ -451,18 +378,19 @@
 			{
 				"Item": "pet Dagannoth Rex",
 				"DropRate": 5000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Dagannoth Supreme",
-		"Category": "Early Game",
+		"Categories": ["early game"],
 		"EHB": 100,
 		"Drops": [
 			{
 				"Item": "Archer Ring",
-				"DropRate": 128
+				"DropRate": 128,
+				"Types": ["lord of the rings"]
 			},
 			{
 				"Item": "Dragon Axe",
@@ -471,74 +399,84 @@
 			{
 				"Item": "pet Dagannoth Supreme",
 				"DropRate": 5000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Deranged Archaeologist",
-		"Category": "Early Game",
+		"Categories": ["early game"],
 		"EHB": 80,
 		"Drops": [
 			{
 				"Item": "Steel ring",
-				"DropRate": 44
+				"DropRate": 44,
+				"Types": ["lord of the rings"]
 			}
 		]
 	},
 	{
 		"Boss": "General Graardor",
-		"Category": "Godwars",
+		"Categories": ["godwars"],
 		"EHB": 31,
 		"Drops": [
 			{
 				"Item": "Bandos chestplate",
-				"DropRate": 381
+				"DropRate": 381,
+				"Types": ["godwars armor", "Torva"]
 			},
 			{
 				"Item": "Bandos boots",
-				"DropRate": 381
+				"DropRate": 381,
+				"Types": ["godwars armor", "clue item", "echo boots"]
 			},
 			{
 				"Item": "Bandos tassets",
-				"DropRate": 381
+				"DropRate": 381,
+				"Types": ["godwars armor", "Torva"]
 			},
 			{
 				"Item": "Bandos Hilt",
-				"DropRate": 508
+				"DropRate": 508,
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Godsword shard 1",
-				"DropRate": 762
+				"DropRate": 762,
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Godsword shard 2",
-				"DropRate": 762
+				"DropRate": 762,
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Godsword shard 3",
-				"DropRate": 762
+				"DropRate": 762,
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Lil Bandos",
 				"DropRate": 5000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Giant Mole",
+		"Categories": ["early game"],
 		"EHB": 97,
 		"Drops": [
 			{
 				"Item": "Giant Mole pet",
-				"DropRate": 3000
+				"DropRate": 3000,
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Grotesque Guardians",
-		"Category": "Slayer Boss",
+		"Categories": ["slayer boss"],
 		"EHB": 34,
 		"Drops": [
 			{
@@ -555,23 +493,24 @@
 			},
 			{
 				"Item": "Black tourmaline core",
-				"DropRate": 500
+				"DropRate": 500,
+				"Types": ["echo boots"]
 			},
 			{
 				"Item": "jar of stone",
 				"DropRate": 5000,
-				"Type": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "Noon",
 				"DropRate": 3000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Hespori",
-		"Category": "Daily",
+		"Categories": ["daily"],
 		"EHB": 1,
 		"Drops": [
 			{
@@ -582,74 +521,77 @@
 	},
 	{
 		"Boss": "Kalphite Queen",
-		"Category": "misc",
+		"Categories": ["misc", "classic"],
 		"EHB": 37,
 		"Drops": [
 			{
 				"Item": "Kalphite princess",
 				"DropRate": 3000,
-				"Type": "pet"
+				"Types": ["pet"]
 			},
 			{
 				"Item": "jar of Sand",
 				"DropRate": 2000,
-				"Type": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "Dragon Pickaxe",
-				"DropRate": 400
+				"DropRate": 400,
+				"Types": ["dragon pickaxe"]
 			},
 			{
 				"Item": "Dragon 2h sword",
-				"DropRate": 256
+				"DropRate": 256,
+				"Types": ["dragon 2h sword"]
 			},
 			{
 				"Item": "KQ Head",
 				"DropRate": 128,
-				"Type": "heads"
+				"Types": ["heads"]
 			}
 		]
 	},
 	{
 		"Boss": "King Black Dragon",
-		"Category": "misc",
+		"Categories": ["misc", "classic"],
 		"EHB": 75,
 		"Drops": [
 			{
 				"Item": "Dragon Pickaxe",
-				"DropRate": 1000
+				"DropRate": 1000,
+				"Types": ["dragon pickaxe"]
 			},
 			{
 				"Item": "Prince Black Dragon",
 				"DropRate": 3000,
-				"Type": "pet"
+				"Types": ["pet"]
 			},
 			{
 				"Item": "Draconic visage",
 				"DropRate": 5000,
-				"Type": "misc"
+				"Types": ["visage"]
 			},
 			{
 				"Item": "KBD heads",
 				"DropRate": 128,
-				"Type": "heads"
+				"Types": ["heads"]
 			}
 		]
 	},
 	{
 		"Boss": "Kraken",
-		"Category": "Slayer Boss",
+		"Categories": ["slayer boss", "oldschool"],
 		"EHB": 90,
 		"Drops": [
 			{
 				"Item": "Pet Kraken",
 				"DropRate": 3000,
-				"Type": "pet"
+				"Types": ["pet"]
 			},
 			{
 				"Item": "jar of dirt",
 				"DropRate": 1000,
-				"Type": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "Trident of the seas (full)",
@@ -663,51 +605,60 @@
 	},
 	{
 		"Boss": "Kree'Arra",
-		"Category": "Godwars",
+		"Categories": ["godwars"],
 		"EHB": 30,
 		"Drops": [
 			{
 				"Item": "Armadyl Hilt",
-				"DropRate": 508
+				"DropRate": 508,
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Armadyl Helm",
-				"DropRate": 381
+				"DropRate": 381,
+				"Types": ["clue Items", "godwars armor", "masori"]
 			},
 			{
 				"Item": "Armadyl chestplate",
-				"DropRate": 381
+				"DropRate": 381,
+				"Types": ["godwars armor", "masori"]
 			},
 			{
 				"Item": "Armadyl chainskirt",
-				"DropRate": 381
+				"DropRate": 381,
+				"Types": ["godwars armor", "masori"]
 			},
 			{
 				"Item": "Godsword shard 1",
-				"DropRate": 762
+				"DropRate": 762,
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Godsword shard 2",
-				"DropRate": 762
+				"DropRate": 762,
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Godsword shard 3",
-				"DropRate": 762
+				"DropRate": 762,
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Pet kree'arra",
 				"DropRate": 5000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "K'ril Tsutsaroth",
+		"Categories": ["godwars", "demons"],
 		"EHB": 28,
 		"Drops": [
 			{
 				"Item": "Zamorack Spear",
-				"DropRate": 128
+				"DropRate": 128,
+				"Types": ["dragon hunter lance"]
 			},
 			{
 				"Item": "Steam Battlestaff",
@@ -715,7 +666,8 @@
 			},
 			{
 				"Item": "Zamorack Hilt",
-				"DropRate": 508
+				"DropRate": 508,
+				"Types": ["godsword", "clue item"]
 			},
 			{
 				"Item": "Staff of the dead",
@@ -723,25 +675,29 @@
 			},
 			{
 				"Item": "Pet k'ril tsutsaroth",
-				"DropRate": 5000
+				"DropRate": 5000,
+				"Types": ["pet"]
 			},
 			{
 				"Item": "Godsword shard 1",
-				"DropRate": 762
+				"DropRate": 762,
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Godsword shard 2",
-				"DropRate": 762
+				"DropRate": 762,
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Godsword shard 3",
-				"DropRate": 762
+				"DropRate": 762,
+				"Types": ["godsword"]
 			}
 		]
 	},
 	{
 		"Boss": "Mimic",
-		"Category": "Special",
+		"Categories": ["special"],
 		"EHB": 1,
 		"Drops": [
 			{
@@ -752,7 +708,7 @@
 	},
 	{
 		"Boss": "Obor",
-		"Category": "Early Game",
+		"Categories": ["early game"],
 		"EHB": 12,
 		"Drops": [
 			{
@@ -763,7 +719,7 @@
 	},
 	{
 		"Boss": "Sarachnis",
-		"Category": "Early Game",
+		"Categories": ["early game"],
 		"EHB": 67,
 		"Drops": [
 			{
@@ -777,44 +733,45 @@
 			{
 				"Item": "Sraracha",
 				"DropRate": 3000,
-				"Type": "pet"
+				"Types": ["pet"]
 			},
 			{
 				"Item": "jar of eyes",
 				"DropRate": 2000,
-				"Type": "jar"
+				"Types": ["jars"]
 			}
 		]
 	},
 	{
 		"Boss": "Scorpia",
-		"Category": "Wilderness",
+		"Categories": ["wilderness"],
 		"EHB": 80,
 		"Drops": [
 			{
 				"Item": "Odium shard 3",
-				"DropRate": 256
+				"DropRate": 256,
+				"Types": ["wilderness shield"]
 			},
 			{
 				"Item": "Malediction shard 3",
-				"DropRate": 256
+				"DropRate": 256,
+				"Types": ["wilderness shield"]
 			},
 			{
 				"Item": "Scorpia's offspring",
 				"DropRate": 2016,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Skotizo",
-		"Category": "Special",
+		"Categories": ["special", "demons"],
 		"EHB": 1,
 		"Drops": [
 			{
 				"Item": "Uncut onyx",
-				"DropRate": 1000,
-				"Type": "meme"
+				"DropRate": 1000
 			},
 			{
 				"Item": "Dark claw",
@@ -827,12 +784,12 @@
 			{
 				"Item": "Jar of darkness",
 				"DropRate": 200,
-				"Type": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "Skotos",
 				"DropRate": 65,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
@@ -855,97 +812,24 @@
 			{
 				"Item": "Youngllef",
 				"DropRate": 800,
-				"Type": "pet"
-			}
-		]
-	},
-	{
-		"Boss": "Theatre of Blood",
-		"EHB": 2.9,
-		"PurpleChestRate": 36,
-		"Drops": [
-			{
-				"Item": "Avernic defender hilt",
-				"ConditionalDropRate": 2.375,
-				"Type": "raid"
-			},
-			{
-				"Item": "Ghrazi rapier",
-				"ConditionalDropRate": 9.5,
-				"Type": "raid"
-			},
-			{
-				"Item": "Sanguinesti staff",
-				"ConditionalDropRate": 9.5,
-				"Type": "raid"
-			},
-			{
-				"Item": "Justiciar faceguard",
-				"ConditionalDropRate": 9.5,
-				"Type": "raid"
-			},
-			{
-				"Item": "Justiciar chestguard",
-				"ConditionalDropRate": 9.5,
-				"Type": "raid"
-			},
-			{
-				"Item": "Justiciar legguards",
-				"ConditionalDropRate": 9.5,
-				"Type": "raid"
-			},
-			{
-				"Item": "Scythe of vitur",
-				"ConditionalDropRate": 19,
-				"Type": "raid"
-			},
-			{
-				"Item": "Lil Zik",
-				"DropRate": 650,
-				"Type": "pet"
-			}
-		]
-	},
-	{
-		"Boss": "Hard Mode Theatre Of Blood",
-		"EHB": 2.5,
-		"Drops": [
-			{
-				"Item": "Lil' Zik",
-				"DropRate": 500,
-				"Type": "pet"
-			},
-			{
-				"Item": "Sanguine Dust",
-				"DropRate": 275,
-				"Type": "raid"
-			},
-			{
-				"Item": "Sanguine Ornament Kit",
-				"DropRate": 150,
-				"Type": "raid"
-			},
-			{
-				"Item": "Holy Ornament Kit",
-				"DropRate": 100,
-				"Type": "raid"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Thermonuclear Smoke Devil",
-		"Category": "Slayer Boss",
+		"Categories": ["slayer boss"],
 		"EHB": 100,
 		"Drops": [
 			{
 				"Item": "Jar of smoke",
 				"DropRate": 2000,
-				"Type": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "Pet smoke devil",
 				"DropRate": 3000,
-				"Type": "pet"
+				"Types": ["pet"]
 			},
 			{
 				"Item": "Smoke battlestaff",
@@ -963,35 +847,37 @@
 	},
 	{
 		"Boss": "TzKal-Zuk",
-		"Category": "Wave based",
+		"Categories": ["wave based"],
 		"EHB": 0.9,
 		"Drops": [
 			{
 				"Item": "Jal-nib-rek",
 				"DropRate": 75,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "TzTok-Jad",
-		"Category": "Wave based",
+		"Categories": ["wave based"],
 		"EHB": 2.2,
 		"Drops": [
 			{
 				"Item": "Tz-rek-jad",
 				"DropRate": 100,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Vorkath",
+		"Categories": ["misc"],
 		"EHB": 34,
 		"Drops": [
 			{
 				"Item": "Vorkath's head",
-				"DropRate": 50
+				"DropRate": 50,
+				"Types": ["heads"]
 			},
 			{
 				"Item": "Dragone Bone Necklace",
@@ -1000,27 +886,28 @@
 			{
 				"Item": "Jar of decay",
 				"DropRate": 3000,
-				"Type": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "Vorki",
 				"DropRate": 3000,
-				"Type": "pet"
+				"Types": ["pet"]
 			},
 			{
 				"Item": "Draconic visage",
 				"DropRate": 5000,
-				"Type": "visage"
+				"Types": ["visage"]
 			},
 			{
 				"Item": "Skeltal Visage",
 				"DropRate": 5000,
-				"Type": "visage"
+				"Types": ["visage"]
 			}
 		]
 	},
 	{
 		"Boss": "Zulrah",
+		"Categories": ["misc"],
 		"EHB": 39,
 		"Drops": [
 			{
@@ -1034,16 +921,17 @@
 			{
 				"Item": "Jar of swamp",
 				"DropRate": 3000,
-				"Type": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "Pet Snakling",
 				"DropRate": 4000,
-				"Type": "pet"
+				"Types": ["pet"]
 			},
 			{
 				"Item": "Serpentine visage",
-				"DropRate": 512
+				"DropRate": 512,
+				"Types": ["visage"]
 			},
 			{
 				"Item": "Uncut onyx",
@@ -1061,6 +949,7 @@
 	},
 	{
 		"Boss": "Phosani's Nightmare",
+		"Cateogories": ["long grinds"],
 		"EHB": 6.7,
 		"Drops": [
 			{
@@ -1102,18 +991,18 @@
 			{
 				"Item": "Jar of Dreams",
 				"DropRate": 4000,
-				"Type": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "Little Nightmare",
 				"DropRate": 1400,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Nex",
-		"Category": "Godwars",
+		"Categories": ["godwars"],
 		"EHB": 9,
 		"Drops": [
 			{
@@ -1122,80 +1011,39 @@
 			},
 			{
 				"Item": "Nihil horn",
-				"DropRate": 258
+				"DropRate": 258,
+				"Types": ["zcb"]
 			},
 			{
 				"Item": "Torva full helm",
-				"DropRate": 258
+				"DropRate": 258,
+				"Types": ["torva"]
 			},
 			{
 				"Item": "Torva platebody",
-				"DropRate": 258
+				"DropRate": 258,
+				"Types": ["torva"]
 			},
 			{
 				"Item": "Torva platelegs",
-				"DropRate": 258
+				"DropRate": 258,
+				"Types": ["torva"]
 			},
 			{
 				"Item": "Ancient Hilt",
-				"DropRate": 516
+				"DropRate": 516,
+				"Types": ["godsword"]
 			},
 			{
 				"Item": "Nexling",
 				"DropRate": 500,
-				"Type": "pet"
-			}
-		]
-	},
-	{
-		"Boss": "Tombs of Amascut",
-		"EHB": 1.5,
-		"PurpleChestRate": 12,
-		"Drops": [
-			{
-				"Item": "Osmumten's fang",
-				"ConditionalDropRate": 3.429,
-				"Type": "raid"
-			},
-			{
-				"Item": "Tumeken's shadow",
-				"ConditionalDropRate": 24,
-				"Type": "raid"
-			},
-			{
-				"Item": "Elidinis' ward",
-				"ConditionalDropRate": 8,
-				"Type": "raid"
-			},
-			{
-				"Item": "Lightbearer",
-				"ConditionalDropRate": 3.429,
-				"Type": "raid"
-			},
-			{
-				"Item": "Masori mask",
-				"ConditionalDropRate": 12,
-				"Type": "raid"
-			},
-			{
-				"Item": "Masori body",
-				"ConditionalDropRate": 12,
-				"Type": "raid"
-			},
-			{
-				"Item": "Masori chaps",
-				"ConditionalDropRate": 12,
-				"Type": "raid"
-			},
-			{
-				"Item": "Tumeken's guardian",
-				"DropRate": 310,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Phantom Muspah",
+		"Categories": ["misc"],
 		"EHB": 27,
 		"Drops": [
 			{
@@ -1209,13 +1057,13 @@
 			{
 				"Item": "Muphin",
 				"DropRate": 2500,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Artio",
-		"Category": "Wilderness",
+		"Categories": ["wilderness"],
 		"EHB": 50,
 		"Drops": [
 			{
@@ -1224,32 +1072,34 @@
 			},
 			{
 				"Item": "Dragon 2h sword",
-				"DropRate": 358
+				"DropRate": 358,
+				"Types": ["dragon 2h sword"]
 			},
 			{
 				"Item": "Dragon pickaxe",
-				"DropRate": 358
+				"DropRate": 358,
+				"Types": ["dragon pickaxe"]
 			},
 			{
 				"Item": "Voidwaker Hilt",
 				"DropRate": 912,
-				"Type": "Voidwaker"
+				"Types": ["voidwaker"]
 			},
 			{
 				"Item": "Tyrannical Ring",
 				"DropRate": 716,
-				"Type": "Wilderness Ring"
+				"Types": ["wilderness rings"]
 			},
 			{
 				"Item": "Artio jr",
 				"DropRate": 2800,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Calvarion",
-		"Category": "Wilderness",
+		"Categories": ["wilderness"],
 		"EHB": 45,
 		"Drops": [
 			{
@@ -1258,32 +1108,34 @@
 			},
 			{
 				"Item": "Dragon 2h sword",
-				"DropRate": 358
+				"DropRate": 358,
+				"Types": ["dragon 2h sword"]
 			},
 			{
 				"Item": "Dragon pickaxe",
-				"DropRate": 358
+				"DropRate": 358,
+				"Types": ["dragon pickaxe"]
 			},
 			{
 				"Item": "Voidwaker blade",
 				"DropRate": 912,
-				"Type": "Voidwaker"
+				"Types": ["voidwaker"]
 			},
 			{
 				"Item": "Ring of the gods",
 				"DropRate": 716,
-				"Type": "Wilderness Ring"
+				"Types": ["wilderness rings"]
 			},
 			{
 				"Item": "Vet'ion jr",
 				"DropRate": 2800,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Spindel",
-		"Category": "Wilderness",
+		"Categories": ["wilderness"],
 		"EHB": 50,
 		"Drops": [
 			{
@@ -1292,32 +1144,34 @@
 			},
 			{
 				"Item": "Dragon 2h sword",
-				"DropRate": 358
+				"DropRate": 358,
+				"Types": ["dragon 2h sword"]
 			},
 			{
 				"Item": "Dragon pickaxe",
-				"DropRate": 358
+				"DropRate": 358,
+				"Types": ["dragon pickaxe"]
 			},
 			{
 				"Item": "Voidwaker gem",
 				"DropRate": 912,
-				"Type": "Voidwaker"
+				"Types": ["voidwaker"]
 			},
 			{
 				"Item": "Treasonous ring",
 				"DropRate": 716,
-				"Type": "Wilderness Ring"
+				"Types": ["wilderness rings"]
 			},
 			{
 				"Item": "Venenatis jr",
 				"DropRate": 2800,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Duke Sucellus",
-		"Category": "DT2",
+		"Categories": ["dt2"],
 		"EHB": 30,
 		"Drops": [
 			{
@@ -1327,43 +1181,48 @@
 			{
 				"Item": "Magus vestige",
 				"DropRate": 720,
-				"Type": "DT2 Rings"
+				"Types": ["DT2 Rings"]
 			},
 			{
 				"Item": "Eye of the duke",
 				"DropRate": 720,
-				"Type": "Soul Reaper Axe"
+				"Types": ["soul reaper axe"]
 			},
 			{
 				"Item": "Virtus Mask",
-				"DropRate": 2160
+				"DropRate": 2160,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Virtus Robe Top",
-				"DropRate": 2160
+				"DropRate": 2160,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Virtus Robe Bottom",
-				"DropRate": 2160
+				"DropRate": 2160,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Ice Quartz",
-				"DropRate": 207
+				"DropRate": 207,
+				"Types": ["dt2 quartz"]
 			},
 			{
 				"Item": "Awakener's Orb",
-				"DropRate": 49
+				"DropRate": 49,
+				"Types": ["orb"]
 			},
 			{
 				"Item": "Baron",
 				"DropRate": 2500,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "The Leviathan",
-		"Category": "DT2",
+		"Categories": ["dt2"],
 		"EHB": 25,
 		"Drops": [
 			{
@@ -1373,43 +1232,48 @@
 			{
 				"Item": "Venator vestige",
 				"DropRate": 768,
-				"Type": "DT2 Rings"
+				"Types": ["DT2 Rings"]
 			},
 			{
 				"Item": "Leviathan's lure",
 				"DropRate": 768,
-				"Type": "Soul Reaper Axe"
+				"Types": ["soul reaper axe"]
 			},
 			{
 				"Item": "Virtus Mask",
-				"DropRate": 2304
+				"DropRate": 2304,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Virtus Robe Top",
-				"DropRate": 2304
+				"DropRate": 2304,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Virtus Robe Bottom",
-				"DropRate": 2304
+				"DropRate": 2304,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Smoke Quartz",
-				"DropRate": 206
+				"DropRate": 206,
+				"Types": ["dt2 quartz"]
 			},
 			{
 				"Item": "Awakener's Orb",
-				"DropRate": 54
+				"DropRate": 54,
+				"Types": ["orb"]
 			},
 			{
 				"Item": "Lil'viathan",
 				"DropRate": 2500,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "The Whisperer",
-		"Category": "DT2",
+		"Categories": ["dt2"],
 		"EHB": 21,
 		"Drops": [
 			{
@@ -1419,43 +1283,48 @@
 			{
 				"Item": "Bellator vestige",
 				"DropRate": 512,
-				"Type": "DT2 Rings"
+				"Types": ["DT2 Rings"]
 			},
 			{
 				"Item": "Siren's Staff",
 				"DropRate": 512,
-				"Type": "Soul Reaper Axe"
+				"Types": ["soul reaper axe"]
 			},
 			{
 				"Item": "Virtus Mask",
-				"DropRate": 1536
+				"DropRate": 1536,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Virtus Robe Top",
-				"DropRate": 1536
+				"DropRate": 1536,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Virtus Robe Bottom",
-				"DropRate": 1536
+				"DropRate": 1536,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Shadow Quartz",
-				"DropRate": 209
+				"DropRate": 209,
+				"Types": ["dt2 quartz"]
 			},
 			{
 				"Item": "Awakener's Orb",
-				"DropRate": 35
+				"DropRate": 35,
+				"Types": ["orb"]
 			},
 			{
 				"Item": "whisp",
 				"DropRate": 2000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Vardorvis",
-		"Category": "DT2",
+		"Categories": ["dt2"],
 		"EHB": 33,
 		"Drops": [
 			{
@@ -1465,42 +1334,48 @@
 			{
 				"Item": "Ultor vestige",
 				"DropRate": 1088,
-				"Type": "DT2 Rings"
+				"Types": ["DT2 Rings"]
 			},
 			{
 				"Item": "Executioner's Axe Head",
 				"DropRate": 1088,
-				"Type": "Soul Reaper Axe"
+				"Types": ["soul reaper axe"]
 			},
 			{
 				"Item": "Virtus Mask",
-				"DropRate": 3264
+				"DropRate": 3264,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Virtus Robe Top",
-				"DropRate": 3264
+				"DropRate": 3264,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Virtus Robe Bottom",
-				"DropRate": 3264
+				"DropRate": 3264,
+				"Types": ["virtus"]
 			},
 			{
 				"Item": "Blood Quartz",
-				"DropRate": 204
+				"DropRate": 204,
+				"Types": ["dt2 quartz"]
 			},
 			{
 				"Item": "Awakener's Orb",
-				"DropRate": 81
+				"DropRate": 81,
+				"Types": ["orb"]
 			},
 			{
 				"Item": "Butch",
 				"DropRate": 3000,
-				"Type": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Scurrius",
+		"Categories": ["early game"],
 		"EHB": 60,
 		"Drops": [
 			{
@@ -1510,67 +1385,80 @@
 			{
 				"Item": "Scurry",
 				"DropRate": 3000,
-				"Type:": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Lunar Chests",
+		"Categories": ["early game"],
 		"EHB": 18,
 		"Drops": [
 			{
 				"Item": "Eclipse atlatl",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["eclipse"]
 			},
 			{
 				"Item": "Eclipse helm",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["eclipse"]
 			},
 			{
 				"Item": "Eclipse chestplate",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["eclipse"]
 			},
 			{
 				"Item": "Eclipse tassets",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["eclipse"]
 			},
 			{
 				"Item": "Dual macuahuitl",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["blood moon"]
 			},
 			{
 				"Item": "Blood moon helm",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["blood moon"]
 			},
 			{
 				"Item": "Blood moon chestplate",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["blood moon"]
 			},
 			{
 				"Item": "Blood moon tassets",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["blood moon"]
 			},
 			{
 				"Item": "Blue moon spear",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["blue moon"]
 			},
 			{
 				"Item": "Blue moon helm",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["blue moon"]
 			},
 			{
 				"Item": "Blue moon chestplate",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["blue moon"]
 			},
 			{
 				"Item": "Blue moon tassets",
-				"DropRate": 224
+				"DropRate": 224,
+				"Types": ["blue moon"]
 			}
 		]
 	},
 	{
 		"Boss": "Sol Heredit",
-		"Category": "Wave based",
+		"Categories": ["wave based"],
 		"EHB": 2.5,
 		"Drops": [
 			{
@@ -1579,68 +1467,76 @@
 			},
 			{
 				"Item": "Echo crystal",
-				"DropRate": 12
+				"DropRate": 12,
+				"Types": ["echo boots"]
 			},
 			{
 				"Item": "Sunfire fanatic Helm",
-				"DropRate": 24
+				"DropRate": 24,
+				"Types": ["sunfire armor"]
 			},
 			{
 				"Item": "Sunfire fanatic Chestplate",
-				"DropRate": 24
+				"DropRate": 24,
+				"Types": ["sunfire armor"]
 			},
 			{
 				"Item": "Sunfire fanatic Chestlegs",
-				"DropRate": 24
+				"DropRate": 24,
+				"Types": ["sunfire armor"]
 			},
 			{
 				"Item": "S'mol heredit",
-				"DropRate": 200
+				"DropRate": 200,
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Araxxor",
+		"Categories": ["slayer boss"],
 		"EHB": 38,
 		"Drops": [
 			{
 				"Item": "Noxious pommel",
 				"DropRate": 200,
-				"Type": "Noxious Halberd"
+				"Types": ["noxious halberd"]
 			},
 			{
 				"Item": "Noxious blade",
 				"DropRate": 200,
-				"Type": "Noxious Halberd"
+				"Types": ["noxious halberd"]
 			},
 			{
 				"Item": "Noxious point",
 				"DropRate": 200,
-				"Type": "Noxious Halberd"
+				"Types": ["noxious halberd"]
 			},
 			{
 				"Item": "Araxyte fang",
-				"DropRate": 600
+				"DropRate": 600,
+				"Types": ["torture"]
 			},
 			{
 				"Item": "Nid",
 				"DropRate": 3000,
-				"Type:": "pet"
+				"Types": ["pet"]
 			},
 			{
 				"Item": "Jar of venom",
 				"DropRate": 1500,
-				"Type:": "jar"
+				"Types": ["jars"]
 			},
 			{
 				"Item": "Araxyte head",
 				"DropRate": 250,
-				"Type:": "heads"
+				"Types": ["heads"]
 			}
 		]
 	},
 	{
 		"Boss": "The Hueycoatl",
+		"Categories": ["early game"],
 		"EHB": 9,
 		"Drops": [
 			{
@@ -1658,12 +1554,13 @@
 			{
 				"Item": "Hubert",
 				"DropRate": 400,
-				"Type:": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Amoxliatl",
+		"Categories": ["early game"],
 		"EHB": 71,
 		"Drops": [
 			{
@@ -1681,12 +1578,13 @@
 			{
 				"Item": "Moxi",
 				"DropRate": 3000,
-				"Type:": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "The Royal Titans",
+		"Categories": ["early game"],
 		"EHB": 28,
 		"Drops": [
 			{
@@ -1699,11 +1597,13 @@
 			},
 			{
 				"Item": "Mystic vigour prayer scroll",
-				"DropRate": 75
+				"DropRate": 75,
+				"Types": ["prayer"]
 			},
 			{
 				"Item": "Deadeye prayer scroll",
-				"DropRate": 75
+				"DropRate": 75,
+				"Types": ["prayer"]
 			},
 			{
 				"Item": "Ice element staff crown",
@@ -1712,12 +1612,13 @@
 			{
 				"Item": "Bran",
 				"DropRate": 3000,
-				"Type:": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Yama",
+		"Categories": ["demons"],
 		"EHB": 10,
 		"Drops": [
 			{
@@ -1739,17 +1640,19 @@
 			{
 				"Item": "Yami",
 				"DropRate": 2500,
-				"Type:": "pet"
+				"Types": ["pet"]
 			}
 		]
 	},
 	{
 		"Boss": "Doom of Mokhaiotl",
+		"Categories": ["demons"],
 		"EHB": 8,
 		"Drops": [
 			{
 				"Item": "Avernic treads",
-				"DropRate": 1000
+				"DropRate": 1000,
+				"Types": ["avernic treads"]
 			},
 			{
 				"Item": "Eye of ayak (uncharged)",
@@ -1766,7 +1669,7 @@
 			{
 				"Item": "Dom",
 				"DropRate": 3000,
-				"Type:": "pet"
+				"Types": ["pet"]
 			}
 		]
 	}
