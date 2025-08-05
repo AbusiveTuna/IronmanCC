@@ -1672,5 +1672,87 @@
 				"Types": ["pet"]
 			}
 		]
+	},
+	{
+		"Boss": "tempoross",
+		"Categories": ["minigames"],
+		"EHB": 80,
+		"Drops": [
+			{
+				"Item": "Fish barrel",
+				"DropRate": 400,
+				"Types": ["account unique"]
+			},
+			{
+				"Item": "Tackle Box",
+				"DropRate": 400,
+				"Types": ["account unique"]
+			},
+			{
+				"Item": "Big harpoonfish",
+				"DropRate": 1600
+			},
+			{
+				"Item": "Tome of water",
+				"DropRate": 1600,
+				"Types": ["tomes"]
+			},
+			{
+				"Item": "Dragon harpoon",
+				"DropRate": 8000
+			},
+			{
+				"Item": "Tiny tempor",
+				"DropRate": 8000,
+				"Types": ["pet"]
+			}
+		]
+	},
+	{
+		"Boss": "wintertodt",
+		"Categories": ["minigames"],
+		"EHB": 50,
+		"Drops": [
+			{
+				"Item": "Tome of fire",
+				"DropRate": 1000,
+				"Types": ["tomes"]
+			},
+			{
+				"Item": "Dragon Axe",
+				"DropRate": 10000
+			},
+			{
+				"Item": "Phoenix",
+				"DropRate": 5000,
+				"Types": ["pet"]
+			},
+			{
+				"Item": "Warm gloves",
+				"DropRate": 150
+			},
+			{
+				"Item": "Bruma Torch",
+				"DropRate": 150
+			},
+			{
+				"Item": "Pyromancer Mask",
+				"DropRate": 600
+			},
+			{
+				"Item": "Pyromancer Top",
+				"DropRate": 600
+			},
+			{
+				"Item": "Pyromancer Bottoms",
+				"DropRate": 600
+			},
+			{
+				"Item": "Pyromancer boots",
+				"DropRate": 600
+			}
+
+			
+		]
 	}
 ]
