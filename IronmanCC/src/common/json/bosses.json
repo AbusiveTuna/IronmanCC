@@ -1,7 +1,7 @@
 [
 	{
 		"Boss": "Abyssal Sire",
-		"Categories": ["slayer boss"],
+		"Categories": ["slayer boss", "demons"],
 		"EHB": 39,
 		"Drops": [
 			{
@@ -1751,8 +1751,30 @@
 				"Item": "Pyromancer boots",
 				"DropRate": 600
 			}
-
-			
+		]
+	},
+		{
+		"Boss": "Zalcano",
+		"Categories": ["minigames"],
+		"EHB": 1,
+		"Drops": [
+			{
+				"Item": "Zalcano shard",
+				"DropRate": 1000
+			},
+			{
+				"Item": "Uncut onyx",
+				"DropRate": 8000
+			},
+			{
+				"Item": "Smolcano",
+				"DropRate": 2250,
+				"Types": ["pet"]
+			},
+			{
+				"Item": "Crystal tool seed",
+				"DropRate": 1000
+			}
 		]
 	}
 ]

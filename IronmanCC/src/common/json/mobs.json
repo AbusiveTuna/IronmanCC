@@ -166,7 +166,7 @@
     },
     {
         "Boss": "Abyssal Demons",
-        "Categories": ["slayer mob"],
+        "Categories": ["slayer mob", "demons"],
         "EHB": 150,
         "Drops": [
             {
