@@ -37,7 +37,7 @@ function App() {
           <Route path="/summer-bingo-testing" element={<SummerBingo/>} />
           <Route path="/teamA" element={<TeamBoard teamName="Team A"/>} />
           <Route path="/teamB" element={<TeamBoard teamName="Team B"/>} />
-          <Route path="/draft" element={<Draft></Draft>} />
+          <Route path="/draft" element={<Draft/>} />
 
         </Routes>
       </Router>
