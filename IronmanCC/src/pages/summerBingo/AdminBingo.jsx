@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState, useCallback } from "react";
-import "./admin.css";
+import "./Admin.css";
 import tiles from "./tiles.json";
 
 const API_BASE = "https://api.ironmancc.com/ironmancc";
