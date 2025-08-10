@@ -3,17 +3,24 @@ import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import './draft.css';
 
-const BUYINS_URL = 'https://ironmancc-89ded0fcdb2b.herokuapp.com/ironmancc/buyins';
-const DRAFT_URL = 'https://ironmancc-89ded0fcdb2b.herokuapp.com/everythingBingo/draft';
+const API_BASE = 'https://api.ironmancc.com/ironmancc';
+const BUYINS_URL = `${API_BASE}/buyins`;
+const DRAFT_GET_URL = (id) => `${API_BASE}/draft/${id}`;
+const DRAFT_SAVE_URL = `${API_BASE}/draft-save`;
 const TYPE = 'PLAYER';
-const EVENT_NAME = 'everything bingo v2';
+const EVENT_NAME = 'summer classic 2025';
+const COMPETITION_ID = 101;
 
-const INITIAL_TEAM_NAMES = [
-  'Barely Legal Seafood',
-  'The Butter Churners',
-  'Everything but the Tub',
-  'Sophanem Sigmas'
-];
+const INITIAL_TEAM_NAMES = ['Team Tuna', 'Team Chkn'];
+
+const normalizeTeams = (teamsJson) => {
+  const t = teamsJson || {};
+  if (INITIAL_TEAM_NAMES.every((n) => n in t)) return t;
+  const out = {};
+  if (t.teamOne) out[INITIAL_TEAM_NAMES[0]] = (t.teamOne.players || []).map((name) => ({ name }));
+  if (t.teamTwo) out[INITIAL_TEAM_NAMES[1]] = (t.teamTwo.players || []).map((name) => ({ name }));
+  return Object.keys(out).length ? out : null;
+};
 
 const Draft = () => {
   const [buyins, setBuyins] = useState([]);
@@ -23,7 +30,11 @@ const Draft = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [buyRes, draftRes] = await Promise.all([fetch(BUYINS_URL), fetch(DRAFT_URL)]);
+        const [buyRes, draftRes] = await Promise.all([
+          fetch(BUYINS_URL),
+          fetch(DRAFT_GET_URL(COMPETITION_ID)),
+        ]);
+
         const buyData = await buyRes.json();
         setBuyins(
           buyData.filter(
@@ -36,9 +47,10 @@ const Draft = () => {
 
         if (draftRes.ok) {
           const draftData = await draftRes.json();
-          if (draftData?.teams) {
+          const norm = normalizeTeams(draftData?.teams);
+          if (norm) {
             for (const name of INITIAL_TEAM_NAMES) {
-              initialTeams[name] = draftData.teams[name] || [];
+              initialTeams[name] = norm[name] || [];
             }
           }
         }
@@ -84,11 +96,12 @@ const Draft = () => {
 
   const handleSaveDraft = useCallback(async () => {
     try {
-      await fetch(DRAFT_URL, {
+      const res = await fetch(DRAFT_SAVE_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ teams }),
+        body: JSON.stringify({ competitionId: COMPETITION_ID, teams }),
       });
+      if (!res.ok) throw new Error(`Bad status ${res.status}`);
       alert('Draft saved.');
     } catch (err) {
       console.error(err);
@@ -124,7 +137,6 @@ const Draft = () => {
     </DndProvider>
   );
 };
-
 
 const DraftTable = ({ title, data, onDrop }) => {
   const [, drop] = useDrop(
@@ -162,7 +174,6 @@ const DraftTable = ({ title, data, onDrop }) => {
     </div>
   );
 };
-
 
 const DraggableRow = ({ player }) => {
   const [{ isDragging }, drag] = useDrag(

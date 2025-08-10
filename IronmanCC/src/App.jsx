@@ -12,7 +12,7 @@ import FarmingTimers from 'pages/farmingTimers/FarmingTimers';
 import SummerBingo from 'pages/summerBingo/SummerBingo';
 import SummerBingoTimer from 'pages/summerBingo/SummerBingoTimer';
 import TeamBoard from 'pages/summerBingo/TeamBoard';
-
+import Draft from 'pages/Draft/Draft';
 import Header from 'components/header/Header';
 
 import './App.css'
@@ -37,6 +37,7 @@ function App() {
           <Route path="/summer-bingo-testing" element={<SummerBingo/>} />
           <Route path="/teamA" element={<TeamBoard teamName="Team A"/>} />
           <Route path="/teamB" element={<TeamBoard teamName="Team B"/>} />
+          <Route path="/draft" element={<Draft></Draft>} />
 
         </Routes>
       </Router>
