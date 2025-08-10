@@ -1,0 +1,53 @@
+.admin-wrap { padding: 16px; }
+.admin-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;
+}
+.admin-grids {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start;
+}
+.admin-panel {
+  border: 1px solid #2a2a2a; border-radius: 8px; padding: 12px; background: #0f0f10; color: #eee;
+}
+.admin-teamHeader {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; margin-bottom: 8px;
+}
+.admin-points { font-weight: 700; }
+
+.admin-table { width: 100%; border-collapse: collapse; }
+.admin-table th, .admin-table td {
+  border-bottom: 1px solid #2a2a2a; padding: 6px 8px; vertical-align: middle;
+}
+.admin-table thead th { text-align: left; font-size: 13px; opacity: .9; }
+
+.tile-cell { display: grid; grid-template-columns: 32px 1fr; gap: 8px; align-items: center; }
+.tile-icon { width: 32px; height: 32px; object-fit: contain; }
+.tile-text { display: grid; gap: 2px; }
+.tile-title { font-weight: 700; font-size: 14px; }
+.tile-sub { font-size: 12px; opacity: .8; }
+
+.num { width: 60px; }
+.progress-cell { display: flex; align-items: center; gap: 4px; }
+.progress-cell input {
+  width: 70px; padding: 4px 6px; border-radius: 6px; border: 1px solid #3a3a3a; background: #151515; color: #eee;
+}
+.progress-cell .slash { opacity: .7; }
+
+.pill {
+  display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; text-transform: capitalize;
+  background: #222; border: 1px solid #3a3a3a;
+}
+.pill.completed   { background: #1f3d23; border-color: #2f7d3b; }
+.pill.in_progress { background: #3a2a11; border-color: #7d6a2f; }
+.pill.not_started { background: #222; }
+
+.quick .a-btn { margin-right: 6px; }
+.a-btn {
+  background: #222; color: #eee; border: 1px solid #3a3a3a; border-radius: 6px; padding: 6px 10px; cursor: pointer;
+}
+.a-btn:hover { background: #2a2a2a; }
+.a-primary { background: #2a3b6d; border-color: #3a4b8d; }
+.a-primary:hover { background: #32406f; }
+
+@media (max-width: 1100px) {
+  .admin-grids { grid-template-columns: 1fr; }
+}

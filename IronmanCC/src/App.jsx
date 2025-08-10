@@ -17,6 +17,7 @@ import Header from 'components/header/Header';
 
 import './App.css'
 import BingoBuyInsAdmin from './pages/buyins/BingoBuyInsAdmin';
+import AdminBingo from './pages/summerBingo/AdminBingo';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/teamA" element={<TeamBoard teamName="Team A"/>} />
           <Route path="/teamB" element={<TeamBoard teamName="Team B"/>} />
           <Route path="/draft" element={<Draft></Draft>} />
+          <Route path="/admin" element={<AdminBingo/>}/>
 
         </Routes>
       </Router>

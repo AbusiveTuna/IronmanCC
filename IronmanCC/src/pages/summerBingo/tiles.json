@@ -5,6 +5,7 @@
     "Description": "Obtain a Magic Fang from Zulrah",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Infinity.png",
+    "Goal": 1,
     "Type": "easy"
   },
   {
@@ -13,6 +14,7 @@
     "Description": "Obtain any major pet",
     "LongDescription": "Pets such as chaos elemental, or chompy chick will not be accepted.",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 3,
     "Type": "hard"
   },
   {
@@ -21,6 +23,7 @@
     "Description": "Obtain any GWD hilt",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "hard"
   },
   {
@@ -29,6 +32,7 @@
     "Description": "Obtain Vorkath's head",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "easy"
   },
   {
@@ -37,6 +41,7 @@
     "Description": "Obtain any Barrows unique",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "easy"
   },
     {
@@ -45,6 +50,7 @@
     "Description": "Obtain a Magic Fang from Zulrah",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Infinity.png",
+    "Goal": 1,
     "Type": "easy"
   },
   {
@@ -53,6 +59,7 @@
     "Description": "Obtain any major pet",
     "LongDescription": "Pets such as chaos elemental, or chompy chick will not be accepted.",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "hard"
   },
   {
@@ -61,6 +68,7 @@
     "Description": "Obtain any GWD hilt",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "hard"
   },
   {
@@ -69,6 +77,7 @@
     "Description": "Obtain Vorkath's head",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "easy"
   },
   {
@@ -77,6 +86,7 @@
     "Description": "Obtain any Barrows unique",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "easy"
   },
     {
@@ -85,6 +95,7 @@
     "Description": "Obtain a Magic Fang from Zulrah",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Infinity.png",
+    "Goal": 1,
     "Type": "easy"
   },
   {
@@ -93,6 +104,7 @@
     "Description": "Obtain any major pet",
     "LongDescription": "Pets such as chaos elemental, or chompy chick will not be accepted.",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "hard"
   },
   {
@@ -101,6 +113,7 @@
     "Description": "Obtain any GWD hilt",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "hard"
   },
   {
@@ -109,6 +122,7 @@
     "Description": "Obtain Vorkath's head",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "easy"
   },
   {
@@ -117,6 +131,7 @@
     "Description": "Obtain any Barrows unique",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "easy"
   },
     {
@@ -125,6 +140,7 @@
     "Description": "Obtain a Magic Fang from Zulrah",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Infinity.png",
+    "Goal": 1,
     "Type": "easy"
   },
   {
@@ -133,6 +149,7 @@
     "Description": "Obtain any major pet",
     "LongDescription": "Pets such as chaos elemental, or chompy chick will not be accepted.",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "hard"
   },
   {
@@ -141,6 +158,7 @@
     "Description": "Obtain any GWD hilt",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "hard"
   },
   {
@@ -149,6 +167,7 @@
     "Description": "Obtain Vorkath's head",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "easy"
   },
   {
@@ -157,6 +176,7 @@
     "Description": "Obtain any Barrows unique",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "easy"
   },
     {
@@ -165,6 +185,7 @@
     "Description": "Obtain a Magic Fang from Zulrah",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Infinity.png",
+    "Goal": 1,
     "Type": "easy"
   },
   {
@@ -173,6 +194,7 @@
     "Description": "Obtain any major pet",
     "LongDescription": "Pets such as chaos elemental, or chompy chick will not be accepted.",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "hard"
   },
   {
@@ -181,6 +203,7 @@
     "Description": "Obtain any GWD hilt",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "hard"
   },
   {
@@ -189,6 +212,7 @@
     "Description": "Obtain Vorkath's head",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "easy"
   },
   {
@@ -197,6 +221,7 @@
     "Description": "Obtain any Barrows unique",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 1,
     "Type": "easy"
   }
 ]
