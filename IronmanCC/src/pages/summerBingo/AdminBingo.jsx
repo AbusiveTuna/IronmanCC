@@ -7,7 +7,7 @@ const DRAFT_GET_URL = (id) => `${API_BASE}/draft/${id}`;
 const PROGRESS_GET_URL = (id, team) =>
   `${API_BASE}/progress/${id}?team=${encodeURIComponent(team)}`;
 const PROGRESS_SAVE_URL = `${API_BASE}/progress-save`;
-const COMPETITION_ID = 1;
+const COMPETITION_ID = 101;
 
 function normalizeTeamNames(teamsJson) {
   if (!teamsJson) return ["Team A", "Team B"];
