@@ -7,7 +7,7 @@ const API_BASE = "https://api.ironmancc.com/ironmancc";
 const DRAFT_GET_URL = (id) => `${API_BASE}/draft/${id}`;
 const PROGRESS_GET_URL = (id, team) =>
   `${API_BASE}/progress/${id}?team=${encodeURIComponent(team)}`;
-const COMPETITION_ID = 1;
+const COMPETITION_ID = 101;
 
 function completedCount(map) {
   return Object.values(map || {}).filter(

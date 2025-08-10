@@ -18,7 +18,7 @@ function rowsUnlocked(map) {
   return Math.min(1 + Math.floor(done / 3), 5);
 }
 
-const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 1 }) => {
+const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
   const [statusMap, setStatusMap] = useState({});
   const [points, setPoints] = useState(0);
   const [loading, setLoading] = useState(true);
