@@ -1,44 +1,59 @@
-// SummerBingo.jsx
-import React, { useEffect, useState } from "react";
+import { useMemo } from "react";
 import "./SummerBingo.css";
+import tiles from "./tiles.json";
+import statusA from "./status.mock.json";
+import statusB from "./status.mock.json";
+import Board from "./Board";
+
+function completedCount(statusMap) {
+  return Object.values(statusMap || {}).filter(
+    s => s?.status === "completed" || (s?.goal ?? 1) <= (s?.progress ?? 0)
+  ).length;
+}
+
+function rowsUnlocked(statusMap) {
+  const completed = completedCount(statusMap);
+  return Math.min(1 + Math.floor(completed / 3), 5);
+}
 
 const SummerBingo = () => {
-  const target = new Date("2025-08-15T06:00:00-04:00"); // EDT –04:00
+  const board = useMemo(() => tiles.slice(0, 25), []);
+  const rowsA = rowsUnlocked(statusA);
+  const rowsB = rowsUnlocked(statusB);
+  const sharedRows = Math.min(rowsA, rowsB);
 
-  const getDiff = () => Math.max(0, target.getTime() - Date.now());
-  const [timeLeft, setTimeLeft] = useState(getDiff());
-
-  useEffect(() => {
-    const id = setInterval(() => setTimeLeft(getDiff()), 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  const totalSeconds = Math.floor(timeLeft / 1000);
-  const totalHours  = Math.ceil(totalSeconds / 3600);
-
-  const days    = Math.floor(totalSeconds / 86400);
-  const hours   = Math.floor((totalSeconds % 86400) / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
+  const pointsA = completedCount(statusA) * 5;
+  const pointsB = completedCount(statusB) * 5;
 
   return (
-    <div className="summer-bingo">
-      <h1 className="title">Summer Bingo 2025</h1>
+    <div className="summerBingo-wrap">
+      <div className="summerBingo-boards">
+        <section className="summerBingo-team">
+          <header className="summerBingo-teamHeader">
+            <h2>Team A</h2>
+            <div className="summerBingo-points">{pointsA} pts</div>
+          </header>
+          <Board
+            tiles={board}
+            statusMap={statusA}
+            visibleRows={sharedRows}
+            style={{ "--tile-max": "160px" }}
+          />
+        </section>
 
-      <div className="timer">
-        <span className="hours">{totalHours}</span>
-        <span className="label">
-          {totalHours === 1 ? "Hour Remains" : "Hours Remain"}
-        </span>
+        <section className="summerBingo-team">
+          <header className="summerBingo-teamHeader">
+            <h2>Team B</h2>
+            <div className="summerBingo-points">{pointsB} pts</div>
+          </header>
+          <Board
+            tiles={board}
+            statusMap={statusB}
+            visibleRows={sharedRows}
+            style={{ "--tile-max": "160px" }}
+          />
+        </section>
       </div>
-
-      <div className="breakdown">
-        {`${days}d ${hours}h ${minutes}m ${seconds}s`}
-      </div>
-
-      <p className="event-range">
-        August 15<sup>th</sup> 6 AM EST - August 29<sup>th</sup> 12 AM EST
-      </p>
     </div>
   );
 };

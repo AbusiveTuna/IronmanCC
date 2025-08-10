@@ -1,0 +1,101 @@
+.summerBingo-tile {
+  position: relative;
+  background: #0f0f10;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  color: #eee;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.summerBingo-infoBtn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: .9;
+}
+.summerBingo-infoBtn:hover { opacity: 1; }
+.summerBingo-infoBtn img { width: 100%; height: 100%; display: block; }
+
+.summerBingo-diff {
+  align-self: flex-start;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.summerBingo-diff--easy   { background: #1f3d23; }
+.summerBingo-diff--medium { background: #3a2a11; }
+.summerBingo-diff--hard   { background: #3a1515; }
+
+.summerBingo-body {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 8px;
+}
+
+.summerBingo-img { width: 36px; height: 36px; object-fit: contain; }
+
+.summerBingo-text { display: grid; gap: 2px; }
+
+.summerBingo-title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.summerBingo-desc {
+  font-size: 12px;
+  opacity: .9;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.is-completed    { border-color: #2f7d3b; }
+.is-in-progress  { border-color: #7d6a2f; }
+.is-not-started  { border-color: #3a3a3a; opacity: .95; }
+
+.summerBingo-modalOverlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.6);
+  display: grid; place-items: center;
+  z-index: 50;
+}
+.summerBingo-modal {
+  background: #101014;
+  border: 1px solid #30303a;
+  border-radius: 12px;
+  width: min(560px, 92vw);
+  max-height: 80vh;
+  padding: 14px;
+  color: #eee;
+  overflow: auto;
+}
+.summerBingo-modalHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 8px;
+}
+.summerBingo-modalTitle { font-weight: 700; font-size: 1rem; }
+.summerBingo-modalClose {
+  background: transparent; border: 0; color: #aaa; font-size: 22px; cursor: pointer;
+}
+.summerBingo-modalClose:hover { color: #fff; }
+.summerBingo-modalBody { font-size: 14px; line-height: 1.5; white-space: pre-wrap; }
