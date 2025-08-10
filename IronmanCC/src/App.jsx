@@ -12,7 +12,7 @@ import FarmingTimers from 'pages/farmingTimers/FarmingTimers';
 import SummerBingo from 'pages/summerBingo/SummerBingo';
 import SummerBingoTimer from 'pages/summerBingo/SummerBingoTimer';
 import TeamBoard from 'pages/summerBingo/TeamBoard';
-import Draft from 'pages/Draft/Draft';
+import Draft from 'pages/draft/Draft';
 import Header from 'components/header/Header';
 
 import './App.css'
