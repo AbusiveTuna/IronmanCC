@@ -7,17 +7,33 @@
   align-items: start;
 }
 
+.summerBingo-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .summerBingo-teamHeader {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  text-align: center;
 }
+
 .summerBingo-teamHeader h2 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  font-weight: 800;
 }
-.summerBingo-points { font-weight: 700; }
+
+.summerBingo-points {
+  font-weight: 700;
+  font-size: 1rem;
+  opacity: 0.95;
+}
 
 .summerBingo-board {
   display: grid;

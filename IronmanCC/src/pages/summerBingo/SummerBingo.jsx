@@ -143,6 +143,7 @@ const SummerBingo = () => {
             statusMap={statusA}
             visibleRows={sharedRows}
             style={{ "--tile-max": "160px" }}
+            showDesc={false}
           />
         </section>
 
@@ -156,6 +157,7 @@ const SummerBingo = () => {
             statusMap={statusB}
             visibleRows={sharedRows}
             style={{ "--tile-max": "160px" }}
+            showDesc={false}
           />
         </section>
       </div>

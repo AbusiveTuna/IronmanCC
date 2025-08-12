@@ -1,7 +1,6 @@
-import React from "react";
 import TileCard from "./TileCard";
 
-const Board = ({ tiles, statusMap, visibleRows = 1, style }) => {
+const Board = ({ tiles, statusMap, visibleRows = 1, style, showDesc = false }) => {
   return (
     <div className="summerBingo-board" style={style}>
       {tiles.map((t, i) => {
@@ -13,6 +12,7 @@ const Board = ({ tiles, statusMap, visibleRows = 1, style }) => {
             tile={t}
             status={statusMap?.[t.Id]}
             redacted={redacted}
+            showDesc={showDesc}
           />
         );
       })}

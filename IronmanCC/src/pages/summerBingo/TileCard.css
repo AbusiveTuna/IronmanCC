@@ -18,8 +18,8 @@
   position: absolute;
   top: 6px;
   right: 6px;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -40,20 +40,30 @@
 .summerBingo-diff--medium { background: #3a2a11; }
 .summerBingo-diff--hard   { background: #3a1515; }
 
-.summerBingo-body {
-  display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 8px;
+.summerBingo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-height: 0;
 }
 
-.summerBingo-img { width: 36px; height: 36px; object-fit: contain; }
+.summerBingo-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  min-height: 0;
+}
 
-.summerBingo-text { display: grid; gap: 2px; }
+.summerBingo-img { width: 40px; height: 40px; object-fit: contain; }
 
 .summerBingo-title {
   font-weight: 700;
-  font-size: 14px;
-  line-height: 1.1;
+  font-size: 18px;
+  line-height: 1.15;
+  max-width: 100%;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -61,41 +71,58 @@
 }
 
 .summerBingo-desc {
-  font-size: 12px;
-  opacity: .9;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  font-size: 16px;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.summerBingo-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.summerBingo-badge {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #1e1e22;
+  border: 1px solid #333;
+  align-self: center;
+}
+
+.summerBingo-badge--compact {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .is-completed    { border-color: #2f7d3b; }
 .is-in-progress  { border-color: #7d6a2f; }
 .is-not-started  { border-color: #3a3a3a; opacity: .95; }
 
-.summerBingo-modalOverlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.6);
-  display: grid; place-items: center;
-  z-index: 50;
+.summerBingo-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
 }
-.summerBingo-modal {
-  background: #101014;
-  border: 1px solid #30303a;
-  border-radius: 12px;
-  width: min(560px, 92vw);
-  max-height: 80vh;
-  padding: 14px;
-  color: #eee;
-  overflow: auto;
+
+.summerBingo-bonus {
+  font-size: 11px;
+  opacity: .95;
 }
-.summerBingo-modalHeader {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 8px;
+.summerBingo-bonus.is-bonus-completed {
+  color: #95ffa5;
+  font-weight: 700;
 }
-.summerBingo-modalTitle { font-weight: 700; font-size: 1rem; }
-.summerBingo-modalClose {
-  background: transparent; border: 0; color: #aaa; font-size: 22px; cursor: pointer;
-}
-.summerBingo-modalClose:hover { color: #fff; }
-.summerBingo-modalBody { font-size: 14px; line-height: 1.5; white-space: pre-wrap; }

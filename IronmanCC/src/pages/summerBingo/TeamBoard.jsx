@@ -1,7 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import "./SummerBingo.css";
 import tiles from "./tiles.json";
 import Board from "./Board";
+import devProgress from "./progress.dev.json";
 
 const API_BASE = "https://api.ironmancc.com/ironmancc";
 const PROGRESS_GET_URL = (id, team) =>
@@ -19,10 +20,11 @@ function rowsUnlocked(map) {
 }
 
 const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
+  const all = useMemo(() => tiles.slice(0, 25), []);
+
   const [statusMap, setStatusMap] = useState({});
   const [points, setPoints] = useState(0);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     let active = true;
     (async () => {
@@ -30,33 +32,24 @@ const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
         const res = await fetch(PROGRESS_GET_URL(competitionId, teamName));
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
-        const tilesMap =
-          data?.tiles ||
-          data?.teams?.[teamName]?.tiles ||
-          {};
-        const pts =
-          typeof data?.points_total === "number"
-            ? data.points_total
-            : completedCount(tilesMap) * 5;
+        const tilesMap = data?.tiles || data?.teams?.[teamName]?.tiles || {};
+        const pts = typeof data?.points_total === "number"
+          ? data.points_total
+          : completedCount(tilesMap) * 5;
         if (active) {
           setStatusMap(tilesMap);
           setPoints(pts);
         }
-      } catch (e) {
-        if (active) {
-          setStatusMap({});
-          setPoints(0);
-        }
+      } catch {
+        if (active) { setStatusMap({}); setPoints(0); }
       } finally {
         if (active) setLoading(false);
       }
     })();
-    return () => {
-      active = false;
-    };
+    return () => { active = false; };
   }, [competitionId, teamName]);
 
-  const all = useMemo(() => tiles.slice(0, 25), []);
+
   const rows = rowsUnlocked(statusMap);
   const visibleTiles = all.slice(0, rows * 5);
 
@@ -68,7 +61,7 @@ const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
           <div className="summerBingo-points">…</div>
         </header>
         <div className="summerBingo-board" style={{ "--tile-max": tileMax }}>
-          {Array.from({ length: 5 * 1 }).map((_, i) => (
+          {Array.from({ length: 5 }).map((_, i) => (
             <div key={i} className="summerBingo-tile skeleton" />
           ))}
         </div>
@@ -87,6 +80,7 @@ const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
         statusMap={statusMap}
         visibleRows={999}
         style={{ "--tile-max": tileMax }}
+        showDesc={true}
       />
     </section>
   );

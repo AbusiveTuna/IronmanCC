@@ -1,11 +1,12 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import StatusBadge from "./StatusBadge";
+import TileModal from "./TileModal";
 import "./TileCard.css";
 
-const TileCard = ({ tile, status, redacted = false }) => {
+const TileCard = ({ tile, status, redacted = false, showDesc = false }) => {
   const [open, setOpen] = useState(false);
 
-  const goal = status?.goal ?? 1;
+  const goal = status?.goal ?? tile.Goal ?? 1;
   const progress = status?.progress ?? 0;
 
   const state = useMemo(() => {
@@ -15,16 +16,6 @@ const TileCard = ({ tile, status, redacted = false }) => {
   }, [status, goal, progress]);
 
   const pct = Math.min(100, Math.round((progress / goal) * 100));
-
-  useEffect(() => {
-    const onKey = e => { if (e.key === "Escape") setOpen(false); };
-    if (open) document.addEventListener("keydown", onKey);
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [open]);
 
   return (
     <>
@@ -36,7 +27,7 @@ const TileCard = ({ tile, status, redacted = false }) => {
             aria-label="Details"
             onClick={() => tile.LongDescription && setOpen(true)}
           >
-            <img src="/icons/info.svg" alt="" />
+            <img src="/osrs_icons/Items/cake.png" alt="" />
           </button>
         )}
 
@@ -46,51 +37,32 @@ const TileCard = ({ tile, status, redacted = false }) => {
           </div>
         )}
 
-        {!redacted ? (
-          <div className="summerBingo-body">
-            <img className="summerBingo-img" src={tile.Image} alt={tile.Name} />
-            <div className="summerBingo-text">
+        <div className="summerBingo-content">
+          {!redacted ? (
+            <div className="summerBingo-body">
+              <img className="summerBingo-img" src={tile.Image} alt={tile.Name} />
               <div className="summerBingo-title">{tile.Name}</div>
-              <div className="summerBingo-desc">{tile.Description}</div>
+              {showDesc && <div className="summerBingo-desc">{tile.Description}</div>}
             </div>
-          </div>
-        ) : (
-          <div className="summerBingo-redactedBody" />
-        )}
+          ) : (
+            <div className="summerBingo-redactedBody" />
+          )}
 
-        <StatusBadge
-          state={state}
-          progress={progress}
-          goal={goal}
-          pct={pct}
-          compact={redacted}
-        />
-      </div>
-
-      {!redacted && open && (
-        <div className="summerBingo-modalOverlay" onClick={() => setOpen(false)}>
-          <div
-            className="summerBingo-modal"
-            role="dialog"
-            aria-modal="true"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="summerBingo-modalHeader">
-              <div className="summerBingo-modalTitle">{tile.Name}</div>
-              <button
-                type="button"
-                className="summerBingo-modalClose"
-                aria-label="Close"
-                onClick={() => setOpen(false)}
-                autoFocus
-              >
-                x
-              </button>
-            </div>
-            <div className="summerBingo-modalBody">{tile.LongDescription}</div>
+          <div className="summerBingo-footer">
+            <StatusBadge
+              state={state}
+              progress={progress}
+              goal={goal}
+              pct={pct}
+              compact={redacted}
+            />
           </div>
         </div>
-      )}
+      </div>
+
+      <TileModal open={!!(!redacted && open)} title={tile.Name} onClose={() => setOpen(false)}>
+        {tile.LongDescription || "No additional details."}
+      </TileModal>
     </>
   );
 };
