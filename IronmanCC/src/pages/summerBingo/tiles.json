@@ -153,7 +153,7 @@
     "Name": "Why is this in every bingo???",
     "Description": "Obtain a Ham Joint or Flared trousers from an easy clue",
     "LongDescription": "",
-    "Image": "/osrs_icons/Items/Infinity.png",
+    "Image": "/osrs_icons/Items/ham joint.webp",
     "Goal": 1,
     "EHB": 15,
     "Type": "easy"
@@ -163,7 +163,7 @@
     "Name": "Getting a head(s)",
     "Description": "Obtain four unique heads from the following list",
     "LongDescription": "Hydra Heads, KQ Head, KBD Heads, Vorkath's Head, Araxyte Head, Abyssal Head, Kurask Head, Basilisk Head",
-    "Image": "/osrs_icons/Items/Bran.png",
+    "Image": "/osrs_icons/Items/kbd heads.webp",
     "Goal": 4,
     "Type": "hard"
   },
@@ -181,7 +181,7 @@
     "Name": "Wow! Two Skilling tiles!",
     "Description": "Gain 10m xp in gathering skills",
     "LongDescription": "Farming\nHunter\nMining\nWoodcutting\nCounts xp from the entire bingo.",
-    "Image": "/osrs_icons/Items/Bran.png",
+    "Image": "/osrs_icons/Skills/Hunter.png",
     "Goal": 10,
     "Type": "easy"
   },
@@ -190,7 +190,7 @@
     "Name": "Burning Claws",
     "Description": "Obtain two burning claws",
     "LongDescription": "",
-    "Image": "/osrs_icons/Items/Bran.png",
+    "Image": "/osrs_icons/Items/Burning Claws.png",
     "Goal": 2,
     "Type": "easy"
   },
@@ -199,7 +199,7 @@
     "Name": "Revenants",
     "Description": "Obtain any of the three Revenant weapons",
     "LongDescription": "",
-    "Image": "/osrs_icons/Items/Infinity.png",
+    "Image": "/osrs_icons/Items/craws bow.png",
     "Goal": 1,
     "Type": "easy"
   },
@@ -208,7 +208,7 @@
     "Name": "Minigames! I mean, bosses?",
     "Description": "Obtain 2 of the uniques listed below",
     "LongDescription": "Tome of Fire\nTome of water\nCrystal Tool Seed\nBig Harpoonfish\nZalcano Shard\nPryomancer Mask",
-    "Image": "/osrs_icons/Items/Bran.png",
+    "Image": "/osrs_icons/Items/Tome.png",
     "Goal": 2,
     "Type": "hard"
   },
