@@ -2,7 +2,6 @@ import { useEffect, useState, useMemo } from "react";
 import "./SummerBingo.css";
 import tiles from "./tiles.json";
 import Board from "./Board";
-import devProgress from "./progress.dev.json";
 
 const API_BASE = "https://api.ironmancc.com/ironmancc";
 const PROGRESS_GET_URL = (id, team) =>
