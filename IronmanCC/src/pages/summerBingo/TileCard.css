@@ -1,128 +1,152 @@
+:root {
+  --sb-bg: #0c0d10;
+  --sb-tile: #15181b;
+  --sb-text: #f3f4f6;
+  --sb-muted: #9aa3af;
+
+  --sb-green: #2ecc71;
+  --sb-green-15: rgba(46, 204, 113, 0.15);
+  --sb-amber: #f2b705;
+  --sb-amber-15: rgba(242, 183, 5, 0.15);
+  --sb-gray: #323844;
+  --sb-border: #242a33;
+}
+
 .summerBingo-tile {
   position: relative;
-  background: #0f0f10;
-  border: 1px solid #2a2a2a;
-  border-radius: 8px;
-  color: #eee;
-  padding: 8px;
+  background: var(--sb-tile);
+  border: 2px solid var(--sb-border);
+  border-radius: 12px;
+  color: var(--sb-text);
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   width: 100%;
   aspect-ratio: 1 / 1;
-  min-height: 0;
   overflow: hidden;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease, background 120ms ease;
+  -webkit-font-smoothing: auto;
+  text-rendering: optimizeSpeed;
 }
+
+.summerBingo-tile:hover { transform: translateY(-1px); box-shadow: 0 2px 0 rgba(0,0,0,0.6), 0 12px 28px rgba(0,0,0,0.32); }
 
 .summerBingo-infoBtn {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 25px;
-  height: 25px;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
   padding: 0;
   border: 0;
-  background: transparent;
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
   cursor: pointer;
-  opacity: .9;
+  display: grid;
+  place-items: center;
+  transition: background 120ms ease, transform 120ms ease;
 }
-.summerBingo-infoBtn:hover { opacity: 1; }
-.summerBingo-infoBtn img { width: 100%; height: 100%; display: block; }
+.summerBingo-infoBtn:hover { background: rgba(255,255,255,0.12); transform: scale(1.04); }
+.summerBingo-infoBtn img { width: 18px; height: 18px; filter: drop-shadow(0 1px 0 #000); }
 
 .summerBingo-diff {
   align-self: flex-start;
-  padding: 1px 6px;
+  padding: 3px 8px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
+  letter-spacing: .3px;
+  background: #23272f;
+  border: 1px solid #39404c;
+  color: #e8eaee;
 }
-.summerBingo-diff--easy   { background: #1f3d23; }
-.summerBingo-diff--medium { background: #3a2a11; }
-.summerBingo-diff--hard   { background: #3a1515; }
 
-.summerBingo-content {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex: 1;
-  min-height: 0;
-}
+.summerBingo-diff--easy   { background: #15321b; border-color: #1e4d28; }
+.summerBingo-diff--medium { background: #3a2a11; border-color: #5b431a; }
+.summerBingo-diff--hard   { background: #3a1515; border-color: #5c1f1f; }
+
+.summerBingo-content { display: flex; flex-direction: column; gap: 8px; min-height: 0; flex: 1; }
 
 .summerBingo-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  justify-items: center;
+  gap: 8px;
   text-align: center;
   min-height: 0;
 }
 
-.summerBingo-img { width: 40px; height: 40px; object-fit: contain; }
+.summerBingo-img { width: 48px; height: 48px; object-fit: contain; image-rendering: -webkit-optimize-contrast; }
 
 .summerBingo-title {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 18px;
-  line-height: 1.15;
+  line-height: 1.12;
   max-width: 100%;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  text-wrap: balance;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 
 .summerBingo-desc {
-  font-size: 16px;
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
+  font-size: 14px;
+  line-height: 1.25;
+  color: var(--sb-muted);
+  display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
 }
 
 .summerBingo-footer {
   margin-top: auto;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  gap: 6px;
+  align-items: center;
+  justify-items: stretch;
 }
 
-.summerBingo-badge {
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  background: #1e1e22;
-  border: 1px solid #333;
-  align-self: center;
-}
-
-.summerBingo-badge--compact {
-  width: 18px;
-  height: 18px;
-  padding: 0;
+.summerBingo-bar {
+  height: 8px;
+  background: #1a1f27;
+  border: 1px solid #2a313d;
   border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+}
+.summerBingo-barFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #5bd786, var(--sb-green));
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25);
+  transition: width 200ms ease;
+}
+.is-in-progress .summerBingo-barFill { background: linear-gradient(90deg, #ffd666, var(--sb-amber)); }
+
+.is-completed {
+  border-color: var(--sb-green);
+  background:
+    linear-gradient(0deg, var(--sb-green-15), var(--sb-green-15)),
+    var(--sb-tile);
+}
+.is-completed .summerBingo-title { color: #e9fff2; }
+
+.is-in-progress {
+  border-color: var(--sb-amber);
+  background:
+    linear-gradient(0deg, var(--sb-amber-15), var(--sb-amber-15)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 10px, transparent 10px 20px),
+    var(--sb-tile);
 }
 
-.is-completed    { border-color: #2f7d3b; }
-.is-in-progress  { border-color: #7d6a2f; }
-.is-not-started  { border-color: #3a3a3a; opacity: .95; }
-
-.summerBingo-footer {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
+.is-not-started {
+  border-color: var(--sb-gray);
+  filter: none;
 }
+.is-not-started .summerBingo-img { opacity: .85; }
+.is-not-started .summerBingo-title { color: #e2e6ec; }
+.is-not-started .summerBingo-desc { color: #8c95a3; }
 
-.summerBingo-bonus {
-  font-size: 11px;
-  opacity: .95;
-}
-.summerBingo-bonus.is-bonus-completed {
-  color: #95ffa5;
-  font-weight: 700;
+.is-redacted .summerBingo-body { filter: blur(3px) brightness(.8); }
+.is-redacted .summerBingo-infoBtn { display: none; }
+
+.summerBingo-tile:focus-within {
+  outline: 3px solid #6aa9ff;
+  outline-offset: 2px;
 }

@@ -21,7 +21,7 @@
   },
   {
     "Id": "3",
-    "Name": "Obtain any raid armor piece",
+    "Name": "Raid Armor",
     "Description": "Obtain any Ancestral, Justi, or Masori from a raid",
     "LongDescription": "Any Anc, Justi, or Masori piece count.\nDoes not require the component upgrade (Ex: Masori Mask does not require an Armadyl Helm)",
     "Image": "/osrs_icons/Theatre_Of_Blood/Justiciar_Faceguard.webp",
@@ -31,7 +31,7 @@
   },
   {
     "Id": "4",
-    "Name": "Skilling Tile - The Buyables",
+    "Name": "Skilling Tile",
     "Description": "As a team gain 15m buyable skills (Press the question mark button)",
     "LongDescription": "Buyable Skills\nConstruction\nCrafting\nFarming\nFiremaking\nFletching\nHerblore\nPrayer\nSmithing",
     "Image": "/osrs_icons/Skills/Prayer.png",
@@ -41,7 +41,7 @@
   },
   {
     "Id": "5",
-    "Name": "Obtain any piece of Oathplate Armor",
+    "Name": "Any Yamaers?",
     "Description": "Obtain any piece of Oathplate Armor",
     "LongDescription": "Can not be crafted, can not be from a contract.",
     "Image": "/osrs_icons/Items/Oathplate_Chest.webp",
@@ -111,7 +111,7 @@
   {
     "Id": "12",
     "Name": "Slayer Bosses",
-    "Description": "Obtain two Slayer Boss items listed below",
+    "Description": "Obtain two Slayer Boss items listed",
     "LongDescription": "Hydra's Claw, Hydra's leather, Primordial Crystal, Black tourmaline core, Kraken tentacle, Dragon chainbody, Araxyte fang, Abby Whip (from sire)",
     "Image": "/osrs_icons/Skills/Slayer.png",
     "Goal": 2,
@@ -165,6 +165,7 @@
     "LongDescription": "Hydra Heads, KQ Head, KBD Heads, Vorkath's Head, Araxyte Head, Abyssal Head, Kurask Head, Basilisk Head",
     "Image": "/osrs_icons/Items/kbd heads.webp",
     "Goal": 4,
+    "EHB": 15,
     "Type": "hard"
   },
   {
@@ -174,6 +175,7 @@
     "LongDescription": "Any purple except for Lightbearer or Fang.",
     "Image": "/osrs_icons/Tombs_Of_Amascut/Elidinis_Ward.webp",
     "Goal": 1,
+    "EHB": 25,
     "Type": "hard"
   },
   {
@@ -192,6 +194,7 @@
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Burning Claws.png",
     "Goal": 2,
+    "EHB": 18,
     "Type": "easy"
   },
     {
@@ -201,12 +204,13 @@
     "LongDescription": "",
     "Image": "/osrs_icons/Items/craws bow.png",
     "Goal": 1,
+    "EHB": 25,
     "Type": "easy"
   },
   {
     "Id": "22",
-    "Name": "Minigames! I mean, bosses?",
-    "Description": "Obtain 2 of the uniques listed below",
+    "Name": "Minigames!",
+    "Description": "Obtain 2 of the uniques listed",
     "LongDescription": "Tome of Fire\nTome of water\nCrystal Tool Seed\nBig Harpoonfish\nZalcano Shard\nPryomancer Mask",
     "Image": "/osrs_icons/Items/Tome.png",
     "Goal": 2,
@@ -214,28 +218,119 @@
   },
   {
     "Id": "23",
-    "Name": "Any Hilt",
-    "Description": "Obtain any GWD hilt",
-    "LongDescription": "",
-    "Image": "/osrs_icons/Items/Bran.png",
+    "Name": "Never ending bingo",
+    "Description": "Obtain any of the listed uniques from Phosani",
+    "LongDescription": "Inquisitor's Great Helm\nInquisitor's Hauberk\nInquisitor's Plateskirt\nInquisitor's Mace\nNightmare Staff\nEldritch Orb\nHarmonised Orb\nVolatile Orb",
+    "Image": "/osrs_icons/Bosses/Phosanis Nightmare.png",
     "Goal": 1,
     "Type": "hard"
   },
   {
     "Id": "24",
-    "Name": "Vorkath's Head",
-    "Description": "Obtain Vorkath's head",
+    "Name": "CG Good",
+    "Description": "Obtain 3 Crystal Armor Seeds",
     "LongDescription": "",
-    "Image": "/osrs_icons/Items/Bran.png",
+    "Image": "/osrs_icons/Items/Crystal seed.png",
     "Goal": 1,
+    "EHB": 18,
     "Type": "easy"
   },
   {
     "Id": "25",
-    "Name": "Obtain 1 Mega Rare from any Raid",
-    "Description": "Tbow, Elder maul, Kodai, Scythe, or Shadow",
-    "LongDescription": "",
+    "Name": "Mega Rare",
+    "Description": "Obtain a Mega Rare from any Raid",
+    "LongDescription": "Tbow, Elder maul, Kodai, Scythe, or Shadow",
     "Image": "/osrs_icons/Chambers_Of_Xeric/Twisted_Bow.webp",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "26",
+    "Name": "Kits! Dusts! Toa bad!",
+    "Description": "Obtain a kit or dust from CM or HMT",
+    "LongDescription": "Obtain one of the following:\nTwisted Ancestral Colour Kit\nMetamorphic Dust\nSanguine Dust\nSanguine Ornament Kit\nHoly Ornament Kit",
+    "Image": "/osrs_icons/Theatre_Of_Blood/Sanguine_Ornament_Kit.webp",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "27",
+    "Name": "Dragon Clogs",
+    "Description": "Obtain one of the rare clogs from a dragon",
+    "LongDescription": "Obtain one of the following from any source:\nDragon Visage\nDragon Full Helm\n Dragon Metal Slice\nDragon Metal Lump\n Wyvern Visage",
+    "Image": "/osrs_icons/Items/DFH.webp",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "28",
+    "Name": "Outback Yama House",
+    "Description": "Obtain the Soulflame Horn",
+    "LongDescription": "",
+    "Image": "/osrs_icons/Items/soulflame_horn.webp",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "29",
+    "Name": "Obtain the Eye of Ayak",
+    "Description": "Obtain the Eye of Ayak",
+    "LongDescription": "",
+    "Image": "/osrs_icons/Items/eye_of_ayak.webp",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "30",
+    "Name": "Oh god why",
+    "Description": "Obtain a Sigil from Corp",
+    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
+    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "31",
+    "Name": "$ Snake/Slug/Dragon",
+    "Description": "Obtain 3 of the listed items",
+    "LongDescription": "Items must be unique, they can only count once.\nPhantom Muspah:\nMuphin\nVenator Shard\nVorkath:\nAny unique except for vorkath's head\nZulrah:\nAny unique except for onyx",
+    "Image": "/osrs_icons/Bosses/Zulrah.png",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "32",
+    "Name": "Valamore Scavenger Hunt",
+    "Description": "Obtain 3 items from Valamore bosses",
+    "LongDescription": "Sol Heredit:\nTonalztics of Ralos\nS'mol heredit\nAny sunfire armor (only counts once, MUST KILL SOL to count)\n\nHueycoatl:\nDragon Hunter Wand\nHubert\n\nAmoxliatl\nMoxi\n\nDoom of Mokhaiotl:\nAvernic Treads\nEye of Ayak\nMokhaiotl Cloth\nDom",
+    "Image": "/osrs_icons/Bosses/Sol Heredit.png",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "33",
+    "Name": "Oh god why",
+    "Description": "Obtain a Sigil from Corp",
+    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
+    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "34",
+    "Name": "Oh god why",
+    "Description": "Obtain a Sigil from Corp",
+    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
+    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "35",
+    "Name": "Oh god why",
+    "Description": "Obtain a Sigil from Corp",
+    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
+    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
     "Goal": 1,
     "Type": "hard"
   }

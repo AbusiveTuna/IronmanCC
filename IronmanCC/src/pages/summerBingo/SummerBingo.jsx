@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "./SummerBingo.css";
 import tiles from "./tiles.json";
-import Board from "./Board";
+import Board from "./components/Board";
 
 const API_BASE = "https://api.ironmancc.com/ironmancc";
 const DRAFT_GET_URL = (id) => `${API_BASE}/draft/${id}`;

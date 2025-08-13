@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import StatusBadge from "./StatusBadge";
-import TileModal from "./TileModal";
+import StatusBadge from "./components/StatusBadge";
+import TileModal from "./components/TileModal";
 import "./TileCard.css";
 
 const TileCard = ({ tile, status, redacted = false, showDesc = false }) => {
@@ -49,6 +49,9 @@ const TileCard = ({ tile, status, redacted = false, showDesc = false }) => {
           )}
 
           <div className="summerBingo-footer">
+            <div className="summerBingo-bar">
+              <div className="summerBingo-barFill" style={{ width: `${pct}%` }} />
+            </div>
             <StatusBadge
               state={state}
               progress={progress}

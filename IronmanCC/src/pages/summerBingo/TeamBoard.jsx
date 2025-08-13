@@ -1,11 +1,6 @@
-import { useEffect, useState, useMemo } from "react";
 import "./SummerBingo.css";
-import tiles from "./tiles.json";
-import Board from "./Board";
-
-const API_BASE = "https://api.ironmancc.com/ironmancc";
-const PROGRESS_GET_URL = (id, team) =>
-  `${API_BASE}/progress/${id}?team=${encodeURIComponent(team)}`;
+import Board from "./components/Board";
+import useTeamBoardData from "./hooks/useTeamBoardData";
 
 function completedCount(map) {
   return Object.values(map || {}).filter(
@@ -15,40 +10,11 @@ function completedCount(map) {
 
 function rowsUnlocked(map) {
   const done = completedCount(map);
-  return Math.min(1 + Math.floor(done / 3), 5);
+  return Math.min(1 + Math.floor(done / 3));
 }
 
 const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
-  const all = useMemo(() => tiles.slice(0, 25), []);
-
-  const [statusMap, setStatusMap] = useState({});
-  const [points, setPoints] = useState(0);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    let active = true;
-    (async () => {
-      try {
-        const res = await fetch(PROGRESS_GET_URL(competitionId, teamName));
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        const tilesMap = data?.tiles || data?.teams?.[teamName]?.tiles || {};
-        const pts = typeof data?.points_total === "number"
-          ? data.points_total
-          : completedCount(tilesMap) * 5;
-        if (active) {
-          setStatusMap(tilesMap);
-          setPoints(pts);
-        }
-      } catch {
-        if (active) { setStatusMap({}); setPoints(0); }
-      } finally {
-        if (active) setLoading(false);
-      }
-    })();
-    return () => { active = false; };
-  }, [competitionId, teamName]);
-
-
+  const { statusMap, points, loading, all } = useTeamBoardData(teamName, competitionId);
   const rows = rowsUnlocked(statusMap);
   const visibleTiles = all.slice(0, rows * 5);
 
