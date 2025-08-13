@@ -47,7 +47,7 @@ function completedCount(map) {
 }
 
 const AdminBingo = () => {
-  const allTiles = useMemo(() => tiles.slice(0, 25), []);
+  const allTiles = useMemo(() => tiles.slice(0, 40), []);
   const [teamNames, setTeamNames] = useState(["Team A", "Team B"]);
   const [maps, setMaps] = useState({}); // { [teamName]: { [tileId]: {status,progress,goal,points} } }
   const [loading, setLoading] = useState(true);
