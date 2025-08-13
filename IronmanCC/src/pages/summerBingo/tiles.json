@@ -333,5 +333,50 @@
     "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
     "Goal": 1,
     "Type": "hard"
+  },
+  {
+    "Id": "36",
+    "Name": "Oh god why",
+    "Description": "Obtain a Sigil from Corp",
+    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
+    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "37",
+    "Name": "Oh god why",
+    "Description": "Obtain a Sigil from Corp",
+    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
+    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "38",
+    "Name": "Oh god why",
+    "Description": "Obtain a Sigil from Corp",
+    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
+    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "39",
+    "Name": "Oh god why",
+    "Description": "Obtain a Sigil from Corp",
+    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
+    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "40",
+    "Name": "Oh god why",
+    "Description": "Obtain a Sigil from Corp",
+    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
+    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Goal": 1,
+    "Type": "hard"
   }
 ]
