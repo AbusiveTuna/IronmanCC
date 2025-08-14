@@ -3,7 +3,7 @@
     "Id": "1",
     "Name": "Clue Items!",
     "Description": "Obtain 5 unique Items required for Clue Scrolls",
-    "LongDescription": "Obtain 5 unique Items required for Clue Scrolls\nAbyssal whip (Only from Sire)\nAny Sunfire Armor (Can only count once)\nArmadyl Helm\nBandos Boots\nBandos Cloak\nBandos Hilt\nBlack Dragon Mask\nBob's Shirt\nBryo's Essence\nDragon Pickaxe\nDragon 2h Sword\nDragon Chainbody\nFlared Trousers\nHeycotal Hide\nPharaoh's sceptre\nSeercull\nSmouldering Stone\nZamorack Hilt",
+    "LongDescription": "Obtain 5 unique Items required for Clue Scrolls\nAbyssal whip (Only from Sire)\nAny Sunfire Armor (Can only count once)\nArmadyl Helm\nBandos Boots\nBandos Cloak\nBandos Hilt\nBlack Dragon Mask\nBob's Shirt\nBryo's Essence\nDragon Pickaxe\nDragon 2h Sword\nDragon Chainbody\nFlared Trousers\nHueycoatl Hide\nPharaoh's sceptre\nSeercull\nSmouldering Stone\nZamorak Hilt",
     "Image": "/osrs_icons/Items/Elite Clue.png",
     "Goal": 5,
     "Type": "medium"
@@ -11,8 +11,8 @@
   {
     "Id": "2",
     "Name": "Slayer Bosses",
-    "Description": "Obtain two Slayer Boss items listed",
-    "LongDescription": "Obtain two Slayer Boss items listed\nHydra's Claw, Hydra's leather, Primordial Crystal, Black tourmaline core, Kraken tentacle, Dragon chainbody, Araxyte fang, Abby Whip (from sire)",
+    "Description": "Obtain two unique Slayer Boss items listed",
+    "LongDescription": "Obtain two unique Slayer Boss items listed\nHydra's Claw, Hydra's leather, Primordial Crystal, Black tourmaline core, Kraken tentacle, Dragon chainbody, Araxyte fang, Abby Whip (from sire)",
     "Image": "/osrs_icons/Skills/Slayer.png",
     "Goal": 2,
     "Type": "hard"
