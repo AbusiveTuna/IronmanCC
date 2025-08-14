@@ -4,7 +4,6 @@ import tiles from "./tiles.json";
 import Board from "./components/Board";
 
 const API_BASE = "https://api.ironmancc.com/ironmancc";
-const DRAFT_GET_URL = (id) => `${API_BASE}/draft/${id}`;
 const PROGRESS_GET_URL = (id, team) =>
   `${API_BASE}/progress/${id}?team=${encodeURIComponent(team)}`;
 const COMPETITION_ID = 101;
@@ -40,55 +39,45 @@ const SummerBingo = () => {
   const passiveAll = useMemo(() => tiles.filter(t => t.Passive).slice(0, 5), []);
   const activeIds = useMemo(() => activeAll.map(t => String(t.Id)), [activeAll]);
 
-  const [teamNames, setTeamNames] = useState(["Team Tuna", "Team Chkn"]);
+  const [teamNames] = useState(["Team Tuna", "Team Chkn"]);
   const [statusA, setStatusA] = useState({});
   const [statusB, setStatusB] = useState({});
   const [pointsA, setPointsA] = useState(0);
   const [pointsB, setPointsB] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    let active = true;
-    (async () => {
-      try {
-        const draftRes = await fetch(DRAFT_GET_URL(COMPETITION_ID));
-        let names = ["Team Tuna", "Team Chkn"];
-        if (draftRes.ok) {
-          const d = await draftRes.json();
-          names = (d.teamOne || d.teamTwo)
-            ? [d.teamOne?.name || "Team Tuna", d.teamTwo?.name || "Team Chkn"]
-            : Object.keys(d.teams || {});
-        }
-        if (!active) return;
-        setTeamNames(names.slice(0, 2));
+useEffect(() => {
+  let active = true;
+  (async () => {
+    try {
+      const [pa, pb] = await Promise.all([
+        fetch(PROGRESS_GET_URL(COMPETITION_ID, "Team Tuna")),
+        fetch(PROGRESS_GET_URL(COMPETITION_ID, "Team Chkn")),
+      ]);
 
-        const [pa, pb] = await Promise.all([
-          fetch(PROGRESS_GET_URL(COMPETITION_ID, names[0])),
-          fetch(PROGRESS_GET_URL(COMPETITION_ID, names[1])),
-        ]);
-
-        let A = {}, B = {}, pA = 0, pB = 0;
-        if (pa.ok) {
-          const a = await pa.json();
-          A = a.tiles || a.teams?.[names[0]]?.tiles || {};
-          pA = a.points_total ?? completedCount(A) * 5;
-        }
-        if (pb.ok) {
-          const b = await pb.json();
-          B = b.tiles || b.teams?.[names[1]]?.tiles || {};
-          pB = b.points_total ?? completedCount(B) * 5;
-        }
-        if (!active) return;
-        setStatusA(A); setStatusB(B); setPointsA(pA); setPointsB(pB);
-      } catch {
-        if (!active) return;
-        setStatusA({}); setStatusB({}); setPointsA(0); setPointsB(0);
-      } finally {
-        if (active) setLoading(false);
+      let A = {}, B = {}, pA = 0, pB = 0;
+      if (pa.ok) {
+        const a = await pa.json();
+        A = a.tiles || a.teams?.["Team Tuna"]?.tiles || {};
+        pA = a.points_total ?? completedCount(A) * 5;
       }
-    })();
-    return () => { active = false; };
-  }, []);
+      if (pb.ok) {
+        const b = await pb.json();
+        B = b.tiles || b.teams?.["Team Chkn"]?.tiles || {};
+        pB = b.points_total ?? completedCount(B) * 5;
+      }
+      if (!active) return;
+      setStatusA(A); setStatusB(B); setPointsA(pA); setPointsB(pB);
+    } catch {
+      if (!active) return;
+      setStatusA({}); setStatusB({}); setPointsA(0); setPointsB(0);
+    } finally {
+      if (active) setLoading(false);
+    }
+  })();
+  return () => { active = false; };
+}, []);
+
 
   // Team Tuna unlocks
   const doneA = completedActiveCount(statusA, activeIds);
