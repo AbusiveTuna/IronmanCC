@@ -40,7 +40,7 @@ const SummerBingo = () => {
   const passiveAll = useMemo(() => tiles.filter(t => t.Passive).slice(0, 5), []);
   const activeIds = useMemo(() => activeAll.map(t => String(t.Id)), [activeAll]);
 
-  const [teamNames, setTeamNames] = useState(["Team A", "Team B"]);
+  const [teamNames, setTeamNames] = useState(["Team Tuna", "Team Chkn"]);
   const [statusA, setStatusA] = useState({});
   const [statusB, setStatusB] = useState({});
   const [pointsA, setPointsA] = useState(0);
@@ -52,11 +52,11 @@ const SummerBingo = () => {
     (async () => {
       try {
         const draftRes = await fetch(DRAFT_GET_URL(COMPETITION_ID));
-        let names = ["Team A", "Team B"];
+        let names = ["Team Tuna", "Team Chkn"];
         if (draftRes.ok) {
           const d = await draftRes.json();
           names = (d.teamOne || d.teamTwo)
-            ? [d.teamOne?.name || "Team A", d.teamTwo?.name || "Team B"]
+            ? [d.teamOne?.name || "Team Tuna", d.teamTwo?.name || "Team Chkn"]
             : Object.keys(d.teams || {});
         }
         if (!active) return;
@@ -90,13 +90,13 @@ const SummerBingo = () => {
     return () => { active = false; };
   }, []);
 
-  // Team A unlocks
+  // Team Tuna unlocks
   const doneA = completedActiveCount(statusA, activeIds);
   const { active: activeUnlockedA, passive: passiveUnlockedA } = unlockedCounts(doneA);
   const activeTilesA = activeAll.slice(0, activeUnlockedA);
   const passiveTilesA = passiveAll.slice(0, passiveUnlockedA);
 
-  // Team B unlocks
+  // Team Chkn unlocks
   const doneB = completedActiveCount(statusB, activeIds);
   const { active: activeUnlockedB, passive: passiveUnlockedB } = unlockedCounts(doneB);
   const activeTilesB = activeAll.slice(0, activeUnlockedB);
@@ -132,7 +132,7 @@ const SummerBingo = () => {
   return (
     <div className="sb-wrap">
       <div className="sb-boards">
-        {/* Team A */}
+        {/* Team Tuna */}
         <section className="sb-team">
           <header className="sb-header">
             <h2>{teamNames[0]}</h2>
@@ -164,7 +164,7 @@ const SummerBingo = () => {
           </div>
         </section>
 
-        {/* Team B */}
+        {/* Team Chkn */}
         <section className="sb-team">
           <header className="sb-header">
             <h2>{teamNames[1]}</h2>
