@@ -3,7 +3,7 @@
     "Id": "1",
     "Name": "Clue Items!",
     "Description": "Obtain 5 unique Items required for Clue Scrolls",
-    "LongDescription": "Abyssal whip (Only from Sire)\nAny Sunfire Armor (Can only count once)\nArmadyl Helm\nBandos Boots\nBandos Cloak\nBandos Hilt\nBlack Dragon Mask\nBob's Shirt\nBryo's Essence\nDragon Pickaxe\nDragon 2h Sword\nDragon Chainbody\nFlared Trousers\nHeycotal Hide\nPharaoh's sceptre\nSeercull\nSmouldering Stone\nZamorack Hilt",
+    "LongDescription": "Obtain 5 unique Items required for Clue Scrolls\nAbyssal whip (Only from Sire)\nAny Sunfire Armor (Can only count once)\nArmadyl Helm\nBandos Boots\nBandos Cloak\nBandos Hilt\nBlack Dragon Mask\nBob's Shirt\nBryo's Essence\nDragon Pickaxe\nDragon 2h Sword\nDragon Chainbody\nFlared Trousers\nHeycotal Hide\nPharaoh's sceptre\nSeercull\nSmouldering Stone\nZamorack Hilt",
     "Image": "/osrs_icons/Items/Elite Clue.png",
     "Goal": 5,
     "Type": "medium"
@@ -12,7 +12,7 @@
     "Id": "2",
     "Name": "Slayer Bosses",
     "Description": "Obtain two Slayer Boss items listed",
-    "LongDescription": "Hydra's Claw, Hydra's leather, Primordial Crystal, Black tourmaline core, Kraken tentacle, Dragon chainbody, Araxyte fang, Abby Whip (from sire)",
+    "LongDescription": "Obtain two Slayer Boss items listed\nHydra's Claw, Hydra's leather, Primordial Crystal, Black tourmaline core, Kraken tentacle, Dragon chainbody, Araxyte fang, Abby Whip (from sire)",
     "Image": "/osrs_icons/Skills/Slayer.png",
     "Goal": 2,
     "Type": "hard"
@@ -29,8 +29,8 @@
   {
     "Id": "4",
     "Name": "Skilling Tile",
-    "Description": "As a team gain 15m buyable skills (Press the question mark button)",
-    "LongDescription": "Buyable Skills\nConstruction\nCrafting\nFarming\nFiremaking\nFletching\nHerblore\nPrayer\nSmithing",
+    "Description": "As a team gain 15m xp in buyable skills (Press the question mark button)",
+    "LongDescription": "As a team gain 15m xp in buyable skills\nBuyable Skills\nConstruction\nCrafting\nFarming\nFiremaking\nFletching\nHerblore\nPrayer\nSmithing",
     "Image": "/osrs_icons/Skills/Prayer.png",
     "Goal": 15,
     "Type": "easy"
@@ -39,7 +39,7 @@
     "Id": "5",
     "Name": "Any Yamaers?",
     "Description": "Obtain any piece of Oathplate Armor",
-    "LongDescription": "Can not be crafted, can not be from a contract.",
+    "LongDescription": "Obtain any piece of Oathplate Armor\nCan not be crafted, can not be from a contract.",
     "Image": "/osrs_icons/Items/Oathplate_Chest.webp",
     "Goal": 1,
     "Type": "Medium"
