@@ -47,17 +47,16 @@ function completedCount(map) {
 }
 
 const AdminBingo = () => {
-  const allTiles = useMemo(() => tiles.slice(0, 40), []);
+  const allTiles = useMemo(() => tiles, []);
   const [teamNames, setTeamNames] = useState(["Team A", "Team B"]);
-  const [maps, setMaps] = useState({}); // { [teamName]: { [tileId]: {status,progress,goal,points} } }
+  const [maps, setMaps] = useState({});
   const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState({}); // { [teamName]: bool }
+  const [saving, setSaving] = useState({});
 
   useEffect(() => {
     let active = true;
     (async () => {
       try {
-        // get team names
         let names = ["Team A", "Team B"];
         const draftRes = await fetch(DRAFT_GET_URL(COMPETITION_ID));
         if (draftRes.ok) {
@@ -67,7 +66,6 @@ const AdminBingo = () => {
         if (!active) return;
         setTeamNames(names);
 
-        // get progress per team
         const [aRes, bRes] = await Promise.all([
           fetch(PROGRESS_GET_URL(COMPETITION_ID, names[0])),
           fetch(PROGRESS_GET_URL(COMPETITION_ID, names[1])),
@@ -169,7 +167,6 @@ const AdminBingo = () => {
 
   const saveAll = useCallback(async () => {
     for (const t of teamNames) {
-      // eslint-disable-next-line no-await-in-loop
       await saveTeam(t);
     }
   }, [saveTeam, teamNames]);

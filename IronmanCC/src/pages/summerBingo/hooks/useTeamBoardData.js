@@ -30,25 +30,20 @@ export default function useTeamBoardData(teamName, competitionId) {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         const tilesMap = data?.tiles || data?.teams?.[teamName]?.tiles || {};
-        const pts = typeof data?.points_total === "number"
-          ? data.points_total
-          : completedCount(tilesMap) * 5;
+        const pts =
+          typeof data?.points_total === "number"
+            ? data.points_total
+            : completedCount(tilesMap) * 5;
+
         if (active) {
           setStatusMap(tilesMap);
           setPoints(pts);
         }
       } catch {
-        if (!active) return;
-        const fakeData = {};
-        ALL_TILES.forEach((tile) => {
-          fakeData[tile.Id] = {
-            status: Math.random() > 0.1 ? "completed" : "incomplete",
-            progress: Math.floor(Math.random() * (tile.Goal ?? 1)),
-            goal: tile.Goal ?? 1,
-          };
-        });
-        setStatusMap(fakeData);
-        setPoints(completedCount(fakeData) * 5);
+        if (active) {
+          setStatusMap({});
+          setPoints(0);
+        }
       } finally {
         if (active) setLoading(false);
       }
