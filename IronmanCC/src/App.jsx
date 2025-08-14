@@ -9,7 +9,7 @@ import JustenTbow from 'pages/justenTbow/JustenTbow';
 import EventHistory from 'pages/eventHistory/EventHistory';
 import BingoBuyIns from 'pages/buyins/BingoBuyIns';
 import FarmingTimers from 'pages/farmingTimers/FarmingTimers';
-import SummerBingo from 'pages/summerBingo/SummerBingo';
+// import SummerBingo from 'pages/summerBingo/SummerBingo';
 import SummerBingoTimer from 'pages/summerBingo/SummerBingoTimer';
 import TeamBoard from 'pages/summerBingo/TeamBoard';
 import Draft from 'pages/draft/Draft';
@@ -35,7 +35,7 @@ function App() {
           <Route path="/buy-ins-admin-82699" element={<BingoBuyInsAdmin />} />
 
 
-          <Route path="/summer-bingo-testing" element={<SummerBingo/>} />
+          {/* <Route path="/summer-bingo-testing" element={<SummerBingo/>} /> */}
           <Route path="/teamA" element={<TeamBoard teamName="Team Tuna"/>} />
           <Route path="/teamB" element={<TeamBoard teamName="Team Chkn"/>} />
           <Route path="/draft" element={<Draft></Draft>} />

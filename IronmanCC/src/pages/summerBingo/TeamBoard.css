@@ -1,0 +1,82 @@
+/* TeamBoard.css */
+
+/* Section wrapper */
+.summerBingo-team {
+  width: 100%;
+  max-width: 1520px; /* fits 5 × 240px tiles + gaps + sidebar */
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Centered header */
+.summerBingo-teamHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.summerBingo-teamHeader h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  font-weight: 800;
+}
+.summerBingo-points { font-weight: 700; font-size: 1rem; opacity: .95; }
+
+/* Two-column layout: main grid + passive sidebar */
+.summerBingo-columns {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px; /* keep sidebar fixed so main keeps space */
+  gap: 16px;
+  align-items: start;
+}
+
+.summerBingo-main { display: flex; justify-content: center; }
+
+/* Passive column smaller tiles */
+.summerBingo-passives {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.summerBingo-passiveHeader { font-weight: 800; font-size: 1rem; opacity: .95; }
+
+/* Board grid (Board sets columns via inline style) */
+.summerBingo-board {
+  display: grid;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* Loading skeleton tiles */
+.skeleton {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #0f0f10;
+  border: 1px solid #2a2a2a;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  transform: translateX(-100%);
+  animation: sb-skel 1.2s infinite;
+}
+@keyframes sb-skel { to { transform: translateX(100%); } }
+
+/* Responsive: stack passive under main on smaller screens */
+@media (max-width: 1200px) {
+  .summerBingo-team { max-width: 1200px; }
+  .summerBingo-columns { grid-template-columns: 1fr; }
+}

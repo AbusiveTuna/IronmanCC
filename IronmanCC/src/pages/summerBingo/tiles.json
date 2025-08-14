@@ -6,7 +6,6 @@
     "LongDescription": "Abyssal whip (Only from Sire)\nAny Sunfire Armor (Can only count once)\nArmadyl Helm\nBandos Boots\nBandos Cloak\nBandos Hilt\nBlack Dragon Mask\nBob's Shirt\nBryo's Essence\nDragon Pickaxe\nDragon 2h Sword\nDragon Chainbody\nFlared Trousers\nHeycotal Hide\nPharaoh's sceptre\nSeercull\nSmouldering Stone\nZamorack Hilt",
     "Image": "/osrs_icons/Items/Elite Clue.png",
     "Goal": 5,
-    "EHB": 22,
     "Type": "medium"
   },
   {
@@ -16,7 +15,6 @@
     "LongDescription": "Must be a boss pet.\nExcludes Chaos Elemental, Dom, and Skotos.\nYama only counts through normal KC, no contracts.\nYou can only gamble quivers/capes/etc you earned during this bingo.",
     "Image": "/osrs_icons/Items/Bran.png",
     "Goal": 3,
-    "EHB": 30,
     "Type": "hard"
   },
   {
@@ -26,7 +24,6 @@
     "LongDescription": "Any Anc, Justi, or Masori piece count.\nDoes not require the component upgrade (Ex: Masori Mask does not require an Armadyl Helm)",
     "Image": "/osrs_icons/Theatre_Of_Blood/Justiciar_Faceguard.webp",
     "Goal": 1,
-    "EHB": 32,
     "Type": "hard"
   },
   {
@@ -36,7 +33,6 @@
     "LongDescription": "Buyable Skills\nConstruction\nCrafting\nFarming\nFiremaking\nFletching\nHerblore\nPrayer\nSmithing",
     "Image": "/osrs_icons/Skills/Prayer.png",
     "Goal": 15,
-    "EHB": 18,
     "Type": "easy"
   },
   {
@@ -46,7 +42,6 @@
     "LongDescription": "Can not be crafted, can not be from a contract.",
     "Image": "/osrs_icons/Items/Oathplate_Chest.webp",
     "Goal": 1,
-    "EHB": 20,
     "Type": "Medium"
   },
     {
@@ -56,7 +51,6 @@
     "LongDescription": "Orb",
     "Image": "/osrs_icons/Items/orb.webp",
     "Goal": 10,
-    "EHB": 16,
     "Type": "Medium"
   },
   {
@@ -66,7 +60,6 @@
     "LongDescription": "",
     "Image": "/osrs_icons/Chambers_Of_Xeric/Dex.webp",
     "Goal": 1,
-    "EHB": 16,
     "Type": "hard"
   },
   {
@@ -76,7 +69,6 @@
     "LongDescription": "Obtain 1 Hilt, and all 3 godsword shards",
     "Image": "/osrs_icons/Items/Armadyl_godsword.webp",
     "Goal": 4,
-    "EHB": 25,
     "Type": "hard"
   },
   {
@@ -86,7 +78,6 @@
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Avernic_treads.webp",
     "Goal": 1,
-    "EHB": 25,
     "Type": "easy"
   },
   {
@@ -96,7 +87,6 @@
     "LongDescription": "No duplicates!",
     "Image": "/osrs_icons/Bosses/Barrows Chests.png",
     "Goal": 10,
-    "EHB": 20,
     "Type": "easy"
   },
     {
@@ -115,7 +105,6 @@
     "LongDescription": "Hydra's Claw, Hydra's leather, Primordial Crystal, Black tourmaline core, Kraken tentacle, Dragon chainbody, Araxyte fang, Abby Whip (from sire)",
     "Image": "/osrs_icons/Skills/Slayer.png",
     "Goal": 2,
-    "EHB": 15,
     "Type": "hard"
   },
   {
@@ -125,7 +114,6 @@
     "LongDescription": "Obtain any Torva piece, does not require Bandos Plates.",
     "Image": "/osrs_icons/Items/Torva.webp",
     "Goal": 1,
-    "EHB": 29,
     "Type": "hard"
   },
   {
@@ -260,7 +248,7 @@
     "LongDescription": "Obtain one of the following from any source:\nDragon Visage\nDragon Full Helm\n Dragon Metal Slice\nDragon Metal Lump\n Wyvern Visage",
     "Image": "/osrs_icons/Items/DFH.webp",
     "Goal": 1,
-    "Type": "hard"
+    "Type": "easy"
   },
   {
     "Id": "28",
@@ -269,7 +257,7 @@
     "LongDescription": "",
     "Image": "/osrs_icons/Items/soulflame_horn.webp",
     "Goal": 1,
-    "Type": "hard"
+    "Type": "medium"
   },
   {
     "Id": "29",
@@ -295,8 +283,8 @@
     "Description": "Obtain 3 of the listed items",
     "LongDescription": "Items must be unique, they can only count once.\nPhantom Muspah:\nMuphin\nVenator Shard\nVorkath:\nAny unique except for vorkath's head\nZulrah:\nAny unique except for onyx",
     "Image": "/osrs_icons/Bosses/Zulrah.png",
-    "Goal": 1,
-    "Type": "hard"
+    "Goal": 3,
+    "Type": "medium"
   },
   {
     "Id": "32",
@@ -304,79 +292,129 @@
     "Description": "Obtain 3 items from Valamore bosses",
     "LongDescription": "Sol Heredit:\nTonalztics of Ralos\nS'mol heredit\nAny sunfire armor (only counts once, MUST KILL SOL to count)\n\nHueycoatl:\nDragon Hunter Wand\nHubert\n\nAmoxliatl\nMoxi\n\nDoom of Mokhaiotl:\nAvernic Treads\nEye of Ayak\nMokhaiotl Cloth\nDom",
     "Image": "/osrs_icons/Bosses/Sol Heredit.png",
-    "Goal": 1,
-    "Type": "hard"
+    "Goal": 3,
+    "Type": "medium"
   },
   {
     "Id": "33",
-    "Name": "Oh god why",
-    "Description": "Obtain a Sigil from Corp",
-    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
-    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
-    "Goal": 1,
+    "Name": "Raids Good",
+    "Description": "Obtain a purple from every raid",
+    "LongDescription": "Obtain 1 purple from each raid. Pets count, kits/dusts do not.",
+    "Image": "/osrs_icons/Misc/Raids.png",
+    "Goal": 3,
     "Type": "hard"
   },
   {
     "Id": "34",
-    "Name": "Oh god why",
-    "Description": "Obtain a Sigil from Corp",
-    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
-    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
-    "Goal": 1,
-    "Type": "hard"
+    "Name": "Return of the King",
+    "Description": "Obtain all three wilderness rings",
+    "LongDescription": "Ring of the Gods\nTreasonous Ring\nTyrannical Ring",
+    "Image": "/osrs_icons/Items/tyrannical_ring.png",
+    "Goal": 3,
+    "Type": "medium"
   },
   {
     "Id": "35",
-    "Name": "Oh god why",
-    "Description": "Obtain a Sigil from Corp",
-    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
-    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
-    "Goal": 1,
-    "Type": "hard"
+    "Name": "Early Game Grab Bag",
+    "Description": "Obtain 5 of the following items",
+    "LongDescription": "Fire Element Staff Crown\nIce Element Staff Crown\nSarachnis Cudgel\nGiant Club\nScurrius Spine\nBeserker Ring\nDragon Pickaxe\nZenyte Shard\nTome of Earth\nDragon hunter wand",
+    "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 5,
+    "Type": "easy"
   },
   {
     "Id": "36",
-    "Name": "Oh god why",
-    "Description": "Obtain a Sigil from Corp",
-    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
-    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Name": "The Nex Bus",
+    "Description": "Obtain two drops from Nex",
+    "LongDescription": "Can be duplicates.\nZaryte Vambraces\nNihil Horn\nTorva Full Helm\nTorva Platebody\nTorva Platelegs\nAncient Hilt",
+    "Image": "/osrs_icons/Bosses/Nex.png",
     "Goal": 1,
     "Type": "hard"
   },
   {
     "Id": "37",
-    "Name": "Oh god why",
-    "Description": "Obtain a Sigil from Corp",
-    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
-    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Name": "Torva or Masori from scratch",
+    "Description": "As a team complete a piece of Torva or Masori.",
+    "LongDescription": "Requires the bandos components or armadyl components to fix/upgrade the armor piece.\nExample: Torva Platebody needs Bandos Chestplate or Bandos Tassets\nExample: Masori Chaps needs Armadyl Chest or Legs.",
+    "Image": "/osrs_icons/Items/armadylean_plate.png",
     "Goal": 1,
     "Type": "hard"
   },
   {
     "Id": "38",
-    "Name": "Oh god why",
-    "Description": "Obtain a Sigil from Corp",
-    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
-    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Name": "Demon Hunter",
+    "Description": "Obtain 4 unique items from Demons",
+    "LongDescription": "Unsired\nZ Spear\n Z Hilt\nStaff of the Dead\nPet Kril\nDark Claw\nJar of Darkness\nSkotos\nOathplate Helm/Chest/Legs\nSoulflame Horn\nYami(no contracts)\nAvernic Treads\nEye of ayak\nMokhaiotl cloth\nTormented Synapse\nMonkey Tail",
+    "Image": "/osrs_icons/Items/lesser_demon.webp",
     "Goal": 1,
-    "Type": "hard"
+    "Type": "medium"
   },
   {
     "Id": "39",
-    "Name": "Oh god why",
-    "Description": "Obtain a Sigil from Corp",
-    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
-    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Name": "Arachnophobia",
+    "Description": "Obtain a unique from every spider boss",
+    "LongDescription": "Any Araxxor unique besides heads/boots\nAny Sarachnis Unique besides Sacs\nAny ToB purple\nAny Spindel/Ven unique",
+    "Image": "/osrs_icons/Items/spider.png",
     "Goal": 1,
-    "Type": "hard"
+    "Type": "medium"
   },
   {
     "Id": "40",
-    "Name": "Oh god why",
-    "Description": "Obtain a Sigil from Corp",
-    "LongDescription": "Obtain either an Arcane, Elysian, or Spectral Sigil.",
-    "Image": "/osrs_icons/Bosses/Corporeal Beast.png",
+    "Name": "The Avatar",
+    "Description": "Obtain the 4 Quartz from DT2 bosses",
+    "LongDescription": "Requires Ice Quartz, Smoke Quartz, Shadow Quartz, and Blood Quartz",
+    "Image": "/osrs_icons/Items/ice_quartz.webp",
+    "Goal": 4,
+    "Type": "medium"
+  },
+  {
+    "Id": "41",
+    "Name": "Fish Barrel!!!!!!!!!",
+    "Description": "Obtain the Twisted Bow",
+    "LongDescription": "Obtain the Twisted Bow from CoX",
+    "Image": "/osrs_icons/Items/Twisted Bow.webp",
     "Goal": 1,
-    "Type": "hard"
+    "Type": "Passive",
+    "Passive": true
+  },
+  {
+    "Id": "42",
+    "Name": "First Infernal Cape",
+    "Description": "Achieve something you have never done before",
+    "LongDescription": "A member of your team must achieve their first ever infernal cape.\nIf you have an infernal on a main/alt/gim/whatever it does not count.\nIt must actually be your first one ever.",
+    "Image": "/osrs_icons/Bosses/TzKal-Zuk.png",
+    "Goal": 1,
+    "Type": "Passive",
+    "Passive": true
+  },
+  {
+    "Id": "43",
+    "Name": "Third Age or Gilded",
+    "Description": "Obtain a piece of Third Age or Gilded from a clue scroll.",
+    "LongDescription": "Includes all mega rare 3rd age/gilded.\nThis means Chef's hat, Chef's Apron, and 3rd age Ring do not count.",
+    "Image": "/osrs_icons/Items/3rd_age_pickaxe.webp",
+    "Goal": 1,
+    "Type": "Passive",
+    "Passive": true
+  },
+  {
+    "Id": "44",
+    "Name": "The Tuna Tile",
+    "Description": "We always need some kind of AFK tile",
+    "LongDescription": "As a team obtain 10 blood shards. Yes you can theive them too but it only counts as 1 still.",
+    "Image": "/osrs_icons/Items/blood_shard.png",
+    "Goal": 10,
+    "Type": "Passive",
+    "Passive": true
+  },
+  {
+    "Id": "45",
+    "Name": "They're Everywhere!!",
+    "Description": "Obtain an onyx as a drop 2 times",
+    "LongDescription": "Onyx can be uncut or cut. Can come from any drop, but can not be bought.",
+    "Image": "/osrs_icons/Items/onyx.webp",
+    "Goal": 2,
+    "Type": "Passive",
+    "Passive": true
   }
 ]
