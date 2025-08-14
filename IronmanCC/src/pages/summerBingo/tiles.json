@@ -10,11 +10,11 @@
   },
   {
     "Id": "2",
-    "Name": "Pets!",
-    "Description": "Obtain any major boss pet",
-    "LongDescription": "Must be a boss pet.\nExcludes Chaos Elemental, Dom, and Skotos.\nYama only counts through normal KC, no contracts.\nYou can only gamble quivers/capes/etc you earned during this bingo.",
-    "Image": "/osrs_icons/Items/Bran.png",
-    "Goal": 3,
+    "Name": "Slayer Bosses",
+    "Description": "Obtain two Slayer Boss items listed",
+    "LongDescription": "Hydra's Claw, Hydra's leather, Primordial Crystal, Black tourmaline core, Kraken tentacle, Dragon chainbody, Araxyte fang, Abby Whip (from sire)",
+    "Image": "/osrs_icons/Skills/Slayer.png",
+    "Goal": 2,
     "Type": "hard"
   },
   {
@@ -98,13 +98,13 @@
     "Goal": 1,
     "Type": "hard"
   },
-  {
+    {
     "Id": "12",
-    "Name": "Slayer Bosses",
-    "Description": "Obtain two Slayer Boss items listed",
-    "LongDescription": "Hydra's Claw, Hydra's leather, Primordial Crystal, Black tourmaline core, Kraken tentacle, Dragon chainbody, Araxyte fang, Abby Whip (from sire)",
-    "Image": "/osrs_icons/Skills/Slayer.png",
-    "Goal": 2,
+    "Name": "Pets!",
+    "Description": "Obtain any major boss pet",
+    "LongDescription": "Must be a boss pet.\nExcludes Chaos Elemental, Dom, and Skotos.\nYama only counts through normal KC, no contracts.\nYou can only gamble quivers/capes/etc you earned during this bingo.",
+    "Image": "/osrs_icons/Items/Bran.png",
+    "Goal": 3,
     "Type": "hard"
   },
   {
