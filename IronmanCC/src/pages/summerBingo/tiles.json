@@ -83,10 +83,10 @@
   {
     "Id": "10",
     "Name": "Early Game Bananza!",
-    "Description": "Obtain 10 Barrows or Moons uniques",
+    "Description": "Obtain 15 Barrows or Moons uniques",
     "LongDescription": "No duplicates!",
     "Image": "/osrs_icons/Bosses/Barrows Chests.png",
-    "Goal": 10,
+    "Goal": 15,
     "Type": "easy"
   },
     {
