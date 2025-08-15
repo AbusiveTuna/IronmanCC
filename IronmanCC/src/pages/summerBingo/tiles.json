@@ -66,10 +66,10 @@
     "Id": "8",
     "Name": "Find the godsword!",
     "Description": "As a team, complete a godsword",
-    "LongDescription": "Obtain 1 Hilt, and all 3 godsword shards",
+    "LongDescription": "Obtain 1 Hilt, and all 3 godsword shards. They can come from any boss/minon",
     "Image": "/osrs_icons/Items/Armadyl_godsword.webp",
     "Goal": 4,
-    "Type": "hard"
+    "Type": "medium"
   },
   {
     "Id": "9",
@@ -78,7 +78,7 @@
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Avernic_treads.webp",
     "Goal": 1,
-    "Type": "easy"
+    "Type": "hard"
   },
   {
     "Id": "10",
@@ -139,8 +139,8 @@
     {
     "Id": "16",
     "Name": "Why is this in every bingo???",
-    "Description": "Obtain a Ham Joint or Flared trousers from an easy clue",
-    "LongDescription": "",
+    "Description": "Obtain a Ham Joint or Flared trousers or ranger boots",
+    "LongDescription": "Obtain a Ham Joint or Flared trousers from an easy clue\nOr ranger boots from a medium clue",
     "Image": "/osrs_icons/Items/ham joint.webp",
     "Goal": 1,
     "EHB": 15,
@@ -154,7 +154,7 @@
     "Image": "/osrs_icons/Items/kbd heads.webp",
     "Goal": 4,
     "EHB": 15,
-    "Type": "hard"
+    "Type": "medium"
   },
   {
     "Id": "18",
@@ -202,7 +202,7 @@
     "LongDescription": "Tome of Fire\nTome of water\nCrystal Tool Seed\nBig Harpoonfish\nZalcano Shard\nPryomancer Mask",
     "Image": "/osrs_icons/Items/Tome.png",
     "Goal": 2,
-    "Type": "hard"
+    "Type": "easy"
   },
   {
     "Id": "23",
@@ -221,7 +221,7 @@
     "Image": "/osrs_icons/Items/Crystal seed.png",
     "Goal": 1,
     "EHB": 18,
-    "Type": "easy"
+    "Type": "medium"
   },
   {
     "Id": "25",
