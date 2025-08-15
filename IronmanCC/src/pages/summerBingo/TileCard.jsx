@@ -3,7 +3,7 @@ import StatusBadge from "./components/StatusBadge";
 import TileModal from "./components/TileModal";
 import "./TileCard.css";
 
-const TileCard = ({ tile, status, redacted = false, showDesc = false }) => {
+const TileCard = ({ tile, status, redacted = false, showDesc = false, showInfoBtn = true }) => {
   const [open, setOpen] = useState(false);
 
   const goal = status?.goal ?? tile.Goal ?? 1;
@@ -20,7 +20,7 @@ const TileCard = ({ tile, status, redacted = false, showDesc = false }) => {
   return (
     <>
       <div className={`summerBingo-tile is-${state} ${redacted ? "is-redacted" : ""}`}>
-        {!redacted && (
+        {!redacted && showInfoBtn && (
           <button
             type="button"
             className="summerBingo-infoBtn"

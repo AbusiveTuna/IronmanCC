@@ -1,6 +1,14 @@
 import TileCard from "../TileCard";
 
-const Board = ({ tiles, statusMap, visibleRows = 1, style, showDesc = false, cols = 5 }) => {
+const Board = ({
+  tiles,
+  statusMap,
+  visibleRows = 1,
+  style,
+  showDesc = false,
+  cols = 5,
+  showInfoBtn = true,
+}) => {
   return (
     <div
       className="summerBingo-board"
@@ -16,6 +24,7 @@ const Board = ({ tiles, statusMap, visibleRows = 1, style, showDesc = false, col
             status={statusMap?.[t.Id]}
             redacted={redacted}
             showDesc={showDesc}
+            showInfoBtn={showInfoBtn}
           />
         );
       })}

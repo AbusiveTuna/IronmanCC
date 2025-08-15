@@ -136,6 +136,7 @@ useEffect(() => {
                 visibleRows={999}
                 style={{ "--tile-max": "140px" }}
                 showDesc={false}
+                showInfoBtn={false}
                 cols={Math.max(1, passiveTilesA.length)}  // single row
               />
             </div>
@@ -148,6 +149,7 @@ useEffect(() => {
               visibleRows={999}
               style={{ "--tile-max": "140px" }}
               showDesc={false}
+              showInfoBtn={false}
               cols={5}
             />
           </div>
@@ -168,6 +170,7 @@ useEffect(() => {
                 visibleRows={999}
                 style={{ "--tile-max": "140px" }}
                 showDesc={false}
+                showInfoBtn={false}
                 cols={Math.max(1, passiveTilesB.length)}  // single row
               />
             </div>
@@ -180,6 +183,7 @@ useEffect(() => {
               visibleRows={999}
               style={{ "--tile-max": "140px" }}
               showDesc={false}
+              showInfoBtn={false}
               cols={5}
             />
           </div>
