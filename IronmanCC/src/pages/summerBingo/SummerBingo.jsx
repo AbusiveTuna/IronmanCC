@@ -18,7 +18,6 @@ function completedCount(map, ids) {
   }).length;
 }
 
-// treat unlocks as: start 5A+1P, then +5A +1P per 3 TOTAL completions (active+passive)
 function unlockedCounts(totalCompleted) {
   const groups = Math.max(1, 1 + Math.floor(totalCompleted / 3));
   return {

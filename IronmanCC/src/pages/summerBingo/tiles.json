@@ -104,7 +104,7 @@
     "Description": "Obtain any major boss pet",
     "LongDescription": "Must be a boss pet.\nExcludes Chaos Elemental, Dom, and Skotos.\nYama only counts through normal KC, no contracts.\nYou can only gamble quivers/capes/etc you earned during this bingo.",
     "Image": "/osrs_icons/Items/Bran.png",
-    "Goal": 3,
+    "Goal": 1,
     "Type": "hard"
   },
   {
