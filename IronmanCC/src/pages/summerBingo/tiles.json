@@ -169,10 +169,10 @@
   {
     "Id": "19",
     "Name": "Wow! Two Skilling tiles!",
-    "Description": "Gain 10m xp in gathering skills",
+    "Description": "Gain 20m xp in gathering skills",
     "LongDescription": "Farming\nHunter\nMining\nWoodcutting\nCounts xp from the entire bingo.",
     "Image": "/osrs_icons/Skills/Hunter.png",
-    "Goal": 10,
+    "Goal": 20,
     "Type": "easy"
   },
   {
