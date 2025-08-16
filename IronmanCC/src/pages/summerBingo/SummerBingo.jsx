@@ -8,26 +8,19 @@ const PROGRESS_GET_URL = (id, team) =>
   `${API_BASE}/progress/${id}?team=${encodeURIComponent(team)}`;
 const COMPETITION_ID = 101;
 
-function completedCount(map) {
-  return Object.values(map || {}).filter(
-    (s) => s?.status === "completed" || (s?.progress ?? 0) >= (s?.goal ?? 1)
-  ).length;
-}
-
-function completedActiveCount(map, activeIds) {
-  const ids = new Set(activeIds);
+function completedCount(map, ids) {
+  const allow = ids ? new Set(ids.map(String)) : null;
   return Object.entries(map || {}).filter(([id, s]) => {
-    if (!ids.has(id)) return false;
+    if (allow && !allow.has(id)) return false;
     const goal = s?.goal ?? 1;
     const prog = s?.progress ?? 0;
     return s?.status === "completed" || prog >= goal;
   }).length;
 }
 
-// Start with 5 active + 1 passive. +5 active +1 passive per 3 active completions.
-// Caps: 40 active, 5 passive.
-function unlockedCounts(activeCompleted) {
-  const groups = Math.max(1, 1 + Math.floor(activeCompleted / 3));
+// treat unlocks as: start 5A+1P, then +5A +1P per 3 TOTAL completions (active+passive)
+function unlockedCounts(totalCompleted) {
+  const groups = Math.max(1, 1 + Math.floor(totalCompleted / 3));
   return {
     active: Math.min(groups * 5, 40),
     passive: Math.min(groups, 5),
@@ -37,7 +30,8 @@ function unlockedCounts(activeCompleted) {
 const SummerBingo = () => {
   const activeAll = useMemo(() => tiles.filter(t => !t.Passive).slice(0, 40), []);
   const passiveAll = useMemo(() => tiles.filter(t => t.Passive).slice(0, 5), []);
-  const activeIds = useMemo(() => activeAll.map(t => String(t.Id)), [activeAll]);
+  const activeIds  = useMemo(() => activeAll.map(t => String(t.Id)), [activeAll]);
+  const passiveIds = useMemo(() => passiveAll.map(t => String(t.Id)), [passiveAll]);
 
   const [teamNames] = useState(["Team Tuna", "Team Chkn"]);
   const [statusA, setStatusA] = useState({});
@@ -80,15 +74,19 @@ useEffect(() => {
 
 
   // Team Tuna unlocks
-  const doneA = completedActiveCount(statusA, activeIds);
-  const { active: activeUnlockedA, passive: passiveUnlockedA } = unlockedCounts(doneA);
-  const activeTilesA = activeAll.slice(0, activeUnlockedA);
+  const doneAActive  = completedCount(statusA, activeIds);
+  const doneAPassive = completedCount(statusA, passiveIds);
+  const totalA       = doneAActive + doneAPassive;
+  const { active: activeUnlockedA, passive: passiveUnlockedA } = unlockedCounts(totalA);
+  const activeTilesA  = activeAll.slice(0, activeUnlockedA);
   const passiveTilesA = passiveAll.slice(0, passiveUnlockedA);
 
-  // Team Chkn unlocks
-  const doneB = completedActiveCount(statusB, activeIds);
-  const { active: activeUnlockedB, passive: passiveUnlockedB } = unlockedCounts(doneB);
-  const activeTilesB = activeAll.slice(0, activeUnlockedB);
+  // Team Chkn
+  const doneBActive  = completedCount(statusB, activeIds);
+  const doneBPassive = completedCount(statusB, passiveIds);
+  const totalB       = doneBActive + doneBPassive;
+  const { active: activeUnlockedB, passive: passiveUnlockedB } = unlockedCounts(totalB);
+  const activeTilesB  = activeAll.slice(0, activeUnlockedB);
   const passiveTilesB = passiveAll.slice(0, passiveUnlockedB);
 
   if (loading) {
