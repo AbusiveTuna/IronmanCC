@@ -2,25 +2,24 @@ import "./TeamBoard.css";
 import Board from "./components/Board";
 import useTeamBoardData from "./hooks/useTeamBoardData";
 
-function completedActiveCount(map, activeIds) {
-  const ids = new Set(activeIds);
+function completedCount(map, ids) {
+  const allow = ids ? new Set(ids.map(String)) : null;
   return Object.entries(map || {}).filter(([id, s]) => {
-    if (!ids.has(id)) return false;
+    if (allow && !allow.has(id)) return false;
     const goal = s?.goal ?? 1;
     const prog = s?.progress ?? 0;
-    return (s?.status === "completed") || prog >= goal;
+    return s?.status === "completed" || prog >= goal;
   }).length;
 }
 
-// groups: start with 1 group (5 active + 1 passive). +1 group per 3 active completions.
-// max 8 groups for 40 active; max 5 for passives.
-function unlockedCounts(activeCompleted) {
-  const groups = Math.max(1, 1 + Math.floor(activeCompleted / 3));
+function unlockedCounts(totalCompleted) {
+  const groups = Math.max(1, 1 + Math.floor(totalCompleted / 3));
   return {
     active: Math.min(groups * 5, 40),
     passiveGroups: Math.min(groups, 5)
   };
 }
+
 
 const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
   const { statusMap, points, loading, all } = useTeamBoardData(teamName, competitionId);
@@ -55,11 +54,18 @@ const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
     );
   }
 
-  const activeDone = completedActiveCount(statusMap, activeTilesAll.map(t => String(t.Id)));
-  const { active: activeUnlocked, passiveGroups } = unlockedCounts(activeDone);
+const activeIds = activeTilesAll.map(t => String(t.Id));
+const passiveIds = passiveTilesAll.map(t => String(t.Id));
 
-  const activeTiles = activeTilesAll.slice(0, activeUnlocked);
-  const passiveTiles = passiveTilesAll.slice(0, passiveGroups);
+const activeDone = completedCount(statusMap, activeIds);
+const passiveDone = completedCount(statusMap, passiveIds);
+const totalDone = activeDone + passiveDone;
+
+const { active: activeUnlocked, passiveGroups } = unlockedCounts(totalDone);
+
+const activeTiles = activeTilesAll.slice(0, activeUnlocked);
+const passiveTiles = passiveTilesAll.slice(0, passiveGroups);
+
 
   return (
     <section className="summerBingo-team">
