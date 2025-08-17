@@ -422,10 +422,10 @@
   },
   {
     "Id": "47",
-    "Name": "Odium ward",
-    "Description": "Obtain the Odium ward as a team",
-    "LongDescription": "Obtain the Odium ward as a team",
-    "Image": "/osrs_icons/Items/Odium_Ward.png",
+    "Name": "More new content!",
+    "Description": "Obtain two uniques from Yama/Doom of Mocha",
+    "LongDescription": "Any uniques",
+    "Image": "/osrs_icons/Items/eye_of_ayak.webp",
     "Goal": 3,
     "Type": "medium"
   },
@@ -488,7 +488,7 @@
     "Name": "Obtain 4 pieces of the guild hunter outfit",
     "Description": "Obtain 4 pieces of the guild hunter outfit",
     "LongDescription": "Can be duplicates",
-    "Image": "/osrs_icons/Items/hunter_headware.webp",
+    "Image": "/osrs_icons/Items/hunter_headware.png",
     "Goal": 4,
     "Type": "easy"
   },
