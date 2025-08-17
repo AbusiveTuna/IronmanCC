@@ -20,14 +20,19 @@ function completedCount(map, ids) {
 
 function unlockedCounts(totalCompleted) {
   const groups = Math.max(1, 1 + Math.floor(totalCompleted / 3));
+  const baseActive = Math.min(groups * 5, 40);
+  let bonus = 0;
+  if (totalCompleted >= 36) bonus = 15;
+  else if (totalCompleted >= 33) bonus = 10;
+  else if (totalCompleted >= 30) bonus = 5;
   return {
-    active: Math.min(groups * 5, 40),
+    active: Math.min(baseActive + bonus, 55),
     passive: Math.min(groups, 5),
   };
 }
 
 const SummerBingo = () => {
-  const activeAll = useMemo(() => tiles.filter(t => !t.Passive).slice(0, 40), []);
+  const activeAll = useMemo(() => tiles.filter(t => !t.Passive).slice(0, 55), []);
   const passiveAll = useMemo(() => tiles.filter(t => t.Passive).slice(0, 5), []);
   const activeIds  = useMemo(() => activeAll.map(t => String(t.Id)), [activeAll]);
   const passiveIds = useMemo(() => passiveAll.map(t => String(t.Id)), [passiveAll]);

@@ -44,7 +44,7 @@
     "Goal": 1,
     "Type": "Medium"
   },
-    {
+  {
     "Id": "6",
     "Name": "Orb",
     "Description": "Obtain 10 Awakener's Orb",
@@ -89,7 +89,7 @@
     "Goal": 15,
     "Type": "easy"
   },
-    {
+  {
     "Id": "11",
     "Name": "HMT Encouraged",
     "Description": "Obtain any purple from ToB excluding the avernic hilt.",
@@ -98,7 +98,7 @@
     "Goal": 1,
     "Type": "hard"
   },
-    {
+  {
     "Id": "12",
     "Name": "Pets!",
     "Description": "Obtain any major boss pet",
@@ -136,7 +136,7 @@
     "EHB": 19,
     "Type": "medium"
   },
-    {
+  {
     "Id": "16",
     "Name": "Why is this in every bingo???",
     "Description": "Obtain a Ham Joint or Flared trousers or ranger boots",
@@ -185,7 +185,7 @@
     "EHB": 18,
     "Type": "easy"
   },
-    {
+  {
     "Id": "21",
     "Name": "Revenants",
     "Description": "Obtain any of the three Revenant weapons",
@@ -368,6 +368,141 @@
   },
   {
     "Id": "41",
+    "Name": "You asked for this",
+    "Description": "Obtain the ring of endurance from Sepulchre OR pirate hook",
+    "LongDescription": "Obtain the ring of endurance from Sepulchre or the pirate hook from brimhaven agility",
+    "Image": "/osrs_icons/Skills/Agility.png",
+    "Goal": 1,
+    "Type": "medium"
+  },
+  {
+    "Id": "42",
+    "Name": "Raids Armor",
+    "Description": "Obtain a full set of Raid armour (Can be mixed)",
+    "LongDescription": "Obtain a Helm/Mask, Top, and Bottom of raid armor. \nEx: Masori Mask, Ancestral Top, Masori Chaps",
+    "Image": "/osrs_icons/Chambers_Of_Xeric/Ancestral_Hat.webp",
+    "Goal": 3,
+    "Type": "hard"
+  },
+  {
+    "Id": "43",
+    "Name": "The ZCB Pipeline",
+    "Description": "Obtain an Armadyl crossbow",
+    "LongDescription": "Obtain an Armadyl crossbow",
+    "Image": "/osrs_icons/Items/acb.png",
+    "Goal": 1,
+    "Type": "medium"
+  },
+  {
+    "Id": "44",
+    "Name": "Immense Wealth",
+    "Description": "Obtain a Sheild Left half from a boss",
+    "LongDescription": "Obtain a Sheild Left half from a boss",
+    "Image": "/osrs_icons/Items/Wealth.png",
+    "Goal": 1,
+    "Type": "easy"
+  },
+  {
+    "Id": "45",
+    "Name": "Defense Drainer",
+    "Description": "Obtain a Dragon Warhammer, Bandos Godsword, Ralos, or Eldermaul",
+    "LongDescription": "BGS only requires the hilt",
+    "Image": "/osrs_icons/Items/ralos.webp",
+    "Goal": 1,
+    "Type": "medium"
+  },
+  {
+    "Id": "46",
+    "Name": "One Rangers",
+    "Description": "Obtain a pair of Ranger Boots",
+    "LongDescription": "Obtain a pair of Ranger Boots",
+    "Image": "/osrs_icons/Items/rangers.png",
+    "Goal": 1,
+    "Type": "easy"
+  },
+  {
+    "Id": "47",
+    "Name": "Odium ward",
+    "Description": "Obtain the Odium ward as a team",
+    "LongDescription": "Obtain the Odium ward as a team",
+    "Image": "/osrs_icons/Items/Odium_Ward.png",
+    "Goal": 3,
+    "Type": "medium"
+  },
+  {
+    "Id": "48",
+    "Name": "Kits! Dusts! Toa bad! Again!",
+    "Description": "Obtain a kit or dust from CM or HMT",
+    "LongDescription": "Obtain one of the following:\nTwisted Ancestral Colour Kit\nMetamorphic Dust\nSanguine Dust\nSanguine Ornament Kit\nHoly Ornament Kit",
+    "Image": "/osrs_icons/Theatre_Of_Blood/Sanguine_Ornament_Kit.webp",
+    "Goal": 1,
+    "Type": "hard"
+  },
+  {
+    "Id": "49",
+    "Name": "J_mes should of joined",
+    "Description": "Obtain 10 LMS wins as a team",
+    "LongDescription": "Obtain 10 LMS wins as a team",
+    "Image": "/osrs_icons/Misc/LMS.png",
+    "Goal": 10,
+    "Type": "hard"
+  },
+  {
+    "Id": "50",
+    "Name": "The Tuna Tile",
+    "Description": "Obtain an Obsidian platebody from a TzHaar-Ket",
+    "LongDescription": "Those people have no clue how much power and endurance a fully grown tuna fish has. Those fish literally have enough power and strength stored in their body and tail to cross entire oceans, tens of thousands of miles. Tuna have comparable power to ballistic rockets. And these 2 men thought they could hold down a tuna with a chair.",
+    "Image": "/osrs_icons/Items/obby_plate.webp",
+    "Goal": 1,
+    "Type": "easy"
+  },
+    {
+    "Id": "51",
+    "Name": "Brimmy Keys",
+    "Description": "Obtain a piece of Dusk Mystic",
+    "LongDescription": "Obtain any piece of dusk mystic",
+    "Image": "/osrs_icons/Items/brimstone_key.webp",
+    "Goal": 1,
+    "Type": "medium"
+  },
+    {
+    "Id": "52",
+    "Name": "A sqrd tile",
+    "Description": "Obtain a dragon mask from a hard/elite clue",
+    "LongDescription": "Obtain any dragon mask from a hard or elite clue",
+    "Image": "/osrs_icons/Items/dragon_mask.png",
+    "Goal": 1,
+    "Type": "medium"
+  },
+    {
+    "Id": "53",
+    "Name": "Raid Weapons",
+    "Description": "Obtain two unique weapons from a raid",
+    "LongDescription": "Obtain two unique weapons from a purple. Counts anything that can be equipped in your main hand.",
+    "Image": "/osrs_icons/Theatre_Of_Blood/Ghrazi_Rapier.webp",
+    "Goal": 2,
+    "Type": "hard"
+  },
+    {
+    "Id": "54",
+    "Name": "Obtain 4 pieces of the guild hunter outfit",
+    "Description": "Obtain 4 pieces of the guild hunter outfit",
+    "LongDescription": "Can be duplicates",
+    "Image": "/osrs_icons/Items/hunter_headware.webp",
+    "Goal": 4,
+    "Type": "easy"
+  },
+    {
+    "Id": "55",
+    "Name": "The Idea Machine is Broken",
+    "Description": "I have run out of ideas, so just obtain another major boss pet.",
+    "LongDescription": "Must be a boss pet.\nExcludes Chaos Elemental, Dom, and Skotos.\nYama only counts through normal KC, no contracts.\nYou can only gamble quivers/capes/etc you earned during this bingo.",
+    "Image": "/osrs_icons/Items/burnttuna.png",
+    "Goal": 1,
+    "Type": "medium"
+  },
+  {
+    "Id": "56",
     "Name": "Fish Barrel!!!!!!!!!",
     "Description": "Obtain the Twisted Bow",
     "LongDescription": "Obtain the Twisted Bow from CoX",
@@ -377,7 +512,7 @@
     "Passive": true
   },
   {
-    "Id": "42",
+    "Id": "57",
     "Name": "First Infernal Cape",
     "Description": "Achieve something you have never done before",
     "LongDescription": "A member of your team must achieve their first ever infernal cape.\nIf you have an infernal on a main/alt/gim/whatever it does not count.\nIt must actually be your first one ever.",
@@ -387,7 +522,7 @@
     "Passive": true
   },
   {
-    "Id": "43",
+    "Id": "58",
     "Name": "Third Age or Gilded",
     "Description": "Obtain a piece of Third Age or Gilded from a clue scroll.",
     "LongDescription": "Includes all mega rare 3rd age/gilded.\nThis means Chef's hat, Chef's Apron, and 3rd age Ring do not count.",
@@ -397,7 +532,7 @@
     "Passive": true
   },
   {
-    "Id": "44",
+    "Id": "59",
     "Name": "The Tuna Tile",
     "Description": "We always need some kind of AFK tile",
     "LongDescription": "As a team obtain 10 blood shards. Yes you can theive them too but it only counts as 1 still.",
@@ -407,7 +542,7 @@
     "Passive": true
   },
   {
-    "Id": "45",
+    "Id": "60",
     "Name": "They're Everywhere!!",
     "Description": "Obtain an onyx as a drop 2 times",
     "LongDescription": "Onyx can be uncut or cut. Can come from any drop, but can not be bought.",

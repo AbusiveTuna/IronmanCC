@@ -14,18 +14,37 @@ function completedCount(map, ids) {
 
 function unlockedCounts(totalCompleted) {
   const groups = Math.max(1, 1 + Math.floor(totalCompleted / 3));
+  const baseActive = Math.min(groups * 5, 40);
+  let bonus = 0;
+  if (totalCompleted >= 36) bonus = 15;
+  else if (totalCompleted >= 33) bonus = 10;
+  else if (totalCompleted >= 30) bonus = 5;
   return {
-    active: Math.min(groups * 5, 40),
-    passiveGroups: Math.min(groups, 5)
+    active: Math.min(baseActive + bonus, 55),
+    passiveGroups: Math.min(groups, 5),
+    baseActive,
+    bonus
   };
 }
 
+function tilesUntilNextUnlock(totalCompleted, activeUnlocked) {
+  const nexts = [];
+  if (activeUnlocked < 40) {
+    const nextBase = Math.min(21, 3 * (Math.floor(totalCompleted / 3) + 1));
+    if (nextBase > totalCompleted) nexts.push(nextBase);
+  }
+  [30, 33, 36].forEach(t => {
+    if (t > totalCompleted) nexts.push(t);
+  });
+  if (nexts.length === 0 || activeUnlocked >= 55) return null;
+  const target = Math.min(...nexts);
+  return Math.max(0, target - totalCompleted);
+}
 
 const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
   const { statusMap, points, loading, all } = useTeamBoardData(teamName, competitionId);
 
-  // split tiles
-  const activeTilesAll = all.filter(t => !t.Passive).slice(0, 40);
+  const activeTilesAll = all.filter(t => !t.Passive).slice(0, 55);
   const passiveTilesAll = all.filter(t => t.Passive).slice(0, 5);
 
   if (loading) {
@@ -54,18 +73,18 @@ const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
     );
   }
 
-const activeIds = activeTilesAll.map(t => String(t.Id));
-const passiveIds = passiveTilesAll.map(t => String(t.Id));
+  const activeIds = activeTilesAll.map(t => String(t.Id));
+  const passiveIds = passiveTilesAll.map(t => String(t.Id));
 
-const activeDone = completedCount(statusMap, activeIds);
-const passiveDone = completedCount(statusMap, passiveIds);
-const totalDone = activeDone + passiveDone;
+  const activeDone = completedCount(statusMap, activeIds);
+  const passiveDone = completedCount(statusMap, passiveIds);
+  const totalDone = activeDone + passiveDone;
 
-const { active: activeUnlocked, passiveGroups } = unlockedCounts(totalDone);
+  const { active: activeUnlocked, passiveGroups } = unlockedCounts(totalDone);
+  const toNext = tilesUntilNextUnlock(totalDone, activeUnlocked);
 
-const activeTiles = activeTilesAll.slice(0, activeUnlocked);
-const passiveTiles = passiveTilesAll.slice(0, passiveGroups);
-
+  const activeTiles = activeTilesAll.slice(0, activeUnlocked);
+  const passiveTiles = passiveTilesAll.slice(0, passiveGroups);
 
   return (
     <section className="summerBingo-team">
@@ -74,16 +93,22 @@ const passiveTiles = passiveTilesAll.slice(0, passiveGroups);
         <div className="summerBingo-points">{points} pts</div>
       </header>
 
+      {toNext !== null && (
+        <div className="summerBingo-nextUnlock">
+          {toNext === 0 ? "Unlock incoming" : `${toNext} tiles until next unlock`}
+        </div>
+      )}
+
       <div className="summerBingo-columns">
         <div className="summerBingo-main">
-        <Board
-          tiles={activeTiles}
-          statusMap={statusMap}
-          visibleRows={999}
-          style={{ "--tile-max": "240px" }}
-          showDesc
-          cols={5}
-        />
+          <Board
+            tiles={activeTiles}
+            statusMap={statusMap}
+            visibleRows={999}
+            style={{ "--tile-max": "240px" }}
+            showDesc
+            cols={5}
+          />
         </div>
 
         <aside className="summerBingo-passives">
