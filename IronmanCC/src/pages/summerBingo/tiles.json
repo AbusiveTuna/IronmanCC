@@ -327,7 +327,7 @@
     "Description": "Obtain two drops from Nex",
     "LongDescription": "Can be duplicates.\nZaryte Vambraces\nNihil Horn\nTorva Full Helm\nTorva Platebody\nTorva Platelegs\nAncient Hilt",
     "Image": "/osrs_icons/Bosses/Nex.png",
-    "Goal": 1,
+    "Goal": 2,
     "Type": "hard"
   },
   {
@@ -336,7 +336,7 @@
     "Description": "As a team complete a piece of Torva or Masori.",
     "LongDescription": "Requires the bandos components or armadyl components to fix/upgrade the armor piece.\nExample: Torva Platebody needs Bandos Chestplate or Bandos Tassets\nExample: Masori Chaps needs Armadyl Chest or Legs.",
     "Image": "/osrs_icons/Items/armadylean_plate.png",
-    "Goal": 1,
+    "Goal": 2,
     "Type": "hard"
   },
   {
@@ -345,7 +345,7 @@
     "Description": "Obtain 4 unique items from Demons",
     "LongDescription": "Unsired\nZ Spear\n Z Hilt\nStaff of the Dead\nPet Kril\nDark Claw\nJar of Darkness\nSkotos\nOathplate Helm/Chest/Legs\nSoulflame Horn\nYami(no contracts)\nAvernic Treads\nEye of ayak\nMokhaiotl cloth\nTormented Synapse\nMonkey Tail",
     "Image": "/osrs_icons/Items/lesser_demon.webp",
-    "Goal": 1,
+    "Goal": 4,
     "Type": "medium"
   },
   {
@@ -354,7 +354,7 @@
     "Description": "Obtain a unique from every spider boss",
     "LongDescription": "Any Araxxor unique besides heads/boots\nAny Sarachnis Unique besides Sacs\nAny ToB purple\nAny Spindel/Ven unique",
     "Image": "/osrs_icons/Items/spider.png",
-    "Goal": 1,
+    "Goal": 4,
     "Type": "medium"
   },
   {
