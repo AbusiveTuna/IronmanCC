@@ -219,8 +219,7 @@
     "Description": "Obtain 3 Crystal Armor Seeds",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Crystal seed.png",
-    "Goal": 1,
-    "EHB": 18,
+    "Goal": 3,
     "Type": "medium"
   },
   {
