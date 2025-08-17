@@ -52,6 +52,7 @@ const AdminBingo = () => {
   const [maps, setMaps] = useState({});
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState({});
+  const [showAll, setShowAll] = useState(false); // hide completed by default
 
   useEffect(() => {
     let active = true;
@@ -107,7 +108,8 @@ const AdminBingo = () => {
       const m = { ...prev[team] };
       const entry = { ...(m[tileId] || {}) };
       const goal = entry.goal ?? 1;
-      const progress = Math.max(0, Math.min(Number.isFinite(newVal) ? newVal : 0, goal));
+      const n = Number.isFinite(newVal) ? newVal : 0;
+      const progress = Math.max(0, Math.min(n, goal));
       entry.progress = progress;
       entry.status = statusFrom(progress, goal);
       entry.points = 5;
@@ -157,7 +159,6 @@ const AdminBingo = () => {
         }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      // ok
     } catch (e) {
       console.error("Save failed for", team, e);
     } finally {
@@ -177,13 +178,28 @@ const AdminBingo = () => {
     <div className="admin-wrap">
       <div className="admin-header">
         <h1>Admin — Bingo Progress</h1>
-        <button className="a-btn a-primary" onClick={saveAll}>Save All</button>
+        <div className="admin-actions">
+          <button className="a-btn" onClick={() => setShowAll((s) => !s)}>
+            {showAll ? "Hide Completed" : "Show All Tiles"}
+          </button>
+          <button className="a-btn a-primary" onClick={saveAll}>Save All</button>
+        </div>
       </div>
 
       <div className="admin-grids">
         {teamNames.map((team) => {
           const map = maps[team] || {};
           const pts = completedCount(map) * 5;
+
+          const visibleTiles = showAll
+            ? allTiles
+            : allTiles.filter((t) => {
+                const e = map[String(t.Id)] || { goal: t.Goal ?? 1, progress: 0 };
+                const goal = e.goal ?? 1;
+                const prog = e.progress ?? 0;
+                return prog < goal; // hide completed
+              });
+
           return (
             <section key={team} className="admin-panel">
               <header className="admin-teamHeader">
@@ -209,9 +225,13 @@ const AdminBingo = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {allTiles.map((t) => {
+                  {visibleTiles.map((t) => {
                     const id = String(t.Id);
-                    const entry = map[id] || { goal: t.Goal ?? 1, progress: 0, status: "not_started" };
+                    const entry = map[id] || {
+                      goal: t.Goal ?? 1,
+                      progress: 0,
+                      status: "not_started",
+                    };
                     return (
                       <tr key={id}>
                         <td className="tile-cell">
@@ -228,7 +248,9 @@ const AdminBingo = () => {
                             min={0}
                             max={entry.goal ?? 1}
                             value={entry.progress ?? 0}
-                            onChange={(e) => updateProgress(team, id, parseInt(e.target.value, 10))}
+                            onChange={(e) =>
+                              updateProgress(team, id, parseInt(e.target.value, 10))
+                            }
                           />
                           <span className="slash">/</span>
                           <span>{entry.goal ?? 1}</span>
