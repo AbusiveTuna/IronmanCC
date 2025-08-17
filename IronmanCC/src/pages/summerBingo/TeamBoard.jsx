@@ -24,17 +24,19 @@ function unlockedCounts(totalCompleted) {
 }
 
 function tilesUntilNextUnlock(totalCompleted, activeUnlocked) {
-  const targets = [];
+  if (activeUnlocked >= 55) return null;
+
   if (activeUnlocked < 40) {
-    const nextBase = Math.min(21, 3 * (Math.floor(totalCompleted / 3) + 1));
-    if (totalCompleted < nextBase) targets.push(nextBase);
-  } else if (activeUnlocked < 55) {
-    [30, 33, 36].forEach(t => {
-      if (totalCompleted < t) targets.push(t);
-    });
+    const nextBase = Math.min(21, 3 * (Math.floor(totalCompleted / 3) + 1)); // 3,6,...,21 strictly >
+    if (nextBase > totalCompleted) return nextBase - totalCompleted;
+    // safety: if we're exactly on a boundary, jump to the next one
+    const fallback = Math.min(21, nextBase + 3);
+    return fallback > totalCompleted ? fallback - totalCompleted : null;
   }
-  if (!targets.length) return null;
-  return Math.min(...targets) - totalCompleted;
+
+  const thresholds = [30, 33, 36].filter(t => t > totalCompleted);
+  if (!thresholds.length) return null;
+  return thresholds[0] - totalCompleted;
 }
 
 const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
@@ -89,11 +91,12 @@ const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
         <div className="summerBingo-points">{points} pts</div>
       </header>
 
-      {toNext !== null && (
-        <div className="summerBingo-nextUnlock">
-          {toNext} to next unlock
-        </div>
-      )}
+    {toNext != null && (
+      <div className="summerBingo-nextUnlock">
+        {toNext} tiles until next unlock
+      </div>
+    )}
+
 
       <div className="summerBingo-columns">
         <div className="summerBingo-main">
