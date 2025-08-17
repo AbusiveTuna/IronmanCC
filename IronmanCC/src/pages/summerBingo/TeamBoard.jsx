@@ -6,9 +6,7 @@ function completedCount(map, ids) {
   const allow = ids ? new Set(ids.map(String)) : null;
   return Object.entries(map || {}).filter(([id, s]) => {
     if (allow && !allow.has(id)) return false;
-    const goal = s?.goal ?? 1;
-    const prog = s?.progress ?? 0;
-    return s?.status === "completed" || prog >= goal;
+    return s?.status === "completed";
   }).length;
 }
 
@@ -22,23 +20,21 @@ function unlockedCounts(totalCompleted) {
   return {
     active: Math.min(baseActive + bonus, 55),
     passiveGroups: Math.min(groups, 5),
-    baseActive,
-    bonus
   };
 }
 
 function tilesUntilNextUnlock(totalCompleted, activeUnlocked) {
-  const nexts = [];
+  const targets = [];
   if (activeUnlocked < 40) {
     const nextBase = Math.min(21, 3 * (Math.floor(totalCompleted / 3) + 1));
-    if (nextBase > totalCompleted) nexts.push(nextBase);
+    if (totalCompleted < nextBase) targets.push(nextBase);
+  } else if (activeUnlocked < 55) {
+    [30, 33, 36].forEach(t => {
+      if (totalCompleted < t) targets.push(t);
+    });
   }
-  [30, 33, 36].forEach(t => {
-    if (t > totalCompleted) nexts.push(t);
-  });
-  if (nexts.length === 0 || activeUnlocked >= 55) return null;
-  const target = Math.min(...nexts);
-  return Math.max(0, target - totalCompleted);
+  if (!targets.length) return null;
+  return Math.min(...targets) - totalCompleted;
 }
 
 const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
@@ -95,7 +91,7 @@ const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
 
       {toNext !== null && (
         <div className="summerBingo-nextUnlock">
-          {toNext === 0 ? "Unlock incoming" : `${toNext} tiles until next unlock`}
+          {toNext} to next unlock
         </div>
       )}
 
