@@ -513,9 +513,9 @@
   },
   {
     "Id": "57",
-    "Name": "First Infernal Cape",
+    "Name": "First Infernal Cape or First Quiver",
     "Description": "Achieve something you have never done before",
-    "LongDescription": "A member of your team must achieve their first ever infernal cape.\nIf you have an infernal on a main/alt/gim/whatever it does not count.\nIt must actually be your first one ever.",
+    "LongDescription": "A member of your team must achieve their first ever infernal cape or quiver.\nIf you have an infernal or quiver on a main/alt/gim/whatever it does not count.\nIt must actually be your first one ever.",
     "Image": "/osrs_icons/Bosses/TzKal-Zuk.png",
     "Goal": 1,
     "Type": "Passive",
