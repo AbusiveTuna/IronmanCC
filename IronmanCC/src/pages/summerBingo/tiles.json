@@ -426,7 +426,7 @@
     "Description": "Obtain two uniques from Yama/Doom of Mocha",
     "LongDescription": "Any uniques",
     "Image": "/osrs_icons/Items/eye_of_ayak.webp",
-    "Goal": 3,
+    "Goal": 2,
     "Type": "medium"
   },
   {
