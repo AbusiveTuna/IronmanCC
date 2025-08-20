@@ -1,4 +1,5 @@
 import "./TeamBoard.css";
+import { useState } from 'react';
 import Board from "./components/Board";
 import useTeamBoardData from "./hooks/useTeamBoardData";
 
@@ -39,6 +40,7 @@ function tilesUntilNextUnlock(totalCompleted, activeUnlocked) {
 
 const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
   const { statusMap, points, loading, all } = useTeamBoardData(teamName, competitionId);
+  const [hideCompleted, setHideCompleted] = useState(false);
 
   const activeTilesAll = all.filter(t => !t.Passive).slice(0, 55);
   const passiveTilesAll = all.filter(t => t.Passive).slice(0, 5);
@@ -82,8 +84,13 @@ const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
   const { active: activeUnlocked, passiveGroups } = unlockedCounts(totalDone);
   const toNext = tilesUntilNextUnlock(totalDone, activeUnlocked);
 
-  const activeTiles = activeTilesAll.slice(0, activeUnlocked);
-  const passiveTiles = passiveTilesAll.slice(0, passiveGroups);
+  let activeTiles = activeTilesAll.slice(0, activeUnlocked);
+  let passiveTiles = passiveTilesAll.slice(0, passiveGroups);
+
+  if (hideCompleted) {
+    activeTiles = activeTiles.filter(t => statusMap[t.Id]?.status !== "completed");
+    passiveTiles = passiveTiles.filter(t => statusMap[t.Id]?.status !== "completed");
+  }
 
   return (
     <section className="summerBingo-team">
@@ -91,6 +98,13 @@ const TeamBoard = ({ teamName, tileMax = "220px", competitionId = 101 }) => {
         <h2>{teamName}</h2>
         <div className="summerBingo-points">{points} pts</div>
       </header>
+
+      <button
+        className="summerBingo-toggleBtn"
+        onClick={() => setHideCompleted(prev => !prev)}
+      >
+        {hideCompleted ? "Show Completed" : "Hide Completed"}
+      </button>
 
       {toNext != null && (
         <div className="summerBingo-nextUnlock">

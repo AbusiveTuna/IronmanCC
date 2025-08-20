@@ -71,3 +71,20 @@
   .summerBingo-team { max-width: 1200px; }
   .summerBingo-columns { grid-template-columns: 1fr; }
 }
+
+.summerBingo-toggleBtn {
+  margin: 0.5rem 0 1rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--secondary-color, #2a2a2a);
+  color: var(--text-color, #fff);
+  border: 1px solid var(--accent-color, #f0c040);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.summerBingo-toggleBtn:hover {
+  background: var(--accent-color, #f0c040);
+  color: #000;
+}
