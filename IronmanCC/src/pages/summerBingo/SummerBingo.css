@@ -51,3 +51,25 @@
   animation: sb-skel 1.2s infinite;
 }
 @keyframes sb-skel { to { transform: translateX(100%); } }
+
+.sb-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.5rem 0 1rem;
+}
+
+.sb-toggleBtn {
+  padding: 0.4rem 0.8rem;
+  background: var(--secondary-color, #2a2a2a);
+  color: var(--text-color, #fff);
+  border: 1px solid var(--accent-color, #f0c040);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sb-toggleBtn:hover {
+  background: var(--accent-color, #f0c040);
+  color: #000;
+}

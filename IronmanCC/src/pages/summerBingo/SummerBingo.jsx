@@ -31,6 +31,13 @@ function unlockedCounts(totalCompleted) {
   };
 }
 
+function isDone(statusMap, tile) {
+  const s = statusMap[tile.Id];
+  const goal = s?.goal ?? tile.Goal ?? 1;
+  const prog = s?.progress ?? 0;
+  return s?.status === "completed" || prog >= goal;
+}
+
 const SummerBingo = () => {
   const activeAll = useMemo(() => tiles.filter(t => !t.Passive).slice(0, 55), []);
   const passiveAll = useMemo(() => tiles.filter(t => t.Passive).slice(0, 5), []);
@@ -43,55 +50,62 @@ const SummerBingo = () => {
   const [pointsA, setPointsA] = useState(0);
   const [pointsB, setPointsB] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [hideCompleted, setHideCompleted] = useState(false);
 
-useEffect(() => {
-  let active = true;
-  (async () => {
-    try {
-      const [pa, pb] = await Promise.all([
-        fetch(PROGRESS_GET_URL(COMPETITION_ID, "Team Tuna")),
-        fetch(PROGRESS_GET_URL(COMPETITION_ID, "Team Chkn")),
-      ]);
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      try {
+        const [pa, pb] = await Promise.all([
+          fetch(PROGRESS_GET_URL(COMPETITION_ID, "Team Tuna")),
+          fetch(PROGRESS_GET_URL(COMPETITION_ID, "Team Chkn")),
+        ]);
 
-      let A = {}, B = {}, pA = 0, pB = 0;
-      if (pa.ok) {
-        const a = await pa.json();
-        A = a.tiles || a.teams?.["Team Tuna"]?.tiles || {};
-        pA = a.points_total ?? completedCount(A) * 5;
+        let A = {}, B = {}, pA = 0, pB = 0;
+        if (pa.ok) {
+          const a = await pa.json();
+          A = a.tiles || a.teams?.["Team Tuna"]?.tiles || {};
+          pA = a.points_total ?? completedCount(A) * 5;
+        }
+        if (pb.ok) {
+          const b = await pb.json();
+          B = b.tiles || b.teams?.["Team Chkn"]?.tiles || {};
+          pB = b.points_total ?? completedCount(B) * 5;
+        }
+        if (!active) return;
+        setStatusA(A); setStatusB(B); setPointsA(pA); setPointsB(pB);
+      } catch {
+        if (!active) return;
+        setStatusA({}); setStatusB({}); setPointsA(0); setPointsB(0);
+      } finally {
+        if (active) setLoading(false);
       }
-      if (pb.ok) {
-        const b = await pb.json();
-        B = b.tiles || b.teams?.["Team Chkn"]?.tiles || {};
-        pB = b.points_total ?? completedCount(B) * 5;
-      }
-      if (!active) return;
-      setStatusA(A); setStatusB(B); setPointsA(pA); setPointsB(pB);
-    } catch {
-      if (!active) return;
-      setStatusA({}); setStatusB({}); setPointsA(0); setPointsB(0);
-    } finally {
-      if (active) setLoading(false);
-    }
-  })();
-  return () => { active = false; };
-}, []);
-
+    })();
+    return () => { active = false; };
+  }, []);
 
   // Team Tuna unlocks
   const doneAActive  = completedCount(statusA, activeIds);
   const doneAPassive = completedCount(statusA, passiveIds);
   const totalA       = doneAActive + doneAPassive;
   const { active: activeUnlockedA, passive: passiveUnlockedA } = unlockedCounts(totalA);
-  const activeTilesA  = activeAll.slice(0, activeUnlockedA);
-  const passiveTilesA = passiveAll.slice(0, passiveUnlockedA);
+  let activeTilesA  = activeAll.slice(0, activeUnlockedA);
+  let passiveTilesA = passiveAll.slice(0, passiveUnlockedA);
 
   // Team Chkn
   const doneBActive  = completedCount(statusB, activeIds);
   const doneBPassive = completedCount(statusB, passiveIds);
   const totalB       = doneBActive + doneBPassive;
   const { active: activeUnlockedB, passive: passiveUnlockedB } = unlockedCounts(totalB);
-  const activeTilesB  = activeAll.slice(0, activeUnlockedB);
-  const passiveTilesB = passiveAll.slice(0, passiveUnlockedB);
+  let activeTilesB  = activeAll.slice(0, activeUnlockedB);
+  let passiveTilesB = passiveAll.slice(0, passiveUnlockedB);
+
+  if (hideCompleted) {
+    activeTilesA  = activeTilesA.filter(t => !isDone(statusA, t));
+    passiveTilesA = passiveTilesA.filter(t => !isDone(statusA, t));
+    activeTilesB  = activeTilesB.filter(t => !isDone(statusB, t));
+    passiveTilesB = passiveTilesB.filter(t => !isDone(statusB, t));
+  }
 
   if (loading) {
     return (
@@ -122,6 +136,16 @@ useEffect(() => {
 
   return (
     <div className="sb-wrap">
+      <div className="sb-controls">
+        <button
+          type="button"
+          className="sb-toggleBtn"
+          onClick={() => setHideCompleted(v => !v)}
+        >
+          {hideCompleted ? "Show Completed" : "Hide Completed"}
+        </button>
+      </div>
+
       <div className="sb-boards">
         {/* Team Tuna */}
         <section className="sb-team">
@@ -138,8 +162,8 @@ useEffect(() => {
                 visibleRows={999}
                 style={{ "--tile-max": "140px" }}
                 showDesc={false}
-                showInfoBtn={false}
-                cols={Math.max(1, passiveTilesA.length)}  // single row
+                showInfoBtn={true}
+                cols={Math.max(1, passiveTilesA.length)}
               />
             </div>
           )}
@@ -151,7 +175,7 @@ useEffect(() => {
               visibleRows={999}
               style={{ "--tile-max": "140px" }}
               showDesc={false}
-              showInfoBtn={false}
+              showInfoBtn={true}
               cols={5}
             />
           </div>
@@ -172,8 +196,8 @@ useEffect(() => {
                 visibleRows={999}
                 style={{ "--tile-max": "140px" }}
                 showDesc={false}
-                showInfoBtn={false}
-                cols={Math.max(1, passiveTilesB.length)}  // single row
+                showInfoBtn={true}
+                cols={Math.max(1, passiveTilesB.length)}
               />
             </div>
           )}
@@ -185,7 +209,7 @@ useEffect(() => {
               visibleRows={999}
               style={{ "--tile-max": "140px" }}
               showDesc={false}
-              showInfoBtn={false}
+              showInfoBtn={true}
               cols={5}
             />
           </div>
