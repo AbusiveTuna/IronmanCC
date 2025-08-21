@@ -199,7 +199,7 @@
     "Id": "22",
     "Name": "Minigames!",
     "Description": "Obtain 2 of the uniques listed",
-    "LongDescription": "Tome of Fire\nTome of water\nCrystal Tool Seed\nBig Harpoonfish\nZalcano Shard\nPryomancer Mask",
+    "LongDescription": "Items must be unique, no duplicates except for Pyromancer mask\nTome of Fire\nTome of water\nCrystal Tool Seed\nBig Harpoonfish\nZalcano Shard\nPryomancer Mask(must obtain 12 of them to count twice)",
     "Image": "/osrs_icons/Items/Tome.png",
     "Goal": 2,
     "Type": "easy"
