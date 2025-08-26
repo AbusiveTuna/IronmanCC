@@ -19,10 +19,19 @@
 
     {
         "event": "Everything Bingo V2",
-        "date": "May 30th 2025 To June 13 2025",
+        "date": "May 30th 2025 To June 13th 2025",
         "description": "A bingo that includes everything!",
         "winningTeam": "Everything but the Tub",
         "losingTeam": "Barely Legal Seafood, The Butter Churners, Sophanem Sigmas",
         "image": "/eventHistory/everythingBingo2.png"
+    },
+
+    {
+        "event": "Summer Classic 2025",
+        "date": "August 15th 2025 to Aug 23rd 2025",
+        "description": "A classic row by row bingo!",
+        "winningTeam": "Team Tuna",
+        "losingTeam": "Team Chkn",
+        "image": "/eventHistory/summerClassic25.png"
     }
 ]
