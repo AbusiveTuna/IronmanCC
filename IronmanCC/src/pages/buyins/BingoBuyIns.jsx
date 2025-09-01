@@ -71,7 +71,7 @@ const BingoBuyIns = () => {
     <div className="buyins-wrapper">
       <div className="buyins-column wide">
         <div className="buyins-section">
-          <h2>Summer Classic 2025 Donations</h2>
+          <h2>Bonsai X Lukas Winter Special Bingo</h2>
           <div className="buyin-table-container">
             <table className="buyin-table">
               <thead>
