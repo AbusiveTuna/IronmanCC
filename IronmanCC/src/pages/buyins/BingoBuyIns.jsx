@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './BingoBuyIns.css';
 
-const CURRENT_EVENT_NAME = "summer classic 2025";
+const CURRENT_EVENT_NAME = "Bonsai X Lukas Winter Special Bingo";
 
 const BingoBuyIns = () => {
   const [buyins, setBuyins] = useState([]);
