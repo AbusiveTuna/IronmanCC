@@ -793,7 +793,7 @@
   },
   {
     "Id": "98",
-    "Name": "",
+    "Name": "Any Mutagen",
     "Description": "",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Elite Clue.png",
@@ -801,19 +801,19 @@
   },
   {
     "Id": "99",
-    "Name": "",
-    "Description": "",
+    "Name": "ToB Dust",
+    "Description": "Obtain the Sanguine Dust from HMT",
     "LongDescription": "",
-    "Image": "/osrs_icons/Items/Elite Clue.png",
+    "Image": "/osrs_icons/Theatre_Of_Blood/Sanguine_Dust.webp",
     "Goal": 1
   },
   {
     "Id": "100",
-    "Name": "",
-    "Description": "",
+    "Name": "Voidwaker as a team",
+    "Description": "Obtain all three pieces of the voidwaker as a team.",
     "LongDescription": "",
     "Image": "/osrs_icons/Items/Elite Clue.png",
-    "Goal": 1
+    "Goal": 3
   },
   {
     "Id": "101",
