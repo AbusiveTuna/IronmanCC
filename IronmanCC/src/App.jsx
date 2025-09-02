@@ -11,6 +11,8 @@ import BingoBuyIns from 'pages/buyins/BingoBuyIns';
 import FarmingTimers from 'pages/farmingTimers/FarmingTimers';
 import Header from 'components/header/Header';
 
+import FallBingo from './pages/fallBingo/FallBingo';
+
 import './App.css'
 import BingoBuyInsAdmin from './pages/buyins/BingoBuyInsAdmin';
 
@@ -25,6 +27,9 @@ function App() {
           <Route path="/justen-tbow" element={<JustenTbow />} />
           <Route path="/farming-timers" element={<FarmingTimers />} />
           <Route path="/event-history" element={<EventHistory />} />
+
+          <Route path="/fall-bingo" element={<FallBingo />} />
+
           <Route path="/buy-ins" element={<BingoBuyIns />} />
           <Route path="/buy-ins-admin-82699" element={<BingoBuyInsAdmin />} />
         </Routes>
