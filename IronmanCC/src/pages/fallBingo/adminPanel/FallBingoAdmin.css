@@ -1,0 +1,64 @@
+:root{
+  --fbA:#2d7dff;
+  --fbB:#9b6bff;
+  --ring:2px;
+  --radius:12px;
+  --gap:10px;
+}
+
+.FallBingoAdmin-root{display:grid;gap:12px;}
+.FallBingoAdmin-bar{display:grid;gap:10px;}
+.FallBingoAdmin-controls{
+  display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between;
+}
+.FallBingoAdmin-editing{display:flex;gap:6px;align-items:center;}
+.FallBingoAdmin-editing button{
+  padding:6px 10px;border-radius:8px;border:1px solid #2a2f3a;background:#171b24;color:#e7e9ee;cursor:pointer;
+}
+.FallBingoAdmin-editing .is-active{box-shadow:inset 0 0 0 2px #7a88a3;}
+.FallBingoAdmin-editing .fbA.is-active{box-shadow:inset 0 0 0 2px var(--fbA);}
+.FallBingoAdmin-editing .fbB.is-active{box-shadow:inset 0 0 0 2px var(--fbB);}
+
+.FallBingoAdmin-actions{display:flex;gap:8px;}
+.FallBingoAdmin-actions button{
+  padding:6px 10px;border-radius:8px;border:1px solid #2a2f3a;background:#1b202a;color:#e7e9ee;cursor:pointer;
+}
+
+.FallBingoAdmin-points{display:flex;gap:12px;align-items:center;}
+.FallBingoAdmin-points .dot{width:10px;height:10px;border-radius:999px;display:inline-block;margin:0 6px 0 12px;}
+.FallBingoAdmin-points .fbA{background:var(--fbA);}
+.FallBingoAdmin-points .fbB{background:var(--fbB);}
+
+.FallBingoAdmin-loading{
+  height:240px;background:linear-gradient(90deg,#12151c 0%,#171b24 50%,#12151c 100%);
+  background-size:200% 100%;animation:shimmer 1.2s linear infinite;
+}
+@keyframes shimmer{0%{background-position:0% 50%;}100%{background-position:-200% 50%;}}
+
+.FallBingoAdmin-pets{
+  display:grid;grid-auto-flow:column;grid-auto-columns:min-content;gap:var(--gap);overflow-x:auto;padding-bottom:4px;
+}
+
+.FallBingoAdmin-grid{display:grid;gap:var(--gap);grid-template-rows:repeat(10,auto);}
+
+.FallBingoAdmin-cell{position:relative;}
+.FallBingoAdmin-cell.is-passive::after{
+  content:"";position:absolute;inset:0;border-radius:var(--radius);box-shadow:inset 0 0 0 var(--ring) #8aa3ff33;
+  pointer-events:none;
+}
+.FallBingoAdmin-cell.is-claimed-A::after{
+  content:"";position:absolute;inset:0;border-radius:var(--radius);box-shadow:inset 0 0 0 var(--ring) var(--fbA);pointer-events:none;
+}
+.FallBingoAdmin-cell.is-claimed-B::after{
+  content:"";position:absolute;inset:0;border-radius:var(--radius);box-shadow:inset 0 0 0 var(--ring) var(--fbB);pointer-events:none;
+}
+
+.FallBingoAdmin-badge{
+  position:absolute;top:6px;left:6px;font-size:11px;background:rgba(138,163,255,0.15);
+  border:1px solid #8aa3ff;padding:2px 6px;border-radius:999px;z-index:2;
+}
+
+.FallBingoAdmin-mini{
+  position:absolute;bottom:6px;right:8px;font-size:11px;padding:2px 6px;border-radius:6px;
+  background:rgba(0,0,0,0.45);border:1px solid #2a2f3a;color:#e7e9ee;z-index:2;
+}

@@ -4,8 +4,8 @@
   --Tile-muted: #aab0bb;
   --Tile-border: #272a33;
   --Tile-radius: 12px;
-  --Tile-pad: 12px;
-  --Tile-width: 220px;
+  --Tile-pad: 10px;
+  --Tile-width: 165px; /* was 220px */
 }
 
 .Tile-card {
@@ -22,12 +22,12 @@
 
 .Tile-infoBtn {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 28px;
-  height: 28px;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
   border: 1px solid var(--Tile-border);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255,255,255,0.04);
   color: var(--Tile-fg);
   border-radius: 999px;
   cursor: pointer;
@@ -50,13 +50,13 @@
 
 .Tile-body {
   display: grid;
-  gap: 8px;
+  gap: 6px;
   padding: var(--Tile-pad);
 }
 
 .Tile-name {
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
@@ -65,14 +65,12 @@
 
 .Tile-desc {
   margin: 0;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--Tile-muted);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 30px;
+  min-height: 24px;
 }
 
-.Tile-progress {
-  width: 100%;
-}
+.Tile-progress { width: 100%; }
