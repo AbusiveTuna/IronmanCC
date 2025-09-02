@@ -11,9 +11,9 @@ import BingoBuyIns from 'pages/buyins/BingoBuyIns';
 import FarmingTimers from 'pages/farmingTimers/FarmingTimers';
 import Header from 'components/header/Header';
 
-import FallBingo from './pages/fallBingo/FallBingo';
-import FallBingoAdmin from './pages/fallBingo/adminPanel/FallBingoAdmin';
-import PlaceHolder from './pages/fallBingo/PlaceHolder';
+import WinterBingo from './pages/winterBingo/WinterBingo';
+import WinterBingoAdmin from './pages/winterBingo/adminPanel/WinterBingoAdmin';
+import PlaceHolder from './pages/winterBingo/PlaceHolder';
 
 import './App.css'
 import BingoBuyInsAdmin from './pages/buyins/BingoBuyInsAdmin';
@@ -30,9 +30,9 @@ function App() {
           <Route path="/farming-timers" element={<FarmingTimers />} />
           <Route path="/event-history" element={<EventHistory />} />
 
-          <Route path="/fall-bingo" element={<PlaceHolder />} />
-          <Route path="/fall-bingo-test-8012" element={<FallBingo />} />
-          <Route path="/fall-bingo-admin" element={<FallBingoAdmin />} />
+          <Route path="/winter-bingo" element={<PlaceHolder />} />
+          <Route path="/winter-bingo-test-8012" element={<WinterBingo />} />
+          <Route path="/winter-bingo-admin" element={<WinterBingoAdmin />} />
 
           <Route path="/buy-ins" element={<BingoBuyIns />} />
           <Route path="/buy-ins-admin-82699" element={<BingoBuyInsAdmin />} />

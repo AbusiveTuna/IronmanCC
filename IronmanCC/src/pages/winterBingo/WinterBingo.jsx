@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Tile from "components/bingo/tiles/Tile";
-import "./FallBingo.css";
+import "./WinterBingo.css";
 import tiles from "./tiles.json";
 
 const API_BASE = "https://api.ironmancc.com/ironmancc";
@@ -25,7 +25,7 @@ function currentOf(entry) {
     return Math.max(0, num(entry?.progress ?? entry?.current, 0));
 }
 
-const FallBingo = ({
+const WinterBingo = ({
     competitionId = 111,
     teamAName = "Team Lukas",
     teamBName = "Team Bonsai",
@@ -97,40 +97,40 @@ const FallBingo = ({
 
     if (loading) {
         return (
-            <section className="FallBingo-root">
-                <header className="FallBingo-header">
+            <section className="WinterBingo-root">
+                <header className="WinterBingo-header">
                     <h2>BONSAI × LUKAS Winter Special Bingo</h2>
                 </header>
-                <div className="FallBingo-score">
-                    <div className="FallBingo-team"><span className="FallBingo-dot is-A" />{teamAName}: …</div>
-                    <div className="FallBingo-team"><span className="FallBingo-dot is-B" />{teamBName}: …</div>
+                <div className="WinterBingo-score">
+                    <div className="WinterBingo-team"><span className="WinterBingo-dot is-A" />{teamAName}: …</div>
+                    <div className="WinterBingo-team"><span className="WinterBingo-dot is-B" />{teamBName}: …</div>
                 </div>
-                <div className="FallBingo-loading" />
+                <div className="WinterBingo-loading" />
             </section>
         );
     }
 
     return (
-        <section className="FallBingo-root">
-            <header className="FallBingo-header">
+        <section className="WinterBingo-root">
+            <header className="WinterBingo-header">
                 <h2>BONSAI × LUKAS Winter Special Bingo</h2>
             </header>
 
-            <div className="FallBingo-score">
-                <div className="FallBingo-team">
-                    <span className="FallBingo-dot is-A" />
-                    <span className="FallBingo-teamName">{teamAName}</span>
-                    <span className="FallBingo-points">{pointsA}</span>
+            <div className="WinterBingo-score">
+                <div className="WinterBingo-team">
+                    <span className="WinterBingo-dot is-A" />
+                    <span className="WinterBingo-teamName">{teamAName}</span>
+                    <span className="WinterBingo-points">{pointsA}</span>
                 </div>
-                <div className="FallBingo-team">
-                    <span className="FallBingo-dot is-B" />
-                    <span className="FallBingo-teamName">{teamBName}</span>
-                    <span className="FallBingo-points">{pointsB}</span>
+                <div className="WinterBingo-team">
+                    <span className="WinterBingo-dot is-B" />
+                    <span className="WinterBingo-teamName">{teamBName}</span>
+                    <span className="WinterBingo-points">{pointsB}</span>
                 </div>
             </div>
 
             {!!petTiles.length && (
-                <div className="FallBingo-pets">
+                <div className="WinterBingo-pets">
                     {petTiles.map((t) => {
                         const a = mapA[t.Id];
                         const b = mapB[t.Id];
@@ -144,7 +144,7 @@ const FallBingo = ({
                             <div
                                 key={t.Id}
                                 className={[
-                                    "FallBingo-petCell",
+                                    "WinterBingo-petCell",
                                     claimedBy === "A" ? "is-claimed-A" : "",
                                     claimedBy === "B" ? "is-claimed-B" : "",
                                 ].join(" ")}
@@ -164,7 +164,7 @@ const FallBingo = ({
             )}
 
             <div
-                className="FallBingo-grid"
+                className="WinterBingo-grid"
                 style={{ gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))` }}
             >
                 {rows.map((row, r) =>
@@ -185,7 +185,7 @@ const FallBingo = ({
                             <div
                                 key={id}
                                 className={[
-                                    "FallBingo-cell",
+                                    "WinterBingo-cell",
                                     rowVisible ? "is-visible" : "is-hidden",
                                     isPassive ? "is-passive" : "",
                                     claimedBy === "A" ? "is-claimed-A" : "",
@@ -194,7 +194,7 @@ const FallBingo = ({
                             >
                                 {rowVisible ? (
                                     <>
-                                        {isPassive && <div className="FallBingo-badge">Passive</div>}
+                                        {isPassive && <div className="WinterBingo-badge">Passive</div>}
                                         <Tile
                                             image={t.Image}
                                             name={t.Name}
@@ -205,7 +205,7 @@ const FallBingo = ({
                                         />
                                     </>
                                 ) : (
-                                    <div className="FallBingo-hiddenTile" />
+                                    <div className="WinterBingo-hiddenTile" />
                                 )}
                             </div>
                         );
@@ -216,4 +216,4 @@ const FallBingo = ({
     );
 };
 
-export default FallBingo;
+export default WinterBingo;

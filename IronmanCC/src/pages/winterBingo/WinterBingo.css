@@ -9,30 +9,30 @@
   --fb-ring: 2px;
 }
 
-.FallBingo-root { display: grid; gap: 12px; }
-.FallBingo-header { display: flex; align-items: baseline; justify-content: space-between; }
+.WinterBingo-root { display: grid; gap: 12px; }
+.WinterBingo-header { display: flex; align-items: baseline; justify-content: space-between; }
 
-.FallBingo-score {
+.WinterBingo-score {
   display: flex;
   gap: 16px;
   align-items: center;
   flex-wrap: wrap;
 }
-.FallBingo-team {
+.WinterBingo-team {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 600;
 }
-.FallBingo-dot {
+.WinterBingo-dot {
   width: 12px; height: 12px; border-radius: 999px; display: inline-block;
 }
-.FallBingo-dot.is-A { background: var(--fb-teamA); }
-.FallBingo-dot.is-B { background: var(--fb-teamB); }
-.FallBingo-teamName { opacity: 0.9; }
-.FallBingo-points { margin-left: 6px; font-variant-numeric: tabular-nums; }
+.WinterBingo-dot.is-A { background: var(--fb-teamA); }
+.WinterBingo-dot.is-B { background: var(--fb-teamB); }
+.WinterBingo-teamName { opacity: 0.9; }
+.WinterBingo-points { margin-left: 6px; font-variant-numeric: tabular-nums; }
 
-.FallBingo-loading {
+.WinterBingo-loading {
   height: 280px;
   background: linear-gradient(90deg, #12151c 0%, #171b24 50%, #12151c 100%);
   background-size: 200% 100%;
@@ -40,7 +40,7 @@
 }
 @keyframes fb-shimmer { 0% {background-position: 0% 50%;} 100% {background-position: -200% 50%;} }
 
-.FallBingo-pets {
+.WinterBingo-pets {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: min-content;
@@ -49,32 +49,32 @@
   overflow-x: auto;
   padding-bottom: 4px;
 }
-.FallBingo-petCell { position: relative; }
-.FallBingo-petCell.is-claimed-A::after,
-.FallBingo-cell.is-claimed-A::after {
+.WinterBingo-petCell { position: relative; }
+.WinterBingo-petCell.is-claimed-A::after,
+.WinterBingo-cell.is-claimed-A::after {
   content: ""; position: absolute; inset: 0; border-radius: var(--fb-radius);
   box-shadow: inset 0 0 0 var(--fb-ring) var(--fb-teamA);
   pointer-events: none;
 }
-.FallBingo-petCell.is-claimed-B::after,
-.FallBingo-cell.is-claimed-B::after {
+.WinterBingo-petCell.is-claimed-B::after,
+.WinterBingo-cell.is-claimed-B::after {
   content: ""; position: absolute; inset: 0; border-radius: var(--fb-radius);
   box-shadow: inset 0 0 0 var(--fb-ring) var(--fb-teamB);
   pointer-events: none;
 }
 
-.FallBingo-grid { display: grid; gap: var(--fb-gap); }
-.FallBingo-cell { position: relative; }
-.FallBingo-cell.is-hidden .FallBingo-hiddenTile {
+.WinterBingo-grid { display: grid; gap: var(--fb-gap); }
+.WinterBingo-cell { position: relative; }
+.WinterBingo-cell.is-hidden .WinterBingo-hiddenTile {
   width: 220px;
   height: calc(220px / 1.9 + 80px);
   background: var(--fb-hidden-bg);
   border: 1px dashed var(--fb-border);
   border-radius: var(--fb-radius);
 }
-.FallBingo-badge {
+.WinterBingo-badge {
   position: absolute; top: 6px; left: 6px;
   font-size: 11px; background: rgba(138,163,255,0.15);
   border: 1px solid #8aa3ff; padding: 2px 6px; border-radius: 999px; z-index: 2;
 }
-.FallBingo-hiddenTile { border-radius: var(--fb-radius); }
+.WinterBingo-hiddenTile { border-radius: var(--fb-radius); }

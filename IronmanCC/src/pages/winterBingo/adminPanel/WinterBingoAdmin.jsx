@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import "./FallBingoAdmin.css";
+import "./WinterBingoAdmin.css";
 import Tile from "components/bingo/tiles/Tile";
 import tiles from "../tiles.json";
 
@@ -38,7 +38,7 @@ const computePoints = (map) => {
   return pts;
 };
 
-const FallBingoAdmin = ({
+const WinterBingoAdmin = ({
   competitionId = 101,
   teamAName = "Team A",
   teamBName = "Team B",
@@ -171,22 +171,22 @@ const FallBingoAdmin = ({
 
   if (loading) {
     return (
-      <section className="FallBingoAdmin-root">
-        <header className="FallBingoAdmin-bar">
+      <section className="WinterBingoAdmin-root">
+        <header className="WinterBingoAdmin-bar">
           <h2>Admin · BONSAI × LUKAS Winter Special</h2>
         </header>
-        <div className="FallBingoAdmin-loading" />
+        <div className="WinterBingoAdmin-loading" />
       </section>
     );
   }
 
   return (
-    <section className="FallBingoAdmin-root">
-      <header className="FallBingoAdmin-bar">
+    <section className="WinterBingoAdmin-root">
+      <header className="WinterBingoAdmin-bar">
         <h2>Admin · BONSAI × LUKAS Winter Special</h2>
 
-        <div className="FallBingoAdmin-controls">
-          <div className="FallBingoAdmin-editing">
+        <div className="WinterBingoAdmin-controls">
+          <div className="WinterBingoAdmin-editing">
             <span>Editing:</span>
             <button
               className={editing === "A" ? "is-active fbA" : "fbA"}
@@ -204,12 +204,12 @@ const FallBingoAdmin = ({
             </button>
           </div>
 
-          <div className="FallBingoAdmin-points">
+          <div className="WinterBingoAdmin-points">
             <span className="dot fbA" /> {teamAName}: <b>{pointsA}</b>
             <span className="dot fbB" /> {teamBName}: <b>{pointsB}</b>
           </div>
 
-          <div className="FallBingoAdmin-actions">
+          <div className="WinterBingoAdmin-actions">
             <button type="button" onClick={() => saveTeam("A")} disabled={saving}>Save {teamAName}</button>
             <button type="button" onClick={() => saveTeam("B")} disabled={saving}>Save {teamBName}</button>
             <button type="button" onClick={saveBoth} disabled={saving}>Save Both</button>
@@ -218,7 +218,7 @@ const FallBingoAdmin = ({
       </header>
 
       {!!petTiles.length && (
-        <div className="FallBingoAdmin-pets">
+        <div className="WinterBingoAdmin-pets">
           {petTiles.map((t) => {
             const aDone = isComplete(mapA[t.Id], t.Goal);
             const bDone = isComplete(mapB[t.Id], t.Goal);
@@ -230,7 +230,7 @@ const FallBingoAdmin = ({
               <div
                 key={t.Id}
                 className={[
-                  "FallBingoAdmin-cell",
+                  "WinterBingoAdmin-cell",
                   claimed === "A" ? "is-claimed-A" : "",
                   claimed === "B" ? "is-claimed-B" : "",
                 ].join(" ")}
@@ -246,7 +246,7 @@ const FallBingoAdmin = ({
                   tileProgress={progress}
                   tileGoal={goal}
                 />
-                <div className="FallBingoAdmin-mini">
+                <div className="WinterBingoAdmin-mini">
                   {editing} {progress}/{goal}
                 </div>
               </div>
@@ -256,7 +256,7 @@ const FallBingoAdmin = ({
       )}
 
       <div
-        className="FallBingoAdmin-grid"
+        className="WinterBingoAdmin-grid"
         style={{ gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))` }}
       >
         {rows.flat().map((t) => {
@@ -272,7 +272,7 @@ const FallBingoAdmin = ({
             <div
               key={t.Id}
               className={[
-                "FallBingoAdmin-cell",
+                "WinterBingoAdmin-cell",
                 isPassive ? "is-passive" : "",
                 claimed === "A" ? "is-claimed-A" : "",
                 claimed === "B" ? "is-claimed-B" : "",
@@ -281,7 +281,7 @@ const FallBingoAdmin = ({
               onContextMenu={(e) => handleRightClick(e, t)}
               title="Click +1, Right-click -1"
             >
-              {isPassive && <div className="FallBingoAdmin-badge">Passive</div>}
+              {isPassive && <div className="WinterBingoAdmin-badge">Passive</div>}
               <Tile
                 image={t.Image}
                 name={t.Name}
@@ -290,7 +290,7 @@ const FallBingoAdmin = ({
                 tileProgress={progress}
                 tileGoal={goal}
               />
-              <div className="FallBingoAdmin-mini">
+              <div className="WinterBingoAdmin-mini">
                 {editing} {progress}/{goal}
               </div>
             </div>
@@ -301,4 +301,4 @@ const FallBingoAdmin = ({
   );
 };
 
-export default FallBingoAdmin;
+export default WinterBingoAdmin;
