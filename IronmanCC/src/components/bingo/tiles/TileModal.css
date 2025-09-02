@@ -1,0 +1,89 @@
+:root {
+  --Tile-bg: #111318;
+  --Tile-fg: #e7e9ee;
+  --Tile-muted: #aab0bb;
+  --Tile-border: #272a33;
+  --Tile-radius: 12px;
+}
+
+.Tile-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.Tile-dialog {
+  width: min(520px, 92vw);
+  padding: 0;
+  border: 1px solid var(--Tile-border);
+  background: var(--Tile-bg);
+  color: var(--Tile-fg);
+  border-radius: var(--Tile-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.Tile-dialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--Tile-border);
+}
+
+.Tile-dialogTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.Tile-dialogClose {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--Tile-fg);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.Tile-dialogBody {
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.Tile-dialogShort {
+  margin: 0;
+  color: var(--Tile-muted);
+  font-size: 13px;
+}
+
+.Tile-dialogLong {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.Tile-dialogSection {
+  margin-top: 6px;
+}
+
+.Tile-dialogFooter {
+  padding: 12px 14px;
+  border-top: 1px solid var(--Tile-border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Tile-dialogOk {
+  padding: 8px 12px;
+  border: 1px solid var(--Tile-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--Tile-fg);
+  border-radius: 8px;
+  cursor: pointer;
+}

@@ -12,6 +12,7 @@ import FarmingTimers from 'pages/farmingTimers/FarmingTimers';
 import Header from 'components/header/Header';
 
 import FallBingo from './pages/fallBingo/FallBingo';
+import FallBingoAdmin from './pages/fallBingo/adminPanel/FallBingoAdmin';
 
 import './App.css'
 import BingoBuyInsAdmin from './pages/buyins/BingoBuyInsAdmin';
@@ -29,6 +30,7 @@ function App() {
           <Route path="/event-history" element={<EventHistory />} />
 
           <Route path="/fall-bingo" element={<FallBingo />} />
+          <Route path="/fall-bingo-admin" element={<FallBingoAdmin />} />
 
           <Route path="/buy-ins" element={<BingoBuyIns />} />
           <Route path="/buy-ins-admin-82699" element={<BingoBuyInsAdmin />} />

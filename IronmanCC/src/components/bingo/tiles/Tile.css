@@ -1,0 +1,78 @@
+:root {
+  --Tile-bg: #111318;
+  --Tile-fg: #e7e9ee;
+  --Tile-muted: #aab0bb;
+  --Tile-border: #272a33;
+  --Tile-radius: 12px;
+  --Tile-pad: 12px;
+  --Tile-width: 220px;
+}
+
+.Tile-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  position: relative;
+  width: var(--Tile-width);
+  background: var(--Tile-bg);
+  color: var(--Tile-fg);
+  border: 1px solid var(--Tile-border);
+  border-radius: var(--Tile-radius);
+  overflow: hidden;
+}
+
+.Tile-infoBtn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--Tile-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--Tile-fg);
+  border-radius: 999px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.Tile-icon {
+  aspect-ratio: 1.9 / 1;
+  background: #0b0d11;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.Tile-icon img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+}
+
+.Tile-body {
+  display: grid;
+  gap: 8px;
+  padding: var(--Tile-pad);
+}
+
+.Tile-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Tile-desc {
+  margin: 0;
+  font-size: 12px;
+  color: var(--Tile-muted);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 30px;
+}
+
+.Tile-progress {
+  width: 100%;
+}

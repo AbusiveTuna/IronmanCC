@@ -1,0 +1,37 @@
+:root {
+  --ProgressBar-track: #1a1e27;
+  --ProgressBar-fill: #4aa3ff;
+  --ProgressBar-border: #272a33;
+  --ProgressBar-radius: 999px;
+  --ProgressBar-height: 12px;
+  --ProgressBar-label: #ffffff;
+}
+
+.ProgressBar-root {
+  position: relative;
+  width: 100%;
+  height: var(--ProgressBar-height);
+  background: var(--ProgressBar-track);
+  border: 1px solid var(--ProgressBar-border);
+  border-radius: var(--ProgressBar-radius);
+  overflow: hidden;
+}
+
+.ProgressBar-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--ProgressBar-fill), #7bd3ff);
+}
+
+.ProgressBar-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: var(--ProgressBar-label);
+  pointer-events: none;
+  user-select: none;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
