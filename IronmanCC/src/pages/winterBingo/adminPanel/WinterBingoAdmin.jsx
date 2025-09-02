@@ -33,7 +33,9 @@ const computePoints = (map) => {
   for (const t of tiles) {
     const e = map[t.Id];
     if (!e) continue;
-    if (isComplete(e, t.Goal)) pts += t.Type === "pet-passive" ? 2 : 1;
+    if (isComplete(e, t.Goal)) {
+      pts += t.Type === "pet-passive" ? 2 : 1;
+    }
   }
   return pts;
 };
