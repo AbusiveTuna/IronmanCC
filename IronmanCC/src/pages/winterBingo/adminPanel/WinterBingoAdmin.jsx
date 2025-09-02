@@ -39,9 +39,9 @@ const computePoints = (map) => {
 };
 
 const WinterBingoAdmin = ({
-  competitionId = 101,
-  teamAName = "Team A",
-  teamBName = "Team B",
+  competitionId = 111,
+  teamAName = "Team Lukas",
+  teamBName = "Team Bonsai",
 }) => {
   const [teamA, setTeamA] = useState(null);
   const [teamB, setTeamB] = useState(null);
