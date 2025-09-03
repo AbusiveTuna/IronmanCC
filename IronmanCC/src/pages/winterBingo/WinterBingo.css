@@ -3,78 +3,75 @@
   --fb-hidden-bg: #0b0d11;
   --fb-border: #2a2f3a;
   --fb-radius: 12px;
-
   --fb-teamA: #2d7dff;
   --fb-teamB: #9b6bff;
   --fb-ring: 2px;
 }
 
-.WinterBingo-root { display: grid; gap: 12px; }
-.WinterBingo-header { display: flex; align-items: baseline; justify-content: space-between; }
+.WinterBingo-root {
+  display: grid;
+  gap: 12px;
+  padding-top: 24px;
+}
+
+.WinterBingo-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding-inline: 16px;
+  column-gap: 12px;
+}
+
+.WinterBingo-title {
+  grid-column: 2;
+  justify-self: center;
+  margin: 0;
+  text-align: center;
+}
+
+.WinterBingo-actions {
+  grid-column: 3;
+  justify-self: end;
+}
+
+.WinterBingo-toggleBtn {
+  font: inherit;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--fb-border);
+  background: #161922;
+  color: #e7e9ee;
+  cursor: pointer;
+}
+.WinterBingo-toggleBtn:hover { background: #1b1f2a; }
 
 .WinterBingo-score {
   display: flex;
   gap: 16px;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
 }
+
 .WinterBingo-team {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 600;
+  font-size: 1.125rem;
 }
-.WinterBingo-dot {
-  width: 12px; height: 12px; border-radius: 999px; display: inline-block;
+
+.WinterBingo-points {
+  margin-left: 6px;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.25rem;
 }
+
+.WinterBingo-dot { width: 12px; height: 12px; border-radius: 999px; display: inline-block; }
 .WinterBingo-dot.is-A { background: var(--fb-teamA); }
 .WinterBingo-dot.is-B { background: var(--fb-teamB); }
 .WinterBingo-teamName { opacity: 0.9; }
-.WinterBingo-points { margin-left: 6px; font-variant-numeric: tabular-nums; }
 
-.WinterBingo-loading {
-  height: 280px;
-  background: linear-gradient(90deg, #12151c 0%, #171b24 50%, #12151c 100%);
-  background-size: 200% 100%;
-  animation: fb-shimmer 1.2s linear infinite;
-}
 @keyframes fb-shimmer { 0% {background-position: 0% 50%;} 100% {background-position: -200% 50%;} }
-
-.WinterBingo-pets {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: min-content;
-  gap: var(--fb-gap);
-  align-items: start;
-  overflow-x: auto;
-  padding-bottom: 4px;
-}
-.WinterBingo-petCell { position: relative; }
-.WinterBingo-petCell.is-claimed-A::after,
-.WinterBingo-cell.is-claimed-A::after {
-  content: ""; position: absolute; inset: 0; border-radius: var(--fb-radius);
-  box-shadow: inset 0 0 0 var(--fb-ring) var(--fb-teamA);
-  pointer-events: none;
-}
-.WinterBingo-petCell.is-claimed-B::after,
-.WinterBingo-cell.is-claimed-B::after {
-  content: ""; position: absolute; inset: 0; border-radius: var(--fb-radius);
-  box-shadow: inset 0 0 0 var(--fb-ring) var(--fb-teamB);
-  pointer-events: none;
-}
-
-.WinterBingo-grid { display: grid; gap: var(--fb-gap); }
-.WinterBingo-cell { position: relative; }
-.WinterBingo-cell.is-hidden .WinterBingo-hiddenTile {
-  width: 220px;
-  height: calc(220px / 1.9 + 80px);
-  background: var(--fb-hidden-bg);
-  border: 1px dashed var(--fb-border);
-  border-radius: var(--fb-radius);
-}
-.WinterBingo-badge {
-  position: absolute; top: 6px; left: 6px;
-  font-size: 11px; background: rgba(138,163,255,0.15);
-  border: 1px solid #8aa3ff; padding: 2px 6px; border-radius: 999px; z-index: 2;
-}
-.WinterBingo-hiddenTile { border-radius: var(--fb-radius); }

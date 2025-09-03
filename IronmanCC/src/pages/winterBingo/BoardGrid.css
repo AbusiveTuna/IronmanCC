@@ -1,0 +1,44 @@
+.WinterBingo-grid {
+  display: grid;
+  gap: 20px;
+  padding-inline: 12px;
+  justify-content: center;
+  --Tile-width: 150px;
+  grid-template-columns: repeat(var(--fb-cols, 10), var(--Tile-width));
+}
+
+.WinterBingo-cell { position: relative; }
+
+.WinterBingo-cell.is-hidden .WinterBingo-hiddenTile {
+  inline-size: var(--Tile-width);
+  block-size: calc(var(--Tile-width) / 1.9 + 80px);
+  background: var(--fb-hidden-bg);
+  border: 1px dashed var(--fb-border);
+  border-radius: var(--fb-radius);
+}
+
+.WinterBingo-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 11px;
+  background: rgba(138,163,255,0.15);
+  border: 1px solid #8aa3ff;
+  padding: 2px 6px;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.WinterBingo-hiddenTile { border-radius: var(--fb-radius); }
+
+.WinterBingo-cell.is-claimed-A::after,
+.WinterBingo-cell.is-claimed-B::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--fb-radius);
+  box-shadow: inset 0 0 0 var(--fb-ring) var(--fb-teamA);
+  pointer-events: none;
+}
+
+.WinterBingo-cell.is-claimed-B::after { box-shadow: inset 0 0 0 var(--fb-ring) var(--fb-teamB); }

@@ -5,7 +5,7 @@
   --Tile-border: #272a33;
   --Tile-radius: 12px;
   --Tile-pad: 10px;
-  --Tile-width: 165px; /* was 220px */
+  --Tile-width: 165px;
 }
 
 .Tile-card {
