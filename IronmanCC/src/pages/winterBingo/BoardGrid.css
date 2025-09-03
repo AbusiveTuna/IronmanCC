@@ -7,13 +7,20 @@
   grid-template-columns: repeat(var(--fb-cols, 10), var(--Tile-width));
 }
 
-.WinterBingo-cell { position: relative; }
+.WinterBingo-cell {
+  position: relative;
+  overflow: hidden;
+}
 
 .WinterBingo-cell.is-hidden .WinterBingo-hiddenTile {
   inline-size: var(--Tile-width);
   block-size: calc(var(--Tile-width) / 1.9 + 80px);
   background: var(--fb-hidden-bg);
   border: 1px dashed var(--fb-border);
+  border-radius: var(--fb-radius);
+}
+
+.WinterBingo-hiddenTile {
   border-radius: var(--fb-radius);
 }
 
@@ -29,10 +36,9 @@
   z-index: 2;
 }
 
-.WinterBingo-hiddenTile { border-radius: var(--fb-radius); }
-
-.WinterBingo-cell.is-claimed-A::after,
-.WinterBingo-cell.is-claimed-B::after {
+/* Team ring layer */
+.WinterBingo-cell.is-claimed-A::before,
+.WinterBingo-cell.is-claimed-B::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -40,5 +46,45 @@
   box-shadow: inset 0 0 0 var(--fb-ring) var(--fb-teamA);
   pointer-events: none;
 }
+.WinterBingo-cell.is-claimed-B::before {
+  box-shadow: inset 0 0 0 var(--fb-ring) var(--fb-teamB);
+}
 
-.WinterBingo-cell.is-claimed-B::after { box-shadow: inset 0 0 0 var(--fb-ring) var(--fb-teamB); }
+/* Flag overlay */
+.WinterBingo-cell.is-claimed-A::after,
+.WinterBingo-cell.is-claimed-B::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.35;
+  pointer-events: none;
+  border-radius: var(--fb-radius);
+}
+
+.WinterBingo-cell.is-hidden::before,
+.WinterBingo-cell.is-hidden::after {
+  display: none;
+}
+
+/* Lithuania (Team A / Lukas) */
+.WinterBingo-cell.is-claimed-A::after {
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 3 2'>\
+<rect width='3' height='2' fill='%23FDB913'/>\
+<rect y='0.6667' width='3' height='1.3333' fill='%23006A44'/>\
+<rect y='1.3333' width='3' height='0.6667' fill='%23C1272D'/>\
+</svg>");
+}
+
+/* Brazil (Team B / Bonsai) */
+.WinterBingo-cell.is-claimed-B::after {
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='600' height='420' viewBox='0 0 20 14'>\
+<rect width='20' height='14' fill='%23009C3B'/>\
+<polygon points='10,2 17,7 10,12 3,7' fill='%23FFDF00'/>\
+<circle cx='10' cy='7' r='3.2' fill='%23002776'/>\
+</svg>");
+}
