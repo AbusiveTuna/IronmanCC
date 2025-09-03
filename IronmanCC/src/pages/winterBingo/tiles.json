@@ -3,7 +3,7 @@
     "Id": "1",
     "Name": "Unsired",
     "Description": "Obtain 1 unsired",
-    "LongDescription": "Obtain 1 unsired",
+    "LongDescription": "Obtain 1 unsired from the Abyssal Sire",
     "Image": "/osrs_icons/Items/unsired.webp",
     "Goal": 1
   },
@@ -11,7 +11,7 @@
     "Id": "2",
     "Name": "Venator Shard",
     "Description": "Obtain 1 Venator Shard",
-    "LongDescription": "Obtain 1 Venator Shard",
+    "LongDescription": "Obtain 1 Venator Shard from Phantom Muspah",
     "Image": "/osrs_icons/Items/venator_shard.webp",
     "Goal": 1
   },
@@ -19,8 +19,8 @@
     "Id": "3",
     "Name": "Zenyte",
     "Description": "Obtain 1 Zenyte",
-    "LongDescription": "Obtain 1 Zenyte",
-    "Image": "/osrs_icons/Items/Elite Clue.png",
+    "LongDescription": "Obtain 1 Zenyte from Demonic Gorillas",
+    "Image": "/osrs_icons/Items/zenyte.webp",
     "Goal": 1
   },
   {
@@ -28,7 +28,7 @@
     "Name": "CoX Purple",
     "Description": "Obtain any CoX Purple",
     "LongDescription": "Obtain any CoX Purple, Kits/Dust do not count.",
-    "Image": "/osrs_icons/Items/Elite Clue.png",
+    "Image": "/osrs_icons/Misc/ancient_chest.webp",
     "Goal": 1
   },
   {
@@ -36,7 +36,7 @@
     "Name": "Delve",
     "Description": "Obtain any delve unique (no pet)",
     "LongDescription": "Obtain any delve unique excluding the pet",
-    "Image": "/osrs_icons/Items/Elite Clue.png",
+    "Image": "/osrs_icons/Misc/burrow_hole.webp",
     "Goal": 1
   },
   {
@@ -44,7 +44,7 @@
     "Name": "Cudgel",
     "Description": "Obtain the sarachnis cudgel",
     "LongDescription": "Obtain the sarachnis cudgel",
-    "Image": "/osrs_icons/Items/Elite Clue.png",
+    "Image": "/osrs_icons/Items/sarachnis_cudgel.png",
     "Goal": 1
   },
   {
