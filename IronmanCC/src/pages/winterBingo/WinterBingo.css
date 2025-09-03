@@ -75,3 +75,35 @@
 .WinterBingo-teamName { opacity: 0.9; }
 
 @keyframes fb-shimmer { 0% {background-position: 0% 50%;} 100% {background-position: -200% 50%;} }
+
+.WinterBingo-dot {
+  display: inline-block;
+  inline-size: 22px;
+  block-size: 14px;
+  margin-right: 8px;
+  border-radius: 2px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.25);
+}
+
+/* Team Lukas (Lithuania) */
+.WinterBingo-dot.is-A {
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'>\
+<rect width='3' height='2' fill='%23FDB913'/>\
+<rect y='0.6667' width='3' height='1.3333' fill='%23006A44'/>\
+<rect y='1.3333' width='3' height='0.6667' fill='%23C1272D'/>\
+</svg>");
+}
+
+/* Team Bonsai (Brazil) */
+.WinterBingo-dot.is-B {
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 14'>\
+<rect width='20' height='14' fill='%23009C3B'/>\
+<polygon points='10,2 17,7 10,12 3,7' fill='%23FFDF00'/>\
+<circle cx='10' cy='7' r='3.2' fill='%23002776'/>\
+</svg>");
+}
