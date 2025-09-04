@@ -857,11 +857,11 @@
 },
 {
   "Id": "106",
-  "Name": "",
-  "Description": "",
+  "Name": "2 Golden Trenches",
+  "Description": "Obtain 2 Golden Trenches",
   "LongDescription": "",
   "Image": "/osrs_icons/items/Elite Clue.png",
-  "Goal": 1
+  "Goal": 2
 },
 {
   "Id": "107",
@@ -890,32 +890,32 @@
 },
 {
   "Id": "110",
-  "Name": "",
-  "Description": "",
+  "Name": "Full Torva",
+  "Description": "Obtain Full Torva as a team",
   "LongDescription": "",
   "Image": "/osrs_icons/items/Elite Clue.png",
-  "Goal": 1
+  "Goal": 3
 },
 {
   "Id": "111",
-  "Name": "",
-  "Description": "",
+  "Name": "Full Oathplate",
+  "Description": "Obtain full oathplate as a team",
   "LongDescription": "",
   "Image": "/osrs_icons/items/Elite Clue.png",
-  "Goal": 1
+  "Goal": 3
 },
 {
   "Id": "112",
-  "Name": "",
-  "Description": "",
+  "Name": "No one's doing this",
+  "Description": "Obtain full Inq as a team",
   "LongDescription": "",
   "Image": "/osrs_icons/items/Elite Clue.png",
-  "Goal": 1
+  "Goal": 3
 },
 {
   "Id": "113",
-  "Name": "",
-  "Description": "",
+  "Name": "Ralos",
+  "Description": "Obtain a Ralos",
   "LongDescription": "",
   "Image": "/osrs_icons/items/Elite Clue.png",
   "Goal": 1
