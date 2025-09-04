@@ -467,7 +467,7 @@
 },
 {
   "Id": "58",
-  "Name": "Thieving scepter thing",
+  "Name": "Pharaoh's Sceptre",
   "Description": "Obtain a Pharaoh's sceptre",
   "LongDescription": "",
   "Image": "/osrs_icons/items/pharaohs_sceptre.png",
@@ -478,7 +478,7 @@
   "Name": "Sang or Rapier",
   "Description": "Obtain a Sanguinesti staff or Ghrazi rapier",
   "LongDescription": "",
-  "Image": "/osrs_icons/items/ghrazi_rapier.png",
+  "Image": "/osrs_icons/tob/ghrazi_rapier.webp",
   "Goal": 1
 },
 {
@@ -494,7 +494,7 @@
   "Name": "Any Oathplate Armor",
   "Description": "Obtain any Oathplate armour piece",
   "LongDescription": "",
-  "Image": "/osrs_icons/items/oathplate_platebody.png",
+  "Image": "/osrs_icons/items/oathplate_chest.webp",
   "Goal": 1
 },
 {
@@ -502,7 +502,7 @@
   "Name": "Any Torva Piece",
   "Description": "Obtain any Torva armour piece",
   "LongDescription": "",
-  "Image": "/osrs_icons/items/torva_platebody.png",
+  "Image": "/osrs_icons/nex/torva_platebody.webp",
   "Goal": 1
 },
 {
@@ -510,7 +510,7 @@
   "Name": "WHAT?",
   "Description": "Obtain Siren's staff from The Whisperer",
   "LongDescription": "",
-  "Image": "/osrs_icons/items/sirens_staff.png",
+  "Image": "/osrs_icons/items/sirens_staff.webp",
   "Goal": 1
 },
 {
