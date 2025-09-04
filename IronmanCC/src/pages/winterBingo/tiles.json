@@ -158,7 +158,7 @@
   "Name": "Elder Chaos Robe Hood",
   "Description": "Obtain the elder chaos hood",
   "LongDescription": "Obtain the Elder Chaos Hood",
-  "Image": "/osrs_icons/items/elder_chaos_hood.png",
+  "Image": "/osrs_icons/items/elder_chaos_hood.webp",
   "Goal": 1
 },
 {
@@ -184,7 +184,7 @@
   "Name": "ring a ding ding",
   "Description": "Obtain the Ring of the gods",
   "LongDescription": "",
-  "Image": "/osrs_icons/items/ring_of_the_gods.png",
+  "Image": "/osrs_icons/items/ring_of_the_gods.webp",
   "Goal": 1
 },
 {
@@ -200,7 +200,7 @@
   "Name": "Any Justi Piece",
   "Description": "Obtain any Justiciar armour piece",
   "LongDescription": "",
-  "Image": "/osrs_icons/items/justiciar_faceguard.png",
+  "Image": "/osrs_icons/tob/justiciar_faceguard.webp",
   "Goal": 1
 },
 {
@@ -216,7 +216,7 @@
   "Name": "GOTR Lantern",
   "Description": "Obtain the Abyssal lantern",
   "LongDescription": "",
-  "Image": "/osrs_icons/items/abyssal_lantern.png",
+  "Image": "/osrs_icons/items/abyssal_lantern.webp",
   "Goal": 1
 },
 {
@@ -224,7 +224,7 @@
   "Name": "Doom Cloth",
   "Description": "Obtain Mokhaiotl cloth",
   "LongDescription": "Dropped by the Doom of Mokhaiotl",
-  "Image": "/osrs_icons/items/mokhaiotl_cloth.png",
+  "Image": "/osrs_icons/items/mokhaiotl_cloth.webp",
   "Goal": 1
 },
 {
@@ -237,7 +237,7 @@
 },
 {
   "Id": "30",
-  "Name": "Shadow Quartz?",
+  "Name": "Shadow Quartz",
   "Description": "Obtain a Shadow quartz",
   "LongDescription": "",
   "Image": "/osrs_icons/items/shadow_quartz.png",
@@ -248,7 +248,7 @@
   "Name": "Jinx's Club",
   "Description": "Obtain the Hill giant club (Obor)",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/hill_giant_club.png",
+  "Image": "/osrs_icons/items/hill_giant_club.png",
   "Goal": 1
 },
 {
@@ -256,7 +256,7 @@
   "Name": "Ankou",
   "Description": "Obtain any Ankou outfit piece",
   "LongDescription": "Obtain any Ankou Piece",
-  "Image": "/osrs_icons/Items/ankou_mask.png",
+  "Image": "/osrs_icons/items/ankou_mask.png",
   "Goal": 1,
   "Type": "passive"
 },
@@ -274,7 +274,7 @@
   "Name": "Every. Single. Bingo.",
   "Description": "Obtain flared trousers from an easy clue",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/flared_trousers.png",
+  "Image": "/osrs_icons/items/flared_trousers.png",
   "Goal": 1
 },
 {
@@ -282,7 +282,7 @@
   "Name": "ACAB",
   "Description": "Obtain an Armadyl crossbow (ACB)",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/armadyl_crossbow.png",
+  "Image": "/osrs_icons/items/acb.png",
   "Goal": 1
 },
 {
@@ -290,7 +290,7 @@
   "Name": "Bryo Ess",
   "Description": "Obtain Bryophyta's essence",
   "LongDescription": "Keys must be obtained AFTER tile reveal.",
-  "Image": "/osrs_icons/Items/bryophytas_essence.png",
+  "Image": "/osrs_icons/items/bryophytas_essence.png",
   "Goal": 1
 },
 {
@@ -298,7 +298,7 @@
   "Name": "Dragon Limbs",
   "Description": "Obtain dragon limbs",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/dragon_limbs.png",
+  "Image": "/osrs_icons/items/dragon_limbs.webp",
   "Goal": 1
 },
 {
@@ -306,15 +306,15 @@
   "Name": "Any Ancestral",
   "Description": "Obtain any Ancestral robe piece",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/ancestral_robe_top.png",
+  "Image": "/osrs_icons/cox/ancestral_robe_top.webp",
   "Goal": 1
 },
 {
   "Id": "39",
-  "Name": "Treasonous Ring",
-  "Description": "Obtain a treasonous ring",
+  "Name": "Tyrannical Ring",
+  "Description": "Obtain a Tyrannical Ring",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/treasonous_ring.png",
+  "Image": "/osrs_icons/items/tyrannical_ring.webp",
   "Goal": 1
 },
 {
@@ -322,7 +322,7 @@
   "Name": "Zaryte Vambraces",
   "Description": "Obtain a pair of Zaryte vambraces",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/zaryte_vambraces.png",
+  "Image": "/osrs_icons/nex/zaryte_vambraces.webp",
   "Goal": 1
 },
 {
@@ -330,7 +330,7 @@
   "Name": "Tormented Synapse",
   "Description": "Obtain a Tormented synapse",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/tormented_synapse.png",
+  "Image": "/osrs_icons/items/tormented_synapse.webp",
   "Goal": 1
 },
 {
@@ -338,7 +338,7 @@
   "Name": "Ring of Endurance",
   "Description": "Obtain the Ring of endurance",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/ring_of_endurance.png",
+  "Image": "/osrs_icons/items/ring_of_endurance.png",
   "Goal": 1
 },
 {
@@ -346,7 +346,7 @@
   "Name": "(H)ard Clues",
   "Description": "Obtain a Rune platebody (h3) from hard clues",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/rune_platebody_h3.png",
+  "Image": "/osrs_icons/items/rune_platebody_h3.png",
   "Goal": 1,
   "Type": "passive"
 },
@@ -362,9 +362,9 @@
 {
   "Id": "45",
   "Name": "Voidwaker Piece",
-  "Description": "Obtain any Voidwaker component (hilt/guard/blade)",
+  "Description": "Obtain the Voidwaker Gem",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/voidwaker_hilt.png",
+  "Image": "/osrs_icons/items/voidwaker_gem.png",
   "Goal": 1
 },
 {
@@ -372,15 +372,15 @@
   "Name": "Verac's Helm",
   "Description": "Obtain Verac's helm",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/veracs_helm.png",
+  "Image": "/osrs_icons/items/veracs_helm.png",
   "Goal": 1
 },
 {
   "Id": "47",
-  "Name": "Arma Helm",
+  "Name": "Clue Item!",
   "Description": "Obtain an Armadyl helmet",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/armadyl_helmet.png",
+  "Image": "/osrs_icons/items/armadyl_helm.webp",
   "Goal": 1
 },
 {
@@ -388,7 +388,7 @@
   "Name": "Lightbearer",
   "Description": "Obtain the Lightbearer",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/lightbearer.png",
+  "Image": "/osrs_icons/toa/lightbearer.webp",
   "Goal": 1
 },
 {
@@ -396,31 +396,31 @@
   "Name": "Tome of Water",
   "Description": "Obtain a Tome of water",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/tome_of_water.png",
+  "Image": "/osrs_icons/items/tome_of_water.png",
   "Goal": 1
 },
 {
   "Id": "50",
   "Name": "Dragon Hunter Wand",
-  "Description": "",
+  "Description": "Obtain the Dragon Hunter Wand",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/dragon_hunter_wand.webp",
   "Goal": 1
 },
 {
   "Id": "51",
   "Name": "Eye of Ayakakakak",
-  "Description": "",
+  "Description": "Obtain the Eye of Ayak from Doom",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/eye_of_ayak.png",
   "Goal": 1
 },
 {
   "Id": "52",
-  "Name": "some sra piece? Levi?",
-  "Description": "",
+  "Name": "Obtain the Leviathan's Lure",
+  "Description": "Obtain the Leviathan's Lure",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/leviathans_lure.webp",
   "Goal": 1
 },
 {
@@ -428,7 +428,7 @@
   "Name": "uncut onyx",
   "Description": "Obtain an uncut onyx",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/uncut_onyx.png",
+  "Image": "/osrs_icons/items/uncut_onyx.webp",
   "Goal": 1
 },
 {
@@ -436,7 +436,7 @@
   "Name": "Mithril dragon mask",
   "Description": "Obtain the Mithril dragon mask from elite clues",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/mithril_dragon_mask.png",
+  "Image": "/osrs_icons/items/mithril_dragon_mask.png",
   "Goal": 1,
   "Type": "passive"
 },
@@ -452,9 +452,9 @@
 {
   "Id": "56",
   "Name": "Enh!",
-  "Description": "Obtain an Enhanced crystal teleport seed",
+  "Description": "Obtain an Enhanced Crystal Weapon Seed",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/enhanced_crystal_teleport_seed.png",
+  "Image": "/osrs_icons/items/enhanced_crystal_weapon_seed.webp",
   "Goal": 1
 },
 {
@@ -462,7 +462,7 @@
   "Name": "Draconic/Skeletal Visage",
   "Description": "Obtain a Draconic or Skeletal visage from any source",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/draconic_visage.png",
+  "Image": "/osrs_icons/items/draconic_visage.png",
   "Goal": 1
 },
 {
@@ -470,7 +470,7 @@
   "Name": "Thieving scepter thing",
   "Description": "Obtain a Pharaoh's sceptre",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/pharaohs_sceptre.png",
+  "Image": "/osrs_icons/items/pharaohs_sceptre.png",
   "Goal": 1
 },
 {
@@ -478,7 +478,7 @@
   "Name": "Sang or Rapier",
   "Description": "Obtain a Sanguinesti staff or Ghrazi rapier",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/ghrazi_rapier.png",
+  "Image": "/osrs_icons/items/ghrazi_rapier.png",
   "Goal": 1
 },
 {
@@ -486,7 +486,7 @@
   "Name": "Ancient Crystal",
   "Description": "Obtain an Ancient crystal from revenants",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/ancient_crystal.png",
+  "Image": "/osrs_icons/items/ancient_crystal.png",
   "Goal": 1
 },
 {
@@ -494,7 +494,7 @@
   "Name": "Any Oathplate Armor",
   "Description": "Obtain any Oathplate armour piece",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/oathplate_platebody.png",
+  "Image": "/osrs_icons/items/oathplate_platebody.png",
   "Goal": 1
 },
 {
@@ -502,7 +502,7 @@
   "Name": "Any Torva Piece",
   "Description": "Obtain any Torva armour piece",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/torva_platebody.png",
+  "Image": "/osrs_icons/items/torva_platebody.png",
   "Goal": 1
 },
 {
@@ -510,7 +510,7 @@
   "Name": "WHAT?",
   "Description": "Obtain Siren's staff from The Whisperer",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/sirens_staff.png",
+  "Image": "/osrs_icons/items/sirens_staff.png",
   "Goal": 1
 },
 {
@@ -518,7 +518,7 @@
   "Name": "Arax Fang",
   "Description": "Obtain the Arax fang",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/arax_fang.png",
+  "Image": "/osrs_icons/items/arax_fang.png",
   "Goal": 1
 },
 {
@@ -526,7 +526,7 @@
   "Name": "Orb",
   "Description": "Obtain an Eldritch orb",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/eldritch_orb.png",
+  "Image": "/osrs_icons/items/eldritch_orb.png",
   "Goal": 1,
   "Type": "passive"
 },
@@ -544,7 +544,7 @@
   "Name": "Jars",
   "Description": "Obtain any boss jar",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/jar_of_darkness.png",
+  "Image": "/osrs_icons/items/jar_of_darkness.png",
   "Goal": 1
 },
 {
@@ -552,7 +552,7 @@
   "Name": "Anc Hat",
   "Description": "Obtain an Ancestral hat from CoX",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/ancestral_hat.png",
+  "Image": "/osrs_icons/items/ancestral_hat.png",
   "Goal": 1
 },
 {
@@ -560,7 +560,7 @@
   "Name": "Hydra's Claw",
   "Description": "Obtain a Hydra's claw",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/hydras_claw.png",
+  "Image": "/osrs_icons/items/hydras_claw.png",
   "Goal": 1
 },
 {
@@ -568,7 +568,7 @@
   "Name": "Air Jordan",
   "Description": "Obtain the Avernic treads from Doom of Mokhaiotl",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/avernic_treads.png",
+  "Image": "/osrs_icons/items/avernic_treads.png",
   "Goal": 1
 },
 {
@@ -576,7 +576,7 @@
   "Name": "Any Inq",
   "Description": "Obtain any Inquisitor's armour piece",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/inquisitors_hauberk.png",
+  "Image": "/osrs_icons/items/inquisitors_hauberk.png",
   "Goal": 1
 },
 {
@@ -584,7 +584,7 @@
   "Name": "Misty",
   "Description": "Obtain the Mist battlestaff from superior creatures",
   "LongDescription": "Obtain the Mist Battlestaff from Superior Creatures",
-  "Image": "/osrs_icons/Items/mist_battlestaff.png",
+  "Image": "/osrs_icons/items/mist_battlestaff.png",
   "Goal": 1
 },
 {
@@ -592,7 +592,7 @@
   "Name": "Tome of Fire",
   "Description": "Obtain a Tome of fire (Wintertodt)",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/tome_of_fire.png",
+  "Image": "/osrs_icons/items/tome_of_fire.png",
   "Goal": 1
 },
 {
@@ -600,7 +600,7 @@
   "Name": "Another random axe piece?",
   "Description": "Obtain any Soulreaper axe component",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/soulreaper_axe_blade.png",
+  "Image": "/osrs_icons/items/soulreaper_axe_blade.png",
   "Goal": 1
 },
 {
@@ -608,7 +608,7 @@
   "Name": "Nex Hilt",
   "Description": "Obtain a Zaryte hilt",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/zaryte_hilt.png",
+  "Image": "/osrs_icons/items/zaryte_hilt.png",
   "Goal": 1
 },
 {
@@ -634,7 +634,7 @@
   "Name": "Wyvern Visage",
   "Description": "Obtain a Wyvern visage",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/wyvern_visage.png",
+  "Image": "/osrs_icons/items/wyvern_visage.png",
   "Goal": 1
 },
 {
@@ -642,7 +642,7 @@
   "Name": "Viggoras Chainmace",
   "Description": "Obtain Viggora's chainmace from Revenants",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/viggoras_chainmace.png",
+  "Image": "/osrs_icons/items/viggoras_chainmace.png",
   "Goal": 1
 },
 {
@@ -658,7 +658,7 @@
   "Name": "Any Virtus",
   "Description": "Obtain any Virtus robes piece",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/virtus_mask.png",
+  "Image": "/osrs_icons/items/virtus_mask.png",
   "Goal": 1
 },
 {
@@ -666,7 +666,7 @@
   "Name": "Crystal Tool Seed",
   "Description": "Obtain a Crystal tool seed (Zalcano)",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/crystal_tool_seed.png",
+  "Image": "/osrs_icons/items/crystal_tool_seed.png",
   "Goal": 1
 },
 {
@@ -674,7 +674,7 @@
   "Name": "Gold Elegant Blouse",
   "Description": "Obtain a Gold elegant blouse from medium clues",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/gold_elegant_blouse.png",
+  "Image": "/osrs_icons/items/gold_elegant_blouse.png",
   "Goal": 1
 },
 {
@@ -690,7 +690,7 @@
   "Name": "HOLY",
   "Description": "Obtain a Holy elixir (Corp)",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/holy_elixir.png",
+  "Image": "/osrs_icons/items/holy_elixir.png",
   "Goal": 1
 },
 {
@@ -698,7 +698,7 @@
   "Name": "Dragonbone Necklace",
   "Description": "Obtain a Dragonbone necklace (Vorkath)",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/dragonbone_necklace.png",
+  "Image": "/osrs_icons/items/dragonbone_necklace.png",
   "Goal": 1
 },
 {
@@ -706,7 +706,7 @@
   "Name": "Dusk Boots",
   "Description": "Obtain Dusk mystic boots from the Brimstone Chest",
   "LongDescription": "Keys must be obtained AFTER tile reveal.",
-  "Image": "/osrs_icons/Items/dusk_mystic_boots.png",
+  "Image": "/osrs_icons/items/dusk_mystic_boots.png",
   "Goal": 1,
   "Type": "passive"
 },
@@ -715,7 +715,7 @@
   "Name": "Smoking",
   "Description": "Obtain a Smoke battlestaff",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/smoke_battlestaff.png",
+  "Image": "/osrs_icons/items/smoke_battlestaff.png",
   "Goal": 1
 },
 {
@@ -731,7 +731,7 @@
   "Name": "As least they're on task now",
   "Description": "Obtain a Dragon full helm",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/dragon_full_helm.png",
+  "Image": "/osrs_icons/items/dragon_full_helm.png",
   "Goal": 1
 },
 {
@@ -739,7 +739,7 @@
   "Name": "Any Sunfire Armor Piece",
   "Description": "Obtain any Sunfire armour piece",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/sunfire_platebody.png",
+  "Image": "/osrs_icons/items/sunfire_platebody.png",
   "Goal": 1
 },
 {
@@ -755,7 +755,7 @@
   "Name": "Oathplate Legs",
   "Description": "Obtain Oathplate platelegs from Yama",
   "LongDescription": "No Contracts.",
-  "Image": "/osrs_icons/Items/oathplate_platelegs.png",
+  "Image": "/osrs_icons/items/oathplate_platelegs.png",
   "Goal": 1
 },
 {
@@ -763,7 +763,7 @@
   "Name": "Obtain all 3 uniques from Doom",
   "Description": "Obtain all three uniques from Doom of Mokhaiotl",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/doom_uniques.png",
+  "Image": "/osrs_icons/items/doom_uniques.png",
   "Goal": 3
 },
 {
@@ -771,7 +771,7 @@
   "Name": "Teleport Anchoring Scroll",
   "Description": "Obtain a Teleport anchoring scroll",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/teleport_anchoring_scroll.png",
+  "Image": "/osrs_icons/items/teleport_anchoring_scroll.png",
   "Goal": 1
 },
 {
@@ -779,7 +779,7 @@
   "Name": "Any Nightmare Orb",
   "Description": "Obtain any Nightmare orb (Eldritch/Harmonised/Volatile)",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/eldritch_orb.png",
+  "Image": "/osrs_icons/items/eldritch_orb.png",
   "Goal": 1
 },
 {
@@ -787,7 +787,7 @@
   "Name": "This is why we'll never finish this bingo",
   "Description": "Obtain an Amulet of eternal glory",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/amulet_of_eternal_glory.png",
+  "Image": "/osrs_icons/items/amulet_of_eternal_glory.png",
   "Goal": 1,
   "Type": "passive"
 },
@@ -796,7 +796,7 @@
   "Name": "Any Mutagen",
   "Description": "Obtain any Zulrah mutagen (Magma/Tanzanite)",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/magma_mutagen.png",
+  "Image": "/osrs_icons/items/magma_mutagen.png",
   "Goal": 1
 },
 {
@@ -812,7 +812,7 @@
   "Name": "Voidwaker as a team",
   "Description": "As a team, obtain all three Voidwaker pieces",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/voidwaker.png",
+  "Image": "/osrs_icons/items/voidwaker.png",
   "Goal": 3
 },
 {
@@ -820,7 +820,7 @@
   "Name": "",
   "Description": "",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/Elite Clue.png",
   "Goal": 1
 },
 {
@@ -828,7 +828,7 @@
   "Name": "",
   "Description": "",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/Elite Clue.png",
   "Goal": 1
 },
 {
@@ -836,7 +836,7 @@
   "Name": "",
   "Description": "",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/Elite Clue.png",
   "Goal": 1
 },
 {
@@ -844,7 +844,7 @@
   "Name": "",
   "Description": "",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/Elite Clue.png",
   "Goal": 1
 },
 {
@@ -852,7 +852,7 @@
   "Name": "",
   "Description": "",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/Elite Clue.png",
   "Goal": 1
 },
 {
@@ -860,7 +860,7 @@
   "Name": "",
   "Description": "",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/Elite Clue.png",
   "Goal": 1
 },
 {
@@ -877,7 +877,7 @@
   "Name": "Imbued Heart",
   "Description": "Obtain an Imbued heart",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/imbued_heart.png",
+  "Image": "/osrs_icons/items/imbued_heart.png",
   "Goal": 1
 },
 {
@@ -885,7 +885,7 @@
   "Name": "SRA from scratch",
   "Description": "As a team, obtain the Soulreaper axe from scratch",
   "LongDescription": "Obtain all 4 parts of the SRA from scratch, as a team.",
-  "Image": "/osrs_icons/Items/soulreaper_axe.png",
+  "Image": "/osrs_icons/items/soulreaper_axe.png",
   "Goal": 4
 },
 {
@@ -893,7 +893,7 @@
   "Name": "",
   "Description": "",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/Elite Clue.png",
   "Goal": 1
 },
 {
@@ -901,7 +901,7 @@
   "Name": "",
   "Description": "",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/Elite Clue.png",
   "Goal": 1
 },
 {
@@ -909,7 +909,7 @@
   "Name": "",
   "Description": "",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/Elite Clue.png",
   "Goal": 1
 },
 {
@@ -917,7 +917,7 @@
   "Name": "",
   "Description": "",
   "LongDescription": "",
-  "Image": "/osrs_icons/Items/Elite Clue.png",
+  "Image": "/osrs_icons/items/Elite Clue.png",
   "Goal": 1
 },
 {
@@ -925,7 +925,7 @@
   "Name": "Tbow",
   "Description": "Obtain a Twisted bow",
   "LongDescription": "",
-  "Image": "/osrs_icons/Chambers_Of_Xeric/Twisted_Bow.webp",
+  "Image": "/osrs_icons/cox/twisted_bow.webp",
   "Goal": 1
 },
 {
@@ -933,7 +933,7 @@
   "Name": "Shadow",
   "Description": "Obtain Tumeken's shadow",
   "LongDescription": "",
-  "Image": "/osrs_icons/Tombs_Of_Amascut/Tumekens_Shadow.webp",
+  "Image": "/osrs_icons/toa/tumekens_shadow.webp",
   "Goal": 1
 },
 {
@@ -941,7 +941,7 @@
   "Name": "Scythe",
   "Description": "Obtain a Scythe of vitur",
   "LongDescription": "",
-  "Image": "/osrs_icons/Theatre_Of_Blood/Scythe_Of_Vitur.webp",
+  "Image": "/osrs_icons/tob/scythe_of_vitur.webp",
   "Goal": 1
 },
 {

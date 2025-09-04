@@ -1,0 +1,22 @@
+.WinterAdminHeader-root{display:grid;gap:10px;}
+.WinterAdminHeader-controls{
+  display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between;
+}
+
+.WinterAdminHeader-editing{display:flex;gap:6px;align-items:center;}
+.WinterAdminHeader-editing button{
+  padding:6px 10px;border-radius:8px;border:1px solid var(--waBorder);background:#171b24;color:var(--waFg);cursor:pointer;
+}
+.WinterAdminHeader-editing .is-active{box-shadow:inset 0 0 0 2px #7a88a3;}
+.WinterAdminHeader-editing .fbA.is-active{box-shadow:inset 0 0 0 2px var(--waA);}
+.WinterAdminHeader-editing .fbB.is-active{box-shadow:inset 0 0 0 2px var(--waB);}
+
+.WinterAdminHeader-points{display:flex;gap:12px;align-items:center;}
+.WinterAdminHeader-points .dot{width:10px;height:10px;border-radius:999px;display:inline-block;margin:0 6px 0 12px;}
+.WinterAdminHeader-points .fbA{background:var(--waA);}
+.WinterAdminHeader-points .fbB{background:var(--waB);}
+
+.WinterAdminHeader-actions{display:flex;gap:8px;}
+.WinterAdminHeader-actions button{
+  padding:6px 10px;border-radius:8px;border:1px solid var(--waBorder);background:#1b202a;color:var(--waFg);cursor:pointer;
+}
